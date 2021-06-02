@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 const About = () => {
   return(
-    <h1>About</h1>
+    <div style={{textAlign: 'center'}}>
+      <h1>About</h1>
+    </div>
   )
 }
 
