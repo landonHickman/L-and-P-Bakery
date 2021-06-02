@@ -5,9 +5,12 @@
 1. git clone git@github.com:landonHickman/start_proj.git <new_app_name_here>
 2. cd <new_app_name_here>
 
-* Ruby version 2.7.3
+### Ruby version 2.7.3
+
 **if you are not running 2.7.3 run the steps below**
+
 **rm needs to be done in the root rails file**
+
 - remove the  .ruby-version file `rm -r .ruby-version `
 - remove the  Gemfile.lock `rm -r Gemfile.lock `
 - in line 4 of Gemfile delete this line `ruby '2.7.2'`
