@@ -21,6 +21,7 @@ const FormattedMessageContainer = styled.div`
   padding: ${PADDING2_EVEN_LARGE};
   border-radius: ${BORDER_RADIUS};
   font-size: ${FONT_SIZES.LARGE};
+  margin: 10px 0px 10px 0px;
 `
 
 const ContainerItems = styled.div`
@@ -37,7 +38,7 @@ const FormattedMessage = (props) => {
     <FormattedMessageContainer type={props.type}>
       <ContainerItems>
         {props.children}
-        <span onClick={()=>setHide(true)}>x</span>
+        <span onClick={()=>setHide(true)}>Close</span>
         </ContainerItems>
     </FormattedMessageContainer>
   )

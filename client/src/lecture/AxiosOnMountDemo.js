@@ -12,7 +12,7 @@ const AxiosOnMountDemo = () => {
   if(error) return <ErrorMessage error={error}/>
 
   return(
-    <div style={{textAlign: 'center'}}>
+    <div>
       <h1>RenderData Component</h1>
       <RenderData data={data} />
       <h1>StringifyJSON Component</h1>
