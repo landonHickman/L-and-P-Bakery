@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import { ALERT_BACKGROUND, ALERT_TEXT_COLOR, BORDER_RADIUS, NOTIFY_BACKGROUND, NOTIFY_TEXT_COLOR, PADDING2_EVEN_LARGE, WARN_BACKGROUND, WARN_TEXT_COLOR } from '../styles'
+import { ALERT_BACKGROUND, ALERT_TEXT_COLOR, BORDER_RADIUS, FONT_SIZES, NOTIFY_BACKGROUND, NOTIFY_TEXT_COLOR, PADDING2_EVEN_LARGE, WARN_BACKGROUND, WARN_TEXT_COLOR } from '../styles/styles'
 
 const getColor = (type) => {
   if(type === 'alert') return ALERT_TEXT_COLOR
@@ -20,19 +20,25 @@ const FormattedMessageContainer = styled.div`
   border: 2px solid ${props => getColor(props.type)};
   padding: ${PADDING2_EVEN_LARGE};
   border-radius: ${BORDER_RADIUS};
+  font-size: ${FONT_SIZES.LARGE};
+`
+
+const ContainerItems = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 const FormattedMessage = (props) => {
   const [hide, setHide] = useState(false)
-
+  
   if(hide) return null
 
   return (
     <FormattedMessageContainer type={props.type}>
-      <div style={{display: 'flex', justifyContent: 'space-between'}}>
+      <ContainerItems>
         {props.children}
         <span onClick={()=>setHide(true)}>x</span>
-      </div>
+        </ContainerItems>
     </FormattedMessageContainer>
   )
 }
