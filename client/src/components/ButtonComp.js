@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BORDER_RADIUS, BUTTON_BACKGROUND, BUTTON_TEXT_COLOR, FONT_SIZES, INV_BUTTON_BACKGROUND, INV_BUTTON_TEXT_COLOR } from '../styles/styles'
+import { BORDER_RADIUS, BUTTON_BACKGROUND, BUTTON_TEXT_COLOR, FONT_SIZES } from '../styles/styles'
 
 const ButtonComp = (props) => {
   return (
