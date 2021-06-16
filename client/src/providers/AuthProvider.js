@@ -17,23 +17,37 @@ const AuthProvider = (props) => {
     //axios call here
     try{
       let res = await axios.post(`/api/auth`, userFormData)
-      console.log(res)
-      console.log(res.data)
-      console.log(res.data.data)
       setUser(res.data.data)
       history.push('/')
     }catch(err){
       alert('error occurred check console')
-      console.log('Handle Register error',err)
+      //drilled down so it will show the message i want to look for
+      console.log('Handle Register error',err.response.data.errors.full_messages)
     }
   }
-  
-  const handleLogin = () => {
-
+  //logging existing user here
+  const handleLogin = async (userFormData, history) => {
+    //axios call here
+    try{
+      let res = await axios.post(`/api/auth/sign_in`, userFormData)
+      setUser(res.data.data)
+      history.push('/')
+    }catch(err){
+      alert('error occurred check console')
+      //drilled down so it will show the message i want to look for
+      console.log('Handle Login error',err.response.data.errors.full_messages)
+    }
   }
 
-  const handleLogout = () => {
-
+  const handleLogout = async (history) => {
+    try {
+      let res = await axios.delete(`/api/auth/sign_out`)
+      setUser(null)
+      history.push('/login')
+    }catch(err){
+      alert('error occurred check console')
+      console.log('Handle logout error',err.response)
+    }
   }
   //return jsx
   return(

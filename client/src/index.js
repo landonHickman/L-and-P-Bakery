@@ -6,8 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import AuthProvider from './providers/AuthProvider';
+import {initMiddleware} from 'devise-axios'
 
-
+initMiddleware()
 
 ReactDOM.render(
   <AuthProvider>

@@ -13,6 +13,7 @@ const Register = () => {
   //using the custom form input hook(initial value in field, label and placeholder for input)
   //need to drill down to get value. i.e. email.value
   //FIXME: name isn't storeing on submit.
+  //TODO: Remove dummy data.
   const name = useFormInput('Dummy', 'Name')
   const email = useFormInput('dummy@dummy.com', 'Email')
   const password = useFormInput('dummydata', 'Password')
@@ -35,6 +36,7 @@ const Register = () => {
   }
   return(
     <>
+    <h1>Create User</h1>
       <Form onSubmit={handleSubmit}>
         {/* FIXME: not currently working */}
         <Form.Input {...name} label='Name doesnt work'/>
