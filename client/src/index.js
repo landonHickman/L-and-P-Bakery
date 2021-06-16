@@ -7,11 +7,10 @@ import {BrowserRouter} from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
-  <React.StrictMode>
+
     <BrowserRouter>
     <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
