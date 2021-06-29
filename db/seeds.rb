@@ -14,3 +14,4 @@ Test.create(name: 'Test4')
 Test.create(name: 'Test5')
 
 puts 'Seeded 5'
+# Hello this is a comment.
