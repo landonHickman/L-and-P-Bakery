@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  main_title: MyString
+  main_background_img: MyString
+  carousel_title: MyString
+  grid_title_1: MyString
+  grid_description_1: MyText
+  grid_title_2: MyString
+  grid_description_2: MyText
+
+two:
+  main_title: MyString
+  main_background_img: MyString
+  carousel_title: MyString
+  grid_title_1: MyString
+  grid_description_1: MyText
+  grid_title_2: MyString
+  grid_description_2: MyText
