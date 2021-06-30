@@ -16,6 +16,7 @@ Navbar.destroy_all
 
 random_boolean = [true, false]
 
+
 User.create(first_name: 'L', last_name: 'P', email: 'landp@bakery.com', password: '1234567890', admin: true)
 
 drinks = Category.create(name:'Drinks')
@@ -102,3 +103,4 @@ puts "seeded #{LandingPage.all.size} Landing_page"
 puts "seeded #{AboutPage.all.size} About"
 puts "seeded #{Footer.all.size} Footer"
 puts "seeded #{Navbar.all.size} Navbar"
+
