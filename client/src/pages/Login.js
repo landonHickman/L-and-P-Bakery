@@ -13,8 +13,8 @@ const Login = () => {
   //using the custom form input hook(initial value in field, label and placeholder for input)
   //need to drill down to get value. i.e. email.value
   //TODO: Remove dummy data.
-  const email = useFormInput('dummy@dummy.com', 'Email')
-  const password = useFormInput('dummydata', 'Password')
+  const email = useFormInput('landp@bakery.com', 'Email')
+  const password = useFormInput('1234567890', 'Password')
   
   
   const handleSubmit = (e) => {
