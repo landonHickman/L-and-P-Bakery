@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  text: MyText
+  image: MyString
+  cta_title: MyText
+  cta_button_text: MyString
+
+two:
+  title: MyString
+  text: MyText
+  image: MyString
+  cta_title: MyText
+  cta_button_text: MyString
