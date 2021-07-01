@@ -9,7 +9,7 @@ class Api::FootersController < ApplicationController
     if @footer.update(footer_params)
       render json: @footer
     else
-      render json: {errors: error}, status: 422
+      render json: {errors: @footer}, status: 422
     end
   end
 

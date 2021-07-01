@@ -9,7 +9,7 @@ class Api::LandingPagesController < ApplicationController
     if @landing_page.update(landing_page_params)
       render json: @landing_page
     else
-      render json: {errors: error}, status: 422
+      render json: {errors: @landing_page}, status: 422
     end
   end
 

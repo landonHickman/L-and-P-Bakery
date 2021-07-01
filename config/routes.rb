@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     get '/tests', to: 'tests#index'
     resources :landing_pages
     resources :footers
+    resources :application_pages
   end
 end
