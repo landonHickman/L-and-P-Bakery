@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     resources :categories do 
       resources :products
     end
+    resources :landing_pages
+    resources :footers
+    resources :application_pages
+    resources :navbars
   end
 end
