@@ -28,6 +28,3 @@ class Api::NavbarsController < ApplicationController
   end
 
 end
-
-
-
