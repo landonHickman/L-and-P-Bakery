@@ -1,8 +1,12 @@
 class Api::FootersController < ApplicationController
-  before_action :set_footer, only: [:update]
+  before_action :set_footer, only: [:update, :show]
 
   def index
     render json: Footer.all
+  end
+
+  def show
+    render json: @footer
   end
 
   def update
@@ -12,6 +16,8 @@ class Api::FootersController < ApplicationController
       render json: {errors: @footer}, status: 422
     end
   end
+
+  private 
 
   def set_footer
     @footer = Footer.find(params[:id])

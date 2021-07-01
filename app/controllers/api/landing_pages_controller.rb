@@ -1,8 +1,12 @@
 class Api::LandingPagesController < ApplicationController
-  before_action :landing_page, only: [:update]
+  before_action :landing_page, only: [:update, :show]
 
   def index
     render json: LandingPage.all
+  end
+
+  def show
+    render json: @landing_page
   end
 
   def update
