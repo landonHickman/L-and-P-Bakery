@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :landing_pages
     resources :footers
     resources :application_pages
+    resources :navbars
   end
 end
