@@ -1,5 +1,4 @@
 class Api::NavbarsController < ApplicationController
-
   def index
     
   end
@@ -21,6 +20,3 @@ class Api::NavbarsController < ApplicationController
   end
 
 end
-
-
-
