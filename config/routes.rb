@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     get '/tests', to: 'tests#index'
+    resources :about_pages
   end
 end

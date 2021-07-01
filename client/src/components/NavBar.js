@@ -41,7 +41,7 @@ const NavBar = () => {
     <>
       <Menu pointing secondary>
         <Link to='/'><Menu.Item active={pathname=== '/'}>Home</Menu.Item></Link>
-        <Link to='/about'><Menu.Item active={pathname=== '/about'}>About</Menu.Item></Link>
+        <Link to='/about_pages'><Menu.Item active={pathname=== '/about_pages'}>About Page</Menu.Item></Link>
         <Link to='/examples'><Menu.Item active={pathname=== '/examples'}>Examples</Menu.Item></Link>
         <Link to='/tests'><Menu.Item active={pathname=== '/tests'}>Tests</Menu.Item></Link>
         {getRightNav()}
