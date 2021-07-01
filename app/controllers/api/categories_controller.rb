@@ -1,11 +1,12 @@
 class Api::CategoriesController < ApplicationController
+  before_action :set_category
 
   def index
-    
+    render json: Category.all
   end
 
   def show
-
+    render json: @category
   end
 
   def create
@@ -18,6 +19,12 @@ class Api::CategoriesController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 
 end
