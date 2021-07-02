@@ -11,6 +11,6 @@ export const useFormInput = (initialValue, label='') => {
     placeholder: `Enter ${label}`,
     //value is the default value of the input as well as what we will receive from the input.
     value: formValue,
-    onChange: (e, {value})=>setFormValue(value)
+    onChange: (e)=>setFormValue(e.target.value)
   }
 }

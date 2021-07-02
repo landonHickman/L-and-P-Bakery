@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {Form} from 'semantic-ui-react'
+import { Form, Button } from 'react-bootstrap'
 import { useFormInput } from '../customHooks/useFormInput'
 import { AuthContext } from '../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
@@ -27,10 +27,19 @@ const Login = () => {
   return(
     <>
     <h1>User Login</h1>
-      <Form onSubmit={handleSubmit}>
-        <Form.Input {...email}/>
-        <Form.Input {...password} type='password'/>
-        <Form.Button>Submit</Form.Button>
+    <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Label>Email</Form.Label>
+          <Form.Control {...email} />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Password</Form.Label>
+          <Form.Control {...password} type="password" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
       </Form>
     </>
   )

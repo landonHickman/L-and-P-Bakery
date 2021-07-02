@@ -30,8 +30,8 @@ cakes = Category.create(name: 'Cakes')
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCkjoU6UdnGKkv9If0H-RzLGQ3Lv5Ue3Z5-_QS43rDx1JzS42NuiVxOty1vPj4VFHrq-4&usqp=CAU', 
     price: Faker::Number.decimal(l_digits: 2),
     description: Faker::Food.description,
-    limited_time: random_boolean,
-    special_item_carousel: random_boolean
+    limited_time: random_boolean.sample,
+    special_item_carousel: random_boolean.sample
    )
 end
 
@@ -41,8 +41,8 @@ end
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCkjoU6UdnGKkv9If0H-RzLGQ3Lv5Ue3Z5-_QS43rDx1JzS42NuiVxOty1vPj4VFHrq-4&usqp=CAU', 
     price: Faker::Number.decimal(l_digits: 2),
     description: Faker::Food.description,
-    limited_time: random_boolean,
-    special_item_carousel: random_boolean
+    limited_time: random_boolean.sample,
+    special_item_carousel: random_boolean.sample
    )
 end
 
@@ -52,8 +52,8 @@ end
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCkjoU6UdnGKkv9If0H-RzLGQ3Lv5Ue3Z5-_QS43rDx1JzS42NuiVxOty1vPj4VFHrq-4&usqp=CAU', 
     price: Faker::Number.decimal(l_digits: 2),
     description: Faker::Food.description,
-    limited_time: random_boolean,
-    special_item_carousel: random_boolean
+    limited_time: random_boolean.sample,
+    special_item_carousel: random_boolean.sample
    )
 end
 

@@ -1,5 +1,5 @@
 class Api::CategoriesController < ApplicationController
-  before_action :set_category
+  before_action :set_category, only: [:show]
 
   def index
     render json: Category.all
