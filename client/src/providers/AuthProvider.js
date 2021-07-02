@@ -10,7 +10,6 @@ export const AuthConsumer = AuthContext.Consumer
 
 const AuthProvider = (props) => {
   const [user, setUser] = useState(null)
-
   //function created to process the register process
   //userFormData is the object that was passed from the Register page, history was also passed along.
   const handleRegister = async (userFormData, history) => {
@@ -53,7 +52,7 @@ const AuthProvider = (props) => {
   return(
     //use context that was created with .Provider. cant rename .Provider. pass props through value.
     <AuthContext.Provider value={{
-      user,
+      ...user,
       //authenticated is used to check to see if a user is logged in or not.
       //if they are logged in then the navbar will display logout.
       //if they are not logged in then the navbar will display login and register.
@@ -61,6 +60,7 @@ const AuthProvider = (props) => {
       handleRegister,
       handleLogin,
       handleLogout,
+      setUser
     }}>
       {props.children}
     </AuthContext.Provider>

@@ -4,25 +4,28 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Tests from './pages/Tests';
 import Examples from './pages/Examples';
-import {MAIN_CONTAINER} from './styles/styles'
+import { Container } from 'react-bootstrap';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import AboutPages from './pages/AboutPages';
+import FetchUser from './components/FetchUser';
 
 function App() {
   return (
     <>
+    <FetchUser>
     <NavBar />
-    <MAIN_CONTAINER>
-    <Switch>
-      <Route exact path='/' component={Home} />
-      <Route exact path='/examples' component={Examples} />
-      <Route exact path='/about_pages' component={AboutPages} />
-      <Route exact path='/tests' component={Tests} />
-      <Route exact path='/register' component={Register} />
-      <Route exact path='/login' component={Login} />
-    </Switch>
-    </MAIN_CONTAINER>
+      <Container>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/examples' component={Examples} />
+          <Route exact path='/about_pages' component={AboutPages} />
+          <Route exact path='/tests' component={Tests} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/login' component={Login} />
+        </Switch>
+      </Container>
+    </FetchUser>
     </>
   );
 }
