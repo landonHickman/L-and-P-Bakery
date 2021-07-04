@@ -18,6 +18,7 @@ const NavBar = () => {
       return(
 
           <Nav className="me-auto">
+            <Nav.Link href="/editor">Editor</Nav.Link>
             <Nav.Link onClick={()=>handleLogout(history)}>Logout</Nav.Link>
           </Nav>
         // <Menu.Menu position='right'>
