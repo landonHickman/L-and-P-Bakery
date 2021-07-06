@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { Nav, Navbar, Container, Row, Col } from "react-bootstrap";
+import { Nav, Navbar, Container, Row, Col, NavDropdown } from "react-bootstrap";
 import NavComponent from "./NavComponent";
 
 const NavBar = () => {
@@ -18,38 +18,22 @@ const NavBar = () => {
     if (authenticated) {
       return (
         <>
-          <Col>
-            <Nav.Link href="/editor">Editor</Nav.Link>
-          </Col>
-          <Col>
-            <Nav.Link onClick={() => handleLogout(history)}>Logout</Nav.Link>
-          </Col>
+        <NavDropdown title="Administer" id="basic-nav-dropdown" style={{justifyContent: 'flex-end'}}>
+            <NavDropdown.Item href="/editor">Editor</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => handleLogout(history)}>Logout</NavDropdown.Item>
+        </NavDropdown>
         </>
       );
-    } else {
-      return (
-        <>
-          <Col>
-            <Nav.Link href="/register">Register</Nav.Link>
-          </Col>
-          <Col>
-            <Nav.Link href="/login">Login</Nav.Link>
-          </Col>
-        </>
-      );
-    }
+    } 
   };
 
   //this is what is being returned by the NavBar function. if you want it to show up it needs to pass
   //through here eventually.
   return (
     <>
-      <Navbar bg="light" variant="light" style={{ display: "flex" }}>
+      <Navbar bg="light" variant="light" expand="sm">
         <Container fluid style={{flexWrap: 'wrap'}}>
-          <NavComponent />
-          <Row>
-            <Nav style={{flexWrap: 'wrap'}}>{getRightNav()}</Nav>
-          </Row>
+          <NavComponent getRightNav={getRightNav}/>
         </Container>
       </Navbar>
     </>

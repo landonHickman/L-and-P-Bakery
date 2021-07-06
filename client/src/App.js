@@ -1,9 +1,8 @@
 import './App.css';
 import {Route, Switch} from 'react-router-dom';
 import NavBar from './components/NavBar';
-import Home from './pages/Home';
 import { Container } from 'react-bootstrap';
-import Register from './pages/Register';
+// import Register from './pages/Register';
 import Login from './pages/Login';
 import AboutPages from './pages/AboutPages';
 import FetchUser from './components/FetchUser';
@@ -24,8 +23,8 @@ function App() {
           <Route exact path='/editor' component={Editor} />
           <Route exact path='/custom_cakes' component={CustomCakes} />
           <Route exact path='/menu' component={Menu} />
-          <Route exact path='/register' component={Register} />
-          <Route exact path='/login' component={Login} />
+          {/* <Route exact path='/register' component={Register} /> */}
+          <Route exact path='/admin' component={Login} />
         </Switch>
       </Container>
     </FetchUser>
