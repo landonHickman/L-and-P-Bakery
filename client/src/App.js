@@ -9,7 +9,7 @@ import FetchUser from './components/FetchUser';
 import CustomCakes from './pages/CustomCakes';
 import Menu from './pages/Menu';
 import LandingPage from './pages/LandingPage';
-import LandingPageEditor from './pages/LandingPageEditor';
+import Editor1 from './pages/Editor1';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/about_pages' component={AboutPages} />
-          <Route exact path='/landing_page_editor' component={LandingPageEditor} />
+          <Route exact path='/editor1' component={Editor1} />
           <Route exact path='/custom_cakes' component={CustomCakes} />
           <Route exact path='/menu' component={Menu} />
           {/* <Route exact path='/register' component={Register} /> */}
