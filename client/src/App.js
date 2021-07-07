@@ -10,6 +10,7 @@ import CustomCakes from './pages/CustomCakes';
 import Menu from './pages/Menu';
 import LandingPage from './pages/LandingPage';
 import Editor1 from './pages/Editor1';
+import Editor2 from './pages/Editor2';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/about_pages' component={AboutPages} />
           <Route exact path='/editor1' component={Editor1} />
+          <Route exact path='/editor2' component={Editor2} />
           <Route exact path='/custom_cakes' component={CustomCakes} />
           <Route exact path='/menu' component={Menu} />
           {/* <Route exact path='/register' component={Register} /> */}

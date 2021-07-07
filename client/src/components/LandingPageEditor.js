@@ -6,7 +6,6 @@ const LandingPageEditor = () => {
   return (
     <>
       <div style={styles.LargePic}></div>
-      <h1>Landing Page Editor</h1>
       <Form>
         <Form.Group>
           <Row>

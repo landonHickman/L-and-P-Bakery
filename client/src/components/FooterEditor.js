@@ -4,7 +4,7 @@ import { Form, Button, Row, Col } from 'react-bootstrap'
 const FooterEditor = () => {
   return (
     <>
-    <h1>Footer</h1>
+    <h1 style={{textAlign: 'center'}}>Footer</h1>
     <Form>
       <Form.Group>
           <Row>
