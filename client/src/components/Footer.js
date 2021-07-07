@@ -13,10 +13,8 @@ const Footer = () => {
   const axiosCalls = async () => {
     try {
       let res = await axios.get("/api/footers");
-      console.log("footer", res.data);
       setFooter(res.data);
       let res1 = await axios.get("/api/navbars");
-      console.log("navbars", res1.data);
       setNavbar(res1.data);
     } catch (err) {
       alert("err");
@@ -69,7 +67,7 @@ const Footer = () => {
   const renderSocialLinks = () => {
     return footer.map((f) => {
       return (
-        <>
+        <div key={f.id}>
           <Row
             style={styles.wrapReverse}
           >
@@ -105,13 +103,13 @@ const Footer = () => {
               </Nav.Link>
             </Col>
           </Row>
-        </>
+        </div>
       );
     });
   };
 
   return (
-    <Container style={styles.brd}>
+    <Container>
       <Row style={styles.wrapReverse}>
         <Col md={6}>{renderAddress()}</Col>
         <Col md={{ span: 3, offset: 3 }} style={{ display: "flex" }}>
