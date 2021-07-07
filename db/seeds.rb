@@ -56,9 +56,9 @@ end
     special_item_carousel: random_boolean.sample
    )
 end
-
+# need to add landingPage special_bakery_item pic title price
 LandingPage.create(
-  main_title: 'L & P Bakery', 
+  main_title: 'L & P Bakery Cafe', 
   main_background_img: 'https://www.ocregister.com/wp-content/uploads/2020/09/bakery-02-1.jpg', 
   carousel_title: 'Special Bakery Items', 
   grid_title_1: 'Cakes', 
@@ -70,7 +70,7 @@ LandingPage.create(
 AboutPage.create(
   title: 'Our Story',
   text: 'Loam Bakery started in 2010 as two friends searching for the perfect balance of flour, water, and salt. Loam Bakery now sells a daily selection of breads and pastries both online and in-store.',
-  image: 'https://p300-americantownscom.netdna-ssl.com/img/article/ut-bakery-1.jpg',
+  image: 'https://i.imgur.com/Qyc2UN3.jpeg',
   cta_title: 'A L&P Bakery Cafe, we’re always looking for talented individuals to join our team',
   cta_button_text: 'Apply Now',
 )
