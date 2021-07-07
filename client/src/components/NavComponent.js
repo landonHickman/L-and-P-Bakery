@@ -18,8 +18,8 @@ const NavComponent = (props) => {
   const renderNav = () => {
     return nav.map((n) => {
       return (
-        <div key={n.id}>
-          <Row>
+        <div key={n.id} style={{width: '100%'}}>
+          <Row style={{display: 'flex'}}>
             <Navbar.Brand href="/">
               <Image
                 src="https://i.imgur.com/ViaAZKy.jpg"
@@ -30,16 +30,16 @@ const NavComponent = (props) => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link href="/menu">
-                  {n.nav_text_1}
-                </Nav.Link>
-                <Nav.Link href="/about_pages">
-                  {n.nav_text_2}
-                </Nav.Link>
-                <Nav.Link href="/custom_cakes">
-                  {n.nav_text_3}
-                </Nav.Link>
+              <Nav style={{display: 'flex', width: '100%'}}>
+                <Col sm={'auto'} style={styles.pad}>
+                  <Nav.Link href="/menu">{n.nav_text_1}</Nav.Link>
+                </Col>
+                <Col sm={'auto'} style={styles.pad}>
+                  <Nav.Link href="/about_pages">{n.nav_text_2}</Nav.Link>
+                </Col>
+                <Col sm={'auto'} style={styles.pad}>
+                  <Nav.Link href="/custom_cakes">{n.nav_text_3}</Nav.Link>
+                </Col>
                 {getRightNav()}
               </Nav>
             </Navbar.Collapse>
@@ -51,4 +51,10 @@ const NavComponent = (props) => {
 
   return <>{renderNav()}</>;
 };
+
+const styles= {
+  pad: {
+    padding: '0',
+  }
+}
 export default NavComponent;

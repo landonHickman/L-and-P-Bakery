@@ -18,13 +18,27 @@ const NavBar = () => {
     if (authenticated) {
       return (
         <>
-        <NavDropdown title="Administer" id="basic-nav-dropdown" style={{justifyContent: 'flex-end'}}>
+          <NavDropdown title="Edit" id="basic-nav-dropdown">
             <NavDropdown.Item href="/editor">Editor</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => handleLogout(history)}>Logout</NavDropdown.Item>
-        </NavDropdown>
+          </NavDropdown>
+          <Col
+            sm={{ span: "auto", offset: 2 }}
+            md={{ span: "auto", offset: 5 }}
+            lg={{ span: "auto", offset: 7 }}
+            xl={{ span: 2, offset: 9 }}
+            xxl={{ span: "auto", offset: 9 }}
+            style={{ padding: "0" }}
+          >
+            <Nav.Link
+              style={{ justifyContent: "flex-end" }}
+              onClick={() => handleLogout(history)}
+            >
+              Logout
+            </Nav.Link>
+          </Col>
         </>
       );
-    } 
+    }
   };
 
   //this is what is being returned by the NavBar function. if you want it to show up it needs to pass
@@ -32,8 +46,8 @@ const NavBar = () => {
   return (
     <>
       <Navbar bg="light" variant="light" expand="sm">
-        <Container fluid style={{flexWrap: 'wrap'}}>
-          <NavComponent getRightNav={getRightNav}/>
+        <Container fluid>
+          <NavComponent getRightNav={getRightNav} />
         </Container>
       </Navbar>
     </>
