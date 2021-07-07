@@ -22,11 +22,7 @@ const NavComponent = () => {
             <Nav style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center'}}>
               <Col xs={2}>
                 <Navbar.Brand href="/">
-                  <Image
-                    style={{ height: "50px" }}
-                    src={n.nav_logo}
-                    roundedCircle
-                  />
+                    <Image src="https://i.imgur.com/ViaAZKy.jpg" thumbnail roundedCircle/>
                 </Navbar.Brand>
               </Col>
               <Col xs={2}>
