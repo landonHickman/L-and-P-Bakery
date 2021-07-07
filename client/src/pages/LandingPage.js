@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Carousel } from 'react-bootstrap'
+import Footer from '../components/Footer'
 
 const LandingPage = () => {
   return (
@@ -61,8 +62,9 @@ const LandingPage = () => {
           <Card.Text className="text-center">price</Card.Text>
         </Card.Body>
       </Card>
+      <Footer/>
     </div>
-    
+
   </div>
   )
 }
