@@ -6,10 +6,10 @@ import { Container } from 'react-bootstrap';
 import Login from './pages/Login';
 import AboutPages from './pages/AboutPages';
 import FetchUser from './components/FetchUser';
-import Editor from './pages/Editor';
 import CustomCakes from './pages/CustomCakes';
 import Menu from './pages/Menu';
 import LandingPage from './pages/LandingPage';
+import LandingPageEditor from './pages/LandingPageEditor';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/about_pages' component={AboutPages} />
-          <Route exact path='/editor' component={Editor} />
+          <Route exact path='/landing_page_editor' component={LandingPageEditor} />
           <Route exact path='/custom_cakes' component={CustomCakes} />
           <Route exact path='/menu' component={Menu} />
           {/* <Route exact path='/register' component={Register} /> */}
