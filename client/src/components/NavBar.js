@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { Nav, Navbar, Container, Row, Col } from "react-bootstrap";
+import { Nav, Navbar, Container, Row, Col, NavDropdown } from "react-bootstrap";
 import NavComponent from "./NavComponent";
 
 const NavBar = () => {
@@ -18,22 +18,23 @@ const NavBar = () => {
     if (authenticated) {
       return (
         <>
-          <Col>
-            <Nav.Link href="/editor">Editor</Nav.Link>
-          </Col>
-          <Col>
-            <Nav.Link onClick={() => handleLogout(history)}>Logout</Nav.Link>
-          </Col>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <Col>
-            <Nav.Link href="/register">Register</Nav.Link>
-          </Col>
-          <Col>
-            <Nav.Link href="/login">Login</Nav.Link>
+          <NavDropdown title="Edit" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/editor">Editor</NavDropdown.Item>
+          </NavDropdown>
+          <Col
+            sm={{ span: "auto", offset: 2 }}
+            md={{ span: "auto", offset: 5 }}
+            lg={{ span: "auto", offset: 7 }}
+            xl={{ span: 2, offset: 9 }}
+            xxl={{ span: "auto", offset: 9 }}
+            style={{ padding: "0" }}
+          >
+            <Nav.Link
+              style={{ justifyContent: "flex-end" }}
+              onClick={() => handleLogout(history)}
+            >
+              Logout
+            </Nav.Link>
           </Col>
         </>
       );
@@ -44,12 +45,9 @@ const NavBar = () => {
   //through here eventually.
   return (
     <>
-      <Navbar bg="light" variant="light" style={{ display: "flex" }}>
-        <Container fluid style={{flexWrap: 'wrap'}}>
-          <NavComponent />
-          <Row>
-            <Nav style={{flexWrap: 'wrap'}}>{getRightNav()}</Nav>
-          </Row>
+      <Navbar bg="light" variant="light" expand="sm">
+        <Container fluid>
+          <NavComponent getRightNav={getRightNav} />
         </Container>
       </Navbar>
     </>

@@ -42,7 +42,7 @@ const AuthProvider = (props) => {
     try {
       let res = await axios.delete(`/api/auth/sign_out`)
       setUser(null)
-      history.push('/login')
+      history.push('/')
     }catch(err){
       alert('error occurred check console')
       console.log('Handle logout error',err.response)
