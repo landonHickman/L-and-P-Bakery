@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import {Button, Card, Image, ModalFooter} from "react-bootstrap";
+import {Button, Card, Image} from "react-bootstrap";
 // import Footer from "./src/components/footer.js"
 
 // get about page info
@@ -41,7 +41,7 @@ const AboutPages = () => {
       <Image src="https://i.imgur.com/0jOBZtn.jpeg" fluid />
     </Card>
     </div>
-    <br></br>
+    <br/>
     <Card className="text-center">
       <Card.Body>
         <h1>Apply Now!</h1>
