@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import {Button, Card, Image, ModalFooter} from "react-bootstrap";
+// import Footer from "./src/components/footer.js"
 
 // get about page info
 // about us container left then carousel right
@@ -8,60 +10,50 @@ import axios from 'axios';
 //and a link to the application
 //import footer.
 const AboutPages = () => {
-  //const [aboutPages, setAboutPages] = useState([])
-  //useEffect(()=>{
-  //getAboutPages()
-  //},[])
-  //const getAboutPages = async ()=>{
-  //try{
-  //let res = await axios.get(`/api/aboutPages`)
-  //setAboutPages(res.data)
-  //}catch (err){
-  //alert('err check console')
-  //console.log(err)
-  //}
-//}
+  const [aboutPages, setAboutPages] = useState([])
+  useEffect(()=>{
+  getAboutPages()
+  },[])
+  const getAboutPages = async ()=>{
+  try{
+  let res = await axios.get(`/api/about_pages`)
+  setAboutPages(res.data)
+  }catch (err){
+  alert('err check console')
+  console.log(err)
+  }
+}
   return (
     <div>
-      <h1>About Us</h1>
+    <div className="card-deck">
+    <Card className="text-center"style={{display: 'flex'}}>
+      <Card.Body>
+        <h1>Our Story</h1>
+        <Card.Text>
+          Loam Bakery started in 2010 as two friends searching for the perfect balance
+          of flour, water, and salt. Loam Bakery now sells a daily selection of breads
+          and pastries both online and in-store.
+        </Card.Text>
+      </Card.Body>
+    </Card>
+
+    <Card>
+      <Image src="https://i.imgur.com/0jOBZtn.jpeg" fluid />
+    </Card>
     </div>
-    //   <Card style={{ width: '35rem',
-    //                  height: '35rem',
-    //                  padding: '12rem',
-    //                  background: 'lightblue',
-    //                  position: 'left'}}>
-      //   <Card.Body>
-      //     <Card.Title>About Us</Card.Title>
-      //     <Card.Subtitle className="mb-2 text-muted">L & P Bakery</Card.Subtitle>
-      //     <Card.Text>
-      //       Stuff about the bakery.
-      //     </Card.Text>
-      //   </Card.Body>
-      // </Card>
-    // <Carousel>
-    //   <Carousel.Item style={{height:'35rem',
-    //                          width:'35rem',
-    //                          background:'lightblue',
-    //                          position:'right'}}>
-    //     put image here
-    //     <Carousel.Caption>
-    //       <h1>About Us</h1>
-    //       <h3>L & P Bakery</h3>
-    //       <p>It's me, ya boy.</p>
-    //     </Carousel.Caption>
-    //   </Carousel.Item>
-    // </Carousel>
-    // <Card style={{ width: '50rem' }}>
-    //   <Card.Body>
-    //     <Card.Title>Apply Now!</Card.Title>
-    //     <Card.Text>
-    //       At L & P Bakery Cafe, we're always looking for talented individuals to join our team!
-    //     </Card.Text>
-    //     <Button variant="primary">Apply Here!</Button>
-    //   </Card.Body>
-    // </Card>
+    <br></br>
+    <Card className="text-center">
+      <Card.Body>
+        <h1>Apply Now!</h1>
+        <h3>
+          At L & P Bakery Cafe, we're always looking for talented individuals to join our team!
+        </h3>
+        <Button variant="primary">Apply Here!</Button>
+      </Card.Body>
+    </Card>
+      </div>
   );
-  //import footer
+  // <Footer/>
 };
 
 export default AboutPages;
