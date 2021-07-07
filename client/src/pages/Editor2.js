@@ -6,7 +6,6 @@ import { styles } from "../styles/styles";
 const Editor2 = () => {
   return (
     <div>
-        <h1>About Page</h1>
         <Form>
         <Form.Group>
           <Row>
