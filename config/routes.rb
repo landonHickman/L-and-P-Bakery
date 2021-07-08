@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :api do
+    post '/images/upload', to: 'images#upload_1_image'
     resources :application_pages
     get '/tests', to: 'tests#index'
     resources :about_pages
