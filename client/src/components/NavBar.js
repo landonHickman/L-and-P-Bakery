@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { Nav, Navbar, Container, Row, Col, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar, Container, Col, NavDropdown } from "react-bootstrap";
 import NavComponent from "./NavComponent";
 
 const NavBar = () => {
@@ -19,9 +19,9 @@ const NavBar = () => {
       return (
         <>
           <NavDropdown title="Edit" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/Editor1">Landing Page</NavDropdown.Item>
-            <NavDropdown.Item href="/Editor2">About Page</NavDropdown.Item>
-            <NavDropdown.Item href="/Editor3">Product Page</NavDropdown.Item>
+            <NavDropdown.Item href="/editor1">Landing Page</NavDropdown.Item>
+            <NavDropdown.Item href="/editor2">About Page</NavDropdown.Item>
+            <NavDropdown.Item href="/editor3">Product Page</NavDropdown.Item>
           </NavDropdown>
           <Col
             sm={{ span: "auto", offset: 2 }}

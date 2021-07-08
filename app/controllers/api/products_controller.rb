@@ -7,7 +7,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def show
-    product = @category.product.find(params[:id])
+    product = @category.products.find(params[:id])
     render json: product
   end
 
@@ -31,8 +31,8 @@ class Api::ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-    render json: category_products_path(@category)
+    
+    render json: @product.destroy
   end
 
 
