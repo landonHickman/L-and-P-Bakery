@@ -8,42 +8,57 @@ import { Form, Button, Row, Col} from "react-bootstrap";
 import axios from 'axios';
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
-const CreateDrinks = (props) => {
+const CreateCategoryItem = (props) => {
+  const {catId, createCat, productId, updateCatItem } = props
 
-  const {drinkCategoryId, createDrink} = props
   const [files, setFiles] = useState([]);
   const [name, setName] = useState([]);
   const [price, setPrice] = useState([]);
   const [description, setDescription] = useState([]);
-  const [limitedTime, setLimitedTime] = useState(false);
-  const [specialItem, setSpecialItem] = useState(false);
+  const [limitedTime, setLimitedTime] = useState(props.limited_time);
+  const [specialItem, setSpecialItem] = useState(props.special_item_carousel);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(files);
+    // console.log(files);
     try {
-      let data = new FormData();
-      data.append("fileHere", files[0].file);
-      let res1 = await axios.post("/api/images/upload", data);
+      if (productId){
+        //TODO: edge case doesnt work
+        if(files.length >= 1){
 
-      const image = res1.data.cloud_image.secure_url;
-
-      await axios.post(`/api/categories/${drinkCategoryId}/products`, {
-        image: image,
-        name: name,
-        price: price,
-        description: description,
-        limited_time: limitedTime,
-        special_item_carousel: specialItem,
-      });
-      createDrink({
-        image: image,
-        name: name,
-        price: price,
-        description: description,
-        limited_time: limitedTime,
-        special_item_carousel: specialItem,
-      })
+          let data = new FormData();
+          data.append("fileHere", files[0].file);
+          let res1 = await axios.post("/api/images/upload", data);
+          var img = res1.data.cloud_image.secure_url;
+        }
+        let res = await axios.put(`/api/categories/${catId}/products/${productId}`, {
+          image: img,
+          name: name,
+          price: price,
+          description: description,
+          limited_time: limitedTime,
+          special_item_carousel: specialItem,
+        })
+        const update = res.data
+        updateCatItem(update)
+      } else {
+        if(files.length >= 1){
+          let data = new FormData();
+          data.append("fileHere", files[0].file);
+          let res1 = await axios.post("/api/images/upload", data);
+          var img1 = res1.data.cloud_image.secure_url;
+        }
+        let res1 = await axios.post(`/api/categories/${catId}/products`, {
+          image: img1,
+          name: name,
+          price: price,
+          description: description,
+          limited_time: limitedTime,
+          special_item_carousel: specialItem,
+        });
+        const create = res1.data
+        createCat(res1.data)
+      }
       
     } catch (err) {
       alert("err");
@@ -52,8 +67,11 @@ const CreateDrinks = (props) => {
     }
   };
 
+ 
+
   return (
     <>
+    <h1>{productId ? 'Edit Item' : 'Create Item'}</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Row>
@@ -62,16 +80,19 @@ const CreateDrinks = (props) => {
               <Form.Control
                 placeholder="Name"
                 onChange={(e) => setName(e.target.value)}
+                defaultValue={props.name ? props.name: ''}
               />
               <Form.Label>Price</Form.Label>
               <Form.Control
                 placeholder="Price"
                 onChange={(e) => setPrice(e.target.value)}
+                defaultValue={props.price ? props.price : ''}
               />
               <Form.Label>Description</Form.Label>
               <Form.Control
                 placeholder="Description"
                 onChange={(e) => setDescription(e.target.value)}
+                defaultValue={props.description ? props.description : ''}
               />
               <Form.Check
                 type="checkbox"
@@ -79,6 +100,7 @@ const CreateDrinks = (props) => {
                 className="mb-2"
                 label="Limited Time"
                 onChange={(e) => setLimitedTime(e.target.checked)}
+                defaultChecked={props.limited_time}
               />
               <Form.Check
                 type="checkbox"
@@ -86,6 +108,7 @@ const CreateDrinks = (props) => {
                 className="mb-2"
                 label="Special Item"
                 onChange={(e) => setSpecialItem(e.target.checked)}
+                defaultChecked={props.special_item_carousel}
               />
               <Button type="submit" block>
                 submit
@@ -93,7 +116,7 @@ const CreateDrinks = (props) => {
             </Col>
             <Col>
               <FilePond
-                files={files}
+                files={props.image ? props.image : files}
                 allowReorder={true}
                 allowMultiple={false}
                 onupdatefiles={setFiles}
@@ -106,4 +129,4 @@ const CreateDrinks = (props) => {
     </>
   )
 }
-export default CreateDrinks
+export default CreateCategoryItem

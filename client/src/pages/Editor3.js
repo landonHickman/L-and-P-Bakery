@@ -1,18 +1,16 @@
 import React, {useState, useEffect} from "react";
 import { Button } from "react-bootstrap";
-import Bakery from "../components/Bakery";
-import Drinks from "../components/Drinks";
-import Cakes from "../components/Cakes";
+import ShowCategory from "../components/ShowCategory";
 import axios from "axios";
 
 
 const Editor3 = () => {
-  const [drinkCategory, setDrinkCategory] = useState([])
-  const [bakeryCategory, setBakeryCategory] = useState([])
-  const [cakesCategory, setCakesCategory] = useState([])
-  const [showDrinks, setShowDrinks] = useState(true)
-  const [showBakery, setShowBakery] = useState(false)
-  const [showCakes, setShowCakes] = useState(false)
+  const [cat1, setCat1] = useState([])
+  const [cat2, setCat2] = useState([])
+  const [cat3, setCat3] = useState([])
+  const [showCat1, setShowCat1] = useState(false)
+  const [showCat2, setShowCat2] = useState(false)
+  const [showCat3, setShowCat3] = useState(false)
 
   useEffect(()=>{
     getCategories()
@@ -20,43 +18,43 @@ const Editor3 = () => {
 
   const getCategories = async () => {
     let res = await axios.get('/api/categories')
-    setDrinkCategory(res.data[0])
-    setBakeryCategory(res.data[1])
-    setCakesCategory(res.data[2])
+    setCat1(res.data[0])
+    setCat2(res.data[1])
+    setCat3(res.data[2])
   }
 
-  const drinkHandle = () => {
-    setShowDrinks(true)
-    setShowBakery(false)
-    setShowCakes(false)
-    // console.log(drinkCategory.id)
+  const cat1Handle = () => {
+    setShowCat1(true)
+    setShowCat2(false)
+    setShowCat3(false)
+    // console.log(cat1.id)
   }
-  const bakeryHandle = () => {
-    setShowDrinks(false)
-    setShowBakery(true)
-    setShowCakes(false)
-    // console.log(bakeryCategory.id)
+  const cat2Handle = () => {
+    setShowCat1(false)
+    setShowCat2(true)
+    setShowCat3(false)
+    // console.log(cat2.id)
   }
-  const cakesHandle = () => {
-    setShowDrinks(false)
-    setShowBakery(false)
-    setShowCakes(true)
-    // console.log(cakesCategory.id)
+  const cat3Handle = () => {
+    setShowCat1(false)
+    setShowCat2(false)
+    setShowCat3(true)
+    // console.log(cat3.id)
   }
 
   return (
     <div>
-        {showDrinks && <h1 style={{textAlign: 'center'}}>{drinkCategory.name}</h1>}
-        {showBakery && <h1 style={{textAlign: 'center'}}>{bakeryCategory.name}</h1>}
-        {showCakes && <h1 style={{textAlign: 'center'}}>{cakesCategory.name}</h1>}
+        {showCat1 && <h1 style={{textAlign: 'center'}}>{cat1.name}</h1>}
+        {showCat2 && <h1 style={{textAlign: 'center'}}>{cat2.name}</h1>}
+        {showCat3 && <h1 style={{textAlign: 'center'}}>{cat3.name}</h1>}
       <div style={{textAlign: 'center'}}>
-        <Button variant="outline-primary" onClick={drinkHandle}>{drinkCategory.name}</Button>
-        <Button variant="outline-primary" onClick={bakeryHandle}>{bakeryCategory.name}</Button>
-        <Button variant="outline-primary" onClick={cakesHandle}>{cakesCategory.name}</Button>
+        <Button variant="outline-primary" onClick={cat1Handle}>{cat1.name}</Button>
+        <Button variant="outline-primary" onClick={cat2Handle}>{cat2.name}</Button>
+        <Button variant="outline-primary" onClick={cat3Handle}>{cat3.name}</Button>
       </div>
-        {showDrinks && <Drinks drinkCategoryId={drinkCategory.id}/>}
-        {showBakery && <Bakery bakeryCategoryId={bakeryCategory.id}/>}
-        {showCakes && <Cakes cakesCategoryId={cakesCategory.id}/>}
+        {showCat1 && <ShowCategory catId={cat1.id}/>}
+        {showCat2 && <ShowCategory catId={cat2.id}/>}
+        {showCat3 && <ShowCategory catId={cat3.id}/>}
     </div>
   );
 };

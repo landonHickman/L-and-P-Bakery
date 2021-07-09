@@ -16,7 +16,7 @@ class Api::ProductsController < ApplicationController
     @product = @category.products.new(product_params)
 
     if @product.save
-      render json: [@category, @product]
+      render json: @product
     else
       render :new
     end
@@ -24,7 +24,7 @@ class Api::ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      render json: [@category, @product]
+      render json: @product
     else
       render :edit
     end
