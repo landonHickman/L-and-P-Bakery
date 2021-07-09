@@ -51,7 +51,6 @@ const LandingPage = () => {
 {/* special bakery items */}
     <h1 className="text-center">{landingPage.carousel_title}</h1>
     <div className="card-deck">
-      {/* make clicking cards go to specials page */}
       <Carousel>
         <Carousel.Item>
       <Card style={{display: 'flex'}}>
