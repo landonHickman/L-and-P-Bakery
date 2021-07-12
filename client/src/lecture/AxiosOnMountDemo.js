@@ -20,5 +20,4 @@ const AxiosOnMountDemo = () => {
     </div>
   )
 }
-
 export default AxiosOnMountDemo
