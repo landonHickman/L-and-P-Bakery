@@ -12,6 +12,7 @@ import LandingPage from './pages/LandingPage';
 import Editor1 from './pages/Editor1';
 import Editor2 from './pages/Editor2';
 import Editor3 from './pages/Editor3';
+import EditProduct from './pages/EditProduct';
 import Application from './pages/Application'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route exact path='/editor1' component={Editor1} />
           <Route exact path='/editor2' component={Editor2} />
           <Route exact path='/editor3' component={Editor3} />
+          <Route exact path='/edit_product' component={EditProduct} />
           <Route exact path='/custom_cakes' component={CustomCakes} />
           <Route exact path='/menu' component={Menu} />
           {/* <Route exact path='/register' component={Register} /> */}

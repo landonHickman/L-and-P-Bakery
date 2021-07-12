@@ -19,7 +19,7 @@ gem 'puma', '~> 5.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'devise_token_auth'
-
+gem 'cloudinary'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -27,6 +27,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # gem 'rack-cors'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'better_errors'
   gem 'binding_of_caller'
