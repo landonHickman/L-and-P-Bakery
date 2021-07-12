@@ -17,10 +17,10 @@
 .customcake {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 300px;
   background: rgb(50, 50, 50);
   background: url(https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/mary_berrys_perfect_34317_16x9.jpg) no-repeat 50% 50% fixed;
-  background-size: 90%;
+  background-size: 80%;
   overflow: hidden;
 }
 
@@ -47,11 +47,3 @@
     transform: rotate(360deg);
   }
 }
-/* .order {
-  order: 1;
-  @media only screen and (max-width: 600px) {
-    body: {
-      background-color: red;
-    }
-  }
-} */
