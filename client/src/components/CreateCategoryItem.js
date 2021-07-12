@@ -23,7 +23,7 @@ const CreateCategoryItem = (props) => {
     // console.log(files);
     try {
       if (productId){
-        //TODO: edge case doesnt work
+        //TODO: edge case doesn't work
         if(files.length >= 1){
 
           let data = new FormData();

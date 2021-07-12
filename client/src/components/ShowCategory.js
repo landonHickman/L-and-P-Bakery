@@ -15,10 +15,10 @@ const ShowCategory = (props) => {
   const [showCreate, setShowCreate] = useState(true);
 
   useEffect(() => {
-    getCat();
+    getCatItem();
   }, []);
 
-  const getCat = async () => {
+  const getCatItem = async () => {
     try {
       let res = await axios.get(`/api/categories/${catId}/products`);
       setCatItems(res.data);
