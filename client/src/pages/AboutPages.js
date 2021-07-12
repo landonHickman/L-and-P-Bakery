@@ -22,22 +22,21 @@ const AboutPages = () => {
   const getAboutPages = async ()=>{
   try{
   let res = await axios.get(`/api/about_pages`)
-  setAboutPages(res.data)
+  setAboutPages(res.data[0])
   }catch (err){
   alert('err check console')
   console.log(err)
   }
 }
+
   return (
     <div>
     <div className="card-deck">
     <Card className="text-center"style={{display: 'flex'}}>
       <Card.Body>
-        <h1>Our Story</h1>
+        <h1>{aboutPages.title}</h1>
         <Card.Text>
-          Loam Bakery started in 2010 as two friends searching for the perfect balance
-          of flour, water, and salt. Loam Bakery now sells a daily selection of breads
-          and pastries both online and in-store.
+          <h3>{aboutPages.text}</h3>
         </Card.Text>
       </Card.Body>
     </Card>
@@ -46,19 +45,14 @@ const AboutPages = () => {
       <Image src="https://i.imgur.com/0jOBZtn.jpeg" fluid />
     </Card>
     </div>
-    <br/>
     <Card className="text-center">
       <Card.Body>
-        <h1>Apply Now!</h1>
-        <h3>
-          At L & P Bakery Cafe, we're always looking for talented individuals to join our team!
-        </h3>
-        <Button variant="primary" onClick={() => history.push("/application") }>Apply Here!</Button>
+        <h1>{aboutPages.cta_title}</h1>
+        <Button variant="primary" onClick={() => history.push("/application") }>{aboutPages.cta_button_text}</Button>
       </Card.Body>
     </Card>
       </div>
   );
-  // <Footer/>
 };
 
 export default AboutPages;
