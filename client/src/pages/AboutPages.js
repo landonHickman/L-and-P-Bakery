@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import {Button, Card, Image} from "react-bootstrap";
+import {useHistory} from 'react-router-dom'
 // import Footer from "./src/components/footer.js"
 
 // get about page info
@@ -11,9 +12,13 @@ import {Button, Card, Image} from "react-bootstrap";
 //import footer.
 const AboutPages = () => {
   const [aboutPages, setAboutPages] = useState([])
+
+  const history = useHistory();
+
   useEffect(()=>{
   getAboutPages()
   },[])
+
   const getAboutPages = async ()=>{
   try{
   let res = await axios.get(`/api/about_pages`)
@@ -48,7 +53,7 @@ const AboutPages = () => {
         <h3>
           At L & P Bakery Cafe, we're always looking for talented individuals to join our team!
         </h3>
-        <Button variant="primary">Apply Here!</Button>
+        <Button variant="primary" onClick={() => history.push("/application") }>Apply Here!</Button>
       </Card.Body>
     </Card>
       </div>
