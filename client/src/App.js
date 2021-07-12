@@ -12,6 +12,7 @@ import LandingPage from './pages/LandingPage';
 import Editor1 from './pages/Editor1';
 import Editor2 from './pages/Editor2';
 import Editor3 from './pages/Editor3';
+import Application from './pages/Application'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/about_pages' component={AboutPages} />
+          <Route exact path='/application' component={Application} />
           <Route exact path='/editor1' component={Editor1} />
           <Route exact path='/editor2' component={Editor2} />
           <Route exact path='/editor3' component={Editor3} />

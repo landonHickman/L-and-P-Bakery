@@ -1,68 +1,75 @@
 import React from "react"
-import {form, Card} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
+import Footer from '../components/Footer'
 
 const CustomCakes = () => {
   return (
     
     <div>
       <div class="customcake">
-      
    </div>
+   <form action="mailto:cadelenglishthegenius@gmail.com" method="post" enctype="text/plain" className="text-center">
+     
       <h1>Custom Cakes</h1>
       <p>Select custom cake options below:</p>
 
-      <Card className="text-center">
-    <form>
-    <select class="form-select form-select-lg mb-5" aria-label=".form-select-lg example">
-      <option selected>Cake Flavor</option>
-      <option value="1">Fruit</option>
-      <option value="2">Strawberry</option>
-      <option value="3">Tropical</option>
-      <option value="4">Napolean</option>
-      <option value="5">Peach</option>
-      <option value="6">Durian</option>
-      <option value="7">Coffee</option>
-      <option value="8">Chocolate</option>
-      <option value="9">Tiramisu</option>
-      <option value="10">Cheesecake</option>
-      <option value="11">Chestnut</option>
-    </select>
-    
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-      <option selected>Mousse Flavor</option>
-      <option value="1">Strawberry</option>
-      <option value="2">Mango</option>
-      <option value="3">Coffee</option>
-      <option value="4">Chocolate</option>
-      <option value="5">None</option>
-    </select>
-    
-    <select class="form-select" id="inlineFormSelectPref">
-      <option selected>Triangle Cake Size</option>
-      <option value="1">Vanilla</option>
-      <option value="2">Green Tea</option>
-      <option value="3">Taro</option>
-      <option value="4">Coffee</option>
-      <option value="4">Chocolate</option>
-    </select>
+    <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label>Cake Flavor</Form.Label>
+    <Form.Control as="select">
+      <option>Fruit</option>
+      <option>Strawberry</option>
+      <option>Tropical</option>
+      <option>Napolean</option>
+      <option>Peach</option>
+      <option>Durian</option>
+      <option>Coffee</option>
+      <option>Choclate</option>
+      <option>Tiramisu</option>
+      <option>Cheescake</option>
+      <option>Chestnut</option>
+    </Form.Control>
+
+      <Form.Label>Mousse Flavor</Form.Label>
+      <Form.Control as="select">
+        <option>Strawberry</option>
+        <option>Mango</option>
+        <option>Coffee</option>
+        <option>Choclate</option>
+        <option>None</option>
+      </Form.Control>
   
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-      <option selected>Cake Size</option>
-      <option value="1">6 inch</option>
-      <option value="2">10 inch</option>
-      <option value="3">Full sheet cake</option>
-      <option value="4">Custom size cake</option>
-    </select>
+    <Form.Label>Triangle Cake</Form.Label>
+    <Form.Control as="select">
+      <option>Vanilla</option>
+      <option>Green Tea</option>
+      <option>Taro</option>
+      <option>Coffee</option>
+      <option>Chocolate</option>
+      <option>None</option>
+    </Form.Control>
+
+    <Form.Label> Cake Size</Form.Label>
+      <Form.Control as="select">
+        <option>6 inch</option>
+        <option>10 inch</option>
+        <option>Full sheet cake</option>
+        <option>Custom size comment below</option>
+        <option>None</option>
+      </Form.Control>
+    </Form.Group>
       
-    <div class="form-floating">
-      <textarea class="form-control" placeholder="Special order instructions" id="floatingTextarea"></textarea>
-      <label for="floatingTextarea"></label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    </Card>
+      <Form.Group controlId="exampleForm.ControlTextarea1">
+      <Form.Label>Special order instructions</Form.Label>
+      <Form.Control as="textarea" rows={2} />
+    </Form.Group>
+
+    <Button type="submit" >Submit form</Button>
+
+      </form>
+      <Footer/>
     </div>
   
-    // <Footer/>
   )}
    export default CustomCakes
+
+
