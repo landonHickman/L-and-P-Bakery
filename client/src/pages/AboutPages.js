@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import {Button, Card, Image} from "react-bootstrap";
 import {useHistory} from 'react-router-dom'
-// import Footer from "./src/components/footer.js"
+import Footer from "../components/Footer"
 
 // get about page info
 // about us container left then carousel right
@@ -10,6 +10,7 @@ import {useHistory} from 'react-router-dom'
 //that contains "we are always looking for.... etc"
 //and a link to the application
 //import footer.
+
 const AboutPages = () => {
   const [aboutPages, setAboutPages] = useState([])
 
@@ -30,6 +31,7 @@ const AboutPages = () => {
 }
 
   return (
+    <>
     <div>
     <div className="card-deck">
     <Card className="text-center"style={{display: 'flex'}}>
@@ -52,6 +54,8 @@ const AboutPages = () => {
       </Card.Body>
     </Card>
       </div>
+       <Footer/> 
+      </>
   );
 };
 

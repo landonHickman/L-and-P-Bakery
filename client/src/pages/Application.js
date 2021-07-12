@@ -1,62 +1,116 @@
-import React from 'react';
-import { Button, Form, FormGroup, Label, Input,  } from 'reactstrap';
-
+import React from "react";
+import { Button, Form } from "react-bootstrap";
+import Footer from "../components/Footer";
 
 const Application = (props) => {
-  
   return (
-    
-    <Form>
-      <form action="mailto:cadelenglishthegenius@gmail.com" method="post" enctype="text/plain">
-        <h1>Apply Now</h1>
-      <p></p>     
-      <p></p> 
-      <FormGroup>
-        <Label for="examplefirst_name">First Name</Label>
-        <Input type="first_name" name="First Name:" id="examplefirst_name" placeholder="First Name" />
-      </FormGroup>
-      <FormGroup>
-        <Label for="examplelast_name">Last Name</Label>
-        <Input type="last_name" name="Last Name:" id="examplelast_name" placeholder="Last Name" />
-      </FormGroup>
-      <FormGroup>
-        <Label for="exampleEmail">Email</Label>
-        <Input type="email" name="Email:" id="exampleEmail" placeholder="Email" />
-      </FormGroup>
-      <FormGroup>
-        <Label for="examplephone_number">Phone Number</Label>
-        <Input type="phone_number" name="Phone Number:" id="examplephone_number" placeholder="Phone Number" />
-      </FormGroup>
-           
-      <FormGroup>
-        <Label for="exampleaddress">Address</Label>
-        <Input type="address" name="Address:" id="exampleaddress" placeholder="Address" />
-      </FormGroup>
-      <FormGroup>
-        <Label for="examplecity">City</Label>
-        <Input type="city" name="City:" id="examplecity" placeholder="City" />
-      </FormGroup>
+    <>
+      <Form>
+        <form
+          action="mailto:cadelenglishthegenius@gmail.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <h1>Apply Now</h1>
+          <p></p>
+          <p></p>
 
-      <FormGroup>
-        <Label for="examplestate">State</Label>
-        <Input type="state" name="State:" id="examplestate" placeholder="State" />
-      </FormGroup>
+          <Form.Group>
+            <Form.Label for="examplefirst_name">First Name</Form.Label>
+            <Form.Control
+              type="first_name"
+              name="First Name:"
+              id="examplefirst_name"
+              placeholder="First Name"
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label for="examplelast_name">Last Name</Form.Label>
+            <Form.Control
+              type="last_name"
+              name="Last Name:"
+              id="examplelast_name"
+              placeholder="Last Name"
+            />
+          </Form.Group>
 
-      <FormGroup>
-        <Label for="examplezip">Zip</Label>
-        <Input type="zip" name="Zip code:" id="examplezip" placeholder="Zip" />
-      </FormGroup>
+          <Form.Group>
+            <Form.Label for="exampleEmail">Email</Form.Label>
+            <Form.Control
+              type="email"
+              name="Email:"
+              id="exampleEmail"
+              placeholder="Email"
+            />
+          </Form.Group>
 
-      <FormGroup>
-        <Label for="exampleText">Best time to contact you:</Label>
-        <Input type="textarea" name="Best time to contact you:" id="exampleText" />
-      </FormGroup>
-      <FormGroup tag="fieldset">
-      </FormGroup>
-      <Button type="submit">Submit and attach resume here</Button>
-      </form>
-    </Form>
+          <Form.Group>
+            <Form.Label for="examplephone_number">Phone Number</Form.Label>
+            <Form.Control
+              type="phone_number"
+              name="Phone Number:"
+              id="examplephone_number"
+              placeholder="Phone Number"
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label for="exampleaddress">Address</Form.Label>
+            <Form.Control
+              type="address"
+              name="Address:"
+              id="exampleaddress"
+              placeholder="Address"
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label for="examplecity">City</Form.Label>
+            <Form.Control
+              type="city"
+              name="City:"
+              id="examplecity"
+              placeholder="City"
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label for="examplestate">State</Form.Label>
+            <Form.Control
+              type="state"
+              name="State:"
+              id="examplestate"
+              placeholder="State"
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label for="examplezip">Zip</Form.Label>
+            <Form.Control
+              type="zip"
+              name="Zip code:"
+              id="examplezip"
+              placeholder="Zip"
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label for="exampleText">Best time to contact you:</Form.Label>
+            <Form.Control
+              type="textarea"
+              name="Best time to contact you:"
+              id="exampleText"
+            />
+          </Form.Group>
+
+          <Form.Group tag="fieldset"></Form.Group>
+          <Button type="submit">Submit and attach resume here</Button>
+        </form>
+        <p></p>
+      </Form>
+      <Footer/>
+    </>
   );
-}
+};
 
 export default Application;
