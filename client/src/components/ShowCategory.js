@@ -18,6 +18,7 @@ const ShowCategory = (props) => {
     getCatItem();
   }, []);
 
+  console.log(catItems)
   const getCatItem = async () => {
     try {
       let res = await axios.get(`/api/categories/${catId}/products`);
@@ -30,11 +31,15 @@ const ShowCategory = (props) => {
   };
 
   const createCat = (item) => {
-    console.log('item',item)
+    // console.log('item',item)
     setCatItems([item, ...catItems]);
   };
 
-  
+  const handleDelete = async (id) => {
+    setCatItems(catItems.filter(c => c.id !== id))
+    let res = await axios.delete(`/api/categories/${catId}/products/${id}`)
+    console.log('deleted',res)
+  }
 
   const handleClick = (id) => {
     // console.log(id)
@@ -77,6 +82,12 @@ const ShowCategory = (props) => {
                       onClick={(e) => handleClick(d.id)}
                     >
                       Edit
+                    </Button>
+                    <Button
+                      variant="primary"
+                      onClick={(e) => handleDelete(d.id)}
+                    >
+                      Delete
                     </Button>
                   </Card.Body>
                 </Card>
