@@ -21,6 +21,7 @@ const ShowCategory = (props) => {
   const getCatItem = async () => {
     try {
       let res = await axios.get(`/api/categories/${catId}/products`);
+      // console.log('res.data',res.data)
       setCatItems(res.data);
     } catch (err) {
       console.log("inside getCat catch", err);

@@ -24,13 +24,12 @@ const CreateCategoryItem = (props) => {
     try {
       if (productId){
         //TODO: edge case doesn't work
-        if(files.length >= 1){
-
+        // if(files.length >= 1){
           let data = new FormData();
           data.append("fileHere", files[0].file);
           let res1 = await axios.post("/api/images/upload", data);
           var img = res1.data.cloud_image.secure_url;
-        }
+        // }
         let res = await axios.put(`/api/categories/${catId}/products/${productId}`, {
           image: img,
           name: name,
