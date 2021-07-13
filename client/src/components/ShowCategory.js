@@ -56,25 +56,24 @@ const ShowCategory = (props) => {
   };
 
 
-  const catAddPut = async (c) => {
+  const catTopPut = async (c) => {
     try{
       await axios.put(`/api/categories/${catId}/products/${c.id}`, {
         order: c.order + 1
       })
     }catch(err){
-      console.log('Inside Catch catPut',err)
+      console.log('Inside Catch catTopPut',err)
       console.log('err.response',err.response)
     }
   }
 
-  const prodAddPut = async (p) => {
+  const prodTopPut = async (p) => {
     try{
-      let res1 = await axios.put(`/api/categories/${catId}/products/${p.id}`, {
+      await axios.put(`/api/categories/${catId}/products/${p.id}`, {
         order: 1
       })
-      console.log('Top Button Clicked',res1.data.order)
     }catch(err){
-      console.log('insideCatch HandleTop', err)
+      console.log('Inside Catch prodTopPut', err)
       console.log('err.response', err.response)
     }
   }
@@ -92,31 +91,30 @@ const ShowCategory = (props) => {
     sortByOrder(UpdatedItem)
     catItems.forEach(cat=>{
       if(cat.order < prod.order){
-        catAddPut(cat)
+        catTopPut(cat)
       }
     })
-    prodAddPut(prod)
+    prodTopPut(prod)
   }
 
-  const catMinusPut = async (c) => {
+  const catBotPut = async (c) => {
     try{
       await axios.put(`/api/categories/${catId}/products/${c.id}`, {
         order: c.order - 1
       })
     }catch(err){
-      console.log('Inside Catch catPut',err)
+      console.log('Inside Catch catBotPut',err)
       console.log('err.response',err.response)
     }
   }
 
-  const prodMinusPut = async (p) => {
+  const prodBotPut = async (p) => {
     try{
-      let res1 = await axios.put(`/api/categories/${catId}/products/${p.id}`, {
+      await axios.put(`/api/categories/${catId}/products/${p.id}`, {
         order: catItems.length
       })
-      console.log('Top Button Clicked',res1.data.order)
     }catch(err){
-      console.log('insideCatch HandleTop', err)
+      console.log('Inside Catch prodBotPut', err)
       console.log('err.response', err.response)
     }
   }
@@ -134,10 +132,10 @@ const ShowCategory = (props) => {
     sortByOrder(UpdatedItem)
     catItems.forEach(cat=>{
       if(cat.order > prod.order){
-        catMinusPut(cat)
+        catBotPut(cat)
       }
     })
-    prodMinusPut(prod)
+    prodBotPut(prod)
   }
 
   const catLeftPut = async (c) => {
@@ -146,19 +144,18 @@ const ShowCategory = (props) => {
         order: c.order + 1
       })
     }catch(err){
-      console.log('Inside Catch catPut',err)
+      console.log('Inside Catch catLeftPut',err)
       console.log('err.response',err.response)
     }
   }
 
   const prodLeftPut = async (p) => {
     try{
-      let res1 = await axios.put(`/api/categories/${catId}/products/${p.id}`, {
+      await axios.put(`/api/categories/${catId}/products/${p.id}`, {
         order: p.order - 1
       })
-      console.log('Top Button Clicked',res1.data.order)
     }catch(err){
-      console.log('insideCatch HandleTop', err)
+      console.log('Inside Catch prodLeftPut', err)
       console.log('err.response', err.response)
     }
   }
@@ -168,7 +165,7 @@ const ShowCategory = (props) => {
       if(c.order === prod.order - 1){
         return {...c, order: c.order + 1}
       }
-      if(c.order === prod.order){
+      if(c.id === prod.id){
         return {...prod, order: prod.order - 1}
       }
       return c
@@ -182,9 +179,49 @@ const ShowCategory = (props) => {
     prodLeftPut(prod)
   }
 
+  const catRightPut = async (c) => {
+    try{
+      await axios.put(`/api/categories/${catId}/products/${c.id}`, {
+        order: c.order - 1
+      })
+    }catch(err){
+      console.log('Inside Catch catRightPut',err)
+      console.log('err.response',err.response)
+    }
+  }
+
+  const prodRightPut = async (p) => {
+    try{
+      await axios.put(`/api/categories/${catId}/products/${p.id}`, {
+        order: p.order + 1
+      })
+    }catch(err){
+      console.log('Inside Catch prodRightPut', err)
+      console.log('err.response', err.response)
+    }
+  }
+
+  const handleRight = (prod) => {
+    let UpdatedItem = catItems.map(c=> {
+      if(c.order === prod.order + 1){
+        return {...c, order: c.order - 1}
+      }
+      if(c.id === prod.id){
+        return {...prod, order: prod.order + 1}
+      }
+      return c
+    })
+    sortByOrder(UpdatedItem)
+    catItems.forEach(cat=>{
+      if(cat.order === prod.order + 1){
+        catRightPut(cat)
+      }
+    })
+    prodRightPut(prod)
+  }
   return (
     <div>
-      {showCreate && <CreateCategoryItem catId={catId} createCat={createCat} />}
+      {showCreate && <CreateCategoryItem catId={catId} createCat={createCat} catItems={catItems}/>}
       {showEditForm && <EditProduct productId={productId} catId={catId} setCatItems={setCatItems} catItems={catItems}/>}
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         {showItems &&
@@ -195,6 +232,7 @@ const ShowCategory = (props) => {
                   <Card.Img variant="top" src={d.image} />
                   <Card.Body>
                     <Card.Title>{d.name}</Card.Title>
+                    {/* TODO: remove order */}
                     <Card.Subtitle>${d.price} Order:{d.order}</Card.Subtitle>
                     <Card.Text>{d.description}</Card.Text>
                     <ListGroup className="list-group-flush">
@@ -223,7 +261,7 @@ const ShowCategory = (props) => {
                     <Button onClick={(e) =>handleTop(d)}>Top</Button>
                     <Button onClick={(e) =>handleBot(d)}>Bottom</Button>
                     <Button onClick={(e) =>handleLeft(d)}>left</Button>
-                    <Button onClick={(e) =>handleTop(d)}>Right</Button>
+                    <Button onClick={(e) =>handleRight(d)}>Right</Button>
                   </Card.Body>
                 </Card>
               </div>
