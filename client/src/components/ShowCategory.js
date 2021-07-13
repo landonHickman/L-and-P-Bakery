@@ -56,10 +56,10 @@ const ShowCategory = (props) => {
   };
 
 
-  const catAddPut = async (y) => {
+  const catAddPut = async (c) => {
     try{
-      await axios.put(`/api/categories/${catId}/products/${y.id}`, {
-        order: y.order + 1
+      await axios.put(`/api/categories/${catId}/products/${c.id}`, {
+        order: c.order + 1
       })
     }catch(err){
       console.log('Inside Catch catPut',err)
@@ -98,10 +98,10 @@ const ShowCategory = (props) => {
     prodAddPut(prod)
   }
 
-  const catMinusPut = async (y) => {
+  const catMinusPut = async (c) => {
     try{
-      await axios.put(`/api/categories/${catId}/products/${y.id}`, {
-        order: y.order - 1
+      await axios.put(`/api/categories/${catId}/products/${c.id}`, {
+        order: c.order - 1
       })
     }catch(err){
       console.log('Inside Catch catPut',err)
@@ -140,6 +140,48 @@ const ShowCategory = (props) => {
     prodMinusPut(prod)
   }
 
+  const catLeftPut = async (c) => {
+    try{
+      await axios.put(`/api/categories/${catId}/products/${c.id}`, {
+        order: c.order + 1
+      })
+    }catch(err){
+      console.log('Inside Catch catPut',err)
+      console.log('err.response',err.response)
+    }
+  }
+
+  const prodLeftPut = async (p) => {
+    try{
+      let res1 = await axios.put(`/api/categories/${catId}/products/${p.id}`, {
+        order: p.order - 1
+      })
+      console.log('Top Button Clicked',res1.data.order)
+    }catch(err){
+      console.log('insideCatch HandleTop', err)
+      console.log('err.response', err.response)
+    }
+  }
+
+  const handleLeft = (prod) => {
+    let UpdatedItem = catItems.map(c=> {
+      if(c.order === prod.order - 1){
+        return {...c, order: c.order + 1}
+      }
+      if(c.order === prod.order){
+        return {...prod, order: prod.order - 1}
+      }
+      return c
+    })
+    sortByOrder(UpdatedItem)
+    catItems.forEach(cat=>{
+      if(cat.order === prod.order - 1){
+        catLeftPut(cat)
+      }
+    })
+    prodLeftPut(prod)
+  }
+
   return (
     <div>
       {showCreate && <CreateCategoryItem catId={catId} createCat={createCat} />}
@@ -149,7 +191,6 @@ const ShowCategory = (props) => {
           catItems.map((d) => {
             return (
               <div key={d.id}>
-                <h1></h1>
                 <Card style={{ width: "16rem", margin: "5px" }}>
                   <Card.Img variant="top" src={d.image} />
                   <Card.Body>
@@ -181,7 +222,7 @@ const ShowCategory = (props) => {
                     </Button>
                     <Button onClick={(e) =>handleTop(d)}>Top</Button>
                     <Button onClick={(e) =>handleBot(d)}>Bottom</Button>
-                    <Button onClick={(e) =>handleTop(d)}>left</Button>
+                    <Button onClick={(e) =>handleLeft(d)}>left</Button>
                     <Button onClick={(e) =>handleTop(d)}>Right</Button>
                   </Card.Body>
                 </Card>
