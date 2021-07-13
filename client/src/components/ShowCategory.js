@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Button, Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import axios from "axios";
 import CreateCategoryItem from "./CreateCategoryItem";
-import { useHistory } from "react-router";
 import EditProduct from "../pages/EditProduct";
 
 const ShowCategory = (props) => {
-  const history = useHistory();
   const { catId } = props;
   const [catItems, setCatItems] = useState([]);
   const [productId, setProductId] = useState([]);
@@ -55,53 +53,91 @@ const ShowCategory = (props) => {
     setProductId(id);
     setShowItems(!showItems);
     setShowCreate(!showCreate);
-    // history.push({
-    //   pathname: '/edit_product',
-    //   state: {productId: productId,
-    //   catId: catId}
-    // })
   };
 
 
-  const catPut = async (y) => {
-    let res = await axios.put(`/api/categories/${catId}/products/${y.id}`, {
-      image: y.image,
-      name: y.name,
-      price: y.price,
-      description: y.description,
-      limited_time: y.limitedTime,
-      special_item_carousel: y.specialItem,
-      category_carousel: y.category_carousel,
-      order: y.order + 1
-    })
-    console.log('res',res.data.order)
+  const catAddPut = async (y) => {
+    try{
+      await axios.put(`/api/categories/${catId}/products/${y.id}`, {
+        order: y.order + 1
+      })
+    }catch(err){
+      console.log('Inside Catch catPut',err)
+      console.log('err.response',err.response)
+    }
   }
-  const handleTop = async (prod) => {
 
-    // let add = catItems.map(c=> {
-    //   return {order: c.order < prod.order ? c.order + 1 : c.order,
-    //   }})
-    
-    // let setFirst = catItems.map(c=> c.id === prod.id ? prod.order = 1 : c.id)
-    // console.log(add)
-    // console.log(setFirst)
+  const prodAddPut = async (p) => {
+    try{
+      let res1 = await axios.put(`/api/categories/${catId}/products/${p.id}`, {
+        order: 1
+      })
+      console.log('Top Button Clicked',res1.data.order)
+    }catch(err){
+      console.log('insideCatch HandleTop', err)
+      console.log('err.response', err.response)
+    }
+  }
+
+  const handleTop = (prod) => {
+    let UpdatedItem = catItems.map(c=> {
+      if(c.id === prod.id){
+        return {...prod, order: 1}
+      }
+      if(c.order < prod.order){
+        return {...c, order: c.order + 1}
+      }
+      return c
+    })
+    sortByOrder(UpdatedItem)
     catItems.forEach(cat=>{
       if(cat.order < prod.order){
-        catPut(cat)
-       
+        catAddPut(cat)
       }
     })
-    let res1 = await axios.put(`/api/categories/${catId}/products/${prod.id}`, {
-      image: prod.image,
-      name: prod.name,
-      price: prod.price,
-      description: prod.description,
-      limited_time: prod.limitedTime,
-      special_item_carousel: prod.specialItem,
-      category_carousel: prod.category_carousel,
-      order: prod.order = 1
+    prodAddPut(prod)
+  }
+
+  const catMinusPut = async (y) => {
+    try{
+      await axios.put(`/api/categories/${catId}/products/${y.id}`, {
+        order: y.order - 1
+      })
+    }catch(err){
+      console.log('Inside Catch catPut',err)
+      console.log('err.response',err.response)
+    }
+  }
+
+  const prodMinusPut = async (p) => {
+    try{
+      let res1 = await axios.put(`/api/categories/${catId}/products/${p.id}`, {
+        order: catItems.length
+      })
+      console.log('Top Button Clicked',res1.data.order)
+    }catch(err){
+      console.log('insideCatch HandleTop', err)
+      console.log('err.response', err.response)
+    }
+  }
+
+  const handleBot = (prod) => {
+    let UpdatedItem = catItems.map(c=> {
+      if(c.id === prod.id){
+        return {...prod, order: catItems.length}
+      }
+      if(c.order > prod.order){
+        return {...c, order: c.order - 1}
+      }
+      return c
     })
-    console.log('res1',res1.data.order)
+    sortByOrder(UpdatedItem)
+    catItems.forEach(cat=>{
+      if(cat.order > prod.order){
+        catMinusPut(cat)
+      }
+    })
+    prodMinusPut(prod)
   }
 
   return (
@@ -144,6 +180,9 @@ const ShowCategory = (props) => {
                       Delete
                     </Button>
                     <Button onClick={(e) =>handleTop(d)}>Top</Button>
+                    <Button onClick={(e) =>handleBot(d)}>Bottom</Button>
+                    <Button onClick={(e) =>handleTop(d)}>left</Button>
+                    <Button onClick={(e) =>handleTop(d)}>Right</Button>
                   </Card.Body>
                 </Card>
               </div>
