@@ -18,12 +18,20 @@ const ShowCategory = (props) => {
     getCatItem();
   }, []);
 
-  console.log(catItems)
+  const sortByOrder = (o) => {
+    let orderedProducts = o.sort((a, b)=>{
+      return a.order - b.order  
+    } )
+    setCatItems(orderedProducts)
+    // console.log(orderedProducts)
+  }
+
   const getCatItem = async () => {
     try {
       let res = await axios.get(`/api/categories/${catId}/products`);
       // console.log('res.data',res.data)
-      setCatItems(res.data);
+      sortByOrder(res.data)
+      ;
     } catch (err) {
       console.log("inside getCat catch", err);
       console.log("inside getCat catch", err.response);
@@ -32,7 +40,7 @@ const ShowCategory = (props) => {
 
   const createCat = (item) => {
     // console.log('item',item)
-    setCatItems([item, ...catItems]);
+    setCatItems([...catItems, item]);
   };
 
   const handleDelete = async (id) => {
@@ -53,6 +61,49 @@ const ShowCategory = (props) => {
     //   catId: catId}
     // })
   };
+
+
+  const catPut = async (y) => {
+    let res = await axios.put(`/api/categories/${catId}/products/${y.id}`, {
+      image: y.image,
+      name: y.name,
+      price: y.price,
+      description: y.description,
+      limited_time: y.limitedTime,
+      special_item_carousel: y.specialItem,
+      category_carousel: y.category_carousel,
+      order: y.order + 1
+    })
+    console.log('res',res.data.order)
+  }
+  const handleTop = async (prod) => {
+
+    // let add = catItems.map(c=> {
+    //   return {order: c.order < prod.order ? c.order + 1 : c.order,
+    //   }})
+    
+    // let setFirst = catItems.map(c=> c.id === prod.id ? prod.order = 1 : c.id)
+    // console.log(add)
+    // console.log(setFirst)
+    catItems.forEach(cat=>{
+      if(cat.order < prod.order){
+        catPut(cat)
+       
+      }
+    })
+    let res1 = await axios.put(`/api/categories/${catId}/products/${prod.id}`, {
+      image: prod.image,
+      name: prod.name,
+      price: prod.price,
+      description: prod.description,
+      limited_time: prod.limitedTime,
+      special_item_carousel: prod.specialItem,
+      category_carousel: prod.category_carousel,
+      order: prod.order = 1
+    })
+    console.log('res1',res1.data.order)
+  }
+
   return (
     <div>
       {showCreate && <CreateCategoryItem catId={catId} createCat={createCat} />}
@@ -67,7 +118,7 @@ const ShowCategory = (props) => {
                   <Card.Img variant="top" src={d.image} />
                   <Card.Body>
                     <Card.Title>{d.name}</Card.Title>
-                    <Card.Subtitle>${d.price}</Card.Subtitle>
+                    <Card.Subtitle>${d.price} Order:{d.order}</Card.Subtitle>
                     <Card.Text>{d.description}</Card.Text>
                     <ListGroup className="list-group-flush">
                       <ListGroupItem>
@@ -75,6 +126,9 @@ const ShowCategory = (props) => {
                       </ListGroupItem>
                       <ListGroupItem>
                         {`Special Item: ${d.special_item_carousel}`}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        {`Category Carousel: ${d.category_carousel}`}
                       </ListGroupItem>
                     </ListGroup>
                     <Button
@@ -89,6 +143,7 @@ const ShowCategory = (props) => {
                     >
                       Delete
                     </Button>
+                    <Button onClick={(e) =>handleTop(d)}>Top</Button>
                   </Card.Body>
                 </Card>
               </div>

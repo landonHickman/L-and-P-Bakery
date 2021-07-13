@@ -24,7 +24,7 @@ drinks = Category.create(name:'Drinks')
 bakery = Category.create(name: 'Bakery')
 cakes = Category.create(name: 'Cakes')
 
-i = 0
+# i = 4
 15.times do |i|
   drinks.products.create(
     name: Faker::Food.dish, 
@@ -34,11 +34,11 @@ i = 0
     limited_time: random_boolean.sample,
     special_item_carousel: random_boolean.sample,
     category_carousel: random_boolean.sample,
-    order: i,
+    order: i + 1,
    )
 end
 
-x = 0
+# x = 4
 15.times do |x|
   bakery.products.create(
     name: Faker::Food.dish, 
@@ -48,11 +48,11 @@ x = 0
     limited_time: random_boolean.sample,
     special_item_carousel: random_boolean.sample,
     category_carousel: random_boolean.sample,
-    order: x,
+    order: x + 1,
    )
 end
 
-y = 0
+# y = 4
 15.times do |y|
   cakes.products.create(
     name: Faker::Food.dish, 
@@ -62,7 +62,7 @@ y = 0
     limited_time: random_boolean.sample,
     special_item_carousel: random_boolean.sample,
     category_carousel: random_boolean.sample,
-    order: y,
+    order: y + 1,
    )
 end
 # need to add landingPage special_bakery_item pic title price
