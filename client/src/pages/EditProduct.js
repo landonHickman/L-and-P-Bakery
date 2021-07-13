@@ -6,16 +6,24 @@ import CreateCategoryItem from "../components/CreateCategoryItem";
 const EditProduct = (props) => {
   const { productId, catId} = props;
   const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getProduct();
+      getProduct();
   }, []);
   
   const getProduct = async () => {
-    let res = await axios.get(`/api/categories/${catId}/products/${productId}`);
-    // console.log("limited", res.data.limited_time);
-    // console.log("special", res.data.special_item_carousel);
-    setProduct(res.data);
+    try{
+
+      let res = await axios.get(`/api/categories/${catId}/products/${productId}`);
+      // console.log("limited", res.data.limited_time);
+      // console.log("special", res.data.special_item_carousel);
+      setProduct(res.data);
+      setLoading(false)
+    }catch(err){
+      console.log(err)
+
+    }
   };
 
   const updateCatItem = (i) => {
@@ -23,6 +31,8 @@ const EditProduct = (props) => {
     console.log('i',i)
     setProduct(i)
   }
+
+  if(loading) return <p>Loading</p>
 
   return (
     <div>

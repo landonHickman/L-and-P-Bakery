@@ -11,18 +11,19 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 const CreateCategoryItem = (props) => {
   const {catId, createCat, productId, updateCatItem, catItems } = props
 
-  const [files, setFiles] = useState([]);
-  const [name, setName] = useState([]);
-  const [price, setPrice] = useState([]);
-  const [description, setDescription] = useState([]);
-  const [limitedTime, setLimitedTime] = useState(props.limited_time);
-  const [specialItem, setSpecialItem] = useState(props.special_item_carousel);
-  const [catCarousel, setCatCarousel] = useState(props.category_carousel);
+  const [files, setFiles] = useState(props.image ? props.image : '');
+  const [name, setName] = useState(props.name ? props.name : '');
+  const [price, setPrice] = useState(props.price ? props.price : '');
+  const [description, setDescription] = useState(props.description ? props.description : '');
+  const [limitedTime, setLimitedTime] = useState(props.limited_time ? props.limited_time : false);
+  const [specialItem, setSpecialItem] = useState(props.special_item_carousel ? props.special_item_carousel : false);
+  const [catCarousel, setCatCarousel] = useState(props.category_carousel ? props.category_carousel : false);
   const [order, setOrder] = useState(props.order);
 
   console.log('limitedTime', limitedTime)
   console.log('specialItem', specialItem)
   console.log('catCarousel', catCarousel)
+  console.log('----------------------')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,12 +31,12 @@ const CreateCategoryItem = (props) => {
     try {
       if (productId){
         //TODO: edge case doesn't work
-        // if(files.length >= 1){
+        if(files.length >= 1){
           let data = new FormData();
           data.append("fileHere", files[0].file);
           let res1 = await axios.post("/api/images/upload", data);
           var img = res1.data.cloud_image.secure_url;
-        // }
+        }
         let res = await axios.put(`/api/categories/${catId}/products/${productId}`, {
           image: img,
           name: name,
@@ -89,19 +90,19 @@ const CreateCategoryItem = (props) => {
               <Form.Control
                 placeholder="Name"
                 onChange={(e) => setName(e.target.value)}
-                defaultValue={props.name ? props.name: ''}
+                defaultValue={name}
               />
               <Form.Label>Price</Form.Label>
               <Form.Control
                 placeholder="Price"
                 onChange={(e) => setPrice(e.target.value)}
-                defaultValue={props.price ? props.price : ''}
+                defaultValue={price}
               />
               <Form.Label>Description</Form.Label>
               <Form.Control
                 placeholder="Description"
                 onChange={(e) => setDescription(e.target.value)}
-                defaultValue={props.description ? props.description : ''}
+                defaultValue={description}
               />
               <Form.Check
                 type="checkbox"
@@ -109,7 +110,7 @@ const CreateCategoryItem = (props) => {
                 className="mb-2"
                 label="Limited Time"
                 onChange={(e) => setLimitedTime(e.target.checked)}
-                defaultChecked={props.limited_time}
+                defaultChecked={limitedTime}
               />
               <Form.Check
                 type="checkbox"
@@ -117,7 +118,7 @@ const CreateCategoryItem = (props) => {
                 className="mb-2"
                 label="Special Item"
                 onChange={(e) => setSpecialItem(e.target.checked)}
-                defaultChecked={props.special_item_carousel}
+                defaultChecked={specialItem}
               />
               <Form.Check
                 type="checkbox"
@@ -125,7 +126,11 @@ const CreateCategoryItem = (props) => {
                 className="mb-2"
                 label="Category Carousel"
                 onChange={(e) => setCatCarousel(e.target.checked)}
-                defaultChecked={props.category_carousel}
+                //doesn't work correctly
+                // defaultChecked={props.category_carousel}
+                //doesn't work
+                // defaultChecked={props.id ? props.category_carousel : false}
+                defaultChecked={catCarousel}
               />
               <Button type="submit" block>
                 submit
@@ -133,7 +138,7 @@ const CreateCategoryItem = (props) => {
             </Col>
             <Col>
               <FilePond
-                files={props.image ? props.image : files}
+                files={files}
                 allowReorder={true}
                 allowMultiple={false}
                 onupdatefiles={setFiles}
