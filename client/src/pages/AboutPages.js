@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 //that contains "we are always looking for.... etc"
 //and a link to the application
 //import footer.
+
 const AboutPages = () => {
   const [aboutPages, setAboutPages] = useState([])
 
@@ -31,6 +32,7 @@ const AboutPages = () => {
 }
 
   return (
+    <>
     <div>
     <div className="card-deck">
     <Card className="text-center"style={{display: 'flex'}}>
@@ -54,6 +56,8 @@ const AboutPages = () => {
     </Card>
     <Footer/>
       </div>
+       <Footer/> 
+      </>
   );
 };
 
