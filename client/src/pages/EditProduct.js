@@ -29,7 +29,8 @@ const EditProduct = (props) => {
       <Card style={{ width: "16rem", margin: "5px" }}>
         <Card.Img variant="top" src={product.image} />
         <Card.Body>
-          <Card.Title>{product.name}</Card.Title>
+          {/* TODO: remove order */}
+          <Card.Title>{product.name} order:{product.order}</Card.Title>
           <Card.Subtitle>${product.price}</Card.Subtitle>
           <Card.Text>{product.description}</Card.Text>
           <ListGroup className="list-group-flush">
@@ -38,6 +39,9 @@ const EditProduct = (props) => {
             </ListGroupItem>
             <ListGroupItem>
               {`Special Item: ${product.special_item_carousel}`}
+            </ListGroupItem>
+            <ListGroupItem>
+              {`Category Carousel: ${product.category_carousel}`}
             </ListGroupItem>
           </ListGroup>
         </Card.Body>
@@ -50,8 +54,11 @@ const EditProduct = (props) => {
         price={product.price}
         description={product.description}
         limited_time={product.limited_time}
+        category_carousel={product.category_carousel}
+        order={product.order}
         special_item_carousel={product.special_item_carousel}
         updateCatItem={updateCatItem}
+        
       />
       <hr />
     </div>

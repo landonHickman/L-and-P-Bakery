@@ -9,7 +9,7 @@ import axios from 'axios';
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const CreateCategoryItem = (props) => {
-  const {catId, createCat, productId, updateCatItem } = props
+  const {catId, createCat, productId, updateCatItem, catItems } = props
 
   const [files, setFiles] = useState([]);
   const [name, setName] = useState([]);
@@ -17,6 +17,12 @@ const CreateCategoryItem = (props) => {
   const [description, setDescription] = useState([]);
   const [limitedTime, setLimitedTime] = useState(props.limited_time);
   const [specialItem, setSpecialItem] = useState(props.special_item_carousel);
+  const [catCarousel, setCatCarousel] = useState(props.category_carousel);
+  const [order, setOrder] = useState(props.order);
+
+  console.log('limitedTime', limitedTime)
+  console.log('specialItem', specialItem)
+  console.log('catCarousel', catCarousel)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +43,8 @@ const CreateCategoryItem = (props) => {
           description: description,
           limited_time: limitedTime,
           special_item_carousel: specialItem,
+          category_carousel: catCarousel,
+          order: order
         })
         const update = res.data
         updateCatItem(update)
@@ -54,8 +62,10 @@ const CreateCategoryItem = (props) => {
           description: description,
           limited_time: limitedTime,
           special_item_carousel: specialItem,
+          category_carousel: catCarousel,
+          order: catItems.length + 1
+          
         });
-        const create = res1.data
         createCat(res1.data)
       }
       
@@ -108,6 +118,14 @@ const CreateCategoryItem = (props) => {
                 label="Special Item"
                 onChange={(e) => setSpecialItem(e.target.checked)}
                 defaultChecked={props.special_item_carousel}
+              />
+              <Form.Check
+                type="checkbox"
+                id="autoSizingCheck"
+                className="mb-2"
+                label="Category Carousel"
+                onChange={(e) => setCatCarousel(e.target.checked)}
+                defaultChecked={props.category_carousel}
               />
               <Button type="submit" block>
                 submit
