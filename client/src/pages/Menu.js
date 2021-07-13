@@ -7,12 +7,20 @@ import Axios from "axios";
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [ products, setProduct] = useState([])
   const [show, setShow] = useState(true);
 
   useEffect(() => {
     getCategories();
     getProducts();
   }, []);
+
+  const getProduct = async () => {
+    let res = await axios.get(`/api/categories/${catId}/products/${productId}`);
+    // console.log("limited", res.data.limited_time);
+    // console.log("special", res.data.special_item_carousel);
+    setProduct(res.data);
+  };
 
   const getCategories = () => {
     Axios.get("/api/categories")

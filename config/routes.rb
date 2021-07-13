@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     resources :application_pages
     get '/tests', to: 'tests#index'
     resources :about_pages
-    resources :categories 
-    resources :products
+    resources :categories do
+      resources :products
+    end
     resources :landing_pages
     resources :footers
     resources :application_pages
