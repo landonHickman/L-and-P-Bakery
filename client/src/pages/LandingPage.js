@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Carousel, Image, Navbar } from "react-bootstrap";
 import Footer from "../components/Footer";
 import LPGrid1Carousel from "../components/LPGrid1Carousel";
-import LPGrid1 from "../components/LPGrid1Carousel";
+import LPGrid2Carousel from "../components/LPGrid2Carousel";
 import LPSpecials from "../components/LPSpecials";
 
 const LandingPage = () => {
@@ -77,12 +77,13 @@ const LandingPage = () => {
           <LPGrid1Carousel />
         </Card.Body>
       </Card>
+<br/>
       {/* boba */}
       <Card>
         <Card.Body>
           <Card.Title>{landingPage.grid_title_2}</Card.Title>
           <Card.Text>{landingPage.grid_description_2}</Card.Text>
-          <Card.Img src="https://i.imgur.com/xeXzatY.jpeg" />
+          <LPGrid2Carousel/>
         </Card.Body>
       </Card>
       <Footer />
