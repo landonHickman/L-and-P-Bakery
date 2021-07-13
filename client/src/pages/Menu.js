@@ -3,6 +3,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Axios from "axios";
+import Footer from "../components/Footer"
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -68,17 +69,20 @@ const Categories = () => {
             </Card.Body>
           </Card>
             : null}
-          
+    
         </div>
       );
     });
   };
 
   return (
+    <>
     <div className="Menu">
       
-      <Card>{renderCategories()}</Card>
+      <Card>{renderCategories()}</Card> 
     </div>
+    <Footer/>
+</>
   );
 };
 

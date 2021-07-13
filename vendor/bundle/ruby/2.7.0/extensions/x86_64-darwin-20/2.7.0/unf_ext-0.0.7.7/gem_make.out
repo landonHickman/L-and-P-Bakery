@@ -1,0 +1,16 @@
+current directory: /Users/adeangelo/Desktop/dpl_summer_2021/week8/final-project/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+/Users/adeangelo/.rbenv/versions/2.7.3/bin/ruby -I /Users/adeangelo/.rbenv/versions/2.7.3/lib/ruby/site_ruby/2.7.0 -r ./siteconf20210712-75812-10sr4zo.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /Users/adeangelo/Desktop/dpl_summer_2021/week8/final-project/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make DESTDIR\= clean
+
+current directory: /Users/adeangelo/Desktop/dpl_summer_2021/week8/final-project/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make DESTDIR\=
+compiling unf.cc
+linking shared-object unf_ext.bundle
+
+current directory: /Users/adeangelo/Desktop/dpl_summer_2021/week8/final-project/vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 unf_ext.bundle ./.gem.20210712-75812-18m625l

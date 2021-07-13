@@ -24,36 +24,45 @@ drinks = Category.create(name:'Drinks')
 bakery = Category.create(name: 'Bakery')
 cakes = Category.create(name: 'Cakes')
 
-15.times do
+# i = 4
+15.times do |i|
   drinks.products.create(
     name: Faker::Food.dish, 
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCkjoU6UdnGKkv9If0H-RzLGQ3Lv5Ue3Z5-_QS43rDx1JzS42NuiVxOty1vPj4VFHrq-4&usqp=CAU', 
     price: Faker::Number.decimal(l_digits: 2),
     description: Faker::Food.description,
     limited_time: random_boolean.sample,
-    special_item_carousel: random_boolean.sample
+    special_item_carousel: random_boolean.sample,
+    category_carousel: random_boolean.sample,
+    order: i + 1,
    )
 end
 
-15.times do
+# x = 4
+15.times do |x|
   bakery.products.create(
     name: Faker::Food.dish, 
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCkjoU6UdnGKkv9If0H-RzLGQ3Lv5Ue3Z5-_QS43rDx1JzS42NuiVxOty1vPj4VFHrq-4&usqp=CAU', 
     price: Faker::Number.decimal(l_digits: 2),
     description: Faker::Food.description,
     limited_time: random_boolean.sample,
-    special_item_carousel: random_boolean.sample
+    special_item_carousel: random_boolean.sample,
+    category_carousel: random_boolean.sample,
+    order: x + 1,
    )
 end
 
-15.times do
+# y = 4
+15.times do |y|
   cakes.products.create(
     name: Faker::Food.dish, 
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCkjoU6UdnGKkv9If0H-RzLGQ3Lv5Ue3Z5-_QS43rDx1JzS42NuiVxOty1vPj4VFHrq-4&usqp=CAU', 
     price: Faker::Number.decimal(l_digits: 2),
     description: Faker::Food.description,
     limited_time: random_boolean.sample,
-    special_item_carousel: random_boolean.sample
+    special_item_carousel: random_boolean.sample,
+    category_carousel: random_boolean.sample,
+    order: y + 1,
    )
 end
 # need to add landingPage special_bakery_item pic title price
@@ -91,7 +100,7 @@ Footer.create(
 )
 
 Navbar.create(
-  nav_logo: 'https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/103777470_109769864105349_4714216089081921319_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=973b4a&_nc_ohc=sO6wXqdYtRcAX9WfWsX&_nc_ht=scontent-sjc3-1.xx&oh=546a06edf6ea2f1015d19d757e7379e5&oe=60E2846B',
+  nav_logo: 'https://i.imgur.com/ViaAZKy.jpg',
   nav_text_1: 'Menu',
   nav_text_2: 'About Us',
   nav_text_3: 'Custom Cakes',

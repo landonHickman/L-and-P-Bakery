@@ -1,21 +1,50 @@
-import React from 'react'
-import { Form, Button, Row, Col } from 'react-bootstrap'
-import { styles } from '../styles/styles'
+import axios from "axios";
+import React, { useState } from "react";
+import { Form, Button, Row, Col } from "react-bootstrap";
 
-const GridEditor2 = () => {
+const GridEditor2 = (props) => {
+  const { landing } = props;
+  const [title, setTitle] = useState(
+    landing.grid_title_2 ? landing.grid_title_2 : ""
+  );
+  const [desc, setDesc] = useState(
+    landing.grid_description_2 ? landing.grid_description_2 : ""
+  );
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let res = await axios.put(`/api/landing_pages/${landing.id}`, {
+        grid_title_2: title,
+        grid_description_2: desc,
+      });
+      console.log('update',res)
+    } catch (err) {
+      console.log("Inside handleSubmit catch", err);
+      console.log("Inside handleSubmit catch", err.response);
+    }
+  };
+
   return (
     <>
-      <Form>
-      <Row>
-          <Col>
-            <div style={styles.SmallPic}></div>
-          </Col>
+      <Form onSubmit={handleSubmit}>
+        <Row>
           <Col>
             <Form.Group>
               <Form.Label>Grid Title 2</Form.Label>
-              <Form.Control placeholder="Grid Title 2" />
+              <Form.Control
+                placeholder="Grid Title 2"
+                defaultValue={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
               <Form.Label>Grid Description 2</Form.Label>
-              <Form.Control placeholder="Grid Description 2" />
+              <Form.Control
+                as="textarea"
+                rows={4}
+                placeholder="Grid Description 2"
+                defaultValue={desc}
+                onChange={(e) => setDesc(e.target.value)}
+              />
             </Form.Group>
             <Button variant="primary" type="submit" block>
               Submit
@@ -24,7 +53,7 @@ const GridEditor2 = () => {
         </Row>
       </Form>
     </>
-  )
-}
+  );
+};
 
-export default GridEditor2
+export default GridEditor2;
