@@ -1,9 +1,9 @@
 class Api::ProductsController < ApplicationController
-  # before_action :set_category
-   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_category
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-      render json: Product.all
+      render json: @category.products.all
   end
 
   def all_special_products
@@ -62,7 +62,7 @@ class Api::ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :description, :image, :price, :limited_time, :special_item_carousel)
+      params.require(:product).permit(:name, :description, :image, :price, :limited_time, :special_item_carousel, :order, :category_carousel)
     end
 end
    

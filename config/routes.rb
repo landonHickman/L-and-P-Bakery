@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     resources :application_pages
     get '/tests', to: 'tests#index'
     resources :about_pages
-    resources :categories 
-    resources :products
+    resources :categories do
+      resources :products
+    end
     get '/all_special_products', to: 'products#all_special_products'
     get '/all_limited_time_cake_products', to: 'products#all_limited_time_cake_products'
     get '/all_limited_time_boba_products', to: 'products#all_limited_time_boba_products'
