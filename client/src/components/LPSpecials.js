@@ -2,22 +2,22 @@
 // want to get price and item name (desc?)
 //  from drinks bakery cakes ONLY 
 //  special_boolean: true
-import {useState, useEffect} from 'react'
+// import {useState, useEffect} from 'react'
 
-const LPSpecials = () => {
-  const [products, setProducts] = useState([])
+// const LPSpecials = () => {
+//   const [products, setProducts] = useState([])
 
 
-//   useEffect(()=>{
-//       getLPSpecials()
-//   },[])
+// //   useEffect(()=>{
+// //       getLPSpecials()
+// //   },[])
 
-//   const getLPSpecials = () => {
-//     const special_item_carousel 
-//     if special_item_carousel:true return
-// }
+// //   const getLPSpecials = () => {
+// //     const special_item_carousel 
+// //     if special_item_carousel:true return
+// // }
 
-export default LPSpecials
+// export default LPSpecials
 // const LPSpecials = () => {
 //   const {price, item, special_item_carousel} = useLPSpecials('/api/')
 

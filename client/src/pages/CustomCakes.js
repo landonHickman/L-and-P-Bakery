@@ -21,6 +21,7 @@ const CustomCakes = () => {
             <Form.Group>
               <Form.Label for="flavor">Cake Flavor</Form.Label>
               <Form.Control as="select" id="flavor" name="Flavor:">
+                <option>Choose...</option>
                 <option>Fruit</option>
                 <option>Strawberry</option>
                 <option>Tropical</option>
@@ -36,6 +37,7 @@ const CustomCakes = () => {
 
               <Form.Label for="mousse">Mousse Flavor</Form.Label>
               <Form.Control as="select" name="Mousse Flavor:">
+              <option>Choose...</option>
                 <option>Strawberry</option>
                 <option>Mango</option>
                 <option>Coffee</option>
@@ -45,6 +47,7 @@ const CustomCakes = () => {
 
               <Form.Label for="triangle_cake">Triangle Cake</Form.Label>
               <Form.Control as="select" name="Triangle Cake:">
+              <option>Choose...</option>
                 <option>Vanilla</option>
                 <option>Green Tea</option>
                 <option>Taro</option>
@@ -55,6 +58,7 @@ const CustomCakes = () => {
 
               <Form.Label for="cake_size"> Cake Size</Form.Label>
               <Form.Control as="select" name="Cake Size:">
+              <option>Choose...</option>
                 <option>6 inch</option>
                 <option>10 inch</option>
                 <option>Full sheet cake</option>
@@ -69,7 +73,7 @@ const CustomCakes = () => {
               </Form.Label>
               <Form.Control
                 as="textarea"
-                rows={2}
+                rows={4}
                 type="special_instructions"
                 name="Special Instructions:"
                 id="special_instructions"

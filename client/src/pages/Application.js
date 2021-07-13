@@ -104,7 +104,7 @@ const Application = (props) => {
           </Form.Group>
 
           <Form.Group tag="fieldset"></Form.Group>
-          <Button type="submit">Submit and attach resume here</Button>
+          <Button type="submit">Submit and Attach Resume Here</Button>
         </form>
         <p></p>
       </Form>
