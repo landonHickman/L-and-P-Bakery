@@ -34,19 +34,6 @@ const LPSpecials = () => {
     <div>
       <h1>hello</h1>
       {renderSpecProducts()}
-      {/* <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src= {specProducts.image}
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h3>{specProducts.name}</h3>
-            <p>{specProducts.price}</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel> */}
     </div>
   )
 }
