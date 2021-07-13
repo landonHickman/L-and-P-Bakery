@@ -44,7 +44,7 @@ const ShowCategory = (props) => {
   const deleteUpdate = async(cat) => {
     try{
 
-      let res1 = await axios.put(`/api/categories/${catId}/products/${cat.id}`,{order: cat.order -1})
+      await axios.put(`/api/categories/${catId}/products/${cat.id}`,{order: cat.order -1})
       // console.log(res1.data.order)
     }catch(err){
       console.log('inside deleteUpdate Catch',err)
@@ -60,7 +60,7 @@ const ShowCategory = (props) => {
       return cat
     })
     sortByOrder(minusOrder)
-    let res = await axios.delete(`/api/categories/${catId}/products/${prod.id}`)
+    await axios.delete(`/api/categories/${catId}/products/${prod.id}`)
     // console.log('deleted',res.data)
     catItems.forEach(cat=>{
       if(cat.order > prod.order){

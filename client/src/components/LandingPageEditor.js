@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
@@ -25,7 +25,7 @@ const LandingPageEditor = (props) => {
         let res1 = await axios.post("/api/images/upload", data);
         var img = res1.data.cloud_image.secure_url;
       }
-      let res = await axios.put(`/api/landing_pages/${landing.id}`,{
+      await axios.put(`/api/landing_pages/${landing.id}`,{
         main_background_img: img,
         carousel_title: carousel_title,
         main_title: title

@@ -1,13 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import { styles } from "../styles/styles";
 
 const GridEditor2 = (props) => {
   const { landing } = props;
-  const [files, setFiles] = useState(
-    landing.main_background_img ? landing.main_background_img : ""
-  );
   const [title, setTitle] = useState(
     landing.grid_title_2 ? landing.grid_title_2 : ""
   );
@@ -18,12 +14,6 @@ const GridEditor2 = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // if (files.length >= 1) {
-      //   let data = new FormData();
-      //   data.append("fileHere", files[0].file);
-      //   let res1 = await axios.post("/api/images/upload", data);
-      //   var img = res1.data.cloud_image.secure_url;
-      // }
       let res = await axios.put(`/api/landing_pages/${landing.id}`, {
         grid_title_2: title,
         grid_description_2: desc,
@@ -39,9 +29,6 @@ const GridEditor2 = (props) => {
     <>
       <Form onSubmit={handleSubmit}>
         <Row>
-          <Col>
-            <div style={styles.SmallPic}></div>
-          </Col>
           <Col>
             <Form.Group>
               <Form.Label>Grid Title 2</Form.Label>

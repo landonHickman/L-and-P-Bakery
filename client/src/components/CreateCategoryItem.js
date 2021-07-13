@@ -18,7 +18,6 @@ const CreateCategoryItem = (props) => {
   const [limitedTime, setLimitedTime] = useState(props.limited_time ? props.limited_time : false);
   const [specialItem, setSpecialItem] = useState(props.special_item_carousel ? props.special_item_carousel : false);
   const [catCarousel, setCatCarousel] = useState(props.category_carousel ? props.category_carousel : false);
-  const [order, setOrder] = useState(props.order);
 
   // console.log('limitedTime', limitedTime)
   // console.log('specialItem', specialItem)
@@ -45,7 +44,7 @@ const CreateCategoryItem = (props) => {
           limited_time: limitedTime,
           special_item_carousel: specialItem,
           category_carousel: catCarousel,
-          order: order
+          order: props.order
         })
         const update = res.data
         updateCatItem(update)
