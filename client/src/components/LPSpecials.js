@@ -1,29 +1,45 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Carousel } from "react-bootstrap";
 
-// want to get price and item name (desc?)
-//  from drinks bakery cakes ONLY 
-//  special_boolean: true
-// import {useState, useEffect} from 'react'
+const LPSpecials = () => {
+  const [specProducts, setSpecProducts] = useState([]);
 
-// const LPSpecials = () => {
-//   const [products, setProducts] = useState([])
+  useEffect(() => {
+    getLPSpecials();
+  }, []);
 
+  const getLPSpecials = async () => {
+    try {
+      let res = await axios.get(`/api/all_special_products`);
+      setSpecProducts(res.data);
+    } catch (err) {
+      alert("err check console");
+      console.log(err);
+    }
+  };
 
-// //   useEffect(()=>{
-// //       getLPSpecials()
-// //   },[])
+  const renderSpecProducts = () => {
+    return specProducts.map((specProduct) => {
+      return (
+        <Carousel.Item >
+          <img
+            className="d-block w-100"
+            src={specProduct.image}
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h3>{specProduct.name}</h3>
+            <p>{specProduct.price} </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      )
+    })
+  }
+  return (
+    <div>
+      <Carousel>{renderSpecProducts()}</Carousel>
+    </div>
+  )};
 
-// //   const getLPSpecials = () => {
-// //     const special_item_carousel 
-// //     if special_item_carousel:true return
-// // }
-
-// export default LPSpecials
-// const LPSpecials = () => {
-//   const {price, item, special_item_carousel} = useLPSpecials('/api/')
-
-// if special_item_carousel:true return(
-//   drinks.products.get(special_item_carousel),
-//   cakes.products.get(special_item_carousel),
-//   bakery.products.get(special_item_carousel)
-//   )
-// }
+export default LPSpecials
