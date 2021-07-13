@@ -34,8 +34,8 @@ const Editor1 = () => {
   return (
     <div>
         <LandingPageEditor landing={landingPage[0]}/>
-        <GridEditor1/>
-        <GridEditor2/>
+        <GridEditor1 landing={landingPage[0]}/>
+        <GridEditor2 landing={landingPage[0]}/>
         <FooterEditor/>
     </div>
   );
