@@ -36,7 +36,7 @@ const Editor1 = () => {
         <LandingPageEditor landing={landingPage[0]}/>
         <GridEditor1 landing={landingPage[0]}/>
         <GridEditor2 landing={landingPage[0]}/>
-        <FooterEditor/>
+        <FooterEditor footer={footer[0]}/>
     </div>
   );
 };
