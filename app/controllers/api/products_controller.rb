@@ -18,6 +18,10 @@ class Api::ProductsController < ApplicationController
     render json: Product.all_limited_time_boba_products
   end
 
+  def all_limited_time_bakery_products
+    render json: Product.all_limited_time_bakery_products
+  end
+
   def show
     product = @category.products.find(params[:id])
     render json: product

@@ -25,51 +25,23 @@ const LandingPage = () => {
   };
   return (
     <div>
-      {/* header carousel */}
+      {/* header */}
       <Navbar />
-      <Carousel fade>
-        <Carousel.Item>
-          <Image
-            style={{ width: 1200, height: 600 }}
-            src="https://i.imgur.com/UyOigK2.jpeg"
-          />
+      <Card className="bg-dark text-white">
+        <Card.Img src={landingPage.main_background_img} />
+        <Card.ImgOverlay>
+          <Card.Title>{landingPage.main_title}</Card.Title>
+        </Card.ImgOverlay>
+      </Card>
 
-          <Carousel.Caption>
-            <h1>{landingPage.main_title}</h1>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <Image
-            style={{ width: 1200, height: 600 }}
-            src="https://i.imgur.com/PV8PNU5.jpeg"
-          />
-          <Carousel.Caption>
-            <h1>{landingPage.main_title}</h1>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <Image
-            style={{ width: 1200, height: 600 }}
-            src="https://i.imgur.com/K6r5cDV.jpeg"
-          />
-
-          <Carousel.Caption>
-            <h1>{landingPage.main_title}</h1>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-      <br />
+<br />
 
       {/* special bakery items */}
-      <div>
-        <LPSpecials />
-      </div>
+        <div><LPSpecials/></div>
 
-      <br />
+<br />
+
       {/* cakes */}
-
       <Card>
         <Card.Body>
           <Card.Title>{landingPage.grid_title_1}</Card.Title>
@@ -86,8 +58,18 @@ const LandingPage = () => {
           <LPGrid2Carousel/>
         </Card.Body>
       </Card>
-      <Footer />
-    </div>
+{/* <br/>
+      bakery
+      <Card>
+        <Card.Body>
+          <Card.Title>{landingPage.grid_title_3}</Card.Title>
+          <Card.Text>{landingPage.grid_description_3}</Card.Text>
+          <LPGrid3Carousel/>
+        </Card.Body>
+      </Card> */}
+<br/>
+    <Footer />
+  </div>
   );
 };
 

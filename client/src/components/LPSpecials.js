@@ -30,7 +30,7 @@ const LPSpecials = () => {
           />
           <Carousel.Caption>
             <h3>{specProduct.name}</h3>
-            <p>{specProduct.price}</p>
+            <p>{specProduct.price} </p>
           </Carousel.Caption>
         </Carousel.Item>
       )

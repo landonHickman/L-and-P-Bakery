@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '/all_special_products', to: 'products#all_special_products'
     get '/all_limited_time_cake_products', to: 'products#all_limited_time_cake_products'
     get '/all_limited_time_boba_products', to: 'products#all_limited_time_boba_products'
+    get '/all_limited_time_bakery_products', to: 'products#all_limited_time_bakery_products'
     resources :landing_pages
     resources :footers
     resources :application_pages
