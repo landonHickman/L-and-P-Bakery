@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :categories 
     resources :products
     get '/all_special_products', to: 'products#all_special_products'
+    get '/all_limited_time_cake_products', to: 'products#all_limited_time_cake_products'
     resources :landing_pages
     resources :footers
     resources :application_pages
