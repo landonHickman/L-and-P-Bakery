@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Card, ListGroup, ListGroupItem, Spinner } from "react-bootstrap";
 import CreateCategoryItem from "../components/CreateCategoryItem";
 
 const EditProduct = (props) => {
@@ -9,7 +9,7 @@ const EditProduct = (props) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-      getProduct();
+    getProduct();
   }, []);
   
   const getProduct = async () => {
@@ -27,12 +27,12 @@ const EditProduct = (props) => {
   };
 
   const updateCatItem = (i) => {
-    console.log('catItems', product)
-    console.log('i',i)
+    // console.log('catItems', product)
+    // console.log('i',i)
     setProduct(i)
   }
 
-  if(loading) return <p>Loading</p>
+  if(loading) return <Spinner animation="border" size="lg" />
 
   return (
     <div>

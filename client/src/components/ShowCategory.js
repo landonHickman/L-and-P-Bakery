@@ -41,10 +41,32 @@ const ShowCategory = (props) => {
     setCatItems([...catItems, item]);
   };
 
-  const handleDelete = async (id) => {
-    setCatItems(catItems.filter(c => c.id !== id))
-    let res = await axios.delete(`/api/categories/${catId}/products/${id}`)
-    console.log('deleted',res)
+  const deleteUpdate = async(cat) => {
+    try{
+
+      let res1 = await axios.put(`/api/categories/${catId}/products/${cat.id}`,{order: cat.order -1})
+      // console.log(res1.data.order)
+    }catch(err){
+      console.log('inside deleteUpdate Catch',err)
+      console.log('inside deleteUpdate Catch',err.response)
+    }
+  }
+  const handleDelete = async (prod) => {
+    let removedItem = catItems.filter(c => c.id !== prod.id)
+    let minusOrder = removedItem.map(cat=>{
+      if(cat.order > prod.order){
+        return {...cat, order: cat.order - 1}
+      }
+      return cat
+    })
+    sortByOrder(minusOrder)
+    let res = await axios.delete(`/api/categories/${catId}/products/${prod.id}`)
+    // console.log('deleted',res.data)
+    catItems.forEach(cat=>{
+      if(cat.order > prod.order){
+        deleteUpdate(cat)
+      }
+    })
   }
 
   const handleClick = (id) => {
@@ -88,6 +110,7 @@ const ShowCategory = (props) => {
       }
       return c
     })
+    // console.log(UpdatedItem)
     sortByOrder(UpdatedItem)
     catItems.forEach(cat=>{
       if(cat.order < prod.order){
@@ -254,7 +277,7 @@ const ShowCategory = (props) => {
                     </Button>
                     <Button
                       variant="primary"
-                      onClick={(e) => handleDelete(d.id)}
+                      onClick={(e) => handleDelete(d)}
                     >
                       Delete
                     </Button>

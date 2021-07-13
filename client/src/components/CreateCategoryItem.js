@@ -20,10 +20,10 @@ const CreateCategoryItem = (props) => {
   const [catCarousel, setCatCarousel] = useState(props.category_carousel ? props.category_carousel : false);
   const [order, setOrder] = useState(props.order);
 
-  console.log('limitedTime', limitedTime)
-  console.log('specialItem', specialItem)
-  console.log('catCarousel', catCarousel)
-  console.log('----------------------')
+  // console.log('limitedTime', limitedTime)
+  // console.log('specialItem', specialItem)
+  // console.log('catCarousel', catCarousel)
+  // console.log('----------------------')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
