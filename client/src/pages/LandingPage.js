@@ -1,97 +1,76 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Card, Carousel, Image } from 'react-bootstrap'
-import Footer from '../components/Footer'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Card, Carousel, Image, Navbar } from "react-bootstrap";
+import Footer from "../components/Footer";
+import LPGrid1Carousel from "../components/LPGrid1Carousel";
+import LPGrid2Carousel from "../components/LPGrid2Carousel";
+import LPSpecials from "../components/LPSpecials";
 
 const LandingPage = () => {
-  const [landingPage, setLandingPage] = useState([])
+  const [landingPage, setLandingPage] = useState([]);
 
-  useEffect(()=>{
-  getLandingPage()
-  },[])
+  useEffect(() => {
+    getLandingPage();
+  }, []);
 
-  const getLandingPage = async ()=>{
-  try{
-  let res = await axios.get(`/api/landing_pages`)
-  setLandingPage(res.data[0])
-  }catch (err){
-  alert('err check console')
-  console.log(err)
-  }
-}
+  const getLandingPage = async () => {
+    try {
+      let res = await axios.get(`/api/landing_pages`);
+      setLandingPage(res.data[0]);
+      console.log(res.data[0]);
+    } catch (err) {
+      console.log("err check console");
+      console.log(err);
+    }
+  };
   return (
     <div>
-{/* header carousel */}
-    <Carousel fade>
-      <Carousel.Item>
-      <Image style={{width: 1200, height: 600}} src="https://i.imgur.com/UyOigK2.jpeg" />
-    {/* <h1>{landingPage.main_background_img}</h1> */}
-    <Carousel.Caption>
-        <h1>{landingPage.main_title}</h1>
-    </Carousel.Caption>
-    </Carousel.Item>
-    
-    <Carousel.Item>
-      {/* <h1>{landingPage.main_background_img}</h1> */}
-      <Image style={{width: 1200, height: 600}} src="https://i.imgur.com/PV8PNU5.jpeg" />
-      <Carousel.Caption>
-          <h1>{landingPage.main_title}</h1>
-      </Carousel.Caption>
-    </Carousel.Item>   
-
-    <Carousel.Item>
-      <Image style={{width: 1200, height: 600}} src="https://i.imgur.com/K6r5cDV.jpeg"/>
-      {/* <h1>{landingPage.main_background_img}</h1> */}
-      <Carousel.Caption>
-          <h1>{landingPage.main_title}</h1>
-      </Carousel.Caption>
-    </Carousel.Item>
-  </Carousel>
-
-{/* special bakery items */}
-    <h1 className="text-center">{landingPage.carousel_title}</h1>
-    <div className="card-deck">
-      <Carousel>
-        <Carousel.Item>
-      <Card style={{display: 'flex'}}>
-      <Card.Img src="https://i.imgur.com/bnDlaP2.jpeg" />
-        <Card.Body>
-          <Card.Title className="text-center">item</Card.Title>
-          <Card.Text className="text-center">price</Card.Text>
-        </Card.Body>
+      {/* header */}
+      <Navbar />
+      <Card className="bg-dark text-white">
+        <Card.Img src={landingPage.main_background_img} />
+        <Card.ImgOverlay>
+          <Card.Title>{landingPage.main_title}</Card.Title>
+        </Card.ImgOverlay>
       </Card>
-      </Carousel.Item>
-      <Carousel.Item>
-      <Card>
-      <Card.Img src="https://i.imgur.com/bnDlaP2.jpeg" />
-        <Card.Body>
-          <Card.Title className="text-center">item</Card.Title>
-          <Card.Text className="text-center">price</Card.Text>
-        </Card.Body>
-      </Card>
-      </Carousel.Item>
-    </Carousel>
-    <br/>
-    </div>
-{/* cakes */}
+
+<br />
+
+      {/* special bakery items */}
+        <div><LPSpecials/></div>
+
+<br />
+
+      {/* cakes */}
       <Card>
         <Card.Body>
           <Card.Title>{landingPage.grid_title_1}</Card.Title>
           <Card.Text>{landingPage.grid_description_1}</Card.Text>
-        <Card.Img src="https://i.imgur.com/lfy6Tr5.jpeg" />
+          <LPGrid1Carousel />
         </Card.Body>
       </Card>
-{/* boba */}
+<br/>
+      {/* boba */}
       <Card>
         <Card.Body>
           <Card.Title>{landingPage.grid_title_2}</Card.Title>
           <Card.Text>{landingPage.grid_description_2}</Card.Text>
-        <Card.Img src="https://i.imgur.com/xeXzatY.jpeg" />
+          <LPGrid2Carousel/>
         </Card.Body>
       </Card>
-      <Footer/>
+{/* <br/>
+      bakery
+      <Card>
+        <Card.Body>
+          <Card.Title>{landingPage.grid_title_3}</Card.Title>
+          <Card.Text>{landingPage.grid_description_3}</Card.Text>
+          <LPGrid3Carousel/>
+        </Card.Body>
+      </Card> */}
+<br/>
+    <Footer />
   </div>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;

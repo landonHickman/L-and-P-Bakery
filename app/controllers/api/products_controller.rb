@@ -6,6 +6,22 @@ class Api::ProductsController < ApplicationController
       render json: @category.products.all
   end
 
+  def all_special_products
+    render json: Product.all_special_products
+  end
+
+  def all_limited_time_cake_products
+    render json: Product.all_limited_time_cake_products
+  end
+
+  def all_limited_time_boba_products
+    render json: Product.all_limited_time_boba_products
+  end
+
+  def all_limited_time_bakery_products
+    render json: Product.all_limited_time_bakery_products
+  end
+
   def show
     product = @category.products.find(params[:id])
     render json: product

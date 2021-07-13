@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import {Button, Card, Image} from "react-bootstrap";
 import {useHistory} from 'react-router-dom'
+import Footer from "../components/Footer";
 // import Footer from "./src/components/footer.js"
 
 // get about page info
@@ -51,6 +52,7 @@ const AboutPages = () => {
         <Button variant="primary" onClick={() => history.push("/application") }>{aboutPages.cta_button_text}</Button>
       </Card.Body>
     </Card>
+    <Footer/>
       </div>
   );
 };
