@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Card, Carousel, Image } from 'react-bootstrap'
+import { Card, Carousel, Image, Navbar } from 'react-bootstrap'
 import Footer from '../components/Footer'
+import LPSpecials from '../components/LPSpecials'
 
 const LandingPage = () => {
   const [landingPage, setLandingPage] = useState([])
@@ -22,10 +23,11 @@ const LandingPage = () => {
   return (
     <div>
 {/* header carousel */}
+  <Navbar/>
     <Carousel fade>
       <Carousel.Item>
       <Image style={{width: 1200, height: 600}} src="https://i.imgur.com/UyOigK2.jpeg" />
-    {/* <h1>{landingPage.main_background_img}</h1> */}
+    <h1>{landingPage.main_background_img}</h1>
     <Carousel.Caption>
         <h1>{landingPage.main_title}</h1>
     </Carousel.Caption>
@@ -47,32 +49,12 @@ const LandingPage = () => {
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>
+<br/>
 
 {/* special bakery items */}
-    <h1 className="text-center">{landingPage.carousel_title}</h1>
-    <div className="card-deck">
-      <Carousel>
-        <Carousel.Item>
-      <Card style={{display: 'flex'}}>
-      <Card.Img src="https://i.imgur.com/bnDlaP2.jpeg" />
-        <Card.Body>
-          <Card.Title className="text-center">item</Card.Title>
-          <Card.Text className="text-center">price</Card.Text>
-        </Card.Body>
-      </Card>
-      </Carousel.Item>
-      <Carousel.Item>
-      <Card>
-      <Card.Img src="https://i.imgur.com/bnDlaP2.jpeg" />
-        <Card.Body>
-          <Card.Title className="text-center">item</Card.Title>
-          <Card.Text className="text-center">price</Card.Text>
-        </Card.Body>
-      </Card>
-      </Carousel.Item>
-    </Carousel>
-    <br/>
-    </div>
+<div><LPSpecials/></div>
+
+<br/>
 {/* cakes */}
       <Card>
         <Card.Body>
@@ -95,3 +77,4 @@ const LandingPage = () => {
 }
 
 export default LandingPage
+

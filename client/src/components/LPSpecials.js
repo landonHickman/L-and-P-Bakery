@@ -1,29 +1,54 @@
-
-// want to get price and item name (desc?)
-//  from drinks bakery cakes ONLY 
-//  special_boolean: true
-import {useState, useEffect} from 'react'
+import axios from 'axios'
+import React,{useEffect, useState} from 'react'
+import { Carousel } from 'react-bootstrap'
 
 const LPSpecials = () => {
-  const [products, setProducts] = useState([])
 
+  const [specProducts, setSpecProducts] = useState([])
 
-//   useEffect(()=>{
-//       getLPSpecials()
-//   },[])
+  useEffect(()=>{
+    getLPSpecials()
+  },[])
 
-//   const getLPSpecials = () => {
-//     const special_item_carousel 
-//     if special_item_carousel:true return
-// }
+  const getLPSpecials = async () => {
+    try{
+      let res = await axios.get(`/api/all_special_products`)
+      setSpecProducts(res.data)
+      console.log(res.data)
+    }catch (err){
+      alert('err check console')
+      console.log(err)
+    }
+  }
+  
+  const renderSpecProducts = () => {
+    return specProducts.map((specProduct) => {
+      return (
+        <div key={specProduct.id}>
+          <h3>{specProduct.name}</h3>
+        </div>
+      )
+    })
+  }
+  return(
+    <div>
+      <h1>hello</h1>
+      {renderSpecProducts()}
+      {/* <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src= {specProducts.image}
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h3>{specProducts.name}</h3>
+            <p>{specProducts.price}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel> */}
+    </div>
+  )
+}
 
 export default LPSpecials
-// const LPSpecials = () => {
-//   const {price, item, special_item_carousel} = useLPSpecials('/api/')
-
-// if special_item_carousel:true return(
-//   drinks.products.get(special_item_carousel),
-//   cakes.products.get(special_item_carousel),
-//   bakery.products.get(special_item_carousel)
-//   )
-// }

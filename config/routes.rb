@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :about_pages
     resources :categories 
     resources :products
+    get '/all_special_products', to: 'products#all_special_products'
     resources :landing_pages
     resources :footers
     resources :application_pages
