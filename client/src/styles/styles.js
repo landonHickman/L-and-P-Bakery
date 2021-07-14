@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Button} from 'react-bootstrap'
 
 export const PRIMARY_COLOR = 'steelblue';
 export const TEXT_COLOR = 'black';
@@ -36,7 +37,4 @@ export const MAIN_CONTAINER = styled.div`
   margin: 10px;
   padding: 20px;
 `
-export const styles= {
-  SmallPic: { height: "200px", backgroundColor: "grey", border: '2px solid red' },
-  LargePic: { height: "300px", backgroundColor: "grey", border: '2px solid red' }
-}
+
