@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Nav, Col, Image, Navbar, Row } from "react-bootstrap";
-
+// import LNP from '../images/LNP.png'
 const NavComponent = (props) => {
   const { getRightNav } = props;
   const [nav, setNav] = useState([]);

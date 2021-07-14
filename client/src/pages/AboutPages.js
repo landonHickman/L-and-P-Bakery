@@ -54,7 +54,6 @@ const AboutPages = () => {
         <Button variant="primary" onClick={() => history.push("/application") }>{aboutPages.cta_button_text}</Button>
       </Card.Body>
     </Card>
-    <Footer/>
       </div>
        <Footer/> 
       </>

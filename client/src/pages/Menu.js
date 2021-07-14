@@ -8,7 +8,7 @@ import Footer from "../components/Footer"
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
-  const [ products, setProduct] = useState([])
+  const [ product, setProduct] = useState([])
   const [show, setShow] = useState(true);
 
   useEffect(() => {
@@ -16,12 +16,12 @@ const Categories = () => {
     getProducts();
   }, []);
 
-  const getProduct = async () => {
-    let res = await axios.get(`/api/categories/${catId}/products/${productId}`);
-    // console.log("limited", res.data.limited_time);
-    // console.log("special", res.data.special_item_carousel);
-    setProduct(res.data);
-  };
+  // const getProduct = async () => {
+  //   let res = await axios.get(`/api/categories/${catId}/products/${productId}`);
+  //   // console.log("limited", res.data.limited_time);
+  //   // console.log("special", res.data.special_item_carousel);
+  //   setProduct(res.data);
+  // };
 
   const getCategories = () => {
     Axios.get("/api/categories")
