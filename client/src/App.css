@@ -16,11 +16,11 @@
 
 .customcake {
   position: relative;
-  width: 100%;
+  width: 1440px;
   height: 300px;
   background: rgb(50, 50, 50);
-  background: url(https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/mary_berrys_perfect_34317_16x9.jpg) no-repeat 50% 50% fixed;
-  background-size: 80%;
+  background: url(https://i.imgur.com/lfy6Tr5.jpeg) no-repeat 50% 50% fixed;
+  background-size: 90%;
   overflow: hidden;
 }
 

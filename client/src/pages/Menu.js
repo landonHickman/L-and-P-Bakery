@@ -3,16 +3,25 @@ import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Axios from "axios";
+import Footer from "../components/Footer"
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [ products, setProduct] = useState([])
   const [show, setShow] = useState(true);
 
   useEffect(() => {
     getCategories();
     getProducts();
   }, []);
+
+  const getProduct = async () => {
+    let res = await axios.get(`/api/categories/${catId}/products/${productId}`);
+    // console.log("limited", res.data.limited_time);
+    // console.log("special", res.data.special_item_carousel);
+    setProduct(res.data);
+  };
 
   const getCategories = () => {
     Axios.get("/api/categories")
@@ -60,17 +69,20 @@ const Categories = () => {
             </Card.Body>
           </Card>
             : null}
-          
+    
         </div>
       );
     });
   };
 
   return (
+    <>
     <div className="Menu">
       
-      <Card>{renderCategories()}</Card>
+      <Card>{renderCategories()}</Card> 
     </div>
+    <Footer/>
+</>
   );
 };
 

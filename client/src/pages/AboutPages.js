@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import {Button, Card, Image} from "react-bootstrap";
 import {useHistory} from 'react-router-dom'
+import Footer from "../components/Footer";
 // import Footer from "./src/components/footer.js"
 
 // get about page info
@@ -10,6 +11,7 @@ import {useHistory} from 'react-router-dom'
 //that contains "we are always looking for.... etc"
 //and a link to the application
 //import footer.
+
 const AboutPages = () => {
   const [aboutPages, setAboutPages] = useState([])
 
@@ -30,6 +32,7 @@ const AboutPages = () => {
 }
 
   return (
+    <>
     <div>
     <div className="card-deck">
     <Card className="text-center"style={{display: 'flex'}}>
@@ -51,7 +54,10 @@ const AboutPages = () => {
         <Button variant="primary" onClick={() => history.push("/application") }>{aboutPages.cta_button_text}</Button>
       </Card.Body>
     </Card>
+    <Footer/>
       </div>
+       <Footer/> 
+      </>
   );
 };
 
