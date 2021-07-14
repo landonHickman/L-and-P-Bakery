@@ -3,17 +3,17 @@ import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Axios from "axios";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
-  const [ product, setProduct] = useState([])
+  // const [ products, setProduct] = useState([])
   const [show, setShow] = useState(true);
 
   useEffect(() => {
     getCategories();
-    getProducts();
+    // getProducts();
   }, []);
 
   // const getProduct = async () => {
@@ -59,17 +59,17 @@ const Categories = () => {
       );
       return (
         <div>
-
-          <Button variant="outline-primary" onClick={() => setShow(!show)}>Drinks</Button>{show ?
-            
-          <Card key={category.id}>
-            <Card.Body>
-              <Card.Title>{category.name}</Card.Title>
-              <Card.Text>{singleCategoryIdArray.length} Products</Card.Text>
-            </Card.Body>
-          </Card>
-            : null}
-    
+          <Button variant="outline-primary" onClick={() => setShow(!show)}>
+            Drinks
+          </Button>
+          {show ? (
+            <Card key={category.id}>
+              <Card.Body>
+                <Card.Title>{category.name}</Card.Title>
+                <Card.Text>{singleCategoryIdArray.length} Products</Card.Text>
+              </Card.Body>
+            </Card>
+          ) : null}
         </div>
       );
     });
@@ -77,12 +77,11 @@ const Categories = () => {
 
   return (
     <>
-    <div className="Menu">
-      
-      <Card>{renderCategories()}</Card> 
-    </div>
-    <Footer/>
-</>
+      <div className="Menu">
+        <Card>{renderCategories()}</Card> 
+      </div>
+      <Footer />
+    </>
   );
 };
 
