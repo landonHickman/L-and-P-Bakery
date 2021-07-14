@@ -255,8 +255,7 @@ const ShowCategory = (props) => {
                   <Card.Img variant="top" src={d.image} />
                   <Card.Body>
                     <Card.Title>{d.name}</Card.Title>
-                    {/* TODO: remove order */}
-                    <Card.Subtitle>${d.price} Order:{d.order}</Card.Subtitle>
+                    <Card.Subtitle>${d.price}</Card.Subtitle>
                     <Card.Text>{d.description}</Card.Text>
                     <ListGroup className="list-group-flush">
                       <ListGroupItem>
@@ -270,17 +269,18 @@ const ShowCategory = (props) => {
                       </ListGroupItem>
                     </ListGroup>
                     <Button
-                      variant="primary"
+                      variant="dark"
                       onClick={(e) => handleClick(d.id)}
                     >
                       Edit
                     </Button>
                     <Button
-                      variant="primary"
+                      variant="danger"
                       onClick={(e) => handleDelete(d)}
                     >
                       Delete
                     </Button>
+                    
                     <Button onClick={(e) =>handleTop(d)}>Top</Button>
                     <Button onClick={(e) =>handleBot(d)}>Bottom</Button>
                     <Button onClick={(e) =>handleLeft(d)}>left</Button>
