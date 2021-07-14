@@ -17,14 +17,13 @@ const LandingPage = () => {
     try {
       let res = await axios.get(`/api/landing_pages`);
       setLandingPage(res.data[0]);
-      console.log(res.data[0]);
     } catch (err) {
       console.log("err check console");
       console.log(err);
     }
   };
   return (
-    <div>
+    <div style={{background: 'aliceblue'}}>
       {/* header */}
       <Navbar />
       <Card className="bg-dark text-white">
@@ -34,40 +33,30 @@ const LandingPage = () => {
         </Card.ImgOverlay>
       </Card>
 
-<br />
-
       {/* special bakery items */}
         <div><LPSpecials/></div>
 
-<br />
-
       {/* cakes */}
-      <Card>
-        <Card.Body>
-          <Card.Title>{landingPage.grid_title_1}</Card.Title>
-          <Card.Text>{landingPage.grid_description_1}</Card.Text>
-          <LPGrid1Carousel />
-        </Card.Body>
-      </Card>
-<br/>
+      <div className="card-deck">
+        <Card>
+          <Card.Body style={{background: 'lightgray', padding:'150px'}}>
+            <Card.Title>{landingPage.grid_title_1}</Card.Title>
+            <Card.Text>{landingPage.grid_description_1}</Card.Text>
+          </Card.Body>
+        </Card>
+        <Card><LPGrid1Carousel /></Card>
+      </div>
+
       {/* boba */}
-      <Card>
-        <Card.Body>
-          <Card.Title>{landingPage.grid_title_2}</Card.Title>
-          <Card.Text>{landingPage.grid_description_2}</Card.Text>
-          <LPGrid2Carousel/>
-        </Card.Body>
-      </Card>
-{/* <br/>
-      bakery
-      <Card>
-        <Card.Body>
-          <Card.Title>{landingPage.grid_title_3}</Card.Title>
-          <Card.Text>{landingPage.grid_description_3}</Card.Text>
-          <LPGrid3Carousel/>
-        </Card.Body>
-      </Card> */}
-<br/>
+      <div className="card-deck">
+        <Card><LPGrid2Carousel /></Card>
+        <Card>
+          <Card.Body style={{background: 'lightgray', padding:'150px'}}>
+            <Card.Title>{landingPage.grid_title_2}</Card.Title>
+            <Card.Text>{landingPage.grid_description_2}</Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
     <Footer />
   </div>
   );
