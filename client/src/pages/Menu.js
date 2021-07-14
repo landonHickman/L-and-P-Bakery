@@ -91,7 +91,7 @@ const Categories = () => {
           style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
         >
           <CardGroup >
-            <Row md={4} sm={2}>
+            <Row lg={4} md={3} sm={2}>
               {renderProducts()}
             </Row>
           </CardGroup>
