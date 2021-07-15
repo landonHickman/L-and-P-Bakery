@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Button } from "react-bootstrap";
 import ShowCategory from "../components/ShowCategory";
 import axios from "axios";
+import {styles, MenuH1} from '../styles/MenuStyles'
 
 
 const Editor3 = () => {
@@ -44,13 +45,13 @@ const Editor3 = () => {
 
   return (
     <div>
-        {showCat1 && <h1 style={{textAlign: 'center'}}>{cat1.name}</h1>}
-        {showCat2 && <h1 style={{textAlign: 'center'}}>{cat2.name}</h1>}
-        {showCat3 && <h1 style={{textAlign: 'center'}}>{cat3.name}</h1>}
+        {showCat1 && <MenuH1 style={{textAlign: 'center'}}>{cat1.name}</MenuH1>}
+        {showCat2 && <MenuH1 style={{textAlign: 'center'}}>{cat2.name}</MenuH1>}
+        {showCat3 && <MenuH1 style={{textAlign: 'center'}}>{cat3.name}</MenuH1>}
       <div style={{textAlign: 'center'}}>
-        <Button variant="outline-primary" onClick={cat1Handle}>{cat1.name}</Button>
-        <Button variant="outline-primary" onClick={cat2Handle}>{cat2.name}</Button>
-        <Button variant="outline-primary" onClick={cat3Handle}>{cat3.name}</Button>
+        <Button style={styles.menuButton} variant="default" onClick={cat1Handle}>{cat1.name}</Button>
+        <Button style={styles.menuButton} variant="default" onClick={cat2Handle}>{cat2.name}</Button>
+        <Button style={styles.menuButton} variant="default" onClick={cat3Handle}>{cat3.name}</Button>
       </div>
         {showCat1 && <ShowCategory catId={cat1.id}/>}
         {showCat2 && <ShowCategory catId={cat2.id}/>}
