@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Nav, Col, Image, Navbar, Row } from "react-bootstrap";
-// import LNP from '../images/LNP.png'
+import LNP from '../images/LNP.png'
+
 const NavComponent = (props) => {
   const { getRightNav } = props;
   const [nav, setNav] = useState([]);
@@ -18,20 +19,19 @@ const NavComponent = (props) => {
   const renderNav = () => {
     return nav.map((n) => {
       return (
-        <div key={n.id} style={{width: '100%'}}>
+        <div key={n.id} style={{width: '100%',}}>
           <Row style={{display: 'flex'}}>
             <Navbar.Brand href="/">
               <Image
-                src="https://i.imgur.com/ViaAZKy.jpg"
-                style={{ height: "50px" }}
-                thumbnail
+                src={LNP}
+                style={{ height: "90px" }}
                 roundedCircle
               />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav style={{display: 'flex', width: '100%'}}>
-                <Col sm={'auto'} style={styles.pad}>
+              <Nav style={{display: 'flex', width: '100%'}} >
+                <Col sm={'auto'} style={styles.pad} >
                   <Nav.Link href="/menu">{n.nav_text_1}</Nav.Link>
                 </Col>
                 <Col sm={'auto'} style={styles.pad}>
@@ -45,6 +45,7 @@ const NavComponent = (props) => {
             </Navbar.Collapse>
           </Row>
         </div>
+        
       );
     });
   };
@@ -57,4 +58,6 @@ const styles= {
     padding: '0',
   }
 }
+
+
 export default NavComponent;

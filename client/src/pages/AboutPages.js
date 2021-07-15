@@ -48,13 +48,14 @@ const AboutPages = () => {
       <Image src="https://i.imgur.com/0jOBZtn.jpeg" fluid />
     </Card>
     </div>
-    <Card className="text-center">
-      <Card.Body>
+    <Card>
+      <Card.Body className="text-center">
         <h1>{aboutPages.cta_title}</h1>
         <Button variant="primary" onClick={() => history.push("/application") }>{aboutPages.cta_button_text}</Button>
       </Card.Body>
     </Card>
       </div>
+      <p></p>
        <Footer/> 
       </>
   );
