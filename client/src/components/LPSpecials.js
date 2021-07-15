@@ -22,7 +22,7 @@ const LPSpecials = () => {
   const renderSpecProducts = () => {
     return specProducts.map((specProduct) => {
       return (
-        <Carousel.Item >
+        <Carousel.Item key={specProduct.id}>
           <img
             className="d-block w-100"
             src={specProduct.image}
@@ -37,9 +37,7 @@ const LPSpecials = () => {
     })
   }
   return (
-    <div>
       <Carousel>{renderSpecProducts()}</Carousel>
-    </div>
   )};
 
 export default LPSpecials
