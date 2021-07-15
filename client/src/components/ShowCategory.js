@@ -20,6 +20,17 @@ import {
   Clock,
   StarFill,
 } from "react-bootstrap-icons";
+import {
+  styles,
+  MenuCol,
+  MenuCards,
+  MenuImgIcons,
+  ButtonDiv,
+  MenuRow,
+  MenuEditLegend,
+  MenuCardPrice,
+  MenuCardTitle,
+} from "../styles/MenuStyles";
 
 const ShowCategory = (props) => {
   const { catId } = props;
@@ -261,7 +272,7 @@ const ShowCategory = (props) => {
 
   const limitBoolean = (d) => {
     if (d.limited_time === true) {
-      return <StarFill />;
+      return <StarFill title="Limited Time" />;
     }
   };
   const SpecialBoolean = (d) => {
@@ -277,59 +288,73 @@ const ShowCategory = (props) => {
   const renderProducts = () => {
     return catItems.map((d) => {
       return (
-        <div key={d.id}>
-          <Card style={{ width: "16rem", margin: "5px" }}>
-            <Card.Img variant="top" src={d.image} />
-            <Card.ImgOverlay>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <div>
-                  {limitBoolean(d)}
-                  {SpecialBoolean(d)}
-                  {CarouselBoolean(d)}
-                </div>
-                <div>
-                  <CaretLeftFill onClick={(e) => handleLeft(d)} />
-                  <CaretRightFill onClick={(e) => handleRight(d)} />
-                </div>
-              </div>
-            </Card.ImgOverlay>
-            <Card.Body>
-              <Card.Title>{d.name}</Card.Title>
-              <Card.Subtitle>${d.price}</Card.Subtitle>
-              <Card.Text>{d.description}</Card.Text>
-              <ListGroup className="list-group-flush"></ListGroup>
-              <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
-
-              <Button
-                style={{ position: "relative" }}
-                variant="dark"
-                onClick={(e) => handleClick(d.id)}
-                >
-                Edit
-              </Button>
-              <Button
-                style={{ position: "relative" }}
-                variant="danger"
-                onClick={(e) => handleDelete(d)}
-                >
-                Delete
-              </Button>
-              <DropdownButton variant="outline-dark" id="dropdown-basic-button" title="Move">
-                <Dropdown.Item onClick={(e) => handleTop(d)}>Top</Dropdown.Item>
-                <Dropdown.Item onClick={(e) => handleBot(d)}>
-                  Bottom
-                </Dropdown.Item>
-              </DropdownButton>
-                </div>
-            </Card.Body>
-          </Card>
-        </div>
+        <React.Fragment key={d.id}>
+          <MenuCol>
+            <MenuCards>
+              <Card.Img variant="top" src={d.image} />
+              <Card.ImgOverlay>
+                <MenuImgIcons>
+                  <div>
+                    {limitBoolean(d)}
+                    {SpecialBoolean(d)}
+                    {CarouselBoolean(d)}
+                  </div>
+                  <div>
+                    <CaretLeftFill
+                      style={styles.arrows}
+                      onClick={(e) => handleLeft(d)}
+                    />
+                    <CaretRightFill
+                      style={styles.arrows}
+                      onClick={(e) => handleRight(d)}
+                    />
+                  </div>
+                </MenuImgIcons>
+              </Card.ImgOverlay>
+              <Card.Body>
+                <MenuCardTitle>{d.name}</MenuCardTitle>
+                <MenuCardPrice>
+                  ${d.price}
+                </MenuCardPrice>
+                {/* <Card.Text>{d.description}</Card.Text> */}
+                <ButtonDiv>
+                  <Button
+                    style={{ position: "relative" }}
+                    variant="dark"
+                    onClick={(e) => handleClick(d.id)}
+                  >
+                    Edit
+                  </Button>
+                  <Button
+                    style={{ position: "relative" }}
+                    variant="danger"
+                    onClick={(e) => handleDelete(d)}
+                  >
+                    Delete
+                  </Button>
+                  <DropdownButton
+                    variant="outline-dark"
+                    id="dropdown-basic-button"
+                    title="Move"
+                  >
+                    <Dropdown.Item onClick={(e) => handleTop(d)}>
+                      Top
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={(e) => handleBot(d)}>
+                      Bottom
+                    </Dropdown.Item>
+                  </DropdownButton>
+                </ButtonDiv>
+              </Card.Body>
+            </MenuCards>
+          </MenuCol>
+        </React.Fragment>
       );
     });
   };
 
   return (
-    <div style={{textAlign: 'center'}}>
+    <div style={{ textAlign: "center" }}>
       {showCreate && (
         <CreateCategoryItem
           catId={catId}
@@ -345,23 +370,27 @@ const ShowCategory = (props) => {
           catItems={catItems}
         />
       )}
-      
-      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        <CardGroup>
-          <Row lg={4} md={3} sm={2} style={{display: 'flex', justifyContent: 'center'}}>
-            {showItems && renderProducts()}
-          </Row>
-        </CardGroup>
+
+      <div>
+        <MenuRow lg={4} md={3} sm={2}>
+          {showItems && renderProducts()}
+        </MenuRow>
       </div>
-      
-      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-      <StarFill />
-      Limited Time
-      <Clock />
-      Special Bakery Items
-      <ArrowClockwise />
-        Category Carousel
-      </div>
+
+      <MenuEditLegend>
+        <div>
+          <StarFill style={styles.iconsLegend} />
+          Limited Time Only
+        </div>
+        <div>
+          <Clock style={styles.iconsLegend} />
+          Special Bakery Items
+        </div>
+        <div>
+          <ArrowClockwise style={styles.iconsLegend} />
+          Category Carousel
+        </div>
+      </MenuEditLegend>
     </div>
   );
 };

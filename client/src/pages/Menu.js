@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Container, CardGroup, ListGroupItem, Button, Row } from "react-bootstrap";
 import Footer from "../components/Footer";
 import axios from "axios";
-import {styles, MenuH1} from '../styles/MenuStyles'
+import {styles, MenuH1, MenuButton} from '../styles/MenuStyles'
 
 import MenuCard from "../components/MenuCard";
 
@@ -54,13 +54,12 @@ const Categories = () => {
     return categories.map((category) => {
       return (
         <div key={category.id}>
-          <Button
+          <MenuButton
             variant="default"
-            onClick={() => handleCategoryButtonClick(category)}
-            style={styles.menuButton}
+            onClick={() => handleCategoryButtonClick(category)}  
           >
             {category.name}
-          </Button>
+          </MenuButton>
         </div>
       );
     });
