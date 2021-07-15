@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Container, CardGroup, ListGroupItem, Button, Row } from "react-bootstrap";
 import Footer from "../components/Footer";
 import axios from "axios";
-import {styles, MenuH1, MenuButton} from '../styles/MenuStyles'
+import {styles, MenuH1, MenuButton, MenuRow} from '../styles/MenuStyles'
 
 import MenuCard from "../components/MenuCard";
 
@@ -68,9 +68,9 @@ const Categories = () => {
   const renderProducts = () => {
     return products.map((product) => {
       return (
-        <div key={product.id}>
+        <React.Fragment key={product.id}>
           <MenuCard product={product} />
-        </div>
+        </React.Fragment>
       );
     });
   };
@@ -86,11 +86,9 @@ const Categories = () => {
           {renderCategories()}
         </div>
         <div>
-          <CardGroup >
-            <Row lg={4} md={3} sm={2}>
+            <MenuRow lg={4} md={3} sm={2}>
               {renderProducts()}
-            </Row>
-          </CardGroup>
+            </MenuRow>
         </div>
       </div>
       <Footer />

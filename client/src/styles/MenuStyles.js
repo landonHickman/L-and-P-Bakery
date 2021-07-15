@@ -2,26 +2,14 @@ import { Card, Col, Button, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 
 export const styles= {
-  menuButton: {
-    borderRadius: '25px',
-    border: '1px solid black',
-    margin: '10px',
-    marginBottom: '50px',
-    paddingRight: '25px',
-    paddingLeft: '25px',
-  },
   card: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
   },
-  cardTitle: {paddingTop: "50px", marginBottom: "0px"},
-  cardPrice: { marginBottom: "25px", paddingTop: "20px" },
-  legend: {display: 'flex', alignItems: 'center'},
   iconsLegend: {marginBottom: '4px', marginRight: '10px'},
   arrows: {cursor: 'pointer'},
-  
 }
 export const MenuImgIcons = styled.div`
   display: flex;
@@ -39,13 +27,13 @@ export const MenuCol = styled(Col)`
   margin: 10px 10px 20px 10px;
   display: flex;
   flex: 1;
-  justifyContent: center;
+  justify-content: center;
 `
 export const MenuCards = styled(Card)`
-  width: 16rem !important;
-  height: 25rem !important;
+  width: 16rem;
+  height: 100%;
   border: 1px black solid;
-  border-radius: 5px;
+  border-radius: 4px;
 `
 export const MenuButton = styled(Button)`
   border-radius: 25px;
@@ -60,6 +48,7 @@ export const ButtonDiv = styled.div`
 display: flex;
 justify-content: space-evenly;
 flex: auto;
+margin-bottom: 25px;
 `
 export const MenuRow = styled(Row)`
   display: flex;
