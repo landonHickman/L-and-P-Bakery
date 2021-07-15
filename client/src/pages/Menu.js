@@ -10,7 +10,8 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState([]);
   const [products, setProducts] = useState([]);
-  const [show, setShow] = useState(true);
+  const [loading, setLoading] = useState(true)
+
 
   useEffect(() => {
     getAxios();
@@ -21,6 +22,8 @@ const Categories = () => {
       let res = await axios.get("/api/categories");
       // console.log('categories',res.data)
       setCategories(res.data);
+      handleCategoryButtonClick(res.data[0])
+      setLoading(false)
     } catch (err) {
       console.log("inside catch getAxios", err);
       console.log("inside catch getAxios", err.response);
@@ -73,23 +76,17 @@ const Categories = () => {
     });
   };
 
+  if(loading) return <p>Loading</p>
   return (
     <>
       <div style={{ textAlign: "center" }}>
         <MenuH1>{categoryTitle}</MenuH1>
         <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
+          style={styles.card}
         >
           {renderCategories()}
         </div>
-        <div
-          style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
-        >
+        <div>
           <CardGroup >
             <Row lg={4} md={3} sm={2}>
               {renderProducts()}
