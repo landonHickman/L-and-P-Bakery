@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Row, Col} from "react-bootstrap";
 
 const LPSpecials = () => {
   const [specProducts, setSpecProducts] = useState([]);
@@ -22,7 +22,10 @@ const LPSpecials = () => {
   const renderSpecProducts = () => {
     return specProducts.map((specProduct) => {
       return (
-        <Carousel.Item key={specProduct.id}>
+        <Carousel.Item key={specProduct.id} align= 'center'>
+          <Row xs={1} xs={2} className="g-4">
+          {Array.from({ length:2  }).map(() => (
+          <Col>
           <img
             className="d-block w-100"
             src={specProduct.image}
@@ -30,9 +33,13 @@ const LPSpecials = () => {
           />
           <Carousel.Caption>
             <h3>{specProduct.name}</h3>
-            <p>{specProduct.price} </p>
+            <p>${specProduct.price} </p>
           </Carousel.Caption>
-        </Carousel.Item>
+
+        </Col>
+        ))}
+        </Row>
+      </Carousel.Item>
       )
     })
   }
