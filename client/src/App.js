@@ -21,7 +21,7 @@ function App() {
     <>
     <FetchUser>
     <NavBar />
-      <Container>
+      <Container fluid>
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/about_pages' component={AboutPages} />

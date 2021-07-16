@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Carousel } from "react-bootstrap";
+import { Card, Carousel } from "react-bootstrap";
 
 const LPGrid2Carousel = () => {
   const [limitedTimeBobaProducts, setLimitedTimeBobaProducts] = useState([]);
@@ -21,18 +21,20 @@ const LPGrid2Carousel = () => {
   const renderBobaProducts = () => {
     return limitedTimeBobaProducts.map((product) => {
       return (
-        <Carousel.Item >
-          <img key={product.id}
-            className="d-block w-100"
-            src={product.image}
-            alt="First slide"
-          />
-        </Carousel.Item>
+          <Carousel.Item key={product.id}>
+            <img 
+              className="d-block w-100"
+              src={product.image}
+              alt="First slide"
+            />
+          </Carousel.Item>
       );
     });
   };
 
-  return <Carousel>{renderBobaProducts()}</Carousel>;
+  return (
+  <Carousel>{renderBobaProducts()}</Carousel>
+  )
 };
 
 export default LPGrid2Carousel;
