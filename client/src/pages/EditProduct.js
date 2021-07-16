@@ -19,6 +19,7 @@ const EditProduct = (props) => {
       // console.log("limited", res.data.limited_time);
       // console.log("special", res.data.special_item_carousel);
       setProduct(res.data);
+      console.log(res.data)
       setLoading(false)
     }catch(err){
       console.log(err)
@@ -27,7 +28,7 @@ const EditProduct = (props) => {
   };
 
   const updateCatItem = (i) => {
-    // console.log('catItems', product)
+    // console.log('products', product)
     // console.log('i',i)
     setProduct(i)
   }
@@ -68,7 +69,6 @@ const EditProduct = (props) => {
         order={product.order}
         special_item_carousel={product.special_item_carousel}
         updateCatItem={updateCatItem}
-        
       />
       <hr />
     </div>
