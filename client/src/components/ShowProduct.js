@@ -8,7 +8,7 @@ import { MenuCol, MenuCards, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice,
 const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder}) => {
 
 
-  console.log(category.id)
+  // console.log(category.id)
   // console.log(products)
 
   const limitBoolean = (d) => {

@@ -19,7 +19,7 @@ const EditProduct = (props) => {
       // console.log("limited", res.data.limited_time);
       // console.log("special", res.data.special_item_carousel);
       setProduct(res.data);
-      console.log(res.data)
+      // console.log(res.data)
       setLoading(false)
     }catch(err){
       console.log(err)
