@@ -1,13 +1,15 @@
+import axios from 'axios'
 import React, {useState} from 'react'
 import { Button, Card, Dropdown, DropdownButton } from 'react-bootstrap'
 import { ArrowClockwise, CaretLeftFill, CaretRightFill, Clock, StarFill } from 'react-bootstrap-icons'
 import EditProduct from '../pages/EditProduct'
 import { MenuCol, MenuCards, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv } from '../styles/MenuStyles'
 
-const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct}) => {
+const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder}) => {
 
 
   console.log(category.id)
+  // console.log(products)
 
   const limitBoolean = (d) => {
     if (d.limited_time === true) {
@@ -30,6 +32,35 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct}
     setProduct(prod)
     setShowEditForm(true);
     setShowCards(false)
+  };
+
+  const deleteUpdate = async (p) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${p.id}`, {
+        order: p.order - 1,
+      });
+      // console.log(res1.data.order)
+    } catch (err) {
+      console.log("inside deleteUpdate Catch", err);
+      console.log("inside deleteUpdate Catch", err.response);
+    }
+  };
+  const handleDelete = async (prod) => {
+    let removedItem = products.filter((p) => p.id !== prod.id);
+    let minusOrder = removedItem.map((r) => {
+      if (r.order > prod.order) {
+        return { ...r, order: r.order - 1 };
+      }
+      return r;
+    });
+    sortByOrder(minusOrder);
+    await axios.delete(`/api/categories/${category.id}/products/${prod.id}`);
+    // console.log('deleted',res.data)
+    products.forEach((p) => {
+      if (p.order > prod.order) {
+        deleteUpdate(p);
+      }
+    });
   };
 
   const card = () => {
@@ -57,7 +88,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct}
                 </MenuImgIcons>
               </Card.ImgOverlay>
               <Card.Body>
-                <MenuCardTitle>{prod.name}</MenuCardTitle>
+                <MenuCardTitle>{prod.name} {prod.order}</MenuCardTitle>
                 <MenuCardPrice>
                   ${prod.price}
                 </MenuCardPrice>
@@ -73,7 +104,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct}
                   <Button
                     style={{ position: "relative" }}
                     variant="danger"
-                    // onClick={(e) => handleDelete(d)}
+                    onClick={(e) => handleDelete(prod)}
                   >
                     Delete
                   </Button>

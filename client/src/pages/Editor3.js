@@ -67,7 +67,7 @@ const Editor3 = () => {
     return products.map(prod=>{
       return(
         <React.Fragment key={prod.id}>
-        <ShowProduct prod={prod} category={category} setShowCards={setShowCards} setShowEditForm={setShowEditForm} setProduct={setProduct}/>
+        <ShowProduct prod={prod} category={category} setShowCards={setShowCards} setShowEditForm={setShowEditForm} setProduct={setProduct} products={products} sortByOrder={sortByOrder}/>
       </React.Fragment>
     )
   })
