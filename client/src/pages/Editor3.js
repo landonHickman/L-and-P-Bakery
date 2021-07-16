@@ -108,11 +108,11 @@ const Editor3 = () => {
       <MenuEditLegend>
         <div>
           <StarFill style={styles.iconsLegend} />
-          Limited Time Only
+          Special Bakery Items
         </div>
         <div>
           <Clock style={styles.iconsLegend} />
-          Special Bakery Items
+          Limited Time Only
         </div>
         <div>
           <ArrowClockwise style={styles.iconsLegend} />

@@ -12,12 +12,13 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
 
   const limitBoolean = (d) => {
     if (d.limited_time === true) {
-      return <StarFill title="Limited Time" />;
+      return <Clock/>;
+      
     }
   };
   const SpecialBoolean = (d) => {
     if (d.special_item_carousel === true) {
-      return <Clock />;
+      return <StarFill/>;
     }
   };
   const CarouselBoolean = (d) => {

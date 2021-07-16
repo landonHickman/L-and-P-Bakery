@@ -37,7 +37,7 @@ export const MenuCards = styled(Card)`
 `
 export const MenuButton = styled(Button)`
   border-radius: 25px;
-  border: 1px solid black;
+  border: 2px solid black;
   margin: 10px;
   margin-bottom: 50px;
   padding-right: 25px;
