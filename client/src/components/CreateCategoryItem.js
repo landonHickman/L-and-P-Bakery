@@ -9,7 +9,7 @@ import axios from 'axios';
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const CreateCategoryItem = (props) => {
-  const {catId, createCat, productId, updateCatItem, products } = props
+  const {catId, createProduct, productId, updateCatItem, products } = props
 
   const [files, setFiles] = useState(props.image ? props.image : '');
   const [name, setName] = useState(props.name ? props.name : '');
@@ -23,7 +23,7 @@ const CreateCategoryItem = (props) => {
   // console.log('specialItem', specialItem)
   // console.log('catCarousel', catCarousel)
   // console.log('----------------------')
-  console.log('products', products)
+  // console.log('products', products)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,7 +71,7 @@ const CreateCategoryItem = (props) => {
             order: products.length + 1
             
           });
-          // createCat(res1.data)
+          createProduct(res1.data)
         }
         }
         

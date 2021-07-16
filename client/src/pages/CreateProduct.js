@@ -15,7 +15,7 @@ const CreateProduct = () => {
   const getCategories = async () => {
     try{
       let res = await axios.get(`/api/categories`)
-      console.log('categories',res.data)
+      // console.log('categories',res.data)
       setCategories(res.data)
     }catch(err){
       console.log('inside catch getCategories', err)
@@ -25,10 +25,15 @@ const CreateProduct = () => {
 
   const handleCategoryButtonClick = async (category) => {
     let res = await axios.get(`/api/categories/${category.id}/products`)
-    console.log(res.data)
+    // console.log(res.data)
     setProducts(res.data)
     setCategory(category)
-    console.log(category)
+    // console.log(category)
+  }
+
+  const createProduct = (prod) => {
+    setProducts([...products, prod])
+    console.log('worked',prod.order)
   }
 
   const renderCategoryButtons = () => {
@@ -49,10 +54,10 @@ const CreateProduct = () => {
   }
   return (
     <div style={{textAlign: 'center'}}>
-      {console.log(products)}
+      {/* {console.log(products)} */}
       <MenuH1>Create {category.name}</MenuH1>
       {renderCategoryButtons()}
-      <CreateCategoryItem catId={category.id} products={products}/>
+      <CreateCategoryItem catId={category.id} products={products} createProduct={createProduct}/>
     </div>
   )
 }
