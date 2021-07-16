@@ -157,6 +157,89 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
     }
   };
 
+  const catTopPut = async (c) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${c.id}`, {
+        order: c.order + 1,
+      });
+    } catch (err) {
+      console.log("Inside Catch catTopPut", err);
+      console.log("err.response", err.response);
+    }
+  };
+
+  const prodTopPut = async (p) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${p.id}`, {
+        order: 1,
+      });
+    } catch (err) {
+      console.log("Inside Catch prodTopPut", err);
+      console.log("err.response", err.response);
+    }
+  };
+
+  const handleTop = (prod) => {
+    let UpdatedItem = products.map((product) => {
+      if (product.id === prod.id) {
+        return { ...prod, order: 1 };
+      }
+      if (product.order < prod.order) {
+        return { ...product, order: product.order + 1 };
+      }
+      return product;
+    });
+    // console.log(UpdatedItem)
+    sortByOrder(UpdatedItem);
+    products.forEach((product) => {
+      if (product.order < prod.order) {
+        catTopPut(product);
+      }
+    });
+    prodTopPut(prod);
+  };
+
+  const catBotPut = async (c) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${c.id}`, {
+        order: c.order - 1,
+      });
+    } catch (err) {
+      console.log("Inside Catch catBotPut", err);
+      console.log("err.response", err.response);
+    }
+  };
+
+  const prodBotPut = async (p) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${p.id}`, {
+        order: products.length,
+      });
+    } catch (err) {
+      console.log("Inside Catch prodBotPut", err);
+      console.log("err.response", err.response);
+    }
+  };
+
+  const handleBot = (prod) => {
+    let UpdatedItem = products.map((product) => {
+      if (product.id === prod.id) {
+        return { ...prod, order: products.length };
+      }
+      if (product.order > prod.order) {
+        return { ...product, order: product.order - 1 };
+      }
+      return product;
+    });
+    sortByOrder(UpdatedItem);
+    products.forEach((product) => {
+      if (product.order > prod.order) {
+        catBotPut(product);
+      }
+    });
+    prodBotPut(prod);
+  };
+
   const card = () => {
     return(
       <MenuCol>
@@ -208,12 +291,12 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
                     title="Move"
                   >
                     <Dropdown.Item 
-                    // onClick={(e) => handleTop(d)}
+                    onClick={(e) => handleTop(prod)}
                     >
                       Top
                     </Dropdown.Item>
                     <Dropdown.Item 
-                    // onClick={(e) => handleBot(d)}
+                    onClick={(e) => handleBot(prod)}
                     >
                       Bottom
                     </Dropdown.Item>
