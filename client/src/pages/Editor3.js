@@ -1,64 +1,167 @@
-import React, {useState, useEffect} from "react";
-import { Button } from "react-bootstrap";
-import ShowCategory from "../components/ShowCategory";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import {
+  styles,
+  MenuH1,
+  MenuButton,
+  MenuRow,
+  MenuEditLegend,
+} from "../styles/MenuStyles";
+import ShowProduct from "../components/ShowProduct";
+import { ArrowClockwise, Clock, StarFill } from "react-bootstrap-icons";
+import EditProduct from "./EditProduct";
 
 const Editor3 = () => {
-  const [cat1, setCat1] = useState([])
-  const [cat2, setCat2] = useState([])
-  const [cat3, setCat3] = useState([])
-  const [showCat1, setShowCat1] = useState(false)
-  const [showCat2, setShowCat2] = useState(false)
-  const [showCat3, setShowCat3] = useState(false)
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showCards, setShowCards] = useState(true);
+  const [showEditForm, setShowEditForm] = useState(false);
 
-  useEffect(()=>{
-    getCategories()
-  },[])
+  useEffect(() => {
+    getCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const getCategories = async () => {
-    let res = await axios.get('/api/categories')
-    setCat1(res.data[0])
-    setCat2(res.data[1])
-    setCat3(res.data[2])
-  }
+    try {
+      let res = await axios.get("/api/categories");
+      setCategories(res.data);
+      handleCategoryButtonClick(res.data[0]);
+      setLoading(false);
+    } catch (err) {
+      console.log("inside catch getCategories", err);
+      console.log("inside catch getCategories", err.response);
+    }
+  };
 
-  const cat1Handle = () => {
-    setShowCat1(true)
-    setShowCat2(false)
-    setShowCat3(false)
-    // console.log(cat1.id)
-  }
-  const cat2Handle = () => {
-    setShowCat1(false)
-    setShowCat2(true)
-    setShowCat3(false)
-    // console.log(cat2.id)
-  }
-  const cat3Handle = () => {
-    setShowCat1(false)
-    setShowCat2(false)
-    setShowCat3(true)
-    // console.log(cat3.id)
-  }
+  const sortByOrder = (o) => {
+    let orderedProducts = o.sort((a, b) => {
+      return a.order - b.order;
+    });
+    setProducts(orderedProducts);
+    // console.log(orderedProducts)
+  };
 
+  const handleCategoryButtonClick = async (category) => {
+    try {
+      let res = await axios.get(`/api/categories/${category.id}/products`);
+      // console.log('products',res.data)
+      setCategory(category);
+      sortByOrder(res.data);
+      setShowEditForm(false);
+      setShowCards(true);
+    } catch (err) {
+      console.log("inside handleCategoryButtonClick", err);
+      console.log("inside handleCategoryButtonClick", err.response);
+    }
+  };
+
+  const renderCategoryButtons = () => {
+    return categories.map((cat) => {
+      return (
+        <React.Fragment key={cat.id}>
+          <MenuButton
+            variant="default"
+            onClick={(e) => handleCategoryButtonClick(cat)}
+          >
+            {cat.name}
+          </MenuButton>
+        </React.Fragment>
+      );
+    });
+  };
+
+  const renderProducts = () => {
+    return products.map((prod) => {
+      return (
+        <React.Fragment key={prod.id}>
+          <ShowProduct
+            prod={prod}
+            category={category}
+            setShowCards={setShowCards}
+            setShowEditForm={setShowEditForm}
+            setProduct={setProduct}
+            products={products}
+            sortByOrder={sortByOrder}
+          />
+        </React.Fragment>
+      );
+    });
+  };
+
+  const deleteUpdate = async (p) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${p.id}`, {
+        order: p.order - 1,
+      });
+      // console.log(res1.data.order)
+    } catch (err) {
+      console.log("inside deleteUpdate Catch", err);
+      console.log("inside deleteUpdate Catch", err.response);
+    }
+  };
+
+  const handleDelete = async (prod) => {
+    console.log(prod)
+    let removedItem = products.filter((p) => p.id !== prod.id);
+    let minusOrder = removedItem.map((r) => {
+      if (r.order > prod.order) {
+        return { ...r, order: r.order - 1 };
+      }
+      return r;
+    });
+    sortByOrder(minusOrder);
+    let res = await axios.delete(`/api/categories/${category.id}/products/${prod.id}`);
+    console.log('deleted',res.data)
+    products.forEach((p) => {
+      if (p.order > prod.order) {
+        deleteUpdate(p);
+      }
+    });
+    setShowEditForm(false)
+    setShowCards(true)
+  };
+
+  if (loading) return <p>Loading</p>;
   return (
     <div>
-        {showCat1 && <h1 style={{textAlign: 'center'}}>{cat1.name}</h1>}
-        {showCat2 && <h1 style={{textAlign: 'center'}}>{cat2.name}</h1>}
-        {showCat3 && <h1 style={{textAlign: 'center'}}>{cat3.name}</h1>}
       <div style={{textAlign: 'center'}}>
-        <Button variant="outline-primary" onClick={cat1Handle} >{cat1.name}</Button>
-        <Button variant="outline-primary" onClick={cat2Handle}>{cat2.name}</Button>
-        <Button variant="outline-primary" onClick={cat3Handle}>{cat3.name}</Button>
+
+      <MenuH1>{category.name}</MenuH1>
+      {renderCategoryButtons()}
       </div>
-        {showCat1 && <ShowCategory catId={cat1.id}/>}
-        {showCat2 && <ShowCategory catId={cat2.id}/>}
-        {showCat3 && <ShowCategory catId={cat3.id}/>}
+      <MenuRow>{showCards && renderProducts()}</MenuRow>
+      {showEditForm && (
+        <EditProduct
+          productId={product.id}
+          catId={category.id}
+          setProducts={setProducts}
+          products={products}
+          sortByOrder={sortByOrder}
+          handleDelete={handleDelete}
+          setShowEditForm={setShowEditForm}
+          setShowCards={setShowCards}
+        />
+      )}
+      <MenuEditLegend>
+        <div>
+          <StarFill style={styles.iconsLegend} />
+          Special Bakery Items
+        </div>
+        <div>
+          <Clock style={styles.iconsLegend} />
+          Limited Time Only
+        </div>
+        <div>
+          <ArrowClockwise style={styles.iconsLegend} />
+          Category Carousel
+        </div>
+      </MenuEditLegend>
     </div>
   );
 };
-
-
 
 export default Editor3;

@@ -19,9 +19,10 @@ const NavBar = () => {
       return (
         <>
           <NavDropdown title="Edit" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/editor1">Landing Page</NavDropdown.Item>
-            <NavDropdown.Item href="/editor2">About Page</NavDropdown.Item>
-            <NavDropdown.Item href="/editor3">Product Page</NavDropdown.Item>
+            <NavDropdown.Item href="/editor1">Edit Landing Page</NavDropdown.Item>
+            <NavDropdown.Item href="/editor2">Edit About Page</NavDropdown.Item>
+            <NavDropdown.Item href="/editor3">Edit Menu Page</NavDropdown.Item>
+            <NavDropdown.Item href="/createProduct">Create Product</NavDropdown.Item>
           </NavDropdown>
           <Col
             sm={{ span: "auto", offset: 2 }}
