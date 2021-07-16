@@ -23,6 +23,7 @@ const CreateCategoryItem = (props) => {
   // console.log('specialItem', specialItem)
   // console.log('catCarousel', catCarousel)
   // console.log('----------------------')
+  console.log('products', products)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,20 +56,25 @@ const CreateCategoryItem = (props) => {
           let res1 = await axios.post("/api/images/upload", data);
           var img1 = res1.data.cloud_image.secure_url;
         }
-        let res1 = await axios.post(`/api/categories/${catId}/products`, {
-          image: img1,
-          name: name,
-          price: price,
-          description: description,
-          limited_time: limitedTime,
-          special_item_carousel: specialItem,
-          category_carousel: catCarousel,
-          order: products.length + 1
-          
-        });
-        createCat(res1.data)
-      }
-      
+        if(products.length === 0){
+          alert('Please select a category!')
+        }else{
+
+          let res1 = await axios.post(`/api/categories/${catId}/products`, {
+            image: img1,
+            name: name,
+            price: price,
+            description: description,
+            limited_time: limitedTime,
+            special_item_carousel: specialItem,
+            category_carousel: catCarousel,
+            order: products.length + 1
+            
+          });
+          // createCat(res1.data)
+        }
+        }
+        
     } catch (err) {
       alert("err");
       console.log("err", err);
@@ -80,7 +86,6 @@ const CreateCategoryItem = (props) => {
 
   return (
     <>
-    <h1>{productId ? 'Edit Item' : 'Create Item'}</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Row>
