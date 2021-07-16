@@ -27,7 +27,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
     }
   };
 
-  const handleClick = (prod) => {
+  const handleEditClick = (prod) => {
     // console.log('edit clicked',prod)
     setProduct(prod)
     setShowEditForm(true);
@@ -45,6 +45,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
       console.log("inside deleteUpdate Catch", err.response);
     }
   };
+
   const handleDelete = async (prod) => {
     let removedItem = products.filter((p) => p.id !== prod.id);
     let minusOrder = removedItem.map((r) => {
@@ -63,6 +64,99 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
     });
   };
 
+
+  const catLeftPut = async (c) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${c.id}`, {
+        order: c.order - 1,
+      });
+    } catch (err) {
+      console.log("Inside Catch catLeftPut", err);
+      console.log("err.response", err.response);
+    }
+  };
+
+  const prodLeftPut = async (p) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${p.id}`, {
+        order: p.order + 1,
+      });
+    } catch (err) {
+      console.log("Inside Catch prodLeftPut", err);
+      console.log("err.response", err.response);
+    }
+  };
+
+  const handleRight = (prod) => {
+    let UpdatedItem = products.map((product) => {
+      if (prod.order === products.length){
+        return product
+      }
+      if (product.order === prod.order + 1) {
+        return { ...product, order: product.order - 1 };
+      }
+      if (product.id === prod.id) {
+        return { ...prod, order: prod.order + 1 };
+      }
+      return product;
+    });
+    sortByOrder(UpdatedItem);
+    products.forEach((product) => {
+      if (product.order === prod.order + 1) {
+        catLeftPut(product);
+      }
+    });
+    if (prod.order !== products.length){
+      prodLeftPut(prod);
+    }
+  };
+
+  const catRightPut = async (c) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${c.id}`, {
+        order: c.order + 1,
+      });
+    } catch (err) {
+      console.log("Inside Catch catRightPut", err);
+      console.log("err.response", err.response);
+    }
+  };
+
+  const prodRightPut = async (p) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${p.id}`, {
+        order: p.order - 1,
+      });
+    } catch (err) {
+      console.log("Inside Catch prodRightPut", err);
+      console.log("err.response", err.response);
+    }
+  };
+
+  const handleLeft = (prod) => {
+    let UpdatedItem = products.map((product) => {
+      if(prod.order === 1){
+        return product
+      }
+      if (product.order === prod.order - 1) {
+        return { ...product, order: product.order + 1 };
+      }
+      if (product.id === prod.id) {
+        return { ...prod, order: prod.order - 1 };
+      }
+      return product;
+    });
+    sortByOrder(UpdatedItem);
+    products.forEach((product) => {
+      if (product.order === prod.order - 1) {
+        catRightPut(product);
+      }
+    });
+    if(prod.order !== 1){
+      prodRightPut(prod);
+    }
+  };
+
   const card = () => {
     return(
       <MenuCol>
@@ -78,11 +172,11 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
                   <div>
                     <CaretLeftFill
                       style={styles.arrows}
-                      // onClick={(e) => handleLeft(d)}
+                      onClick={(e) => handleLeft(prod)}
                     />
                     <CaretRightFill
                       style={styles.arrows}
-                      // onClick={(e) => handleRight(d)}
+                      onClick={(e) => handleRight(prod)}
                     />
                   </div>
                 </MenuImgIcons>
@@ -97,7 +191,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
                   <Button 
                     style={{ position: "relative" }}
                     variant="dark"
-                    onClick={(e) => handleClick(prod)}
+                    onClick={(e) => handleEditClick(prod)}
                   >
                     Edit
                   </Button>
