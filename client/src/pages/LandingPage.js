@@ -23,7 +23,7 @@ const LandingPage = () => {
     }
   };
   return (
-    <div style={{background: 'aliceblue'}}>
+    <div>
       {/* header */}
       <Navbar />
       <Card className="bg-dark text-white">
@@ -37,25 +37,32 @@ const LandingPage = () => {
         <div><LPSpecials/></div>
 
       {/* cakes */}
-      <div className="card-deck">
-        <Card>
-          <Card.Body style={{background: 'lightgray', padding:'150px'}}>
-            <Card.Title>{landingPage.grid_title_1}</Card.Title>
-            <Card.Text>{landingPage.grid_description_1}</Card.Text>
-          </Card.Body>
-        </Card>
-        <Card><LPGrid1Carousel /></Card>
+      <div className="container">
+        <div className="row">
+          <div style={styledDiv} className="col">
+          <div class="text-center" style={{position:"relative", top:"30%"}}>
+            <h1>{landingPage.grid_title_1}</h1>
+            <p>{landingPage.grid_description_1}</p>
+            </div>
+        </div>
+          <div style={styledDiv} className="col">
+          <LPGrid1Carousel />
+          </div>
       </div>
-
+    </div>
       {/* boba */}
-      <div className="card-deck">
-        <Card><LPGrid2Carousel /></Card>
-        <Card>
-          <Card.Body style={{background: 'lightgray', padding:'150px'}}>
-            <Card.Title>{landingPage.grid_title_2}</Card.Title>
-            <Card.Text>{landingPage.grid_description_2}</Card.Text>
-          </Card.Body>
-        </Card>
+      <div className="container">
+        <div className="row">
+          <div style={styledDiv} className="col">
+          <LPGrid2Carousel />
+          </div>
+          <div  style={styledDiv} className="col">
+            <div class="text-center" style={{position:"relative", top:"30%"}}>
+            <h1>{landingPage.grid_title_2}</h1>
+            <p>{landingPage.grid_description_2}</p>
+            </div>
+          </div>
+        </div>
       </div>
     <Footer />
   </div>
@@ -63,3 +70,7 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
+const styledDiv = {
+  padding: '0px',
+}
