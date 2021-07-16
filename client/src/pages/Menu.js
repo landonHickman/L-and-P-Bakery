@@ -63,7 +63,7 @@ const Categories = () => {
             Drinks
           </Button>
           {show ? (
-            <Card key={category.id}>
+            <Card key={category.id} >
               <Card.Body>
                 <Card.Title>{category.name}</Card.Title>
                 <Card.Text>{singleCategoryIdArray.length} Products</Card.Text>

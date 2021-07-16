@@ -13,6 +13,14 @@
   }
 }
 
+.carousel-caption {
+  position: relative !important;
+  left: 0 !important;
+  top: 0 !important;
+  color: black !important;
+}
+
+
 
 .customcake {
   position: relative;
@@ -34,6 +42,8 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+
 
 .App-link {
   color: #61dafb;
