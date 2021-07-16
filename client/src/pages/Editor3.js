@@ -48,7 +48,7 @@ const Editor3 = () => {
         {showCat2 && <h1 style={{textAlign: 'center'}}>{cat2.name}</h1>}
         {showCat3 && <h1 style={{textAlign: 'center'}}>{cat3.name}</h1>}
       <div style={{textAlign: 'center'}}>
-        <Button variant="outline-primary" onClick={cat1Handle}>{cat1.name}</Button>
+        <Button variant="outline-primary" onClick={cat1Handle} >{cat1.name}</Button>
         <Button variant="outline-primary" onClick={cat2Handle}>{cat2.name}</Button>
         <Button variant="outline-primary" onClick={cat3Handle}>{cat3.name}</Button>
       </div>
