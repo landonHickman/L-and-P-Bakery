@@ -36,6 +36,50 @@ const LandingPage = () => {
   };
 
   return (
+    <>
+    <div>
+      {/* header */}
+      <Navbar />
+      <Card className="bg-dark text-white">
+        <Card.Img src={landingPage.main_background_img} />
+        <Card.ImgOverlay>
+          <Card.Title>{landingPage.main_title}</Card.Title>
+        </Card.ImgOverlay>
+      </Card>
+
+      {/* special bakery items */}
+        <div><LPSpecials/></div>
+
+      {/* cakes */}
+      <div className="container">
+        <div className="row">
+          <div style={styledDiv} className="col">
+          <div class="text-center" style={{position:"relative", top:"30%"}}>
+            <h1>{landingPage.grid_title_1}</h1>
+            <p>{landingPage.grid_description_1}</p>
+            </div>
+        </div>
+          <div style={styledDiv} className="col">
+          <LPGrid1Carousel />
+          </div>
+      </div>
+    </div>
+      {/* boba */}
+      <div className="container">
+        <div className="row">
+          <div style={styledDiv} className="col">
+          <LPGrid2Carousel />
+          </div>
+          <div  style={styledDiv} className="col">
+            <div class="text-center" style={{position:"relative", top:"30%"}}>
+            <h1>{landingPage.grid_title_2}</h1>
+            <p>{landingPage.grid_description_2}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <Footer />
+  </div>
     <div style={{}}>
 
       {/* <CustomBackgroundImgdiv landingPage={landingPage}> 
@@ -95,10 +139,14 @@ const LandingPage = () => {
       <p></p>
       <Footer />
     </div>
+    </>
   );
 };
 export default LandingPage;
 
+const styledDiv = {
+  padding: '0px',
+}
 const CustomBackgroundImgdiv = styled.div`
   background-image: url(${(props) => props.landingPage.main_background_img});
   background-repeat: no-repeat;

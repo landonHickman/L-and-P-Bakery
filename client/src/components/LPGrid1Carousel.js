@@ -24,8 +24,7 @@ const LPGrid1Carousel = () => {
       return (
         <Carousel.Item key={product.id}>
           <img className="d-block w-100" alt="First slide"
-            src={product.image}
-          />
+            src={product.image}/>
         </Carousel.Item>
       );
     });
@@ -33,7 +32,7 @@ const LPGrid1Carousel = () => {
 
   return (
     <div>
-    <Carousel>
+    <Carousel >
     {renderCakeProducts()}
     </Carousel>
     </div>
