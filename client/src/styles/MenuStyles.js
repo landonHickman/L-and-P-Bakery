@@ -34,7 +34,28 @@ export const MenuCards = styled(Card)`
   height: 100%;
   border: 1px black solid;
   border-radius: 4px;
+  cursor: pointer;
+  @keyframes enlarge {
+    from {
+      box-shadow: 0px 0px 0px black;
+    }
+    to {
+      box-shadow: -2px 1px 10px black;
+    }
+  }
+  :hover {
+    animation: enlarge 300ms;
+    animation-fill-mode: forwards;
+  }
 `
+export const MenuEditCards = styled(Card)`
+  width: 16rem;
+  height: 100%;
+  border: 1px black solid;
+  border-radius: 4px;
+  text-align: center;
+`
+
 export const MenuButton = styled(Button)`
   border-radius: 25px;
   border: 2px solid black;

@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { Button, Card, Dropdown, DropdownButton } from 'react-bootstrap'
 import { ArrowClockwise, CaretLeftFill, CaretRightFill, Clock, StarFill } from 'react-bootstrap-icons'
-import { MenuCol, MenuCards, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv } from '../styles/MenuStyles'
+import { MenuCol, MenuCards, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv, MenuEditCards } from '../styles/MenuStyles'
 
 const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder}) => {
 
@@ -243,7 +243,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
   const card = () => {
     return(
       <MenuCol>
-            <MenuCards>
+            <MenuEditCards>
               <Card.Img variant="top" src={prod.image} />
               <Card.ImgOverlay>
                 <MenuImgIcons>
@@ -303,7 +303,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
                   </DropdownButton>
                 </ButtonDiv>
               </Card.Body>
-            </MenuCards>
+            </MenuEditCards>
           </MenuCol>
    
     )

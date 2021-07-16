@@ -92,17 +92,58 @@ const Editor3 = () => {
     });
   };
 
+  const deleteUpdate = async (p) => {
+    try {
+      await axios.put(`/api/categories/${category.id}/products/${p.id}`, {
+        order: p.order - 1,
+      });
+      // console.log(res1.data.order)
+    } catch (err) {
+      console.log("inside deleteUpdate Catch", err);
+      console.log("inside deleteUpdate Catch", err.response);
+    }
+  };
+
+  const handleDelete = async (prod) => {
+    console.log(prod)
+    let removedItem = products.filter((p) => p.id !== prod.id);
+    let minusOrder = removedItem.map((r) => {
+      if (r.order > prod.order) {
+        return { ...r, order: r.order - 1 };
+      }
+      return r;
+    });
+    sortByOrder(minusOrder);
+    let res = await axios.delete(`/api/categories/${category.id}/products/${prod.id}`);
+    console.log('deleted',res.data)
+    products.forEach((p) => {
+      if (p.order > prod.order) {
+        deleteUpdate(p);
+      }
+    });
+    setShowEditForm(false)
+    setShowCards(true)
+  };
+
   if (loading) return <p>Loading</p>;
   return (
-    <div style={{ textAlign: "center" }}>
+    <div>
+      <div style={{textAlign: 'center'}}>
+
       <MenuH1>{category.name}</MenuH1>
       {renderCategoryButtons()}
+      </div>
       <MenuRow>{showCards && renderProducts()}</MenuRow>
       {showEditForm && (
         <EditProduct
           productId={product.id}
           catId={category.id}
-          // setProducts={setProducts}
+          setProducts={setProducts}
+          products={products}
+          sortByOrder={sortByOrder}
+          handleDelete={handleDelete}
+          setShowEditForm={setShowEditForm}
+          setShowCards={setShowCards}
         />
       )}
       <MenuEditLegend>

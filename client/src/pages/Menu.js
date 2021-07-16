@@ -3,13 +3,13 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import {styles, MenuH1, MenuButton, MenuRow} from '../styles/MenuStyles'
 import MenuCard from "../components/MenuCard";
+import ReactCardFlip from 'react-card-flip';
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true)
-
 
   useEffect(() => {
     getAxios();
@@ -74,6 +74,9 @@ const Categories = () => {
     });
   };
 
+
+  
+
   if(loading) return <p>Loading</p>
   return (
     <>
@@ -84,6 +87,7 @@ const Categories = () => {
         >
           {renderCategories()}
         </div>
+        
         <div>
             <MenuRow lg={4} md={3} sm={2}>
               {renderProducts()}
