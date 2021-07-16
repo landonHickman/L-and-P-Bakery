@@ -1,86 +1,98 @@
-import React, { useState, useEffect, Component } from "react";
-import { Card, Spinner, Button } from "react-bootstrap";
-import Axios from "axios";
+import React, { useState, useEffect } from "react";
 import Footer from "../components/Footer";
+import axios from "axios";
+import {styles, MenuH1, MenuButton, MenuRow} from '../styles/MenuStyles'
+import MenuCard from "../components/MenuCard";
+import ReactCardFlip from 'react-card-flip';
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
+  const [categoryTitle, setCategoryTitle] = useState([]);
   const [products, setProducts] = useState([]);
-  // const [ products, setProduct] = useState([])
-  const [show, setShow] = useState(true);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getCategories();
-    // getProducts();
+    getAxios();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const getProduct = async () => {
-  //   let res = await axios.get(`/api/categories/${catId}/products/${productId}`);
-  //   // console.log("limited", res.data.limited_time);
-  //   // console.log("special", res.data.special_item_carousel);
-  //   setProduct(res.data);
-  // };
-
-  const getCategories = () => {
-    Axios.get("/api/categories")
-      .then((res) => {
-        setCategories(res.data);
-      })
-  }
-
-  render() {
-    const { name } = this.state
-    const nameList = name.length ? (
-      name.map(name => {
-        return (
-          <div key={name.id}>
-            <div alignment='center'>
-              <Button variant="outline-primary">{name.name}</Button>
-            </div>
-          </div>
-        );
-      })
-      .catch((err) => {
-        alert("Error: couldnt find products");
-      });
+  const getAxios = async () => {
+    try {
+      let res = await axios.get("/api/categories");
+      // console.log('categories',res.data)
+      setCategories(res.data);
+      handleCategoryButtonClick(res.data[0])
+      setLoading(false)
+    } catch (err) {
+      console.log("inside catch getAxios", err);
+      console.log("inside catch getAxios", err.response);
+    }
   };
 
-  const findProductsByCategory = () => {
-    let productCategoryIds = [];
-    products.map((product) => {
-      productCategoryIds.push(product.category_id);
+  const sortByOrder = (o) => {
+    let orderedProducts = o.sort((a, b) => {
+      return a.order - b.order;
     });
-    return productCategoryIds;
+    setProducts(orderedProducts);
+    // console.log('orderedProducts',orderedProducts)
+  };
+
+  const handleCategoryButtonClick = async (category) => {
+    try {
+      let res = await axios.get(`/api/categories/${category.id}/products`);
+      // console.log('products',res.data)
+      setCategoryTitle(category.name);
+      sortByOrder(res.data);
+    } catch (err) {
+      console.log("inside handleCategoryButtonClick", err);
+      console.log("inside handleCategoryButtonClick", err.response);
+    }
   };
 
   const renderCategories = () => {
-    let productCategoryIds = findProductsByCategory();
     return categories.map((category) => {
-      let singleCategoryIdArray = productCategoryIds.filter(
-        (id) => id === category.id
-      );
       return (
-        <div>
-          <Button variant="outline-primary" onClick={() => setShow(!show)}>
-            Drinks
-          </Button>
-          {show ? (
-            <Card key={category.id}>
-              <Card.Body>
-                <Card.Title>{category.name}</Card.Title>
-                <Card.Text>{singleCategoryIdArray.length} Products</Card.Text>
-              </Card.Body>
-            </Card>
-          ) : null}
+        <div key={category.id}>
+          <MenuButton
+            variant="default"
+            onClick={() => handleCategoryButtonClick(category)}  
+          >
+            {category.name}
+          </MenuButton>
         </div>
       );
     });
   };
 
+  const renderProducts = () => {
+    return products.map((product) => {
+      return (
+        <React.Fragment key={product.id}>
+          <MenuCard product={product} />
+        </React.Fragment>
+      );
+    });
+  };
+
+
+  
+
+  if(loading) return <p>Loading</p>
   return (
     <>
-      <div className="Menu">
-        <Card>{renderCategories()}</Card> 
+      <div style={{ textAlign: "center" }}>
+        <MenuH1>{categoryTitle}</MenuH1>
+        <div
+          style={styles.card}
+        >
+          {renderCategories()}
+        </div>
+        
+        <div>
+            <MenuRow lg={4} md={3} sm={2}>
+              {renderProducts()}
+            </MenuRow>
+        </div>
       </div>
       <Footer />
     </>
