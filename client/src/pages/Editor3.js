@@ -22,6 +22,7 @@ const Editor3 = () => {
 
   useEffect(() => {
     getCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getCategories = async () => {

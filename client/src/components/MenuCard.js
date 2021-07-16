@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Row, Card, CardGroup, ListGroupItem, Button, Col } from "react-bootstrap";
-import FlippedCard from "../components/FlippedCard";
-import {styles, MenuCards, MenuCol, MenuCardPrice, MenuCardTitle} from '../styles/MenuStyles'
+import React from "react";
+import { Card } from "react-bootstrap";
+// import FlippedCard from "../components/FlippedCard";
+import { MenuCards, MenuCol, MenuCardPrice, MenuCardTitle} from '../styles/MenuStyles'
 
 const MenuCard = ({ product }) => {
-  const [showFlippedCard, setShowFlippedCard] = useState(false);
+  // const [showFlippedCard, setShowFlippedCard] = useState(false);
 
-  const handleFlip = () => {
-    setShowFlippedCard(true);
-  };
+  // const handleFlip = () => {
+  //   setShowFlippedCard(true);
+  // };
 
   return (
     <>
@@ -21,7 +21,7 @@ const MenuCard = ({ product }) => {
             {/* <ListGroupItem>{`Limited Time: ${product.limited_time}`}</ListGroupItem> */}
             {/* <Button onClick={handleFlip}>Flip</Button> */}
         </MenuCards>
-        {showFlippedCard && <FlippedCard product={product} />}
+        {/* {showFlippedCard && <FlippedCard product={product} />} */}
       </MenuCol>
     </>
     

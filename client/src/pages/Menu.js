@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Card, Container, CardGroup, ListGroupItem, Button, Row } from "react-bootstrap";
 import Footer from "../components/Footer";
 import axios from "axios";
 import {styles, MenuH1, MenuButton, MenuRow} from '../styles/MenuStyles'
-
 import MenuCard from "../components/MenuCard";
 
 const Categories = () => {
@@ -15,6 +13,7 @@ const Categories = () => {
 
   useEffect(() => {
     getAxios();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAxios = async () => {

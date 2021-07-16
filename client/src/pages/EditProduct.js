@@ -10,6 +10,7 @@ const EditProduct = (props) => {
 
   useEffect(() => {
     getProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   const getProduct = async () => {

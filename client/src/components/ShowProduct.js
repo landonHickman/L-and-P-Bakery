@@ -1,8 +1,7 @@
 import axios from 'axios'
-import React, {useState} from 'react'
+import React from 'react'
 import { Button, Card, Dropdown, DropdownButton } from 'react-bootstrap'
 import { ArrowClockwise, CaretLeftFill, CaretRightFill, Clock, StarFill } from 'react-bootstrap-icons'
-import EditProduct from '../pages/EditProduct'
 import { MenuCol, MenuCards, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv } from '../styles/MenuStyles'
 
 const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder}) => {

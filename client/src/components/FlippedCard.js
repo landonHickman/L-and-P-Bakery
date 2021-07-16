@@ -1,11 +1,9 @@
 import React from 'react'
-import {Card, CardGroup, ListGroupItem, Button} from 'react-bootstrap'
+// import {Card, CardGroup, ListGroupItem, Button} from 'react-bootstrap'
 
 const FlippedCard = ({product}) => {
   console.log(product)
-  const handleFlip = () =>{
-
-  }
+  // const handleFlip = () =>{}
   return(
     <div>
       <h1>worked</h1>
