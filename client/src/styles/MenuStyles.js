@@ -8,8 +8,11 @@ export const styles= {
     flexWrap: "wrap",
     justifyContent: "center",
   },
-  iconsLegend: {marginBottom: '4px', marginRight: '10px'},
+  icons: {marginRight: '5px', height: '16px'},
+  iconsLegend: {marginBottom: '4px', marginRight: '10px', height: '16px'},
   arrows: {cursor: 'pointer'},
+  
+  
 }
 export const MenuImgIcons = styled.div`
   display: flex;
@@ -113,3 +116,4 @@ justify-content: flex-end;
 padding: 0px;
 height: 45%;
 `
+
