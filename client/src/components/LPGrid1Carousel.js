@@ -12,7 +12,7 @@ const LPGrid1Carousel = () => {
   const getLimitedTimeCakeProducts = async () => {
     try {
       let res = await axios.get(`/api/all_limited_time_cake_products`);
-      console.log(res.data)
+      console.log(res.data);
       setLimitedTimeCakeProducts(res.data);
     } catch (err) {
       console.log(err);
@@ -23,8 +23,11 @@ const LPGrid1Carousel = () => {
     return limitedTimeCakeProducts.map((product) => {
       return (
         <Carousel.Item key={product.id}>
-          <img className="d-block w-100" alt="First slide"
-            src={product.image}/>
+          <img
+            className="d-block w-100"
+            alt="First slide"
+            src={product.image}
+          />
         </Carousel.Item>
       );
     });
@@ -32,9 +35,7 @@ const LPGrid1Carousel = () => {
 
   return (
     <div>
-    <Carousel >
-    {renderCakeProducts()}
-    </Carousel>
+      <Carousel>{renderCakeProducts()}</Carousel>
     </div>
   );
 };
