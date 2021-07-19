@@ -2,8 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Nav, Col, Image, Navbar, Row } from "react-bootstrap";
 import LNP from '../images/LNP.png'
-import r from '../images/r.png'
-import styled from 'styled-components'
 import { left } from "@popperjs/core";
 
 const NavComponent = (props) => {
@@ -28,13 +26,13 @@ const NavComponent = (props) => {
             <Navbar.Brand href="/">
               <Image
                 src={LNP}
-                style={{ height: "90px" }}
+                style={{ height: "80px", margin: "-15px" }}
                 roundedCircle
               />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav style={{display: 'flex', width: '100%', }} >
+              <Nav style={{display: 'flex', width: '90%', }} >
                 <Col sm={'auto'} style={styles.pad}>
                   <Nav.Link href="/menu">{n.nav_text_1}</Nav.Link>
                 </Col>
@@ -48,13 +46,8 @@ const NavComponent = (props) => {
               </Nav>
             </Navbar.Collapse>
           </Row>
-        
-         <CustomBackgroundImgdiv>
-        <CustomLNPTitle>L&P</CustomLNPTitle>
-              <CustomLNPBakery>Bakery</CustomLNPBakery>
-              <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
-        </CustomBackgroundImgdiv>
         </div>
+        
       );
     });
   };
@@ -69,39 +62,3 @@ const styles= {
 }
 export default NavComponent;
 
-const CustomHeaderTabs = styled.div`
-font-size: 75px;
-text-align: center;
-color: white;
-padding-top: 90px;
-`;
-
-const CustomBackgroundImgdiv = styled.div`
-  background-image: url(${r});
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 650px;
-  width: 100%;
-  padding-top: 30px;
-`;
-
-const CustomLNPTitle = styled.div`
-font-size: 75px;
-text-align: center;
-color: white;
-padding-top: 90px;
-`;
-
-const CustomLNPBakery = styled.div`
-font-size: 75px;
-text-align: center;
-color: white;
-margin-top: -30px
-`;
-
-const CustomLNPtext = styled.div`
-font-size: 35px;
-text-align: center;
-color: white;
-margin-top:10px
-`;
