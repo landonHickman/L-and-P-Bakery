@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
-import {styles, MenuH1, MenuButton, MenuRow} from '../styles/MenuStyles'
+import {styles, MenuH1, MenuButton, MenuRow, MarginDiv} from '../styles/MenuStyles'
 import MenuCard from "../components/MenuCard";
 import ReactCardFlip from 'react-card-flip';
+import {Container} from 'react-bootstrap'
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -80,6 +81,7 @@ const Categories = () => {
   if(loading) return <p>Loading</p>
   return (
     <>
+      <MarginDiv>
       <div style={{ textAlign: "center" }}>
         <MenuH1>{category.name}</MenuH1>
         <div
@@ -88,12 +90,13 @@ const Categories = () => {
           {renderCategories()}
         </div>
         
-        <div>
-            <MenuRow lg={4} md={3} sm={2}>
+        <Container>
+            <MenuRow>
               {renderProducts()}
             </MenuRow>
-        </div>
+        </Container>
       </div>
+      </MarginDiv>
       <Footer />
     </>
   );

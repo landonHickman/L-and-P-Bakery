@@ -6,11 +6,12 @@ import {
   MenuButton,
   MenuRow,
   MenuEditLegend,
+  MarginDiv,
 } from "../styles/MenuStyles";
 import ShowProduct from "../components/ShowProduct";
 import { ArrowClockwise, Clock, StarFill } from "react-bootstrap-icons";
 import EditProduct from "./EditProduct";
-import { Image } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import carousel from '../images/carousel.png'
 
 const Editor3 = () => {
@@ -129,13 +130,16 @@ const Editor3 = () => {
 
   if (loading) return <p>Loading</p>;
   return (
-    <div>
+    <MarginDiv>
       <div style={{textAlign: 'center'}}>
 
       <MenuH1>{category.name}</MenuH1>
       {renderCategoryButtons()}
       </div>
+      <Container >
       <MenuRow>{showCards && renderProducts()}</MenuRow>
+
+      </Container>
       {showEditForm && (
         <EditProduct
           productId={product.id}
@@ -162,7 +166,7 @@ const Editor3 = () => {
           Category Carousel
         </div>
       </MenuEditLegend>
-    </div>
+    </MarginDiv>
   );
 };
 

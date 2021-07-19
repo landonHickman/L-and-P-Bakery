@@ -12,13 +12,13 @@ const ProductShow = () => {
     return (
       <ProductContainer fluid >
         <Row>
-          <LeftColProductShow>
+          <LeftColProductShow md={6}>
             <ProductImg
               src={location.state.product.image}
               thumbnail
             />
           </LeftColProductShow>
-          <RightColProductShow>
+          <RightColProductShow md={6}>
             <h1>{location.state.product.name}</h1>
             <p>{location.state.product.description}</p>
             <h5>${location.state.product.price}</h5>

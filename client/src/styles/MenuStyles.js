@@ -29,9 +29,12 @@ export const MenuCol = styled(Col)`
   padding: 0px;
   margin: 10px 10px 20px 10px;
   display: flex;
-  flex: 1;
+  flex-shrink: 0;
+  width: 100%;
   justify-content: center;
+  
 `
+
 export const MenuCards = styled(Card)`
   width: 16rem;
   height: 100%;
@@ -116,4 +119,7 @@ justify-content: flex-end;
 padding: 0px;
 height: 45%;
 `
+export const MarginDiv = styled.div`
+  margin: 0rem 5rem 0rem 5rem;
 
+`
