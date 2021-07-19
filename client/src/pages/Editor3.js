@@ -10,6 +10,8 @@ import {
 import ShowProduct from "../components/ShowProduct";
 import { ArrowClockwise, Clock, StarFill } from "react-bootstrap-icons";
 import EditProduct from "./EditProduct";
+import { Image } from "react-bootstrap";
+import carousel from '../images/carousel.png'
 
 const Editor3 = () => {
   const [categories, setCategories] = useState([]);
@@ -156,7 +158,7 @@ const Editor3 = () => {
           Limited Time Only
         </div>
         <div>
-          <ArrowClockwise style={styles.iconsLegend} />
+          <Image src={carousel} style={styles.iconsLegend} />
           Category Carousel
         </div>
       </MenuEditLegend>

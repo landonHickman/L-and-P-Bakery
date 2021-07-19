@@ -1,8 +1,9 @@
 import React from "react";
 import { Card, Col, Row, Button } from "react-bootstrap";
-import { MenuCards, CardImgOverlayStyled } from "../styles/MenuStyles";
+import { MenuCards, CardImgOverlayStyled, styles } from "../styles/MenuStyles";
 import Truncate from "react-truncate";
 import { useHistory } from "react-router-dom";
+import { btn } from "../styles/styles";
 
 const FlippedCard = ({ product, category }) => {
   let history = useHistory();
@@ -40,7 +41,7 @@ const FlippedCard = ({ product, category }) => {
                 {product.description}
               </Truncate>
             </Card.Text>
-            <Button variant="dark"
+            <Button style={btn.blackButton}
               onClick={() => handleMore(product)}>
               More
             </Button>
