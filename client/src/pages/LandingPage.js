@@ -16,6 +16,8 @@ import LPGrid2Carousel from "../components/LPGrid2Carousel";
 import LPGrid3Carousel from "../components/LPGrid3Carousel";
 import LPSpecials from "../components/LPSpecials";
 import styled from "styled-components";
+import r from '../images/r.png'
+
 
 
 const LandingPage = () => {
@@ -39,16 +41,22 @@ const LandingPage = () => {
     <>
     <div>
       {/* header */}
-      <Navbar />
-      <Card className="bg-dark text-white">
-        <Card.Img src={landingPage.main_background_img} />
-        <Card.ImgOverlay>
-          <Card.Title>{landingPage.main_title}</Card.Title>
-        </Card.ImgOverlay>
-      </Card>
+      
+      <Navbar>
+      <CustomBackgroundImgdiv>
+        <CustomLNPTitle>L&P</CustomLNPTitle>
+              <CustomLNPBakery>Bakery</CustomLNPBakery>
+              <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
+        </CustomBackgroundImgdiv>
+        </Navbar>
 
-      {/* special bakery items */}
-        <div><LPSpecials/></div>
+      <CustomSBI>Special Bakery Items</CustomSBI>
+      <Col>
+        <div>
+          <LPSpecials />
+        </div>
+      </Col>
+      <br />
 
       {/* cakes */}
       <div className="container">
@@ -64,6 +72,7 @@ const LandingPage = () => {
           </div>
       </div>
     </div>
+
       {/* boba */}
       <div className="container">
         <div className="row">
@@ -80,65 +89,6 @@ const LandingPage = () => {
       </div>
     <Footer />
   </div>
-    <div style={{}}>
-
-      {/* <CustomBackgroundImgdiv landingPage={landingPage}> 
-        
-      </CustomBackgroundImgdiv> */}
-
-
-        <CustomSBI>Special Bakery Items</CustomSBI>
-      <Col>
-        <div>
-          <LPSpecials />
-        </div>
-      </Col>
-      <br />
-
-      {/* cakes */}
-      <CardGroup>
-        <Card>
-          <Card.Body style={{ background: "lightgray", padding: "180px" }}>
-            <CustomCakeCard>{landingPage.grid_title_1}</CustomCakeCard>
-            <p></p>
-            <CustomCakeText>{landingPage.grid_description_1}</CustomCakeText>
-          </Card.Body>
-          </Card>
-        <Card>
-          <LPGrid1Carousel />
-        </Card>
-      </CardGroup>
-
-      {/* boba */}
-      <CardGroup>
-        <Card>
-        <LPGrid2Carousel />
-        </Card>
-        <Card>
-          <Card.Body style={{ background: "lightgray", padding: "180px" }}>
-            <CustomBobaCard>{landingPage.grid_title_2}</CustomBobaCard>
-            <p></p>
-            <CustomBobaText>{landingPage.grid_description_2}</CustomBobaText>
-          </Card.Body>
-        </Card>
-        </CardGroup>
-
-         {/* bakery */}
-      <CardGroup>
-        <Card>
-          <Card.Body style={{ background: "lightgray", padding: "180px" }}>
-            <CustomBakeryCard>Bakery {landingPage.grid_title_3}</CustomBakeryCard>
-            <p></p>
-            <CustomBakeryText>Ab repudiandae cumque. Asperiores adipisci aliquam. Sed eos eos. {landingPage.grid_title_3}</CustomBakeryText>
-          </Card.Body>
-          </Card>
-        <Card>
-          <LPGrid3Carousel />
-        </Card>
-      </CardGroup>
-      <p></p>
-      <Footer />
-    </div>
     </>
   );
 };
@@ -148,17 +98,41 @@ const styledDiv = {
   padding: '0px',
 }
 const CustomBackgroundImgdiv = styled.div`
-  background-image: url(${(props) => props.landingPage.main_background_img});
+  background-image: url(${r});
   background-repeat: no-repeat;
-  background-size: 100% ;
-  height: 700px;
+  background-size: 100%;
+  height: 650px;
   width: 100%;
+  padding-top: 30px;
+  
+`;
+
+const CustomLNPTitle = styled.div`
+font-size: 75px;
+text-align: center;
+color: white;
+padding-top: 90px;
+`;
+
+const CustomLNPBakery = styled.div`
+font-size: 75px;
+text-align: center;
+color: white;
+margin-top: -30px
+`;
+
+const CustomLNPtext = styled.div`
+font-size: 35px;
+text-align: center;
+color: white;
+margin-top:10px
 `;
 
 const CustomSBI = styled.div`
 font-size: 40px;
-margin: 60px;
+margin: 30px;
 text-align: center;
+margin-top: -40px
 `;
 
 
