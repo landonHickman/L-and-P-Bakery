@@ -3,6 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { Nav, Navbar, Container, Col, NavDropdown } from "react-bootstrap";
 import NavComponent from "./NavComponent";
+import styled from "styled-components";
 
 const NavBar = () => {
   //used to set which link is active
@@ -18,11 +19,12 @@ const NavBar = () => {
     if (authenticated) {
       return (
         <>
-          <NavDropdown title="Edit" id="basic-nav-dropdown">
+          <CustomDropdown title="Edit" id="basic-nav-dropdown">
             <NavDropdown.Item href="/editor1">Landing Page</NavDropdown.Item>
             <NavDropdown.Item href="/editor2">About Page</NavDropdown.Item>
             <NavDropdown.Item href="/editor3">Product Page</NavDropdown.Item>
-          </NavDropdown>
+          </CustomDropdown>
+
           <Col
             sm={{ span: "auto", offset: 2 }}
             md={{ span: "auto", offset: 5 }}
@@ -32,7 +34,7 @@ const NavBar = () => {
             style={{ padding: "0" }}
           >
             <Nav.Link
-              style={{ justifyContent: "flex-end" }}
+              style={{ justifyContent: "flex-end", color: "white" }}
               onClick={() => handleLogout(history)}
             >
               Logout
@@ -47,7 +49,7 @@ const NavBar = () => {
   //through here eventually.
   return (
     <>
-      <Navbar bg="light" variant="light" expand="sm">
+      <Navbar fixed="top" variant="light" expand="sm">
         <Container fluid>
           <NavComponent getRightNav={getRightNav} />
         </Container>
@@ -57,3 +59,7 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+const CustomDropdown = styled(NavDropdown)`
+  color: #fff !important;
+`;

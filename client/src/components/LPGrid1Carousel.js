@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Carousel } from "react-bootstrap";
+import Carousel from "react-bootstrap/Carousel";
 
 const LPGrid1Carousel = () => {
   const [limitedTimeCakeProducts, setLimitedTimeCakeProducts] = useState([]);
@@ -12,7 +12,7 @@ const LPGrid1Carousel = () => {
   const getLimitedTimeCakeProducts = async () => {
     try {
       let res = await axios.get(`/api/all_limited_time_cake_products`);
-      console.log(res.data);
+      console.log("cake carousel axios", res.data);
       setLimitedTimeCakeProducts(res.data);
     } catch (err) {
       console.log(err);

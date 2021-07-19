@@ -37,62 +37,58 @@ const LandingPage = () => {
 
   return (
     <>
-      <div>
-        {/* header */}
+      {/* header */}
 
-        <Navbar>
-          <CustomBackgroundImgdiv>
-            <CustomLNPTitle>L&P</CustomLNPTitle>
-            <CustomLNPBakery>Bakery</CustomLNPBakery>
-            <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
-          </CustomBackgroundImgdiv>
-        </Navbar>
+      <CustomBackgroundImgdiv>
+        <CustomLNPTitle>L&P</CustomLNPTitle>
+        <CustomLNPBakery>Bakery</CustomLNPBakery>
+        <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
+      </CustomBackgroundImgdiv>
 
-        <CustomSBI>Special Bakery Items</CustomSBI>
-        <Col>
-          <div>
-            <LPSpecials />
+      <CustomSBI>Special Bakery Items</CustomSBI>
+      <Col>
+        <div>
+          <LPSpecials />
+        </div>
+      </Col>
+      <br />
+
+      {/* cakes */}
+      <div className="container">
+        <div className="row">
+          <div style={styledDiv} className="col">
+            <div
+              class="text-center"
+              style={{ position: "relative", top: "30%" }}
+            >
+              <h1>{landingPage.grid_title_1}</h1>
+              <p>{landingPage.grid_description_1}</p>
+            </div>
           </div>
-        </Col>
-        <br />
-
-        {/* cakes */}
-        <div className="container">
-          <div className="row">
-            <div style={styledDiv} className="col">
-              <div
-                class="text-center"
-                style={{ position: "relative", top: "30%" }}
-              >
-                <h1>{landingPage.grid_title_1}</h1>
-                <p>{landingPage.grid_description_1}</p>
-              </div>
-            </div>
-            <div style={styledDiv} className="col">
-              <LPGrid1Carousel />
-            </div>
+          <div style={styledDiv} className="col">
+            <LPGrid1Carousel />
           </div>
         </div>
-
-        {/* boba */}
-        <div className="container">
-          <div className="row">
-            <div style={styledDiv} className="col">
-              <LPGrid2Carousel />
-            </div>
-            <div style={styledDiv} className="col">
-              <div
-                class="text-center"
-                style={{ position: "relative", top: "30%" }}
-              >
-                <h1>{landingPage.grid_title_2}</h1>
-                <p>{landingPage.grid_description_2}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <Footer />
       </div>
+
+      {/* boba */}
+      <div className="container">
+        <div className="row">
+          <div style={styledDiv} className="col">
+            <LPGrid2Carousel />
+          </div>
+          <div style={styledDiv} className="col">
+            <div
+              class="text-center"
+              style={{ position: "relative", top: "30%" }}
+            >
+              <h1>{landingPage.grid_title_2}</h1>
+              <p>{landingPage.grid_description_2}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 };
