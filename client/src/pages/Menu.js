@@ -33,15 +33,15 @@ const Categories = () => {
       });
   };
 
-  const getProducts = () => {
-    Axios.get("/api/products")
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .catch((err) => {
-        alert("Error: couldnt find products");
-      });
-  };
+  // const getProducts = () => {
+  //   Axios.get("/api/products")
+  //     .then((res) => {
+  //       setProducts(res.data);
+  //     })
+  //     .catch((err) => {
+  //       alert("Error: couldnt find products");
+  //     });
+  // };
 
   const findProductsByCategory = () => {
     let productCategoryIds = [];
