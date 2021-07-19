@@ -1,15 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {
-  Card,
-  CardGroup,
-  Carousel,
-  Image,
-  Navbar,
-  Row,
-  Col,
-  Container,
-} from "react-bootstrap";
+import {Col} from "react-bootstrap";
 import Footer from "../components/Footer";
 import LPGrid1Carousel from "../components/LPGrid1Carousel";
 import LPGrid2Carousel from "../components/LPGrid2Carousel";
@@ -88,6 +79,24 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+            {/* bakery */}
+      <div className="container">
+        <div className="row">
+          <div style={styledDiv} className="col">
+            <div
+              class="text-center"
+              style={{ position: "relative", top: "30%" }}
+            >
+              <h1>{landingPage.grid_title_3}</h1>
+              <p>{landingPage.grid_description_3}</p>
+            </div>
+          </div>
+          <div style={styledDiv} className="col">
+            <LPGrid3Carousel />
+          </div>
+        </div>
+      </div>
+      <br/>
       <Footer />
     </>
   );
