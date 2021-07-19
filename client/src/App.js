@@ -14,13 +14,14 @@ import Editor2 from './pages/Editor2';
 import Editor3 from './pages/Editor3';
 import EditProduct from './pages/EditProduct';
 import Application from './pages/Application'
+import CreateProduct from './pages/CreateProduct';
 
 function App() {
   return (
     <>
     <FetchUser>
     <NavBar />
-      <Container>
+      <Container fluid>
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/about_pages' component={AboutPages} />
@@ -28,6 +29,7 @@ function App() {
           <Route exact path='/editor1' component={Editor1} />
           <Route exact path='/editor2' component={Editor2} />
           <Route exact path='/editor3' component={Editor3} />
+          <Route exact path='/createProduct' component={CreateProduct} />
           <Route exact path='/edit_product' component={EditProduct} />
           <Route exact path='/custom_cakes' component={CustomCakes} />
           <Route exact path='/menu' component={Menu} />

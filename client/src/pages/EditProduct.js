@@ -4,21 +4,22 @@ import { Card, ListGroup, ListGroupItem, Spinner } from "react-bootstrap";
 import CreateCategoryItem from "../components/CreateCategoryItem";
 
 const EditProduct = (props) => {
-  const { productId, catId} = props;
+  const { productId, catId, sortByOrder, handleDelete, setShowEditForm, setShowCards} = props;
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   const getProduct = async () => {
     try{
-
       let res = await axios.get(`/api/categories/${catId}/products/${productId}`);
       // console.log("limited", res.data.limited_time);
       // console.log("special", res.data.special_item_carousel);
       setProduct(res.data);
+      // console.log(res.data)
       setLoading(false)
     }catch(err){
       console.log(err)
@@ -27,7 +28,7 @@ const EditProduct = (props) => {
   };
 
   const updateCatItem = (i) => {
-    // console.log('catItems', product)
+    // console.log('products', product)
     // console.log('i',i)
     setProduct(i)
   }
@@ -36,26 +37,7 @@ const EditProduct = (props) => {
 
   return (
     <div>
-      <Card style={{ width: "16rem", margin: "5px" }}>
-        <Card.Img variant="top" src={product.image} />
-        <Card.Body>
-          {/* TODO: remove order */}
-          <Card.Title>{product.name} order:{product.order}</Card.Title>
-          <Card.Subtitle>${product.price}</Card.Subtitle>
-          <Card.Text>{product.description}</Card.Text>
-          <ListGroup className="list-group-flush">
-            <ListGroupItem>
-              {`Limited Time: ${product.limited_time}`}
-            </ListGroupItem>
-            <ListGroupItem>
-              {`Special Item: ${product.special_item_carousel}`}
-            </ListGroupItem>
-            <ListGroupItem>
-              {`Category Carousel: ${product.category_carousel}`}
-            </ListGroupItem>
-          </ListGroup>
-        </Card.Body>
-      </Card>
+      
       <CreateCategoryItem
         productId={product.id}
         catId={catId}
@@ -68,7 +50,10 @@ const EditProduct = (props) => {
         order={product.order}
         special_item_carousel={product.special_item_carousel}
         updateCatItem={updateCatItem}
-        
+        handleDelete={handleDelete}
+        product={product}
+        setShowEditForm={setShowEditForm} 
+        setShowCards={setShowCards}
       />
       <hr />
     </div>
