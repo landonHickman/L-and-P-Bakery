@@ -15,9 +15,7 @@ import LPGrid1Carousel from "../components/LPGrid1Carousel";
 import LPGrid2Carousel from "../components/LPGrid2Carousel";
 import LPSpecials from "../components/LPSpecials";
 import styled from "styled-components";
-import r from '../images/r.png'
-
-
+import r from "../images/r.png";
 
 const LandingPage = () => {
   const [landingPage, setLandingPage] = useState([]);
@@ -38,17 +36,13 @@ const LandingPage = () => {
 
   return (
     <>
-    <div>
       {/* header */}
-      
-      <Navbar/>
-      <div>
+
       <CustomBackgroundImgdiv>
         <CustomLNPTitle>L&P</CustomLNPTitle>
-              <CustomLNPBakery>Bakery</CustomLNPBakery>
-              <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
-        </CustomBackgroundImgdiv>
-        </div>
+        <CustomLNPBakery>Bakery</CustomLNPBakery>
+        <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
+      </CustomBackgroundImgdiv>
 
       <CustomSBI>Special Bakery Items</CustomSBI>
       <Col>
@@ -62,43 +56,47 @@ const LandingPage = () => {
       <div className="container">
         <div className="row">
           <div style={styledDiv} className="col">
-          <div class="text-center" style={{position:"relative", top:"30%"}}>
-            <h1>{landingPage.grid_title_1}</h1>
-            <p>{landingPage.grid_description_1}</p>
+            <div
+              class="text-center"
+              style={{ position: "relative", top: "30%" }}
+            >
+              <h1>{landingPage.grid_title_1}</h1>
+              <p>{landingPage.grid_description_1}</p>
             </div>
-        </div>
-          <div style={styledDiv} className="col">
-          <LPGrid1Carousel />
           </div>
+          <div style={styledDiv} className="col">
+            <LPGrid1Carousel />
+          </div>
+        </div>
       </div>
-    </div>
 
       {/* boba */}
       <div className="container">
         <div className="row">
           <div style={styledDiv} className="col">
-          <LPGrid2Carousel />
+            <LPGrid2Carousel />
           </div>
-          <div  style={styledDiv} className="col">
-            <div class="text-center" style={{position:"relative", top:"30%"}}>
-            <h1>{landingPage.grid_title_2}</h1>
-            <p>{landingPage.grid_description_2}</p>
+          <div style={styledDiv} className="col">
+            <div
+              class="text-center"
+              style={{ position: "relative", top: "30%" }}
+            >
+              <h1>{landingPage.grid_title_2}</h1>
+              <p>{landingPage.grid_description_2}</p>
             </div>
           </div>
         </div>
       </div>
       <p></p>
     <Footer />
-  </div>
     </>
   );
 };
 export default LandingPage;
 
 const styledDiv = {
-  padding: '0px',
-}
-
+  padding: "0px",
+};
 const CustomBackgroundImgdiv = styled.div`
   background-image: url(${r});
   background-repeat: no-repeat;
@@ -110,24 +108,24 @@ const CustomBackgroundImgdiv = styled.div`
 `;
 
 const CustomLNPTitle = styled.div`
-font-size: 75px;
-text-align: center;
-color: white;
-padding-top: 90px;
+  font-size: 75px;
+  text-align: center;
+  color: white;
+  padding-top: 90px;
 `;
 
 const CustomLNPBakery = styled.div`
-font-size: 75px;
-text-align: center;
-color: white;
-margin-top: -30px
+  font-size: 75px;
+  text-align: center;
+  color: white;
+  margin-top: -30px;
 `;
 
 const CustomLNPtext = styled.div`
-font-size: 35px;
-text-align: center;
-color: white;
-margin-top:10px
+  font-size: 35px;
+  text-align: center;
+  color: white;
+  margin-top: 10px;
 `;
 
 const CustomSBI = styled.div`
