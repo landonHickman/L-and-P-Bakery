@@ -18,7 +18,7 @@ const NavBar = () => {
     if (authenticated) {
       return (
         <>
-          <NavDropdown title="Edit" id="basic-nav-dropdown">
+          <NavDropdown  title="Edit" id="basic-nav-dropdown">
             <NavDropdown.Item href="/editor1">Landing Page</NavDropdown.Item>
             <NavDropdown.Item href="/editor2">About Page</NavDropdown.Item>
             <NavDropdown.Item href="/editor3">Product Page</NavDropdown.Item>

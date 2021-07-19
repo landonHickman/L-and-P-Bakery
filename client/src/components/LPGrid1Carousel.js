@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Carousel } from "react-bootstrap";
+import Carousel  from "react-bootstrap/Carousel";
 
 const LPGrid1Carousel = () => {
   const [limitedTimeCakeProducts, setLimitedTimeCakeProducts] = useState([]);

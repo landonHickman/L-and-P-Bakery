@@ -182,7 +182,7 @@ const FooterEditor = ({ footer }) => {
             </Col>
           </Row>
         </Form.Group>
-        <Button variant="primary" type="submit" block>
+        <Button variant="dark"  type="submit" block>
           Submit
         </Button>
       </Form>

@@ -13,7 +13,6 @@ import {
 import Footer from "../components/Footer";
 import LPGrid1Carousel from "../components/LPGrid1Carousel";
 import LPGrid2Carousel from "../components/LPGrid2Carousel";
-import LPGrid3Carousel from "../components/LPGrid3Carousel";
 import LPSpecials from "../components/LPSpecials";
 import styled from "styled-components";
 import r from '../images/r.png'
@@ -42,13 +41,14 @@ const LandingPage = () => {
     <div>
       {/* header */}
       
-      <Navbar>
+      <Navbar/>
+      <div>
       <CustomBackgroundImgdiv>
         <CustomLNPTitle>L&P</CustomLNPTitle>
               <CustomLNPBakery>Bakery</CustomLNPBakery>
               <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
         </CustomBackgroundImgdiv>
-        </Navbar>
+        </div>
 
       <CustomSBI>Special Bakery Items</CustomSBI>
       <Col>
@@ -87,6 +87,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+      <p></p>
     <Footer />
   </div>
     </>
@@ -97,6 +98,7 @@ export default LandingPage;
 const styledDiv = {
   padding: '0px',
 }
+
 const CustomBackgroundImgdiv = styled.div`
   background-image: url(${r});
   background-repeat: no-repeat;
@@ -104,7 +106,7 @@ const CustomBackgroundImgdiv = styled.div`
   height: 650px;
   width: 100%;
   padding-top: 30px;
-  
+    
 `;
 
 const CustomLNPTitle = styled.div`
@@ -132,38 +134,6 @@ const CustomSBI = styled.div`
 font-size: 40px;
 margin: 30px;
 text-align: center;
-margin-top: -40px
+margin-top: 50px
 `;
 
-
-const CustomCakeCard = styled.div`
-font-size: 55px;
-text-align: center;
-margin-top:10px
-`;
-
-const CustomCakeText = styled.div`
-font-size: 18px;
-text-align: center;
-`;
-
-const CustomBobaCard = styled.div`
-font-size: 55px;
-text-align: center;
-margin-top:10px
-`;
-const CustomBobaText = styled.div`
-font-size: 18px;
-text-align: center;
-`;
-
-const CustomBakeryCard = styled.div`
-font-size: 55px;
-text-align: center;
-margin-top:10px
-`;
-const CustomBakeryText = styled.div`
-font-size: 18px;
-text-align: center;
-
-`;

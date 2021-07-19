@@ -42,7 +42,7 @@ const GridEditor1 = (props) => {
                 onChange={(e) => setDesc(e.target.value)}
               />
             </Form.Group>
-            <Button variant="primary" type="submit" block>
+            <Button variant="dark" type="submit" block>
               Submit
             </Button>
           </Col>
