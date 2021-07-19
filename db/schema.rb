@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 2021_07_12_210907) do
     t.text "grid_description_1"
     t.string "grid_title_2"
     t.text "grid_description_2"
+    t.string "grid_title_3"
+    t.text "grid_description_3"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
