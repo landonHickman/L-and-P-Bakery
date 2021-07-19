@@ -22,7 +22,7 @@ function App() {
     <>
       <FetchUser>
         <NavBar />
-        <Container fluid>
+        <Container fluid style={{padding: '0px'}}>
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/product_show" component={ProductShow} />

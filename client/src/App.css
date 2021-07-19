@@ -22,11 +22,12 @@
 
 .customcake {
   position: relative;
-  width: 1440px;
+  width: 100%;
   height: 300px;
   background: rgb(50, 50, 50);
-  background: url(https://i.imgur.com/lfy6Tr5.jpeg) no-repeat 50% 50% fixed;
-  background-size: 90%;
+  background: url(https://i.imgur.com/lfy6Tr5.jpeg);
+  background-position: center center;
+  background-size: 100%;
   overflow: hidden;
 }
 
