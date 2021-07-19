@@ -1,4 +1,4 @@
-import { Card, Col, Button, Row } from 'react-bootstrap'
+import { Card, Col, Button, Row, Image, Container } from 'react-bootstrap'
 import styled from 'styled-components'
 
 export const styles= {
@@ -84,4 +84,32 @@ export const MenuCardTitle = styled(Card.Title)`
 export const MenuCardPrice = styled(Card.Subtitle)`
   margin-bottom: 25px;
   padding-top: 20px;
+`
+export const RightColProductShow = styled(Col)`
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 60px 0px 0px;
+`
+export const LeftColProductShow = styled(Col)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+`
+export const ProductImg = styled(Image)`
+  flex-shrink: 0; 
+  min-width: 100%; 
+  min-height: 100%
+`
+export const ProductContainer = styled(Container)`
+padding: "0px"
+`
+export const CardImgOverlayStyled = styled(Card.ImgOverlay)`
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+padding: 0px;
+height: 45%;
 `

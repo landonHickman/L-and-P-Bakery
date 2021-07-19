@@ -1,32 +1,49 @@
 import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
-import { MenuCards } from "../styles/MenuStyles";
+import { Card, Col, Row, Button } from "react-bootstrap";
+import { MenuCards, CardImgOverlayStyled } from "../styles/MenuStyles";
+import Truncate from "react-truncate";
+import { useHistory } from "react-router-dom";
 
-const FlippedCard = ({ product }) => {
-  // console.log(product)
+const FlippedCard = ({ product, category }) => {
+  let history = useHistory();
+
+  // console.log(category);
+  // console.log(product);
+  const handleMore = (prod) => {
+    console.log(prod);
+    history.push({
+      pathname: "/product_show",
+      state: { category, product: prod },
+    });
+  };
   return (
     <MenuCards>
       <Card.Img variant="top" src={product.image} />
       <Row sm={1}>
         <Col>
-          <Card.ImgOverlay
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              padding: "0px",
-              height: "45%",
-            }}
-          >
+          <CardImgOverlayStyled>
             <Card.Title>{product.name}</Card.Title>
             <Card.Subtitle>${product.price}</Card.Subtitle>
-          </Card.ImgOverlay>
+          </CardImgOverlayStyled>
         </Col>
         <Col>
           <Card.Body>
-            <Card.Text style={{ padding: "10px", overflow: 'auto', height: '11rem' }}>
-              {product.description}
+            <Card.Text>
+              <Truncate
+                lines={7}
+                ellipsis={
+                  <span>
+                    ...
+                  </span>
+                }
+              >
+                {product.description}
+              </Truncate>
             </Card.Text>
+            <Button variant="dark"
+              onClick={() => handleMore(product)}>
+              More
+            </Button>
           </Card.Body>
         </Col>
       </Row>

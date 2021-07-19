@@ -109,7 +109,7 @@ const Footer = () => {
   };
 
   return (
-    <Container>
+    <Container fluid style={{padding: '0px 30px 20px 30px'}}>
       <Row style={styles.wrapReverse}>
         <Col md={6}>{renderAddress()}</Col>
         <Col md={{ span: 3, offset: 3 }} style={{ display: "flex" }}>
