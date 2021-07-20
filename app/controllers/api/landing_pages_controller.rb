@@ -1,4 +1,5 @@
 class Api::LandingPagesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :landing_page, only: [:update, :show]
 
   def index
