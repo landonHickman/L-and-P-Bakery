@@ -93,7 +93,9 @@ const LandingPage = () => {
           </div>
         </div>
       <br/>
+      <CustomFooter>
       <Footer />
+      </CustomFooter>
     </>
   );
 };
