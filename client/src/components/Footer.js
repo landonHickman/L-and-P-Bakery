@@ -68,33 +68,40 @@ const Footer = () => {
     return footer.map((f) => {
       return (
         <div key={f.id}>
-          <Row
-            style={styles.wrapReverse}
-          >
+          <Row style={styles.wrapReverse}>
             <Col md={{ span: 5, offset: 4 }}>
               <p style={{ textAlign: "center", margin: "0" }}>
                 ©2021 DevPoint Studios All rights reserved
               </p>
             </Col>
-            <Col
-              md={3}
-              style={{ display: "flex", justifyContent: "center"}}
-            >
-              <Nav.Link href={f.social_media_url_1}>
+            <Col md={3} style={{ display: "flex", justifyContent: "center" }}>
+              <Nav.Link
+                href={f.social_media_url_1}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   style={styles.imgHeight}
                   src={f.social_media_logo_1}
                   rounded
                 />
               </Nav.Link>
-              <Nav.Link href={f.social_media_url_2}>
+              <Nav.Link
+                href={f.social_media_url_2}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   style={styles.imgHeight}
                   src={f.social_media_logo_2}
                   rounded
                 />
               </Nav.Link>
-              <Nav.Link href={f.social_media_url_3}>
+              <Nav.Link
+                href='https://www.instagram.com/landpbakerycafe/?hl=en'
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   style={styles.imgHeight}
                   src={f.social_media_logo_3}
