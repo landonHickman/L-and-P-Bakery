@@ -4,6 +4,7 @@ import {Col} from "react-bootstrap";
 import Footer from "../components/Footer";
 import LPGrid1Carousel from "../components/LPGrid1Carousel";
 import LPGrid2Carousel from "../components/LPGrid2Carousel";
+import LPGrid3Carousel from "../components/LPGrid3Carousel";
 import LPSpecials from "../components/LPSpecials";
 import styled from "styled-components";
 import r from "../images/r.png";
@@ -150,6 +151,18 @@ font-size: 40px;
 margin: 55px;
 text-align: center;
 font-size: 4vw;
+`;
+
+const CustomCakeCard = styled.div`
+  font-size: 55px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 0px;
+`;
+
+const CustomCakeText = styled.div`
+  font-size: 18px;
+  text-align: center;
 `;
 
 const CustomBobaCard = styled.div`
