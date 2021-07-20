@@ -128,6 +128,11 @@ const Editor3 = () => {
     setShowCards(true)
   };
 
+  const updateCatItem = (product) => {
+    // console.log('inside updateCatItem editor3',product)
+    sortByOrder(products.map(prod => prod.id === product.id ? product : prod))
+  }
+
   if (loading) return <p>Loading</p>;
   return (
     <MarginDiv>
@@ -150,6 +155,7 @@ const Editor3 = () => {
           handleDelete={handleDelete}
           setShowEditForm={setShowEditForm}
           setShowCards={setShowCards}
+          updateCatItem={updateCatItem}
         />
       )}
       <MenuEditLegend>
