@@ -19,7 +19,7 @@ const Application = (props) => {
             <Form.Label for="examplefirst_name">First Name</Form.Label>
             <Form.Control
               type="first_name"
-              name="First Name:"
+              name="First Name"
               id="examplefirst_name"
               placeholder="First Name"
             />
@@ -28,7 +28,7 @@ const Application = (props) => {
             <Form.Label for="examplelast_name">Last Name</Form.Label>
             <Form.Control
               type="last_name"
-              name="Last Name:"
+              name="Last Name"
               id="examplelast_name"
               placeholder="Last Name"
             />
@@ -38,7 +38,7 @@ const Application = (props) => {
             <Form.Label for="exampleEmail">Email</Form.Label>
             <Form.Control
               type="email"
-              name="Email:"
+              name="Email"
               id="exampleEmail"
               placeholder="Email"
             />
@@ -48,7 +48,7 @@ const Application = (props) => {
             <Form.Label for="examplephone_number">Phone Number</Form.Label>
             <Form.Control
               type="phone_number"
-              name="Phone Number:"
+              name="Phone Number"
               id="examplephone_number"
               placeholder="Phone Number"
             />
@@ -58,7 +58,7 @@ const Application = (props) => {
             <Form.Label for="exampleaddress">Address</Form.Label>
             <Form.Control
               type="address"
-              name="Address:"
+              name="Address"
               id="exampleaddress"
               placeholder="Address"
             />
@@ -68,7 +68,7 @@ const Application = (props) => {
             <Form.Label for="examplecity">City</Form.Label>
             <Form.Control
               type="city"
-              name="City:"
+              name="City"
               id="examplecity"
               placeholder="City"
             />
@@ -78,7 +78,7 @@ const Application = (props) => {
             <Form.Label for="examplestate">State</Form.Label>
             <Form.Control
               type="state"
-              name="State:"
+              name="State"
               id="examplestate"
               placeholder="State"
             />
@@ -88,17 +88,17 @@ const Application = (props) => {
             <Form.Label for="examplezip">Zip</Form.Label>
             <Form.Control
               type="zip"
-              name="Zip code:"
+              name="Zip code"
               id="examplezip"
               placeholder="Zip"
             />
           </Form.Group>
 
           <Form.Group>
-            <Form.Label for="exampleText">Best time to contact you:</Form.Label>
+            <Form.Label for="exampleText">Best time to contact you</Form.Label>
             <Form.Control
               type="textarea"
-              name="Best time to contact you:"
+              name="Best time to contact you"
               id="exampleText"
             />
           </Form.Group>
@@ -108,7 +108,7 @@ const Application = (props) => {
         </form>
         <p></p>
       </Form>
-      <Footer/>
+      <Footer />
     </>
   );
 };

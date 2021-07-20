@@ -23,7 +23,7 @@ const CustomCakes = () => {
               <Row>
                 <Col>
                   <Form.Label for="flavor">Cake Flavor</Form.Label>
-                  <Form.Control as="select" id="flavor" name="Flavor:">
+                  <Form.Control as="select" id="flavor" name="Flavor">
                     <option>Choose Cake Flavor...</option>
                     <option>Fruit</option>
                     <option>Strawberry</option>
@@ -40,7 +40,7 @@ const CustomCakes = () => {
                 </Col>
                 <Col>
                   <Form.Label for="mousse">Mousse Flavor</Form.Label>
-                  <Form.Control as="select" name="Mousse Flavor:">
+                  <Form.Control as="select" name="Mousse Flavor">
                     <option>Choose mousse flavor...</option>
                     <option>Strawberry</option>
                     <option>Mango</option>
@@ -54,7 +54,7 @@ const CustomCakes = () => {
               <Row>
                 <Col>
                   <Form.Label for="triangle_cake">Triangle Cake</Form.Label>
-                  <Form.Control as="select" name="Triangle Cake:">
+                  <Form.Control as="select" name="Triangle Cake">
                     <option>Choose triangle cake flavor...</option>
                     <option>Vanilla</option>
                     <option>Green Tea</option>
@@ -67,7 +67,7 @@ const CustomCakes = () => {
 
                 <Col>
                   <Form.Label for="cake_size"> Cake Size</Form.Label>
-                  <Form.Control as="select" name="Cake Size:">
+                  <Form.Control as="select" name="Cake Size">
                     <option>Choose cake size...</option>
                     <option>6 inch</option>
                     <option>10 inch</option>
@@ -87,15 +87,13 @@ const CustomCakes = () => {
                 as="textarea"
                 rows={4}
                 type="special_instructions"
-                name="Special Instructions:"
+                name="Special Instructions"
                 id="special_instructions"
               />
             </Form.Group>
             <Row>
               <Col sm={{ span: 6, offset: 3 }}>
-                <CustomCakeBtn type="submit">
-                  Send Request
-                </CustomCakeBtn>
+                <CustomCakeBtn type="submit">Send Request</CustomCakeBtn>
               </Col>
             </Row>
           </form>
