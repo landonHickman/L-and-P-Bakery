@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import { Form, Row, Col, Button, Spinner } from "react-bootstrap";
-import { btn, styles } from "../styles/styles";
+import { Form, Row, Col, Button} from "react-bootstrap";
+import { btn } from "../styles/styles";
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
@@ -28,7 +28,7 @@ const AboutPageEditor = (props) => {
         let res1 = await axios.post("/api/images/upload", data);
         var img = res1.data.cloud_image.secure_url;
       }
-      let res = await axios.put(`/api/about_pages/${about.id}`, {
+      await axios.put(`/api/about_pages/${about.id}`, {
         title,
         text,
         image: img,
