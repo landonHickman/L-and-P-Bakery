@@ -32,7 +32,9 @@ class Api::LandingPagesController < ApplicationController
       :grid_title_1, 
       :grid_description_1, 
       :grid_title_2, 
-      :grid_description_2
+      :grid_description_2,
+      :grid_title_3,
+      :grid_description_3
     )
   end
 end
