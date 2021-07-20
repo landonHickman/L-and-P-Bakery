@@ -2,12 +2,13 @@ import React, {useContext} from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useFormInput } from '../customHooks/useFormInput'
 import { AuthContext } from '../providers/AuthProvider'
-import {useHistory} from 'react-router-dom'
+import {useHistory, useLocation} from 'react-router-dom'
 
 const Login = () => {
   //call history from react-router-dom so that we can pass it to AuthProvider so it can be used
   //in that file
   const history = useHistory()
+  const location = useLocation()
   //passing handleLogin from AuthContext
   const {handleLogin} = useContext(AuthContext)
   //using the custom form input hook(initial value in field, label and placeholder for input)
@@ -22,7 +23,7 @@ const Login = () => {
     e.preventDefault()
     //Front end validation
     //need to drill down to get value. i.e. email.value
-    handleLogin({email: email.value, password: password.value}, history)
+    handleLogin({email: email.value, password: password.value}, history, location)
   }
   return(
     <>

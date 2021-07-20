@@ -16,6 +16,7 @@ import EditProduct from "./pages/EditProduct";
 import Application from "./pages/Application";
 import CreateProduct from "./pages/CreateProduct";
 import ProductShow from "./pages/ProductShow";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -28,10 +29,10 @@ function App() {
             <Route exact path="/product_show" component={ProductShow} />
             <Route exact path="/about_pages" component={AboutPages} />
             <Route exact path="/application" component={Application} />
-            <Route exact path="/editor1" component={Editor1} />
-            <Route exact path="/editor2" component={Editor2} />
-            <Route exact path="/editor3" component={Editor3} />
-            <Route exact path="/createProduct" component={CreateProduct} />
+            <ProtectedRoute exact path="/editor1" component={Editor1} />
+            <ProtectedRoute exact path="/editor2" component={Editor2} />
+            <ProtectedRoute exact path="/editor3" component={Editor3} />
+            <ProtectedRoute exact path="/createProduct" component={CreateProduct} />
             <Route exact path="/edit_product" component={EditProduct} />
             <Route exact path="/custom_cakes" component={CustomCakes} />
             <Route exact path="/menu" component={Menu} />
