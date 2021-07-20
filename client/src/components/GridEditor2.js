@@ -2,6 +2,12 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Form, Button, Row, Col, Image } from "react-bootstrap";
 import styled from "styled-components";
+import { FilePond, registerPlugin } from "react-filepond";
+import "filepond/dist/filepond.min.css";
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const GridEditor2 = (props) => {
   const { landing } = props;
@@ -48,7 +54,6 @@ const GridEditor2 = (props) => {
                 defaultValue={desc}
                 onChange={(e) => setDesc(e.target.value)}
               />
-             
             </Form.Group>
             <Button variant="dark"  type="submit" block>
               Submit
