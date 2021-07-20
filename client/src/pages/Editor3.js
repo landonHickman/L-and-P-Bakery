@@ -9,7 +9,7 @@ import {
   MarginDiv,
 } from "../styles/MenuStyles";
 import ShowProduct from "../components/ShowProduct";
-import { ArrowClockwise, Clock, StarFill } from "react-bootstrap-icons";
+import { Clock, StarFill } from "react-bootstrap-icons";
 import EditProduct from "./EditProduct";
 import { Container, Image } from "react-bootstrap";
 import carousel from '../images/carousel.png'

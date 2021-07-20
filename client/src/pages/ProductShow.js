@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Container, Image } from "react-bootstrap";
+import { Row} from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import { RightColProductShow, ProductContainer, ProductImg, LeftColProductShow } from "../styles/MenuStyles";

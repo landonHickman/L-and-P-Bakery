@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Card, ListGroup, ListGroupItem, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import CreateCategoryItem from "../components/CreateCategoryItem";
 
 const EditProduct = (props) => {
-  const { productId, catId, sortByOrder, handleDelete, setShowEditForm, setShowCards, updateCatItem} = props;
+  const { productId, catId, handleDelete, setShowEditForm, setShowCards, updateCatItem} = props;
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 

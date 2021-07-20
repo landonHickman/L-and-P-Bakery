@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import {styles, MenuH1, MenuButton, MenuRow, MarginDiv} from '../styles/MenuStyles'
 import MenuCard from "../components/MenuCard";
-import ReactCardFlip from 'react-card-flip';
 import {Container} from 'react-bootstrap'
 
 const Categories = () => {

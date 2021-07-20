@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React from 'react'
 import { Button, Card, Dropdown, DropdownButton, Image } from 'react-bootstrap'
-import { ArrowClockwise, CaretLeftFill, CaretRightFill, Clock, StarFill } from 'react-bootstrap-icons'
+import { CaretLeftFill, CaretRightFill, Clock, StarFill } from 'react-bootstrap-icons'
 import { CardBody } from '../styles/EditProductStyles'
-import { MenuCol, MenuCards, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv, MenuEditCards } from '../styles/MenuStyles'
+import { MenuCol, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv, MenuEditCards } from '../styles/MenuStyles'
 import carousel from '../images/carousel.png'
 import { btn } from '../styles/styles'
 const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder}) => {
