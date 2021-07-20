@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React from 'react'
-import { Button, Card, Dropdown, DropdownButton } from 'react-bootstrap'
-import { ArrowClockwise, CaretLeftFill, CaretRightFill, Clock, StarFill } from 'react-bootstrap-icons'
-import { MenuCol, MenuCards, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv, MenuEditCards } from '../styles/MenuStyles'
-
+import { Button, Card, Dropdown, DropdownButton, Image } from 'react-bootstrap'
+import { CaretLeftFill, CaretRightFill, Clock, StarFill } from 'react-bootstrap-icons'
+import { CardBody } from '../styles/EditProductStyles'
+import { MenuCol, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv, MenuEditCards } from '../styles/MenuStyles'
+import carousel from '../images/carousel.png'
+import { btn } from '../styles/styles'
 const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder}) => {
 
 
@@ -12,18 +14,19 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
 
   const limitBoolean = (d) => {
     if (d.limited_time === true) {
-      return <Clock/>;
+      return <Clock style={styles.icons}/>;
       
     }
   };
   const SpecialBoolean = (d) => {
     if (d.special_item_carousel === true) {
-      return <StarFill/>;
+      return <StarFill style={styles.icons}/>;
     }
   };
   const CarouselBoolean = (d) => {
     if (d.category_carousel === true) {
-      return <ArrowClockwise />;
+
+      return <span><Image style={styles.icons} src={carousel}/></span>
     }
   };
 
@@ -245,8 +248,8 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
       <MenuCol>
             <MenuEditCards>
               <Card.Img variant="top" src={prod.image} />
-              <Card.ImgOverlay>
-                <MenuImgIcons>
+              <CardBody>
+              <MenuImgIcons>
                   <div>
                     {limitBoolean(prod)}
                     {SpecialBoolean(prod)}
@@ -263,17 +266,13 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
                     />
                   </div>
                 </MenuImgIcons>
-              </Card.ImgOverlay>
-              <Card.Body>
-                <MenuCardTitle>{prod.name} {prod.order}</MenuCardTitle>
+                <MenuCardTitle>{prod.name}</MenuCardTitle>
                 <MenuCardPrice>
                   ${prod.price}
                 </MenuCardPrice>
-                {/* <Card.Text>{d.description}</Card.Text> */}
                 <ButtonDiv>
                   <Button 
-                    style={{ position: "relative" }}
-                    variant="dark"
+                    style={btn.blackButton}
                     onClick={(e) => handleEditClick(prod)}
                   >
                     Edit
@@ -302,7 +301,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
                     </Dropdown.Item>
                   </DropdownButton>
                 </ButtonDiv>
-              </Card.Body>
+              </CardBody>
             </MenuEditCards>
           </MenuCol>
    

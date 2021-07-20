@@ -1,4 +1,5 @@
 class Api::CategoriesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   def index
     render json: Category.all

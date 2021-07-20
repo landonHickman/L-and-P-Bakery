@@ -1,6 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, Image } from "react-bootstrap";
+import styled from "styled-components";
+import { FilePond, registerPlugin } from "react-filepond";
+import "filepond/dist/filepond.min.css";
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const GridEditor2 = (props) => {
   const { landing } = props;
@@ -28,8 +35,10 @@ const GridEditor2 = (props) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Row>
-          <Col>
+      <CustomCakeCarousel>Cakes</CustomCakeCarousel>
+          <Row xs={1} md={2} className="g-4">
+          {Array.from({ length: 1 }).map(() => (
+            <Col>
             <Form.Group>
               <Form.Label>Grid Title 2</Form.Label>
               <Form.Control
@@ -46,14 +55,22 @@ const GridEditor2 = (props) => {
                 onChange={(e) => setDesc(e.target.value)}
               />
             </Form.Group>
-            <Button variant="primary" type="submit" block>
+            <Button variant="dark"  type="submit" block>
               Submit
             </Button>
-          </Col>
-        </Row>
+            </Col>
+            ))}
+          </Row>
       </Form>
     </>
   );
 };
 
 export default GridEditor2;
+
+const CustomCakeCarousel= styled.div`
+font-size: 40px;
+margin: 30px;
+text-align: center;
+margin-top: 50px
+`;

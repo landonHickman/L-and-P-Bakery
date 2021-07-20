@@ -6,10 +6,13 @@ import {
   MenuButton,
   MenuRow,
   MenuEditLegend,
+  MarginDiv,
 } from "../styles/MenuStyles";
 import ShowProduct from "../components/ShowProduct";
-import { ArrowClockwise, Clock, StarFill } from "react-bootstrap-icons";
+import { Clock, StarFill } from "react-bootstrap-icons";
 import EditProduct from "./EditProduct";
+import { Container, Image } from "react-bootstrap";
+import carousel from '../images/carousel.png'
 
 const Editor3 = () => {
   const [categories, setCategories] = useState([]);
@@ -125,15 +128,23 @@ const Editor3 = () => {
     setShowCards(true)
   };
 
+  const updateCatItem = (product) => {
+    // console.log('inside updateCatItem editor3',product)
+    sortByOrder(products.map(prod => prod.id === product.id ? product : prod))
+  }
+
   if (loading) return <p>Loading</p>;
   return (
-    <div>
+    <MarginDiv>
       <div style={{textAlign: 'center'}}>
 
       <MenuH1>{category.name}</MenuH1>
       {renderCategoryButtons()}
       </div>
+      <Container >
       <MenuRow>{showCards && renderProducts()}</MenuRow>
+
+      </Container>
       {showEditForm && (
         <EditProduct
           productId={product.id}
@@ -144,6 +155,7 @@ const Editor3 = () => {
           handleDelete={handleDelete}
           setShowEditForm={setShowEditForm}
           setShowCards={setShowCards}
+          updateCatItem={updateCatItem}
         />
       )}
       <MenuEditLegend>
@@ -156,11 +168,11 @@ const Editor3 = () => {
           Limited Time Only
         </div>
         <div>
-          <ArrowClockwise style={styles.iconsLegend} />
+          <Image src={carousel} style={styles.iconsLegend} />
           Category Carousel
         </div>
       </MenuEditLegend>
-    </div>
+    </MarginDiv>
   );
 };
 

@@ -109,7 +109,7 @@ const Footer = () => {
   };
 
   return (
-    <Container>
+    <Container fluid style={{padding: '0px 30px 20px 30px'}}>
       <Row style={styles.wrapReverse}>
         <Col md={6}>{renderAddress()}</Col>
         <Col md={{ span: 3, offset: 3 }} style={{ display: "flex" }}>
@@ -124,7 +124,7 @@ const Footer = () => {
 const styles = {
   brd: {
     border: "1px solid black",
-    padding: '10px',
+    padding: '20px',
   },
   wrapReverse: {
     display: "flex",
@@ -142,3 +142,4 @@ const styles = {
 };
 
 export default Footer;
+

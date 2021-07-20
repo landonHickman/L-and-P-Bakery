@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
-import {styles, MenuH1, MenuButton, MenuRow} from '../styles/MenuStyles'
+import {styles, MenuH1, MenuButton, MenuRow, MarginDiv} from '../styles/MenuStyles'
 import MenuCard from "../components/MenuCard";
-import ReactCardFlip from 'react-card-flip';
+import {Container} from 'react-bootstrap'
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
-  const [categoryTitle, setCategoryTitle] = useState([]);
+  const [category, setCategory] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true)
 
@@ -41,7 +41,7 @@ const Categories = () => {
     try {
       let res = await axios.get(`/api/categories/${category.id}/products`);
       // console.log('products',res.data)
-      setCategoryTitle(category.name);
+      setCategory(category);
       sortByOrder(res.data);
     } catch (err) {
       console.log("inside handleCategoryButtonClick", err);
@@ -68,7 +68,7 @@ const Categories = () => {
     return products.map((product) => {
       return (
         <React.Fragment key={product.id}>
-          <MenuCard product={product} />
+          <MenuCard product={product} category={category}/>
         </React.Fragment>
       );
     });
@@ -80,20 +80,22 @@ const Categories = () => {
   if(loading) return <p>Loading</p>
   return (
     <>
+      <MarginDiv>
       <div style={{ textAlign: "center" }}>
-        <MenuH1>{categoryTitle}</MenuH1>
+        <MenuH1>{category.name}</MenuH1>
         <div
           style={styles.card}
         >
           {renderCategories()}
         </div>
         
-        <div>
-            <MenuRow lg={4} md={3} sm={2}>
+        <Container>
+            <MenuRow>
               {renderProducts()}
             </MenuRow>
-        </div>
+        </Container>
       </div>
+      </MarginDiv>
       <Footer />
     </>
   );

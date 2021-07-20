@@ -1,4 +1,4 @@
-import { Form } from "react-bootstrap";
+import { Card, Form } from "react-bootstrap";
 import styled from "styled-components";
 
 export const ProductBooleanCheck = styled(Form.Check)`
@@ -17,4 +17,7 @@ marginBottom: '40px',
 export const EditProductH1 = styled.h1`
   margin: 0px;
   margin-top: 70px;
+`
+export const CardBody = styled(Card.Body)`
+  padding: 0px 10px 0px 10px;
 `

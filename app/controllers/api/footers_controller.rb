@@ -1,4 +1,5 @@
 class Api::FootersController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :set_footer, only: [:update, :show]
 
   def index

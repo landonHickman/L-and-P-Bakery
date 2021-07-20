@@ -1,5 +1,6 @@
 class Api::AboutPagesController < ApplicationController
-  before_action :about_pages, only: [:update]
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :about_pages, only: [:update, :show]
 
   def index
     render json: AboutPage.all
@@ -20,7 +21,7 @@ class Api::AboutPagesController < ApplicationController
 private
 
   def about_pages
-    @about_pages = AboutPage.find (params[:id])
+    @about_pages = AboutPage.find(params[:id])
   end
 
   def about_pages_params
