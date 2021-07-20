@@ -31,7 +31,7 @@ const LandingPage = () => {
       {/* header */}
 
       <CustomBackgroundImgdiv>
-        <CustomLNPTitle>L&P</CustomLNPTitle>
+      <CustomLNPTitle>L&P</CustomLNPTitle>
         <CustomLNPBakery>Bakery</CustomLNPBakery>
         <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
       </CustomBackgroundImgdiv>
@@ -94,7 +94,9 @@ const LandingPage = () => {
           </div>
         </div>
       <br/>
+      <CustomFooter>
       <Footer />
+      </CustomFooter>
     </>
   );
 };
@@ -108,37 +110,47 @@ const CustomBackgroundImgdiv = styled.div`
   background-image: url(${r});
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 650px;
+  height: 60vw;
   width: 100%;
-  padding-top: 30px;
+  padding-top: 180px;
+    
 `;
 
 const CustomLNPTitle = styled.div`
   font-size: 75px;
   text-align: center;
   color: white;
-  padding-top: 90px;
+  margin-top: -60px;
+  padding: 50px;
+  height: 100%px;
+  width: 100%;
+  font-size: 9vw;
 `;
 
 const CustomLNPBakery = styled.div`
   font-size: 75px;
   text-align: center;
   color: white;
-  margin-top: -30px;
+  margin-top: -130px;
+  padding: 60px;
+  height: 100%px;
+  width: 100%;
+  font-size: 9vw;
 `;
 
 const CustomLNPtext = styled.div`
   font-size: 35px;
   text-align: center;
-  color: white;
-  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.808);
+  margin-top: -70px;
+  font-size: 3vw;
 `;
 
 const CustomSBI = styled.div`
-  font-size: 40px;
-  margin: 30px;
-  text-align: center;
-  margin-top: -40px;
+font-size: 40px;
+margin: 55px;
+text-align: center;
+font-size: 4vw;
 `;
 
 const CustomCakeCard = styled.div`
@@ -173,4 +185,8 @@ const CustomBakeryCard = styled.div`
 const CustomBakeryText = styled.div`
   font-size: 18px;
   text-align: center;
+`;
+
+const CustomFooter = styled.div`
+font-size: 1.5vw;
 `;

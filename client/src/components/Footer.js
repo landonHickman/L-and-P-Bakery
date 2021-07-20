@@ -124,7 +124,7 @@ const Footer = () => {
 const styles = {
   brd: {
     border: "1px solid black",
-    padding: '10px',
+    padding: '20px',
   },
   wrapReverse: {
     display: "flex",
@@ -142,3 +142,4 @@ const styles = {
 };
 
 export default Footer;
+

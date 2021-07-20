@@ -6,6 +6,7 @@ import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import axios from "axios";
+import styled from "styled-components";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const LandingPageEditor = (props) => {
@@ -48,6 +49,7 @@ const LandingPageEditor = (props) => {
             onupdatefiles={setFiles}
             labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
           />
+            <CustomImageTitle>Header Image</CustomImageTitle>
           <Row>
             <Col>
               <Form.Label>Main Title</Form.Label>
@@ -63,7 +65,7 @@ const LandingPageEditor = (props) => {
             </Col>
           </Row>
         </Form.Group>
-        <Button variant="primary" type="submit" block>
+        <Button variant="dark"  type="submit" block>
           Submit
         </Button>
       </Form>
@@ -72,3 +74,10 @@ const LandingPageEditor = (props) => {
 };
 
 export default LandingPageEditor;
+
+const CustomImageTitle = styled.div`
+font-size: 40px;
+margin: 30px;
+text-align: center;
+margin-top: 50px
+`;

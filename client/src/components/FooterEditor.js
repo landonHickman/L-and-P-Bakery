@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import styled from "styled-components";
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
@@ -7,6 +8,7 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import axios from "axios";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
+
 
 const FooterEditor = ({ footer }) => {
   const [logo1, setLogo1] = useState(footer ? footer.social_media_logo_1 : "");
@@ -67,7 +69,7 @@ const FooterEditor = ({ footer }) => {
 
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Edit Footer</h1>
+      <CustomFooterEdit style={{ textAlign: "center" }}>Footer</CustomFooterEdit>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Row>
@@ -182,7 +184,7 @@ const FooterEditor = ({ footer }) => {
             </Col>
           </Row>
         </Form.Group>
-        <Button variant="primary" type="submit" block>
+        <Button variant="dark"  type="submit" block>
           Submit
         </Button>
       </Form>
@@ -190,3 +192,10 @@ const FooterEditor = ({ footer }) => {
   );
 };
 export default FooterEditor;
+
+const CustomFooterEdit= styled.div`
+font-size: 40px;
+margin: 30px;
+text-align: center;
+margin-top: 50px
+`;

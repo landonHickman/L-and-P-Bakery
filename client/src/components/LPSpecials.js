@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Carousel, Row, Col} from "react-bootstrap";
-
+import styled from "styled-components";
 const LPSpecials = () => {
   const [specProducts, setSpecProducts] = useState([]);
 
@@ -31,10 +31,10 @@ const LPSpecials = () => {
             src={specProduct.image}
             alt="First slide"
           />
-          <Carousel.Caption>
-            <h3>{specProduct.name}</h3>
+          <CustomLPS>
+            <p>{specProduct.name}</p>
             <p>${specProduct.price} </p>
-          </Carousel.Caption>
+          </CustomLPS>
 
         </Col>
         ))}
@@ -48,3 +48,7 @@ const LPSpecials = () => {
   )};
 
 export default LPSpecials
+
+const CustomLPS = styled.div`
+font-size: 2vw;
+`;

@@ -42,6 +42,13 @@
   color: white;
 }
 
+#nav-dropdown{
+  color: white;
+}
+
+a.dropdown-item {
+  color: black; 
+}
 
 .App-link {
   color: #61dafb;

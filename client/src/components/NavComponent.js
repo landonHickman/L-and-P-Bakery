@@ -20,18 +20,18 @@ const NavComponent = (props) => {
 
   const renderNav = () => {
     return (
-      <div key={nav.id} style={{ width: "100%", background: "none" }}>
+      <div key={nav.id} style={{ width: "100%", background: "none"}} >
         <Row style={{ display: "flex" }}>
           <Navbar.Brand href="/">
             <Image
               src={LNP}
-              style={{ height: "80px", margin: "-15px" }}
+              style={{ height: "80px" }}
               roundedCircle
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav style={{ display: "flex", width: "90%" }}>
+            <Nav style={{ display: "flex", width: "80%" }}>
               <Col sm={"auto"} style={styles.pad}>
                 <Nav.Link style={{ color: "white" }} href="/menu">
                   {nav.nav_text_1}
