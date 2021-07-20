@@ -1,3 +1,4 @@
+import { Button } from 'react-bootstrap';
 import styled from 'styled-components'
 
 export const PRIMARY_COLOR = 'steelblue';
@@ -36,5 +37,11 @@ export const MAIN_CONTAINER = styled.div`
   margin: 10px;
   padding: 20px;
 `
+export const btn = {
+  blackButton: {backgroundColor: 'black'}
+}
 
-
+export const CustomCakeBtn = styled(Button)`
+  width: 100%;
+  background-color: black;
+`

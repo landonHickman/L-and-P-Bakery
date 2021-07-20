@@ -25,12 +25,17 @@ const AuthProvider = (props) => {
     }
   }
   //logging existing user here
-  const handleLogin = async (userFormData, history) => {
+  const handleLogin = async (userFormData, history, location) => {
     //axios call here
     try{
       let res = await axios.post(`/api/auth/sign_in`, userFormData)
       setUser(res.data.data)
-      history.push('/')
+      //passing in location from login page so that i can redirect back to the page i tried to enter
+      //after login.
+      if(location.state){
+        return history.replace(location.state.from.pathname)
+      }
+      return history.push('/')
     }catch(err){
       alert('error occurred check console')
       //drilled down so it will show the message i want to look for

@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Card, ListGroup, ListGroupItem, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import CreateCategoryItem from "../components/CreateCategoryItem";
 
 const EditProduct = (props) => {
-  const { productId, catId, sortByOrder, handleDelete, setShowEditForm, setShowCards} = props;
+  const { productId, catId, handleDelete, setShowEditForm, setShowCards, updateCatItem} = props;
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -27,17 +27,10 @@ const EditProduct = (props) => {
     }
   };
 
-  const updateCatItem = (i) => {
-    // console.log('products', product)
-    // console.log('i',i)
-    setProduct(i)
-  }
-
   if(loading) return <Spinner animation="border" size="lg" />
 
   return (
     <div>
-      
       <CreateCategoryItem
         productId={product.id}
         catId={catId}
@@ -55,7 +48,6 @@ const EditProduct = (props) => {
         setShowEditForm={setShowEditForm} 
         setShowCards={setShowCards}
       />
-      <hr />
     </div>
   );
 };

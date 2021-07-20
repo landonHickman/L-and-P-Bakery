@@ -1,15 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {
-  Card,
-  CardGroup,
-  Carousel,
-  Image,
-  Navbar,
-  Row,
-  Col,
-  Container,
-} from "react-bootstrap";
+import {Col} from "react-bootstrap";
 import Footer from "../components/Footer";
 import LPGrid1Carousel from "../components/LPGrid1Carousel";
 import LPGrid2Carousel from "../components/LPGrid2Carousel";
@@ -43,6 +34,8 @@ const LandingPage = () => {
         <CustomLNPBakery>Bakery</CustomLNPBakery>
         <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
       </CustomBackgroundImgdiv>
+      <br/>
+      <br/>
 
       <CustomSBI>Special Bakery Items</CustomSBI>
       <Col>
@@ -53,48 +46,59 @@ const LandingPage = () => {
       <br />
 
       {/* cakes */}
-      <div className="container">
         <div className="row">
-          <div style={styledDiv} className="col">
-            <div
+          <CustomCakeCard className="col">
+            <CustomCakeText
               class="text-center"
-              style={{ position: "relative", top: "30%" }}
+              style={{ position: "relative", top: "35%" }}
             >
-              <CustomCake>{landingPage.grid_title_1}</CustomCake>
-              <Customcake>{landingPage.grid_description_1}</Customcake>
-            </div>
-          </div>
+              <h1>{landingPage.grid_title_1}</h1>
+              <p>{landingPage.grid_description_1}</p>
+            </CustomCakeText>
+          </CustomCakeCard>
           <div style={styledDiv} className="col">
             <LPGrid1Carousel />
           </div>
         </div>
-      </div>
 
       {/* boba */}
-      <div className="container">
         <div className="row">
           <div style={styledDiv} className="col">
             <LPGrid2Carousel />
           </div>
-          <div style={styledDiv} className="col">
-            <div
+          <CustomBobaCard className="col">
+            <CustomBobaText
               class="text-center"
-              style={{ position: "relative", top: "30%",  }}
+              style={{ position: "relative", top: "35%" }}
             >
-              <CustomBoba>{landingPage.grid_title_2}</CustomBoba>
-              <Customboba>{landingPage.grid_description_2}</Customboba>
-            </div>
+              <h1>{landingPage.grid_title_2}</h1>
+              <p>{landingPage.grid_description_2}</p>
+            </CustomBobaText>
+          </CustomBobaCard>
+        </div>
+
+            {/* bakery */}
+        <div className="row">
+          <CustomBakeryCard className="col">
+            <CustomBakeryText
+              class="text-center"
+              style={{position: "relative", top: "35%" }}
+            >
+              <h1>{landingPage.grid_title_3}</h1>
+              <p>{landingPage.grid_description_3}</p>
+            </CustomBakeryText>
+          </CustomBakeryCard>
+          <div style={styledDiv} className="col">
+            <LPGrid3Carousel />
           </div>
         </div>
-      </div>
-      <p></p>
-      <CustomFooter>
-    <Footer/>
-    </CustomFooter>
+      <br/>
+      <Footer />
     </>
   );
 };
 export default LandingPage;
+
 
 const styledDiv = {
   padding: "0px",
@@ -146,25 +150,26 @@ text-align: center;
 font-size: 4vw;
 `;
 
-const CustomBoba = styled.div`
-margin: -20px
-text-align: center;
-font-size:4vw;
+const CustomBobaCard = styled.div`
+  font-size: 55px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 0px;
+`;
+const CustomBobaText = styled.div`
+  font-size: 18px;
+  text-align: center;
 `;
 
-const Customboba = styled.div`
-text-align: center;
-font-size: 2vw;
+const CustomBakeryCard = styled.div`
+  font-size: 55px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 0px;
 `;
-const CustomCake = styled.div`
-margin: -20px
-text-align: center;
-font-size:4vw;
-`;
-
-const Customcake = styled.div`
-text-align: center;
-font-size: 2vw;
+const CustomBakeryText = styled.div`
+  font-size: 18px;
+  text-align: center;
 `;
 
 const CustomFooter = styled.div`

@@ -23,8 +23,8 @@ const NavBar = () => {
             <NavDropdown.Item href="/editor1">Landing Page</NavDropdown.Item>
             <NavDropdown.Item href="/editor2">About Page</NavDropdown.Item>
             <NavDropdown.Item href="/editor3">Product Page</NavDropdown.Item>
+            <NavDropdown.Item href="/createProduct">Create Product</NavDropdown.Item>
           </NavDropdown>
-
           <Col
             sm={{ span: "auto", offset: 2 }}
             md={{ span: "auto", offset: 5 }}
