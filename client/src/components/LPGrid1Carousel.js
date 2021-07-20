@@ -22,7 +22,7 @@ const LPGrid1Carousel = () => {
   const renderCakeProducts = () => {
     return limitedTimeCakeProducts.map((product) => {
       return (
-        <Carousel.Item key={product.id}>
+        <Carousel.Item key={product.id} >
           <img
             className="d-block w-100"
             alt="First slide"

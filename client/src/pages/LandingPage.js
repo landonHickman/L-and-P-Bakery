@@ -35,6 +35,8 @@ const LandingPage = () => {
         <CustomLNPBakery>Bakery</CustomLNPBakery>
         <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
       </CustomBackgroundImgdiv>
+      <br/>
+      <br/>
 
       <CustomSBI>Special Bakery Items</CustomSBI>
       <Col>
@@ -45,63 +47,59 @@ const LandingPage = () => {
       <br />
 
       {/* cakes */}
-      <div className="container">
         <div className="row">
-          <div style={styledDiv} className="col">
-            <div
+          <CustomCakeCard className="col">
+            <CustomCakeText
               class="text-center"
-              style={{ position: "relative", top: "30%" }}
+              style={{ position: "relative", top: "35%" }}
             >
               <h1>{landingPage.grid_title_1}</h1>
               <p>{landingPage.grid_description_1}</p>
-            </div>
-          </div>
+            </CustomCakeText>
+          </CustomCakeCard>
           <div style={styledDiv} className="col">
             <LPGrid1Carousel />
           </div>
         </div>
-      </div>
 
       {/* boba */}
-      <div className="container">
         <div className="row">
           <div style={styledDiv} className="col">
             <LPGrid2Carousel />
           </div>
-          <div style={styledDiv} className="col">
-            <div
+          <CustomBobaCard className="col">
+            <CustomBobaText
               class="text-center"
-              style={{ position: "relative", top: "30%" }}
+              style={{ position: "relative", top: "35%" }}
             >
               <h1>{landingPage.grid_title_2}</h1>
               <p>{landingPage.grid_description_2}</p>
-            </div>
-          </div>
+            </CustomBobaText>
+          </CustomBobaCard>
         </div>
-      </div>
+
             {/* bakery */}
-      <div className="container">
         <div className="row">
-          <div style={styledDiv} className="col">
-            <div
+          <CustomBakeryCard className="col">
+            <CustomBakeryText
               class="text-center"
-              style={{ position: "relative", top: "30%" }}
+              style={{position: "relative", top: "35%" }}
             >
               <h1>{landingPage.grid_title_3}</h1>
               <p>{landingPage.grid_description_3}</p>
-            </div>
-          </div>
+            </CustomBakeryText>
+          </CustomBakeryCard>
           <div style={styledDiv} className="col">
             <LPGrid3Carousel />
           </div>
         </div>
-      </div>
       <br/>
       <Footer />
     </>
   );
 };
 export default LandingPage;
+
 
 const styledDiv = {
   padding: "0px",
@@ -147,6 +145,7 @@ const CustomCakeCard = styled.div`
   font-size: 55px;
   text-align: center;
   margin-top: 10px;
+  padding: 0px;
 `;
 
 const CustomCakeText = styled.div`
@@ -158,6 +157,7 @@ const CustomBobaCard = styled.div`
   font-size: 55px;
   text-align: center;
   margin-top: 10px;
+  padding: 0px;
 `;
 const CustomBobaText = styled.div`
   font-size: 18px;
@@ -168,6 +168,7 @@ const CustomBakeryCard = styled.div`
   font-size: 55px;
   text-align: center;
   margin-top: 10px;
+  padding: 0px;
 `;
 const CustomBakeryText = styled.div`
   font-size: 18px;
