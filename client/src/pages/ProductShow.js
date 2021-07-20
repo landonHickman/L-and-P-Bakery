@@ -15,7 +15,6 @@ const ProductShow = () => {
           <LeftColProductShow md={6}>
             <ProductImg
               src={location.state.product.image}
-              thumbnail
             />
           </LeftColProductShow>
           <RightColProductShow md={6}>
