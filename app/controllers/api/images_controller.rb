@@ -5,7 +5,8 @@ class Api::ImagesController < ApplicationController
     if file
       begin
         cloud_image = Cloudinary::Uploader.upload(file, 
-          public_id: file.original_filename, 
+          # public_id: file.original_filename,
+          use_filename: true, 
           secure: true, 
           resource_type: :auto
         )
