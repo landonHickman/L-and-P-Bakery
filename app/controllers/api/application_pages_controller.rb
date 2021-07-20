@@ -1,4 +1,5 @@
 class Api::ApplicationPagesController < ApplicationController
+before_action :authenticate_user!, only: [:destroy]
 before_action :set_application_pages, only: [:show, :update, :destroy]
 
   def index

@@ -1,4 +1,5 @@
 class Api::ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :set_category, only: [:index, :show, :create]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 

@@ -5,13 +5,8 @@ import { MenuCards, MenuCol, MenuCardPrice, MenuCardTitle} from '../styles/MenuS
 import ReactCardFlip from 'react-card-flip';
 import FlippedCard from "./FlippedCard";
 
-const MenuCard = ({ product }) => {
+const MenuCard = ({ product, category }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  // const [showFlippedCard, setShowFlippedCard] = useState(false);
-
-  // const handleFlip = () => {
-  //   setShowFlippedCard(true);
-  // };
 
 
   const CardFlippable = () => {
@@ -27,9 +22,6 @@ const MenuCard = ({ product }) => {
             <Card.Img variant="top" src={product.image}/>
           <MenuCardTitle>{product.name}</MenuCardTitle>
           <MenuCardPrice>${product.price}</MenuCardPrice>
-            
-            {/* <ListGroupItem>{`Limited Time: ${product.limited_time}`}</ListGroupItem> */}
-            {/* <Button onClick={handleFlip}>Flip</Button> */}
         </MenuCards>
            
           </div>
@@ -38,8 +30,7 @@ const MenuCard = ({ product }) => {
           onClick={() => setIsFlipped(false)}
           className="CardBack"
         >
-          <FlippedCard product={product}/>
-          {/* <Card.Text>{product.description}</Card.Text> */}
+          <FlippedCard product={product} category={category}/>
         </div>
       </ReactCardFlip>
     );
