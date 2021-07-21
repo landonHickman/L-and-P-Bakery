@@ -6,7 +6,7 @@ import { CardBody } from '../styles/EditProductStyles'
 import { MenuCol, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv, MenuEditCards } from '../styles/MenuStyles'
 import carousel from '../images/carousel.png'
 import { btn } from '../styles/styles'
-const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder}) => {
+const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder, setShowIconLegend}) => {
 
 
   // console.log(category.id)
@@ -35,6 +35,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
     setProduct(prod)
     setShowEditForm(true);
     setShowCards(false)
+    setShowIconLegend(false)
   };
 
   const deleteUpdate = async (p) => {

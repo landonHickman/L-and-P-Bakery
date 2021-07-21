@@ -9,7 +9,7 @@ export const styles= {
     justifyContent: "center",
   },
   icons: {marginRight: '5px', height: '16px'},
-  iconsLegend: {marginBottom: '4px', marginRight: '10px', height: '16px'},
+  iconsLegend: {marginBottom: '4px', marginRight: '5px', height: '16px'},
   arrows: {cursor: 'pointer'},
   
   
@@ -20,7 +20,8 @@ export const MenuImgIcons = styled.div`
 `
 export  const MenuEditLegend = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin: 60px 0px 0px 0px;
 `
 export const MenuH1 = styled.h1`
   margin-top: 20px;
@@ -96,7 +97,7 @@ export const RightColProductShow = styled(Col)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 60px 0px 0px;
+  padding: 0rem 3.75rem 0rem 7rem;
 `
 export const LeftColProductShow = styled(Col)`
   display: flex;
@@ -120,6 +121,5 @@ padding: 0px;
 height: 45%;
 `
 export const MarginDiv = styled.div`
-  margin: 0rem 5rem 0rem 5rem;
-
+  margin: 0rem 11vw 5vh 11vw;
 `

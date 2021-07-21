@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useHistory} from 'react-router-dom'
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
@@ -15,8 +16,8 @@ import {
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const CreateCategoryItem = (props) => {
+  const history = useHistory() 
   const { catId, createProduct, productId, updateCatItem, products, handleDelete, product, setShowCards, setShowEditForm } = props;
-
   const [files, setFiles] = useState(props.image ? props.image : "");
   const [name, setName] = useState(props.name ? props.name : "");
   const [price, setPrice] = useState(props.price ? props.price : "");
@@ -47,9 +48,13 @@ const CreateCategoryItem = (props) => {
         //TODO: edge case doesn't work
         if (files.length >= 1) {
           let data = new FormData();
+          // console.log('data',data)
+          // console.log('files[0].file',files[0].file)
           data.append("fileHere", files[0].file);
           let res1 = await axios.post("/api/images/upload", data);
+          // console.log('res1',res1)
           var img = res1.data.cloud_image.secure_url;
+          // console.log('img',img)
         }
         let res = await axios.put(
           `/api/categories/${catId}/products/${productId}`,
@@ -89,6 +94,7 @@ const CreateCategoryItem = (props) => {
             order: products.length + 1,
           });
           createProduct(res1.data);
+          history.push('/editor3')
         }
       }
     } catch (err) {

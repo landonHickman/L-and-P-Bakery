@@ -73,7 +73,7 @@ const Application = (props) => {
             <Form.Control
               required
               type="address"
-              name="Address:"
+              name="Address"
               id="exampleaddress"
               placeholder="Address"
             />
@@ -114,10 +114,10 @@ const Application = (props) => {
           </Row>
 
           <Form.Group>
-            <Form.Label for="exampleText">Best time to contact you:</Form.Label>
+            <Form.Label for="exampleText">Best time to contact you</Form.Label>
             <Form.Control
               type="textarea"
-              name="Best time to contact you:"
+              name="Best time to contact you"
               id="exampleText"
             />
           </Form.Group>

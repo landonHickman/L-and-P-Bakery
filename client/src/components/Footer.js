@@ -67,8 +67,10 @@ const Footer = () => {
   const renderSocialLinks = () => {
     return footer.map((f) => {
       return (
-        <div key={f.id}>
-          <Row style={styles.wrapReverse}>
+        <React.Fragment key={f.id}>
+          <Row
+            style={styles.wrapReverse}
+          >
             <Col md={{ span: 5, offset: 4 }}>
               <p style={{ textAlign: "center", margin: "0" }}>
                 ©2021 DevPoint Studios All rights reserved
@@ -110,7 +112,7 @@ const Footer = () => {
               </Nav.Link>
             </Col>
           </Row>
-        </div>
+        </React.Fragment>
       );
     });
   };
@@ -123,7 +125,7 @@ const Footer = () => {
           {renderNav()}
         </Col>
       </Row>
-      <div>{renderSocialLinks()}</div>
+      {renderSocialLinks()}
     </Container>
   );
 };

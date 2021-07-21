@@ -8,7 +8,7 @@ const CustomCakes = () => {
   return (
     <>
       <div class="customcake"></div>
-      <Form style={{ padding: "0px 150px 0px 150px" }}>
+      <Form style={{ margin: "0vh 11vw 9vh 11vw" }}>
         <div>
           <form
             action="mailto:cadelenglishthegenius@gmail.com"
@@ -16,14 +16,13 @@ const CustomCakes = () => {
             enctype="text/plain"
             className="text-center"
           >
-            <h1>Custom Cakes</h1>
+            <h1 style={{marginTop: '4vh'}}>Custom Cakes</h1>
             <p>Select custom cake options below:</p>
 
-            <Form.Group>
-              <Row>
-                <Col>
+              <Row style={{marginTop: '7vh'}}>
+                <Col md={6}>
                   <Form.Label for="flavor">Cake Flavor</Form.Label>
-                  <Form.Control as="select" id="flavor" name="Flavor:">
+                  <Form.Control as="select" id="flavor" name="Flavor">
                     <option>Choose Cake Flavor...</option>
                     <option>Fruit</option>
                     <option>Strawberry</option>
@@ -38,9 +37,9 @@ const CustomCakes = () => {
                     <option>Chestnut</option>
                   </Form.Control>
                 </Col>
-                <Col>
+                <Col md={6}>
                   <Form.Label for="mousse">Mousse Flavor</Form.Label>
-                  <Form.Control as="select" name="Mousse Flavor:">
+                  <Form.Control as="select" name="Mousse Flavor">
                     <option>Choose mousse flavor...</option>
                     <option>Strawberry</option>
                     <option>Mango</option>
@@ -52,9 +51,9 @@ const CustomCakes = () => {
               </Row>
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <Form.Label for="triangle_cake">Triangle Cake</Form.Label>
-                  <Form.Control as="select" name="Triangle Cake:">
+                  <Form.Control as="select" name="Triangle Cake">
                     <option>Choose triangle cake flavor...</option>
                     <option>Vanilla</option>
                     <option>Green Tea</option>
@@ -65,9 +64,9 @@ const CustomCakes = () => {
                   </Form.Control>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Form.Label for="cake_size"> Cake Size</Form.Label>
-                  <Form.Control as="select" name="Cake Size:">
+                  <Form.Control as="select" name="Cake Size">
                     <option>Choose cake size...</option>
                     <option>6 inch</option>
                     <option>10 inch</option>
@@ -77,25 +76,74 @@ const CustomCakes = () => {
                   </Form.Control>
                 </Col>
               </Row>
-            </Form.Group>
 
-            <Form.Group>
+              <Row>
+              <Col md={6}>
+              <Form.Label for="name">
+                Name
+              </Form.Label>
+              <Form.Control
+                placeholder="Name"
+                type="name"
+                name="Name"
+                id="name"
+                />
+                </Col>
+
+                <Col md={6}>
+              <Form.Label for="email">
+                Email
+              </Form.Label>
+              <Form.Control
+              placeholder="Email"
+              type="email"
+              name="Email"
+              id="email"
+              />
+              </Col>
+              </Row>
+
+              <Row>
+              <Col md={6}>
+              <Form.Label for="phone_number">
+                Phone Number
+              </Form.Label>
+              <Form.Control
+              placeholder="Phone Number"
+              type="phone_number"
+              name="Phone Number"
+              id="phone_number"
+              />
+              </Col>
+
+              <Col md={6}>
+              <Form.Label for="date">
+                Requested Pickup Date
+              </Form.Label>
+              <Form.Control
+              placeholder="Requested Pickup Date"
+              type="date"
+              name="Requested Pickup Date"
+              id="date"
+              />
+              </Col>
+              </Row>
+
               <Form.Label for="special_instructions">
-                Special order instructions
+                Special Order Instructions
               </Form.Label>
               <Form.Control
                 as="textarea"
                 rows={4}
+                placeholder="Special Instructions"
                 type="special_instructions"
-                name="Special Instructions:"
+                name="Special Instructions"
                 id="special_instructions"
               />
-            </Form.Group>
+
             <Row>
-              <Col sm={{ span: 6, offset: 3 }}>
-                <CustomCakeBtn type="submit">
-                  Send Request
-                </CustomCakeBtn>
+              <Col sm={{ span: 6, offset: 3 }} style={{marginTop: '6vh'}}>
+                <CustomCakeBtn type="submit">Send Request</CustomCakeBtn>
               </Col>
             </Row>
           </form>
