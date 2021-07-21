@@ -67,7 +67,7 @@ const Footer = () => {
   const renderSocialLinks = () => {
     return footer.map((f) => {
       return (
-        <div key={f.id}>
+        <React.Fragment key={f.id}>
           <Row
             style={styles.wrapReverse}
           >
@@ -103,7 +103,7 @@ const Footer = () => {
               </Nav.Link>
             </Col>
           </Row>
-        </div>
+        </React.Fragment>
       );
     });
   };
@@ -116,7 +116,7 @@ const Footer = () => {
           {renderNav()}
         </Col>
       </Row>
-      <div>{renderSocialLinks()}</div>
+      {renderSocialLinks()}
     </Container>
   );
 };
