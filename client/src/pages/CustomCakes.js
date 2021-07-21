@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Footer from "../components/Footer";
-import { CustomCakeBtn } from "../styles/styles";
+import { CustomCakeBtn, FormBackground } from "../styles/styles";
 // import btn from "../styles"
 
 const CustomCakes = () => {
@@ -66,7 +66,7 @@ const CustomCakes = () => {
 
                 <Col md={6}>
                   <Form.Label for="cake_size"> Cake Size</Form.Label>
-                  <Form.Control as="select" name="Cake Size">
+                  <Form.Control as="select" name="Cake Size" style={FormBackground}>
                     <option>Choose cake size...</option>
                     <option>6 inch</option>
                     <option>10 inch</option>
@@ -87,6 +87,7 @@ const CustomCakes = () => {
                 type="name"
                 name="Name"
                 id="name"
+                style={FormBackground}
                 />
                 </Col>
 
@@ -99,6 +100,7 @@ const CustomCakes = () => {
               type="email"
               name="Email"
               id="email"
+              style={FormBackground}
               />
               </Col>
               </Row>
@@ -113,6 +115,7 @@ const CustomCakes = () => {
               type="phone_number"
               name="Phone Number"
               id="phone_number"
+              style={FormBackground}
               />
               </Col>
 
@@ -125,6 +128,7 @@ const CustomCakes = () => {
               type="date"
               name="Requested Pickup Date"
               id="date"
+              style={FormBackground}
               />
               </Col>
               </Row>
@@ -139,6 +143,7 @@ const CustomCakes = () => {
                 type="special_instructions"
                 name="Special Instructions"
                 id="special_instructions"
+                style={FormBackground}
               />
 
             <Row>

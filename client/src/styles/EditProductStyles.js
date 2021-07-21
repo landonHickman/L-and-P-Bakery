@@ -13,6 +13,7 @@ margin-bottom: 40px;
 export const TextAreaBoxStyle = {
 fontSize: '1.25rem',
 marginBottom: '40px',
+background: '#EEEEEE',
 }
 export const EditProductH1 = styled.h1`
   margin: 0px;

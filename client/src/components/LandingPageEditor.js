@@ -7,6 +7,7 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import axios from "axios";
 import styled from "styled-components";
+import { FormBackground } from "../styles/styles";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const LandingPageEditor = (props) => {
@@ -53,7 +54,7 @@ const LandingPageEditor = (props) => {
           <Row>
             <Col>
               <Form.Label>Main Title</Form.Label>
-              <Form.Control placeholder="Main Title" defaultValue={title} onChange={(e) => setTitle(e.target.value)}/>
+              <Form.Control style={FormBackground} placeholder="Main Title" defaultValue={title} onChange={(e) => setTitle(e.target.value)}/>
             </Col>
             <Col>
               <Form.Label>Carousel Title</Form.Label>
@@ -61,6 +62,7 @@ const LandingPageEditor = (props) => {
                 placeholder="Carousel Title"
                 defaultValue={carousel_title}
                 onChange={(e) => setCarousel_title(e.target.value)}
+                style={FormBackground}
               />
             </Col>
           </Row>

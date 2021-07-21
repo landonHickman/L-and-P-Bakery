@@ -40,6 +40,9 @@ export const MAIN_CONTAINER = styled.div`
 export const btn = {
   blackButton: {backgroundColor: 'black', border: '1px solid black'}
 }
+export const FormBackground ={
+  background: '#EEEEEE'
+}
 
 export const CustomCakeBtn = styled(Button)`
   width: 100%;

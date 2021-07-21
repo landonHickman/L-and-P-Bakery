@@ -13,6 +13,7 @@ import {
   TextAreaBoxStyle,
   TextBoxStyle,
 } from "../styles/EditProductStyles";
+import { FormBackground } from "../styles/styles";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const CreateCategoryItem = (props) => {
@@ -147,6 +148,7 @@ const CreateCategoryItem = (props) => {
             placeholder="Name"
             onChange={(e) => setName(e.target.value)}
             defaultValue={name}
+            style={FormBackground}
           />
           
           <TextBoxStyle
@@ -154,6 +156,7 @@ const CreateCategoryItem = (props) => {
             placeholder="Price"
             onChange={(e) => setPrice(e.target.value)}
             defaultValue={price}
+            style={FormBackground}
           />
           
           <Form.Control

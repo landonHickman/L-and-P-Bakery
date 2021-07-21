@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { Form, Row, Col, Button} from "react-bootstrap";
-import { btn } from "../styles/styles";
+import { btn, FormBackground } from "../styles/styles";
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
@@ -55,6 +55,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.title ? about.title : ""}
                 defaultValue={title}
                 onChange={(e) => setTitle(e.target.value)}
+                style={FormBackground}
                 required
               />
 
@@ -66,6 +67,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.text ? about.text : ""}
                 defaultValue={text}
                 onChange={(e) => setText(e.target.value)}
+                style={FormBackground}
                 required
               />
             </Col>
@@ -94,6 +96,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.cta_title ? about.cta_title : ""}
                 defaultValue={cta_title}
                 onChange={(e) => setCtaTitle(e.target.value)}
+                style={FormBackground}
                 required
               />
               <Form.Label>Call to Action Button Text</Form.Label>
@@ -102,6 +105,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.cta_button_text ? about.cta_button_text : ""}
                 defaultValue={cta_button}
                 onChange={(e) => setCtaButton(e.target.value)}
+                style={FormBackground}
                 required
               />
             </Col>
