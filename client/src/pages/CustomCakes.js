@@ -22,12 +22,15 @@ const CustomCakes = () => {
                 <Col md={6}>
                   <Form.Label for="cake_size"> Cake Size (How many people are you planning to serve?)</Form.Label>
                   <Form.Control as="select" name="Cake Size (How many people are you planning to serve?)" style={CustomCakesForm}>
+                    <option>20 Servings</option>
+                    <option>18 Servings</option>
+                    <option>16 Servings</option>
+                    <option>14 Servings</option>
                     <option>12 Servings</option>
-                    <option>6 inch</option>
-                    <option>10 inch</option>
-                    <option>Full sheet cake</option>
-                    <option>Custom size specify below</option>
-                    <option>None</option>
+                    <option>10 Servings</option>
+                    <option>8 Servings</option>
+                    <option>6 Servings</option>
+                    <option>4 Servings</option>
                   </Form.Control>
                 </Col>
                 <Col md={6}>
