@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   def self.all_limited_time_cake_products
     select('products.id, name, image, price, description, limited_time, category_id')
     .where('limited_time = true')
-    .where('category_id = 3');
+    .where('category_id = 39');
   end
 
   def self.all_limited_time_boba_products

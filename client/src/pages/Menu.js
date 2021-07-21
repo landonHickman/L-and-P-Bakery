@@ -4,6 +4,7 @@ import axios from "axios";
 import {styles, MenuH1, MenuButton, MenuRow, MarginDiv} from '../styles/MenuStyles'
 import MenuCard from "../components/MenuCard";
 import {Container} from 'react-bootstrap'
+import { EmptyDiv } from "../styles/styles";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -80,6 +81,7 @@ const Categories = () => {
   if(loading) return <p>Loading</p>
   return (
     <>
+    <EmptyDiv/>
       <MarginDiv>
       <div style={{ textAlign: "center" }}>
         <MenuH1>{category.name}</MenuH1>

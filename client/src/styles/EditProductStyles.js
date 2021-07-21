@@ -21,3 +21,6 @@ export const EditProductH1 = styled.h1`
 export const CardBody = styled(Card.Body)`
   padding: 0px 10px 0px 10px;
 `
+export const IconDiv = styled.div`
+  margin-right: 20px;
+`

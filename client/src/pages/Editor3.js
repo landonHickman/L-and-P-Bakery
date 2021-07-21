@@ -13,6 +13,7 @@ import { Clock, StarFill } from "react-bootstrap-icons";
 import EditProduct from "./EditProduct";
 import { Container, Image } from "react-bootstrap";
 import carousel from '../images/carousel.png'
+import { IconDiv } from "../styles/EditProductStyles";
 
 const Editor3 = () => {
   const [categories, setCategories] = useState([]);
@@ -22,6 +23,7 @@ const Editor3 = () => {
   const [loading, setLoading] = useState(true);
   const [showCards, setShowCards] = useState(true);
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showIconLegend, setShowIconLegend] = useState(true);
 
   useEffect(() => {
     getCategories();
@@ -56,6 +58,7 @@ const Editor3 = () => {
       sortByOrder(res.data);
       setShowEditForm(false);
       setShowCards(true);
+      setShowIconLegend(true)
     } catch (err) {
       console.log("inside handleCategoryButtonClick", err);
       console.log("inside handleCategoryButtonClick", err.response);
@@ -89,6 +92,7 @@ const Editor3 = () => {
             setProduct={setProduct}
             products={products}
             sortByOrder={sortByOrder}
+            setShowIconLegend={setShowIconLegend}
           />
         </React.Fragment>
       );
@@ -158,20 +162,20 @@ const Editor3 = () => {
           updateCatItem={updateCatItem}
         />
       )}
-      <MenuEditLegend>
-        <div>
+      {showIconLegend && <MenuEditLegend>
+        <IconDiv>
           <StarFill style={styles.iconsLegend} />
           Special Bakery Items
-        </div>
-        <div>
+        </IconDiv>
+        <IconDiv>
           <Clock style={styles.iconsLegend} />
           Limited Time Only
-        </div>
-        <div>
+        </IconDiv>
+        <IconDiv>
           <Image src={carousel} style={styles.iconsLegend} />
           Category Carousel
-        </div>
-      </MenuEditLegend>
+        </IconDiv>
+      </MenuEditLegend>}
     </MarginDiv>
   );
 };

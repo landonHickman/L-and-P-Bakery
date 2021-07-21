@@ -53,7 +53,7 @@ const CreateProduct = () => {
     })
   }
   return (
-    <div style={{textAlign: 'center', margin: '0rem 5rem 0rem 5rem'}}>
+    <div style={{textAlign: 'center', margin: '0rem 5rem 5rem 5rem'}}>
       {/* {console.log(products)} */}
       <MenuH1>Create {category.name}</MenuH1>
       {renderCategoryButtons()}
