@@ -105,6 +105,11 @@ const CreateCategoryItem = (props) => {
     }
   };
 
+  const h1 = () => {
+    if(productId){
+      return <EditProductH1>{name}</EditProductH1>
+    }
+  }
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -116,7 +121,7 @@ const CreateCategoryItem = (props) => {
             onupdatefiles={setFiles}
             labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
           />
-          <EditProductH1>{name}</EditProductH1>
+          {h1()}
           <div style={{ display: "flex" }}>
             <ProductBooleanCheck
               type="checkbox"

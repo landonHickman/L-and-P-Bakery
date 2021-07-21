@@ -41,7 +41,8 @@ export const btn = {
   blackButton: {backgroundColor: 'black', border: '1px solid black'}
 }
 export const FormBackground ={
-  background: '#EEEEEE'
+  background: '#EEEEEE',
+  border: '0px'
 }
 
 export const CustomCakeBtn = styled(Button)`
@@ -62,8 +63,10 @@ height: 100px;
 `
 export const CustomCakesControl = styled(Form.Control)`
 margin-bottom: 15px !important;
+border: 0px;
 `
 export const CustomCakesForm ={
   background: '#EEEEEE',
   marginBottom: '15px',
+  border: '0px'
 }
