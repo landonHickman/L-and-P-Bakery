@@ -97,7 +97,7 @@ export const RightColProductShow = styled(Col)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 60px 0px 0px;
+  padding: 0rem 3.75rem 0rem 7rem;
 `
 export const LeftColProductShow = styled(Col)`
   display: flex;

@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import { Form, Button, InputGroup, FormControl } from 'react-bootstrap'
+import { Form, Button} from 'react-bootstrap'
 import { useFormInput } from '../customHooks/useFormInput'
 import { AuthContext } from '../providers/AuthProvider'
 import {useHistory, useLocation} from 'react-router-dom'
@@ -20,7 +20,6 @@ const Login = () => {
   //TODO: Remove dummy data.
   const email = useFormInput('landp@bakery.com', 'Email')
   const password = useFormInput('1234567890', 'Password')
-  
   
   const handleSubmit = (e) => {
     // const form = e.currentTarget
