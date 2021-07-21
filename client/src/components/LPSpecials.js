@@ -37,6 +37,7 @@ const LPSpecials = () => {
           </CustomLPS>
 
         </Col>
+        
         ))}
         </Row>
       </Carousel.Item>

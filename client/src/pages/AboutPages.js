@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Button, Card, Image} from "react-bootstrap";
 import {useHistory} from 'react-router-dom';
 import Footer from "../components/Footer";
+import styled from "styled-components";
 
 const AboutPages = () => {
   const [aboutPages, setAboutPages] = useState([])
@@ -26,25 +27,27 @@ const AboutPages = () => {
   return (
     <>
     <div>
-    <div className="card-deck">
-    <Card className="text-center"style={{display: 'flex'}}>
-      <Card.Body style={{ position: "relative", top: "30%" }}>
-        <h1>{aboutPages.title}</h1>
-        <h3 >{aboutPages.text}</h3>
-      </Card.Body>
-    </Card>
-
-    <Card style={{display: 'flex', padding: "0px"}}>
-      <Image src="https://i.imgur.com/0jOBZtn.jpeg" fluid />
-    </Card>
-    </div>
-    <Card style={{display: 'flex', padding: "0px"}}>
-      <Card.Body className="text-center" style={{ marginLeft: "25%", marginRight: "25%"}}>
-        <h1>{aboutPages.cta_title}</h1>
-        <Button variant="primary" onClick={() => history.push("/application")}>{aboutPages.cta_button_text}</Button>
-      </Card.Body>
-    </Card>
+      <div className="card-deck">
+      {/* story */}
+      <Card className="text-center"style={{display: 'flex', margin: "0rem", border: "none"}}>
+        <Card.Body style={{marginTop: "7vw"}}>
+          <StyledH1>{aboutPages.title}</StyledH1>
+          <StyledH3>{aboutPages.text}</StyledH3>
+        </Card.Body>
+      </Card>
+      {/* image */}
+      <Card style={{display: 'flex', margin_left: "0vw", margin_right: "1vw", border: "none"}}>
+        <Image src={aboutPages.image} />
+      </Card>
       </div>
+      {/* application cta */}
+      <div style={{display: 'flex', margin: "0rem", border: "solid black 1px"}}>
+        <Card.Body className="text-center" style={{ marginLeft: "25vw", marginRight: "25vw", marginTop: "2vw", marginBottom: "2vw"}}>
+          <StyledH2>{aboutPages.cta_title}</StyledH2>
+          <Button variant="primary" onClick={() => history.push("/application")}>{aboutPages.cta_button_text}</Button>
+        </Card.Body>
+      </div>
+    </div>
       <p></p>
        <Footer/> 
       </>
@@ -52,3 +55,15 @@ const AboutPages = () => {
 };
 
 export default AboutPages;
+
+const StyledH1 = styled.h1`
+ font-size:6vw;
+`
+
+const StyledH2 = styled.h2`
+  font-size:3vw;
+`
+
+const StyledH3 = styled.h3`
+ font-size:2vw;
+`

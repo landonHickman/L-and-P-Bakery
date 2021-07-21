@@ -18,20 +18,21 @@ const NavComponent = (props) => {
     setNav(res.data[0]);
   };
 
+
   const renderNav = () => {
     return (
-      <div key={nav.id} style={{ width: "100%", background: "none"}} >
+      <div id="nav" key={nav.id} style={{ width: "100%",}} >
         <Row style={{ display: "flex" }}>
           <Navbar.Brand href="/">
             <Image
               src={LNP}
-              style={{ height: "80px" }}
+              style={{height: "80px"}}
               roundedCircle
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav style={{ display: "flex", width: "80%" }}>
+            <Nav style={{ display: "flex", width: "100%", margin: "0rem"}}>
               <Col sm={"auto"} style={styles.pad}>
                 <Nav.Link style={{ color: "white" }} href="/menu">
                   {nav.nav_text_1}
