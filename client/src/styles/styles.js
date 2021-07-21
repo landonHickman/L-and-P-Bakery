@@ -45,3 +45,14 @@ export const CustomCakeBtn = styled(Button)`
   width: 100%;
   background-color: black;
 `
+export const LoginErrorSpan = styled.span`
+  color: red;
+  display: flex;
+  align-items: center;
+`
+export const LoginMargin = styled.div`
+  margin: 0rem 5rem 0rem 5rem;
+`
+export const EmptyDiv = styled.div`
+  height: 100px;
+`

@@ -25,7 +25,7 @@ const AuthProvider = (props) => {
     }
   }
   //logging existing user here
-  const handleLogin = async (userFormData, history, location) => {
+  const handleLogin = async (userFormData, history, location, setShowError) => {
     //axios call here
     try{
       let res = await axios.post(`/api/auth/sign_in`, userFormData)
@@ -37,9 +37,8 @@ const AuthProvider = (props) => {
       }
       return history.push('/')
     }catch(err){
-      alert('error occurred check console')
-      //drilled down so it will show the message i want to look for
-      console.log('Handle Login error',err.response.data.errors.full_messages)
+      setShowError(true)
+      // setValidated(true)
     }
   }
 

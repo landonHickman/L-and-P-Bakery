@@ -1,10 +1,14 @@
-import React, {useContext} from 'react'
-import { Form, Button } from 'react-bootstrap'
+import React, {useContext, useState} from 'react'
+import { Form, Button, InputGroup, FormControl } from 'react-bootstrap'
 import { useFormInput } from '../customHooks/useFormInput'
 import { AuthContext } from '../providers/AuthProvider'
 import {useHistory, useLocation} from 'react-router-dom'
+import LoginError from '../components/LoginError'
+import { btn, EmptyDiv, LoginMargin } from '../styles/styles'
 
 const Login = () => {
+  // const [validated, setValidated] = useState(false)
+  const [showError, setShowError] = useState(false)
   //call history from react-router-dom so that we can pass it to AuthProvider so it can be used
   //in that file
   const history = useHistory()
@@ -19,30 +23,39 @@ const Login = () => {
   
   
   const handleSubmit = (e) => {
-    //prevents page from refreshing
+    // const form = e.currentTarget
+    // if(form.checkValidity() === false){
+    //   e.preventDefault()
+    //   e.stopPropagation()
+    //   console.log('false')
+    // }
     e.preventDefault()
+    // setValidated(true)
     //Front end validation
     //need to drill down to get value. i.e. email.value
-    handleLogin({email: email.value, password: password.value}, history, location)
+    handleLogin({email: email.value, password: password.value}, history, location, setShowError)
   }
   return(
-    <>
+    <LoginMargin>
+      <EmptyDiv/>
     <h1>Administer Login</h1>
     <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3" style={{position: 'relative'}}>
           <Form.Label>Email</Form.Label>
-          <Form.Control {...email} />
+          <Form.Control {...email} type="email"/>
         </Form.Group>
-
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3" style={{position: 'relative'}}>
           <Form.Label>Password</Form.Label>
           <Form.Control {...password} type="password" />
+          <Form.Control.Feedback type="invalid" tooltip>Invalid Email or Password!</Form.Control.Feedback>
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+    {showError && <LoginError/>}
+    <br/>
+        <Button style={btn.blackButton} type="submit">
+          Login
         </Button>
       </Form>
-    </>
+    </LoginMargin>
   )
 }
 
