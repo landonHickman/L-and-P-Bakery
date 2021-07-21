@@ -18,10 +18,11 @@ const NavComponent = (props) => {
     setNav(res.data[0]);
   };
 
+
   const renderNav = () => {
     return (
-      <div key={nav.id} style={{ width: "100%"}} >
-        <Row style={{ display: "flex", background: "#434343", opacity: ".50", borderRadius: "5px"}}>
+      <div id="nav" key={nav.id} style={{ width: "100%",}} >
+        <Row style={{ display: "flex" }}>
           <Navbar.Brand href="/">
             <Image
               src={LNP}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import styled from "styled-components";
 
 const GridEditor1 = (props) => {
   const { landing } = props;
@@ -27,6 +28,8 @@ const GridEditor1 = (props) => {
         <Row>
           <Col>
             <Form.Group>
+              <CustomCakeCarousel>Cakes</CustomCakeCarousel>
+
               <Form.Label>Grid Title 1</Form.Label>
               <Form.Control
                 placeholder="Grid Title 1"
@@ -53,3 +56,9 @@ const GridEditor1 = (props) => {
 };
 
 export default GridEditor1;
+const CustomCakeCarousel= styled.div`
+font-size: 40px;
+margin: 30px;
+text-align: center;
+margin-top: 50px
+`;

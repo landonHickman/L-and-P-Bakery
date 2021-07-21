@@ -19,6 +19,7 @@ const LandingPage = () => {
   const getLandingPage = async () => {
     try {
       let res = await axios.get(`/api/landing_pages`);
+      console.log(res.data[0])
       setLandingPage(res.data[0]);
     } catch (err) {
       console.log("err check console");
@@ -148,7 +149,7 @@ const CustomLNPtext = styled.div`
 
 const CustomSBI = styled.div`
 font-size: 40px;
-margin: 55px;
+margin: 30px;
 text-align: center;
 font-size: 4vw;
 `;
