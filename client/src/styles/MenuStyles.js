@@ -121,5 +121,5 @@ padding: 0px;
 height: 45%;
 `
 export const MarginDiv = styled.div`
-  margin: 0rem 5rem 5rem 5rem;
+  margin: 0rem 11vw 5vh 11vw;
 `

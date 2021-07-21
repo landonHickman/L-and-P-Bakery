@@ -44,6 +44,7 @@ export const btn = {
 export const CustomCakeBtn = styled(Button)`
   width: 100%;
   background-color: black;
+  border: 1px solid black;
 `
 export const LoginErrorSpan = styled.span`
   color: red;
