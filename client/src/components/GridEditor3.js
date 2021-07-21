@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import styled from "styled-components";
 
 const GridEditor3 = (props) => {
   const { landing } = props;
@@ -30,6 +31,7 @@ const GridEditor3 = (props) => {
       <Form onSubmit={handleSubmit}>
         <Row>
           <Col>
+          <CustomBakeryCarousel>Bakery</CustomBakeryCarousel>
             <Form.Group>
               <Form.Label>Grid Title 3</Form.Label>
               <Form.Control
@@ -46,7 +48,7 @@ const GridEditor3 = (props) => {
                 onChange={(e) => setDesc(e.target.value)}
               />
             </Form.Group>
-            <Button variant="primary" type="submit" block>
+            <Button variant="dark"  type="submit" block>
               Submit
             </Button>
           </Col>
@@ -57,3 +59,10 @@ const GridEditor3 = (props) => {
 };
 
 export default GridEditor3;
+
+const CustomBakeryCarousel= styled.div`
+font-size: 40px;
+margin: 30px;
+text-align: center;
+margin-top: 50px
+`;

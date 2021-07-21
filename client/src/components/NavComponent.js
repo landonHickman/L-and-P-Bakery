@@ -18,9 +18,10 @@ const NavComponent = (props) => {
     setNav(res.data[0]);
   };
 
+
   const renderNav = () => {
     return (
-      <div key={nav.id} style={{ width: "100%", background: "none"}} >
+      <div id="nav" key={nav.id} style={{ width: "100%",}} >
         <Row style={{ display: "flex" }}>
           <Navbar.Brand href="/">
             <Image

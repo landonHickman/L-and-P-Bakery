@@ -5,6 +5,7 @@ import GridEditor1 from "../components/GridEditor1";
 import LandingPageEditor from "../components/LandingPageEditor";
 import axios from 'axios'
 import { Spinner } from "react-bootstrap";
+import GridEditor3 from "../components/GridEditor3";
 
 const Editor1 = () => {
   const [landingPage, setLandingPage] = useState([])
@@ -36,6 +37,7 @@ const Editor1 = () => {
         <LandingPageEditor landing={landingPage[0]}/>
         <GridEditor1 landing={landingPage[0]}/>
         <GridEditor2 landing={landingPage[0]}/>
+        <GridEditor3 landing={landingPage[0]}/>
         <FooterEditor footer={footer[0]}/>
     </div>
   );
