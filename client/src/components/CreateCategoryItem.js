@@ -18,7 +18,7 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const CreateCategoryItem = (props) => {
   const history = useHistory() 
-  const { catId, createProduct, productId, updateCatItem, products, handleDelete, product, setShowCards, setShowEditForm } = props;
+  const { catId, createProduct, productId, updateCatItem, products, handleDelete, product, setShowCards, setShowEditForm, setShowWarning } = props;
   const [files, setFiles] = useState(props.image ? props.image : "");
   const [name, setName] = useState(props.name ? props.name : "");
   const [price, setPrice] = useState(props.price ? props.price : "");
@@ -81,9 +81,7 @@ const CreateCategoryItem = (props) => {
           let res1 = await axios.post("/api/images/upload", data);
           var img1 = res1.data.cloud_image.secure_url;
         }
-        if (products.length === 0) {
-          alert("Please select a category!");
-        } else {
+       
           let res1 = await axios.post(`/api/categories/${catId}/products`, {
             image: img1,
             name: name,
@@ -96,12 +94,9 @@ const CreateCategoryItem = (props) => {
           });
           createProduct(res1.data);
           history.push('/editor3')
-        }
       }
     } catch (err) {
-      alert("err");
-      console.log("err", err);
-      console.log("err.response", err.response);
+      setShowWarning(true)
     }
   };
 
@@ -157,7 +152,6 @@ const CreateCategoryItem = (props) => {
           />
           
           <TextBoxStyle
-            size="lg"
             placeholder="Price"
             onChange={(e) => setPrice(e.target.value)}
             defaultValue={price}

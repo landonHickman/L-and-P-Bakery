@@ -14,6 +14,7 @@ import EditProduct from "./EditProduct";
 import { Container, Image } from "react-bootstrap";
 import carousel from '../images/carousel.png'
 import { IconDiv } from "../styles/EditProductStyles";
+import { EmptyDiv } from "../styles/styles";
 
 const Editor3 = () => {
   const [categories, setCategories] = useState([]);
@@ -139,6 +140,8 @@ const Editor3 = () => {
 
   if (loading) return <p>Loading</p>;
   return (
+    <>
+    <EmptyDiv/>
     <MarginDiv>
       <div style={{textAlign: 'center'}}>
 
@@ -177,6 +180,7 @@ const Editor3 = () => {
         </IconDiv>
       </MenuEditLegend>}
     </MarginDiv>
+    </>
   );
 };
 

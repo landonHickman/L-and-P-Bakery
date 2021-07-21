@@ -50,7 +50,7 @@ width: 100%;
 background-color: black;
 border: 1px solid black;
 `
-export const LoginErrorSpan = styled.span`
+export const ErrorSpan = styled.span`
 color: red;
 display: flex;
 align-items: center;
