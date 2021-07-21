@@ -26,13 +26,13 @@ const NavComponent = (props) => {
           <Navbar.Brand href="/">
             <Image
               src={LNP}
-              style={{ height: "80px" }}
+              style={{height: "80px"}}
               roundedCircle
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav style={{ display: "flex", width: "80%" }}>
+            <Nav style={{ display: "flex", width: "100%", margin: "0rem"}}>
               <Col sm={"auto"} style={styles.pad}>
                 <Nav.Link style={{ color: "white" }} href="/menu">
                   {nav.nav_text_1}
