@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Col} from "react-bootstrap";
+import {Col, Image} from "react-bootstrap";
 import Footer from "../components/Footer";
 import LPGrid1Carousel from "../components/LPGrid1Carousel";
 import LPGrid2Carousel from "../components/LPGrid2Carousel";
@@ -21,31 +21,33 @@ const LandingPage = () => {
       let res = await axios.get(`/api/landing_pages`);
       console.log(res.data[0])
       setLandingPage(res.data[0]);
+      
     } catch (err) {
       console.log("err check console");
       console.log(err);
     }
   };
+ 
 
   return (
     <>
       {/* header */}
 
-      <CustomBackgroundImgdiv>
-      <CustomLNPTitle>L&P</CustomLNPTitle>
-        <CustomLNPBakery>Bakery</CustomLNPBakery>
-        <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
+      <CustomBackgroundImgdiv src={landingPage.main_background_img}>
+      <CustomLNPTitle>{landingPage.main_title}</CustomLNPTitle>
+      <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
       </CustomBackgroundImgdiv>
       <br/>
       <br/>
 
-      <CustomSBI>Special Bakery Items</CustomSBI>
+      <CustomSBI>{landingPage.carousel_title}</CustomSBI>
+      
       <Col>
         <div>
           <LPSpecials />
         </div>
       </Col>
-      <br />
+
 
       {/* cakes */}
         <div className="row">
@@ -95,9 +97,8 @@ const LandingPage = () => {
           </div>
         </div>
       <br/>
-      <CustomFooter>
+      <p></p>
         <Footer />
-      </CustomFooter>
     </>
   );
 };
@@ -121,23 +122,12 @@ const CustomLNPTitle = styled.div`
   font-size: 75px;
   text-align: center;
   color: white;
-  margin-top: -60px;
   padding: 50px;
   height: 100%px;
   width: 100%;
-  font-size: 9vw;
+  font-size: 8vw;
 `;
 
-const CustomLNPBakery = styled.div`
-  font-size: 75px;
-  text-align: center;
-  color: white;
-  margin-top: -130px;
-  padding: 60px;
-  height: 100%px;
-  width: 100%;
-  font-size: 9vw;
-`;
 
 const CustomLNPtext = styled.div`
   font-size: 35px;
@@ -149,7 +139,7 @@ const CustomLNPtext = styled.div`
 
 const CustomSBI = styled.div`
 font-size: 40px;
-margin: 30px;
+margin: 20px;
 text-align: center;
 font-size: 4vw;
 `;
@@ -186,8 +176,4 @@ const CustomBakeryCard = styled.div`
 const CustomBakeryText = styled.div`
   font-size: 18px;
   text-align: center;
-`;
-
-const CustomFooter = styled.div`
-font-size: 1.5vw;
 `;

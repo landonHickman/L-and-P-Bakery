@@ -42,7 +42,7 @@ const AboutPages = () => {
       </Card>
       </div>
       {/* application cta */}
-      <div style={{display: 'flex', margin: "0rem", border: "solid black 1px"}}>
+      <div style={{display: 'flex', margin: "0rem", border: "solid lightgray 1px"}}>
         <Card.Body className="text-center" style={{ marginLeft: "25vw", marginRight: "25vw", marginTop: "2vw", marginBottom: "2vw"}}>
           <StyledH2>{aboutPages.cta_title}</StyledH2>
           <Button style={btn.blackButton} onClick={() => history.push("/application")}>{aboutPages.cta_button_text}</Button>
