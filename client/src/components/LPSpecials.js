@@ -31,10 +31,10 @@ const LPSpecials = () => {
   const dataCleanup = (specialProducts) => {
     let newArr = []
     let finalArr = []
-    specialProducts.forEach((e, i) => {
+    specProducts.forEach((e, i) => {
       if (i % 2 !== 1) {
         newArr.push(e);
-        newArr.push(specialProducts[i+1])
+        newArr.push(specProducts[i+1])
         console.log(i)
         finalArr.push(newArr)
         newArr = []
@@ -47,24 +47,22 @@ const LPSpecials = () => {
 
 
   const renderSpecProducts = () => {
-    return specialProducts.map((specialProducts) => {
+    return specialProducts.map((specProducts) => {
       return (
-        <Carousel.Item key={specialProducts.id} align= 'center'>
-          <Row xs={1} xs={2} className="g-4">
-          {Array.from({ length:2  }).map(() => (
-          <Col>
+        <Carousel.Item key={specProducts.id} align= 'center'>
+          <Row>
+          {specProducts.map(() => (
+            <Col>
           <img
             className="d-block w-100"
-            src={specialProducts.image}
+            src={specProducts.image}
             alt="First slide"
           />
           <CustomLPS>
-            <p>{specialProducts.name}</p>
-            <p>${specialProducts.price} </p>
+            <p>{specProducts.name}</p>
+            <p>${specProducts.price} </p>
           </CustomLPS>
-
         </Col>
-        
         ))}
         </Row>
       </Carousel.Item>
