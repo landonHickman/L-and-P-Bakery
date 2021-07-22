@@ -7,7 +7,9 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import axios from "axios";
 import styled from "styled-components";
+import { EmptyDiv } from "../styles/styles";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
+
 
 const LandingPageEditor = (props) => {
   const { landing } = props;
@@ -40,8 +42,10 @@ const LandingPageEditor = (props) => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+    <EmptyDiv/>
+      <Form  style={{ margin: "0vh 11vw 9vh 11vw" }} onSubmit={handleSubmit}>
         <Form.Group>
+            <EmptyDiv/>
           <FilePond
             files={files}
             allowReorder={true}

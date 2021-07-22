@@ -51,12 +51,12 @@ a.dropdown-item {
 }
 
 #nav {
-  background:transparent !important;
-  transition:0.75s ease;
+  /* background:transparent !important;
+  transition:0.75s ease; */
 }
 
 .nav.active {
-  background-color:rgba(0, 0, 0, 0.521);
+  background-color:rgba(0, 0, 0, 0.39);
 }
 
 .App-link {
