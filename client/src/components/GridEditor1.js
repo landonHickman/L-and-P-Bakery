@@ -3,6 +3,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import styled from "styled-components";
 import { FormBackground } from "../styles/styles";
+import { btn } from "../styles/styles";
 
 const GridEditor1 = (props) => {
   const { landing } = props;
@@ -48,7 +49,7 @@ const GridEditor1 = (props) => {
                 style={FormBackground}
               />
             </Form.Group>
-            <Button variant="dark" type="submit" block>
+            <Button style={btn.blackButton} type="submit" block>
               Submit
             </Button>
           </Col>
