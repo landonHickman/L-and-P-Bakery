@@ -4,6 +4,7 @@ import {Button, Card, Image} from "react-bootstrap";
 import {useHistory} from 'react-router-dom';
 import Footer from "../components/Footer";
 import styled from "styled-components";
+import {btn} from "../styles/styles"
 
 const AboutPages = () => {
   const [aboutPages, setAboutPages] = useState([])
@@ -44,7 +45,7 @@ const AboutPages = () => {
       <div style={{display: 'flex', margin: "0rem", border: "solid lightgray 1px"}}>
         <Card.Body className="text-center" style={{ marginLeft: "25vw", marginRight: "25vw", marginTop: "2vw", marginBottom: "2vw"}}>
           <StyledH2>{aboutPages.cta_title}</StyledH2>
-          <Button variant="primary" onClick={() => history.push("/application")}>{aboutPages.cta_button_text}</Button>
+          <Button style={btn.blackButton} onClick={() => history.push("/application")}>{aboutPages.cta_button_text}</Button>
         </Card.Body>
       </div>
     </div>
