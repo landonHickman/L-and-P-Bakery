@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import styled from 'styled-components'
 
 export const PRIMARY_COLOR = 'steelblue';
@@ -40,20 +40,33 @@ export const MAIN_CONTAINER = styled.div`
 export const btn = {
   blackButton: {backgroundColor: 'black', border: '1px solid black'}
 }
+export const FormBackground ={
+  background: '#EEEEEE',
+  border: '0px'
+}
 
 export const CustomCakeBtn = styled(Button)`
-  width: 100%;
-  background-color: black;
-  border: 1px solid black;
+width: 100%;
+background-color: black;
+border: 1px solid black;
 `
-export const LoginErrorSpan = styled.span`
-  color: red;
-  display: flex;
-  align-items: center;
+export const ErrorSpan = styled.span`
+color: red;
+display: flex;
+align-items: center;
 `
 export const LoginMargin = styled.div`
-  margin: 0rem 5rem 0rem 5rem;
+margin: 0rem 5rem 0rem 5rem;
 `
 export const EmptyDiv = styled.div`
-  height: 100px;
+height: 100px;
 `
+export const CustomCakesControl = styled(Form.Control)`
+margin-bottom: 15px !important;
+border: 0px;
+`
+export const CustomCakesForm ={
+  background: '#EEEEEE',
+  marginBottom: '15px',
+  border: '0px'
+}

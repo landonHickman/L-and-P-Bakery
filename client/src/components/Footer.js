@@ -17,7 +17,6 @@ const Footer = () => {
       let res1 = await axios.get("/api/navbars");
       setNavbar(res1.data);
     } catch (err) {
-      alert("err");
       console.log(err);
       console.log(err.response);
     }

@@ -35,7 +35,6 @@ const HookDemo = () => {
       console.log('res.data.data',res.data.data)
       setPeople(res.data.data)
     } catch(err) {
-      alert('err')
       console.log(err)
     }
   }

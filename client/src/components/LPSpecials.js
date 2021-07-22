@@ -16,7 +16,6 @@ const LPSpecials = () => {
       console.log('specProducts', res.data)
       setSpecProducts(res.data);
     } catch (err) {
-      alert("err check console");
       console.log(err);
     }
   };

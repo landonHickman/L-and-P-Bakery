@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
+import { btn, FormBackground } from "../styles/styles";
 import { Form, Row, Col, Button, Card} from "react-bootstrap";
-import { btn } from "../styles/styles";
 import { EmptyDiv } from "../styles/styles";
 import styled from "styled-components";
 import { FilePond, registerPlugin } from "react-filepond";
@@ -59,6 +59,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.title ? about.title : ""}
                 defaultValue={title}
                 onChange={(e) => setTitle(e.target.value)}
+                style={FormBackground}
                 required
               />
                 <p></p>
@@ -70,6 +71,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.text ? about.text : ""}
                 defaultValue={text}
                 onChange={(e) => setText(e.target.value)}
+                style={FormBackground}
                 required
               />
             </Col>
@@ -100,6 +102,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.cta_title ? about.cta_title : ""}
                 defaultValue={cta_title}
                 onChange={(e) => setCtaTitle(e.target.value)}
+                style={FormBackground}
                 required
               />
               <Form.Label>Call to Action Button Text</Form.Label>
@@ -108,6 +111,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.cta_button_text ? about.cta_button_text : ""}
                 defaultValue={cta_button}
                 onChange={(e) => setCtaButton(e.target.value)}
+                style={FormBackground}
                 required
               />
             </Col>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Footer from "../components/Footer";
-import { CustomCakeBtn } from "../styles/styles";
+import { CustomCakeBtn, CustomCakesControl, CustomCakesForm, FormBackground } from "../styles/styles";
 // import btn from "../styles"
 
 const CustomCakes = () => {
@@ -17,69 +17,24 @@ const CustomCakes = () => {
             className="text-center"
           >
             <h1 style={{marginTop: '4vh'}}>Custom Cakes</h1>
-            <p>Select custom cake options below:</p>
-
-              <Row style={{marginTop: '7vh'}}>
+            <p>Fill out the form below for a custom cake request</p>
+              <Row style={{alignItems: 'flex-end'}}>
                 <Col md={6}>
-                  <Form.Label for="flavor">Cake Flavor</Form.Label>
-                  <Form.Control as="select" id="flavor" name="Flavor">
-                    <option>Choose Cake Flavor...</option>
-                    <option>Fruit</option>
-                    <option>Strawberry</option>
-                    <option>Tropical</option>
-                    <option>Neapolitan</option>
-                    <option>Peach</option>
-                    <option>Durian</option>
-                    <option>Coffee</option>
-                    <option>Chocolate</option>
-                    <option>Tiramisu</option>
-                    <option>Cheesecake</option>
-                    <option>Chestnut</option>
+                  <Form.Label for="cake_size"> Cake Size (How many people are you planning to serve?)</Form.Label>
+                  <Form.Control as="select" name="Cake Size (How many people are you planning to serve?)" style={CustomCakesForm}>
+                    <option>20 Servings</option>
+                    <option>18 Servings</option>
+                    <option>16 Servings</option>
+                    <option>14 Servings</option>
+                    <option>12 Servings</option>
+                    <option>10 Servings</option>
+                    <option>8 Servings</option>
+                    <option>6 Servings</option>
+                    <option>4 Servings</option>
                   </Form.Control>
                 </Col>
                 <Col md={6}>
-                  <Form.Label for="mousse">Mousse Flavor</Form.Label>
-                  <Form.Control as="select" name="Mousse Flavor">
-                    <option>Choose mousse flavor...</option>
-                    <option>Strawberry</option>
-                    <option>Mango</option>
-                    <option>Coffee</option>
-                    <option>Chocolate</option>
-                    <option>None</option>
-                  </Form.Control>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col md={6}>
-                  <Form.Label for="triangle_cake">Triangle Cake</Form.Label>
-                  <Form.Control as="select" name="Triangle Cake">
-                    <option>Choose triangle cake flavor...</option>
-                    <option>Vanilla</option>
-                    <option>Green Tea</option>
-                    <option>Taro</option>
-                    <option>Coffee</option>
-                    <option>Chocolate</option>
-                    <option>None</option>
-                  </Form.Control>
-                </Col>
-
-                <Col md={6}>
-                  <Form.Label for="cake_size"> Cake Size</Form.Label>
-                  <Form.Control as="select" name="Cake Size">
-                    <option>Choose cake size...</option>
-                    <option>6 inch</option>
-                    <option>10 inch</option>
-                    <option>Full sheet cake</option>
-                    <option>Custom size specify below</option>
-                    <option>None</option>
-                  </Form.Control>
-                </Col>
-              </Row>
-
-              <Row>
-              <Col md={6}>
-              <Form.Label for="name">
+                <Form.Label for="name">
                 Name
               </Form.Label>
               <Form.Control
@@ -87,10 +42,12 @@ const CustomCakes = () => {
                 type="name"
                 name="Name"
                 id="name"
+                style={CustomCakesForm}
                 />
                 </Col>
-
-                <Col md={6}>
+              </Row>
+              <Row>
+              <Col md={6}>
               <Form.Label for="email">
                 Email
               </Form.Label>
@@ -99,13 +56,11 @@ const CustomCakes = () => {
               type="email"
               name="Email"
               id="email"
+              style={CustomCakesForm}
               />
-              </Col>
-              </Row>
-
-              <Row>
-              <Col md={6}>
-              <Form.Label for="phone_number">
+                </Col>
+                <Col md={6}>
+                <Form.Label for="phone_number">
                 Phone Number
               </Form.Label>
               <Form.Control
@@ -113,9 +68,11 @@ const CustomCakes = () => {
               type="phone_number"
               name="Phone Number"
               id="phone_number"
+              style={CustomCakesForm}
               />
               </Col>
-
+              </Row>
+              <Row>
               <Col md={6}>
               <Form.Label for="date">
                 Requested Pickup Date
@@ -125,25 +82,29 @@ const CustomCakes = () => {
               type="date"
               name="Requested Pickup Date"
               id="date"
+              style={CustomCakesForm}
               />
               </Col>
+              <Col md={6}>
+              <p style={{padding: '20px 0px', margin: '0px'}}>Requested Dates are not guaranteed until confirmed by bakery.</p>             
+              </Col>
               </Row>
-
               <Form.Label for="special_instructions">
-                Special Order Instructions
+                Type of Cake (Flavor, toppings, event)
               </Form.Label>
               <Form.Control
                 as="textarea"
                 rows={4}
-                placeholder="Special Instructions"
+                placeholder="Type your cake request here..."
                 type="special_instructions"
-                name="Special Instructions"
+                name="Type of Cake (Flavor, toppings, event)"
                 id="special_instructions"
+                style={CustomCakesForm}
               />
 
             <Row>
               <Col sm={{ span: 6, offset: 3 }} style={{marginTop: '6vh'}}>
-                <CustomCakeBtn type="submit">Send Request</CustomCakeBtn>
+                <CustomCakeBtn type="submit">Submit</CustomCakeBtn>
               </Col>
             </Row>
           </form>

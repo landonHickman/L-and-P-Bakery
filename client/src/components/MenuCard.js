@@ -4,6 +4,7 @@ import { Card } from "react-bootstrap";
 import { MenuCards, MenuCol, MenuCardPrice, MenuCardTitle} from '../styles/MenuStyles'
 import ReactCardFlip from 'react-card-flip';
 import FlippedCard from "./FlippedCard";
+import {Clock} from 'react-bootstrap-icons'
 
 const MenuCard = ({ product, category }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -11,6 +12,15 @@ const MenuCard = ({ product, category }) => {
 
   const CardFlippable = () => {
     // console.log(project);
+  
+    const limitedTime = () => {
+      if(product.limited_time === true){
+        return <Clock style ={{margin: '5px '}}/>
+      }else{
+        return <div style ={{height: '26px'}}></div>
+      }
+    }
+
     return (
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <div
@@ -20,6 +30,7 @@ const MenuCard = ({ product, category }) => {
           <div>
           <MenuCards>
             <Card.Img variant="top" src={product.image}/>
+            {limitedTime()}
           <MenuCardTitle>{product.name}</MenuCardTitle>
           <MenuCardPrice>${product.price}</MenuCardPrice>
         </MenuCards>

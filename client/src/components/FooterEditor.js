@@ -7,6 +7,7 @@ import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import axios from "axios";
+import { FormBackground } from "../styles/styles";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 
@@ -79,6 +80,7 @@ const FooterEditor = ({ footer }) => {
                 placeholder="Address"
                 defaultValue={address}
                 onChange={(e) => setAddress(e.target.value)}
+                style={FormBackground}
               />
             </Col>
             <Col>
@@ -87,6 +89,7 @@ const FooterEditor = ({ footer }) => {
                 placeholder="City"
                 defaultValue={city}
                 onChange={(e) => setCity(e.target.value)}
+                style={FormBackground}
               />
             </Col>
           </Row>
@@ -97,6 +100,7 @@ const FooterEditor = ({ footer }) => {
                 placeholder="State"
                 defaultValue={state}
                 onChange={(e) => setState(e.target.value)}
+                style={FormBackground}
               />
             </Col>
             <Col>
@@ -105,6 +109,7 @@ const FooterEditor = ({ footer }) => {
                 placeholder="Zip"
                 defaultValue={zip}
                 onChange={(e) => setZip(e.target.value)}
+                style={FormBackground}
               />
             </Col>
           </Row>
@@ -115,6 +120,7 @@ const FooterEditor = ({ footer }) => {
                 placeholder="Phone Number"
                 defaultValue={phone_number}
                 onChange={(e) => setPhone_number(e.target.value)}
+                style={FormBackground}
               />
             </Col>
             <Col>
@@ -123,6 +129,7 @@ const FooterEditor = ({ footer }) => {
                 placeholder="Email"
                 defaultValue={email}
                 onChange={(e) => setEmail(e.target.value)}
+                style={FormBackground}
               />
             </Col>
           </Row>
@@ -142,6 +149,7 @@ const FooterEditor = ({ footer }) => {
                 placeholder="Social Media Link 1"
                 defaultValue={url1}
                 onChange={(e) => setUrl1(e.target.value)}
+                style={FormBackground}
               />
             </Col>
           </Row>
@@ -161,6 +169,7 @@ const FooterEditor = ({ footer }) => {
                 placeholder="Social Media Link 2"
                 defaultValue={url2}
                 onChange={(e) => setUrl2(e.target.value)}
+                style={FormBackground}
               />
             </Col>
           </Row>
@@ -180,6 +189,7 @@ const FooterEditor = ({ footer }) => {
                 placeholder="Social Media Link 3"
                 defaultValue={url3}
                 onChange={(e) => setUrl3(e.target.value)}
+                style={FormBackground}
               />
             </Col>
           </Row>

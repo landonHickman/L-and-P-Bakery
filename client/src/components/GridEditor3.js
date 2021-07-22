@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
+import { FormBackground } from "../styles/styles";
 
 const GridEditor3 = (props) => {
   const { landing } = props;
@@ -38,6 +39,7 @@ const GridEditor3 = (props) => {
                 placeholder="Grid Title 3"
                 defaultValue={title}
                 onChange={(e) => setTitle(e.target.value)}
+                style={FormBackground}
               />
               <Form.Label>Grid Description 3</Form.Label>
               <Form.Control
@@ -46,6 +48,7 @@ const GridEditor3 = (props) => {
                 placeholder="Grid Description 3"
                 defaultValue={desc}
                 onChange={(e) => setDesc(e.target.value)}
+                style={FormBackground}
               />
             </Form.Group>
             <Button variant="dark"  type="submit" block>

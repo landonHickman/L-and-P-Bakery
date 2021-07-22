@@ -4,7 +4,7 @@ import { useFormInput } from '../customHooks/useFormInput'
 import { AuthContext } from '../providers/AuthProvider'
 import {useHistory, useLocation} from 'react-router-dom'
 import LoginError from '../components/LoginError'
-import { btn, EmptyDiv, LoginMargin } from '../styles/styles'
+import { btn, EmptyDiv, FormBackground, LoginMargin } from '../styles/styles'
 
 const Login = () => {
   // const [validated, setValidated] = useState(false)
@@ -41,11 +41,11 @@ const Login = () => {
     <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" style={{position: 'relative'}}>
           <Form.Label>Email</Form.Label>
-          <Form.Control {...email} type="email"/>
+          <Form.Control {...email} type="email" style={FormBackground}/>
         </Form.Group>
         <Form.Group className="mb-3" style={{position: 'relative'}}>
           <Form.Label>Password</Form.Label>
-          <Form.Control {...password} type="password" />
+          <Form.Control {...password} type="password" style={FormBackground}/>
           <Form.Control.Feedback type="invalid" tooltip>Invalid Email or Password!</Form.Control.Feedback>
         </Form.Group>
     {showError && <LoginError/>}

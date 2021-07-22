@@ -1,7 +1,7 @@
 import { React } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Footer from "../components/Footer";
-import { CustomCakeBtn } from "../styles/styles";
+import { CustomCakeBtn,  FormBackground } from "../styles/styles";
 
 const Application = (props) => {
   return (
@@ -26,6 +26,7 @@ const Application = (props) => {
                 name="First Name:"
                 id="examplefirst_name"
                 placeholder="First Name"
+                style={FormBackground}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
@@ -37,6 +38,7 @@ const Application = (props) => {
                 name="Last Name:"
                 id="examplelast_name"
                 placeholder="Last Name"
+                style={FormBackground}
               />
             </Form.Group>
           </Row>
@@ -49,6 +51,7 @@ const Application = (props) => {
                 name="Email:"
                 id="exampleEmail"
                 placeholder="Email"
+                style={FormBackground}
               />
             </Form.Group>
 
@@ -60,6 +63,7 @@ const Application = (props) => {
                 name="Phone Number:"
                 id="examplephone_number"
                 placeholder="Phone Number"
+                style={FormBackground}
               />
             </Form.Group>
           </Row>
@@ -72,6 +76,7 @@ const Application = (props) => {
               name="Address"
               id="exampleaddress"
               placeholder="Address"
+              style={FormBackground}
             />
           </Form.Group>
 
@@ -84,6 +89,7 @@ const Application = (props) => {
                 name="City:"
                 id="examplecity"
                 placeholder="City"
+                style={FormBackground}
               />
             </Form.Group>
 
@@ -95,6 +101,7 @@ const Application = (props) => {
                 name="State:"
                 id="examplestate"
                 placeholder="State"
+                style={FormBackground}
               />
             </Form.Group>
 
@@ -105,6 +112,7 @@ const Application = (props) => {
                 name="Zip code:"
                 id="examplezip"
                 placeholder="Zip"
+                style={FormBackground}
               />
             </Form.Group>
           </Row>
@@ -115,6 +123,7 @@ const Application = (props) => {
               type="textarea"
               name="Best time to contact you"
               id="exampleText"
+              style={FormBackground}
             />
           </Form.Group>
 

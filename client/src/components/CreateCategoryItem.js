@@ -13,11 +13,12 @@ import {
   TextAreaBoxStyle,
   TextBoxStyle,
 } from "../styles/EditProductStyles";
+import { FormBackground } from "../styles/styles";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const CreateCategoryItem = (props) => {
   const history = useHistory() 
-  const { catId, createProduct, productId, updateCatItem, products, handleDelete, product, setShowCards, setShowEditForm } = props;
+  const { catId, createProduct, productId, updateCatItem, products, handleDelete, product, setShowCards, setShowEditForm, setShowWarning } = props;
   const [files, setFiles] = useState(props.image ? props.image : "");
   const [name, setName] = useState(props.name ? props.name : "");
   const [price, setPrice] = useState(props.price ? props.price : "");
@@ -80,9 +81,7 @@ const CreateCategoryItem = (props) => {
           let res1 = await axios.post("/api/images/upload", data);
           var img1 = res1.data.cloud_image.secure_url;
         }
-        if (products.length === 0) {
-          alert("Please select a category!");
-        } else {
+       
           let res1 = await axios.post(`/api/categories/${catId}/products`, {
             image: img1,
             name: name,
@@ -95,15 +94,17 @@ const CreateCategoryItem = (props) => {
           });
           createProduct(res1.data);
           history.push('/editor3')
-        }
       }
     } catch (err) {
-      alert("err");
-      console.log("err", err);
-      console.log("err.response", err.response);
+      setShowWarning(true)
     }
   };
 
+  const h1 = () => {
+    if(productId){
+      return <EditProductH1>{name}</EditProductH1>
+    }
+  }
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -115,7 +116,7 @@ const CreateCategoryItem = (props) => {
             onupdatefiles={setFiles}
             labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
           />
-          <EditProductH1>{name}</EditProductH1>
+          {h1()}
           <div style={{ display: "flex" }}>
             <ProductBooleanCheck
               type="checkbox"
@@ -147,13 +148,14 @@ const CreateCategoryItem = (props) => {
             placeholder="Name"
             onChange={(e) => setName(e.target.value)}
             defaultValue={name}
+            style={FormBackground}
           />
           
           <TextBoxStyle
-            size="lg"
             placeholder="Price"
             onChange={(e) => setPrice(e.target.value)}
             defaultValue={price}
+            style={FormBackground}
           />
           
           <Form.Control

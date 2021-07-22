@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
-import {styles, MenuH1, MenuButton, MenuRow, MarginDiv} from '../styles/MenuStyles'
+import {
+  styles,
+  MenuH1,
+  MenuButton,
+  MenuRow,
+  MarginDiv,
+  MenuLegend,
+} from "../styles/MenuStyles";
 import MenuCard from "../components/MenuCard";
-import {Container} from 'react-bootstrap'
+import { Container } from "react-bootstrap";
 import { EmptyDiv } from "../styles/styles";
+import { Clock } from "react-bootstrap-icons";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState([]);
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getAxios();
@@ -22,8 +30,8 @@ const Categories = () => {
       let res = await axios.get("/api/categories");
       // console.log('categories',res.data)
       setCategories(res.data);
-      handleCategoryButtonClick(res.data[0])
-      setLoading(false)
+      handleCategoryButtonClick(res.data[0]);
+      setLoading(false);
     } catch (err) {
       console.log("inside catch getAxios", err);
       console.log("inside catch getAxios", err.response);
@@ -56,7 +64,7 @@ const Categories = () => {
         <div key={category.id}>
           <MenuButton
             variant="default"
-            onClick={() => handleCategoryButtonClick(category)}  
+            onClick={() => handleCategoryButtonClick(category)}
           >
             {category.name}
           </MenuButton>
@@ -69,34 +77,29 @@ const Categories = () => {
     return products.map((product) => {
       return (
         <React.Fragment key={product.id}>
-          <MenuCard product={product} category={category}/>
+          <MenuCard product={product} category={category} />
         </React.Fragment>
       );
     });
   };
 
-
-  
-
-  if(loading) return <p>Loading</p>
+  if (loading) return <p>Loading</p>;
   return (
     <>
-    <EmptyDiv/>
+      <EmptyDiv />
       <MarginDiv>
-      <div style={{ textAlign: "center" }}>
-        <MenuH1>{category.name}</MenuH1>
-        <div
-          style={styles.card}
-        >
-          {renderCategories()}
+        <div style={{ textAlign: "center" }}>
+          <MenuH1>{category.name}</MenuH1>
+          <div style={styles.card}>{renderCategories()}</div>
+
+          <Container>
+            <MenuRow>{renderProducts()}</MenuRow>
+          </Container>
+          <MenuLegend>
+            <Clock style={{ marginRight: "5px", height: "16px" }} />
+            <p style={{paddingTop:'18px'}}>Limited Time</p>
+          </MenuLegend>
         </div>
-        
-        <Container>
-            <MenuRow>
-              {renderProducts()}
-            </MenuRow>
-        </Container>
-      </div>
       </MarginDiv>
       <Footer />
     </>

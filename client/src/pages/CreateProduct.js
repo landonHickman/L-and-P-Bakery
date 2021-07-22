@@ -1,12 +1,17 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
+import { ExclamationCircle } from 'react-bootstrap-icons'
 import CreateCategoryItem from '../components/CreateCategoryItem'
 import { MenuButton, MenuH1 } from '../styles/MenuStyles'
+import { EmptyDiv, ErrorSpan } from '../styles/styles'
 
 const CreateProduct = () => {
   const [categories, setCategories] = useState([])
   const [category, setCategory] = useState([])
   const [products, setProducts] = useState([])
+  const [showTitle, setShowTitle] = useState(false)
+  const [showSelect, setShowSelect] = useState(true)
+  const [showWarning, setShowWarning] = useState(false)
 
   useEffect(()=>{
     getCategories()
@@ -28,37 +33,49 @@ const CreateProduct = () => {
     // console.log(res.data)
     setProducts(res.data)
     setCategory(category)
+    setShowSelect(false)
+    setShowTitle(true)
+    setShowWarning(false)
     // console.log(category)
   }
 
   const createProduct = (prod) => {
     setProducts([...products, prod])
-    console.log('worked',prod.order)
   }
 
   const renderCategoryButtons = () => {
     return categories.map(cat=>{
       return (
       <React.Fragment key={cat.id}>
-        {/* <Form.Check
-          type="checkbox"
-          id="autoSizingCheck"
-          className="mb-2"
-          label={cat.name}
-          onClick={(e)=>handleCategoryButtonClick(cat)}
-        /> */}
-        <MenuButton variant="default" onClick={(e)=>handleCategoryButtonClick(cat)}>{cat.name}</MenuButton>
+        <MenuButton variant="default" style={{marginBottom: '20px'}} onClick={(e)=>handleCategoryButtonClick(cat)}>{cat.name}</MenuButton>
       </React.Fragment>
       )
     })
   }
+
+  const warning = () => {
+    return (
+    <>
+    <ErrorSpan style={{justifyContent: 'center', marginBottom: '20px'}}>
+        <ExclamationCircle style={{marginRight: '10px'}}/>
+          Please Select a Category
+        <ExclamationCircle style={{marginLeft: '10px'}}/>
+    </ErrorSpan>
+    </>
+    )
+  }
   return (
+    <>
+    <EmptyDiv/>
     <div style={{textAlign: 'center', margin: '0rem 5rem 5rem 5rem'}}>
       {/* {console.log(products)} */}
-      <MenuH1>Create {category.name}</MenuH1>
+      {showTitle && <MenuH1>Create {category.name}</MenuH1>}
+      {showSelect && <MenuH1>Select Category</MenuH1>}
       {renderCategoryButtons()}
-      <CreateCategoryItem catId={category.id} products={products} createProduct={createProduct}/>
+      {showWarning && warning()}
+      <CreateCategoryItem catId={category.id} products={products} createProduct={createProduct} setShowWarning={setShowWarning}/>
     </div>
+    </>
   )
 }
 export default CreateProduct
