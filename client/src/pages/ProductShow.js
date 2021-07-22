@@ -31,7 +31,7 @@ const ProductShow = () => {
 
   return (
     <div>
-      <EmptyDiv/>
+      <div style={{height: '106px'}}/>
       {renderProduct()}
       <div style={{ marginTop: "225px" }}>
         <Footer />
