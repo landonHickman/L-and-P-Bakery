@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { Nav, Navbar, Container, Col, NavDropdown } from "react-bootstrap";
 import NavComponent from "./NavComponent";
-
 
 const NavBar = () => {
   //used to set which link is active
@@ -15,6 +14,29 @@ const NavBar = () => {
   const { authenticated, handleLogout } = useContext(AuthContext);
   // function to position to the right of navbar.
   // also has an if else to check for user to see what is needed to display.
+
+  // pasted from stackoverflow :(
+  let listener = null;
+  const [scrollState, setScrollState] = useState("top");
+
+  useEffect(() => {
+    listener = document.addEventListener("scroll", (e) => {
+      var scrolled = document.scrollingElement.scrollTop;
+      if (scrolled >= 120) {
+        if (scrollState !== "amir") {
+          setScrollState("amir");
+        }
+      } else {
+        if (scrollState !== "top") {
+          setScrollState("top");
+        }
+      }
+    });
+    return () => {
+      document.removeEventListener("scroll", listener);
+    };
+  }, [scrollState]);
+
   const getRightNav = () => {
     if (authenticated) {
       return (
@@ -23,7 +45,9 @@ const NavBar = () => {
             <NavDropdown.Item href="/editor1">Landing Page</NavDropdown.Item>
             <NavDropdown.Item href="/editor2">About Page</NavDropdown.Item>
             <NavDropdown.Item href="/editor3">Product Page</NavDropdown.Item>
-            <NavDropdown.Item href="/createProduct">Create Product</NavDropdown.Item>
+            <NavDropdown.Item href="/createProduct">
+              Create Product
+            </NavDropdown.Item>
           </NavDropdown>
           <Col
             sm={{ span: "auto", offset: 2 }}
@@ -45,18 +69,52 @@ const NavBar = () => {
     }
   };
 
+  const renderNavbar = () => {
+    switch(window.location.pathname){
+      case '/':
+        return(<>
+          <Navbar
+            style={{
+              background:
+                scrollState === "top" ? "transparent" : "rgba(0, 0, 0, 0.65)",
+              transition: "0.75s ease",
+            }}
+            fixed="top"
+            variant="light"
+            expand="sm"
+          >
+            <Container fluid>
+              <NavComponent getRightNav={getRightNav} />
+            </Container>
+          </Navbar>
+        </>);
+      default:
+        return(<>
+          <Navbar
+            style={{
+              background: "rgba(0, 0, 0, 0.75)",
+            }}
+            fixed="top"
+            variant="light"
+            expand="sm"
+          >
+            <Container fluid>
+              <NavComponent getRightNav={getRightNav} />
+            </Container>
+          </Navbar>
+        </>);
+    }
+  }
+
+
+
   //this is what is being returned by the NavBar function. if you want it to show up it needs to pass
   //through here eventually.
   return (
     <>
-      <Navbar fixed="top" variant="light" expand="sm" >
-        <Container fluid >
-          <NavComponent getRightNav={getRightNav} />
-        </Container>
-      </Navbar>
+     {renderNavbar()}
     </>
   );
 };
 
 export default NavBar;
-
