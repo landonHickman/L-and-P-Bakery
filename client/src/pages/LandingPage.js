@@ -47,7 +47,7 @@ const LandingPage = () => {
           <LPSpecials />
         </div>
       </Col>
-      <br />
+
 
       {/* cakes */}
         <div className="row">
