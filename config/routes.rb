@@ -20,4 +20,5 @@ Rails.application.routes.draw do
     resources :application_pages
     resources :navbars
   end
+  get '*other', to: 'static#index'
 end
