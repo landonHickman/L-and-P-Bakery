@@ -54,14 +54,6 @@ a.dropdown-item {
   color: black; 
 }
 
-#nav {
-  /* background:transparent !important;
-  transition:0.75s ease; */
-}
-
-.nav.active {
-  background-color:rgba(0, 0, 0, 0.39);
-}
 
 .App-link {
   color: #61dafb;

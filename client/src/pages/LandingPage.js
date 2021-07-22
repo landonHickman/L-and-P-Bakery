@@ -7,7 +7,6 @@ import LPGrid2Carousel from "../components/LPGrid2Carousel";
 import LPGrid3Carousel from "../components/LPGrid3Carousel";
 import LPSpecials from "../components/LPSpecials";
 import styled from "styled-components";
-import r from "../images/r.png";
 
 const LandingPage = () => {
   const [landingPage, setLandingPage] = useState([]);
@@ -33,10 +32,10 @@ const LandingPage = () => {
     <>
       {/* header */}
 
-      <CustomBackgroundImgdiv src={landingPage.main_background_img}>
+        <CustomBackgroundImgdiv landingPageImage={landingPage.main_background_img}>
       <CustomLNPTitle>{landingPage.main_title}</CustomLNPTitle>
       <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
-      </CustomBackgroundImgdiv>
+      </CustomBackgroundImgdiv> 
       <br/>
       <br/>
 
@@ -47,7 +46,7 @@ const LandingPage = () => {
           <LPSpecials />
         </div>
       </Col>
-
+      <br />
 
       {/* cakes */}
         <Row style={{display: 'flex', flexWrap: 'wrap-reverse'}}>
@@ -96,32 +95,29 @@ export default LandingPage;
 const styledDiv = {
   padding: "0px",
 };
+
 const CustomBackgroundImgdiv = styled.div`
-  background-image: url(${r});
+  background-image: ${props => `url(${props.landingPageImage})`};
   background-repeat: no-repeat;
   background-size: 100%;
   height: 60vw;
   width: 100%;
   padding-top: 180px;
-    
 `;
 
 const CustomLNPTitle = styled.div`
-  font-size: 75px;
   text-align: center;
   color: white;
-  padding: 50px;
-  height: 100%px;
+  height: 50px;
   width: 100%;
   font-size: 8vw;
 `;
 
 
 const CustomLNPtext = styled.div`
-  font-size: 35px;
   text-align: center;
   color: rgba(255, 255, 255, 0.808);
-  margin-top: -70px;
+  margin-top: 40px;
   font-size: 3vw;
 `;
 
