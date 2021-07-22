@@ -23,6 +23,12 @@ export  const MenuEditLegend = styled.div`
   justify-content: center;
   margin: 60px 0px 0px 0px;
 `
+export  const MenuLegend = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0px 0px 0px;
+`
 export const MenuH1 = styled.h1`
   margin-top: 20px;
 `
@@ -84,12 +90,12 @@ export const MenuRow = styled(Row)`
 `
 
 export const MenuCardTitle = styled(Card.Title)`
-  padding-top: 50px;
+  padding-top: 40px;
   margin-bottom: 0px;
 `
 
 export const MenuCardPrice = styled(Card.Subtitle)`
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   padding-top: 20px;
 `
 export const RightColProductShow = styled(Col)`
