@@ -8,6 +8,8 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import axios from "axios";
 import styled from "styled-components";
 import { EmptyDiv, FormBackground } from "../styles/styles";
+import { btn } from "../styles/styles";
+
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 
@@ -70,7 +72,7 @@ const LandingPageEditor = (props) => {
             </Col>
           </Row>
         </Form.Group>
-        <Button variant="dark"  type="submit" block>
+        <Button style={ btn.blackButton }  type="submit" block>
           Submit
         </Button>
       </Form>
