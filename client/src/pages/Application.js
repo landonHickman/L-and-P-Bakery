@@ -1,15 +1,12 @@
-import { React, useState } from "react";
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { React } from "react";
+import { Form, Row, Col } from "react-bootstrap";
 import Footer from "../components/Footer";
-import { FormBackground } from "../styles/styles";
+import { CustomCakeBtn,  FormBackground } from "../styles/styles";
 
 const Application = (props) => {
-
   return (
     <>
-      <Form
-        style={{ padding: "40px" }}
-      >
+      <Form style={{ padding: "40px" }}>
         <form
           action="mailto:cadelenglishthegenius@gmail.com"
           method="post"
@@ -18,10 +15,8 @@ const Application = (props) => {
           <br />
           <br />
           <br />
-
           <h1 style={{ textAlign: "center" }}>Apply Now!</h1>
           <br />
-
           <Row className="firstAndLastName">
             <Form.Group as={Col} controlId="applicantFirstName">
               <Form.Label for="examplefirst_name">First Name</Form.Label>
@@ -133,7 +128,10 @@ const Application = (props) => {
           </Form.Group>
 
           <Form.Group tag="fieldset"></Form.Group>
-          <Button type="submit">Submit and Attach Resume Here</Button>
+
+          <CustomCakeBtn type="submit">
+            Submit and Attach Resume Here
+          </CustomCakeBtn>
         </form>
         <p></p>
       </Form>

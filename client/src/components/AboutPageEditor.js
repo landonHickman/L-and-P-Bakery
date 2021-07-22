@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import { Form, Row, Col, Button} from "react-bootstrap";
 import { btn, FormBackground } from "../styles/styles";
+import { Form, Row, Col, Button, Card} from "react-bootstrap";
+import { EmptyDiv } from "../styles/styles";
+import styled from "styled-components";
 import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
@@ -44,12 +46,14 @@ const AboutPageEditor = (props) => {
 
   return (
     <React.Fragment>
+      <EmptyDiv/>
       <Form onSubmit={handleSubmit}>
-        <Form.Group>
+   
+        <Form.Group style={{ margin: "0vh 7vw 4vh 4vw" }} >
           <Form.Group widths="equals" />
           <Row>
             <Col>
-              <Form.Label>Main Title</Form.Label>
+              <CustomOurstoryTitle>Our Story</CustomOurstoryTitle>
               <Form.Control
                 placeholder="Main Title"
                 // defaultValue={about.title ? about.title : ""}
@@ -58,7 +62,7 @@ const AboutPageEditor = (props) => {
                 style={FormBackground}
                 required
               />
-
+                <p></p>
               <Form.Label>Description Text</Form.Label>
               <Form.Control
                 placeholder="Description"
@@ -85,6 +89,8 @@ const AboutPageEditor = (props) => {
             </Col>
           </Row>
         </Form.Group>
+
+        <CustomCard style={{ margin: "0vh 0vw 4vh 0vw" }}>  
         <Form.Group>
           <Row>
             <Col>
@@ -114,6 +120,7 @@ const AboutPageEditor = (props) => {
         <Button style={btn.blackButton} type="submit" block>
           Submit
         </Button>
+        </CustomCard>
         <br />
         <br />
       </Form>
@@ -121,3 +128,15 @@ const AboutPageEditor = (props) => {
   )
 }
 export default AboutPageEditor
+
+const CustomOurstoryTitle = styled.div`
+font-size: 40px;
+margin: 5px;
+margin-top: 50px
+`;
+
+const CustomCard = styled.div`
+padding: 45px;
+outline: 1px ridge rgba(0, 0, 0, 0.2);
+border-radius: 2rem;
+`;

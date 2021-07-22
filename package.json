@@ -1,0 +1,26 @@
+{
+  "name": "l-p-bakery",
+  "version": "1.0.0",
+  "description": "### Steps to clone 1. git clone git@github.com:landonHickman/start_proj.git <new_app_name_here> 2. cd <new_app_name_here>",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/landonHickman/L-and-P-Bakery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/landonHickman/L-and-P-Bakery/issues"
+  },
+  "homepage": "https://github.com/landonHickman/L-and-P-Bakery#readme"
+}

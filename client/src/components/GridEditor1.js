@@ -25,7 +25,7 @@ const GridEditor1 = (props) => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <Form style={{ margin: "0vh 11vw 9vh 11vw" }} onSubmit={handleSubmit}>
         <Row>
           <Col>
             <Form.Group>
