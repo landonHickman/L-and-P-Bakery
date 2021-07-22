@@ -14,7 +14,6 @@ const LPSpecials = () => {
       let res = await axios.get(`/api/all_special_products`);
       setSpecProducts(res.data);
     } catch (err) {
-      alert("err check console");
       console.log(err);
     }
   };
