@@ -21,7 +21,7 @@ const LPSpecials = () => {
     }
   };
 
-  let specialProducts = [
+  let LPSArray = [
     {specProducts},
   ]
   let ideal = [
@@ -43,7 +43,7 @@ const LPSpecials = () => {
     console.log(finalArr)
     return finalArr
   }
-  dataCleanup(specialProducts);
+  dataCleanup(LPSArray);
 
 
   const renderSpecProducts = () => {
