@@ -51,18 +51,18 @@ const AboutPageEditor = (props) => {
    
         <Form.Group style={{ margin: "0vh 7vw 4vh 4vw" }} >
           <Form.Group widths="equals" />
-          <Row>
-            <Col>
+          <Row style={{alignItems: 'flex-end', wrap: 'wrap-reverse'}}>
+            <Col style={{marginBottom: '16px'}} md={6}>
               <CustomOurstoryTitle>Our Story</CustomOurstoryTitle>
               <Form.Control
                 placeholder="Main Title"
                 // defaultValue={about.title ? about.title : ""}
                 defaultValue={title}
                 onChange={(e) => setTitle(e.target.value)}
-                style={FormBackground}
+                style={styles.inputMarginBottom}
                 required
               />
-                <p></p>
+
               <Form.Label>Description Text</Form.Label>
               <Form.Control
                 placeholder="Description"
@@ -80,6 +80,7 @@ const AboutPageEditor = (props) => {
                 <FilePond
                   // files={about.image ? about.image : files}
                   files={files}
+                  style={{margin: '0px'}}
                   allowReorder={true}
                   allowMultiple={false}
                   onupdatefiles={setFiles}
@@ -102,7 +103,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.cta_title ? about.cta_title : ""}
                 defaultValue={cta_title}
                 onChange={(e) => setCtaTitle(e.target.value)}
-                style={FormBackground}
+                style={styles.inputMarginBottom}
                 required
               />
               <Form.Label>Call to Action Button Text</Form.Label>
@@ -111,7 +112,7 @@ const AboutPageEditor = (props) => {
                 // defaultValue={about.cta_button_text ? about.cta_button_text : ""}
                 defaultValue={cta_button}
                 onChange={(e) => setCtaButton(e.target.value)}
-                style={FormBackground}
+                style={styles.ctaButtonText}
                 required
               />
             </Col>
@@ -131,7 +132,6 @@ export default AboutPageEditor
 
 const CustomOurstoryTitle = styled.div`
 font-size: 40px;
-margin: 5px;
 margin-top: 50px
 `;
 
@@ -140,3 +140,16 @@ padding: 45px;
 outline: 1px ridge rgba(0, 0, 0, 0.2);
 border-radius: 2rem;
 `;
+
+const styles = {
+  inputMarginBottom: {
+    background: '#EEEEEE',
+    border: '0px',
+    marginBottom: '10px'
+  },
+  ctaButtonText: {
+    background: '#EEEEEE',
+    border: '0px',
+    marginBottom: '25px'
+  }
+}

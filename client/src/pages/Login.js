@@ -36,7 +36,7 @@ const Login = () => {
   }
   return(
     <LoginMargin>
-      <EmptyDiv/>
+      <div style={{height: '120px'}}/>
     <h1>Administer Login</h1>
     <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" style={{position: 'relative'}}>

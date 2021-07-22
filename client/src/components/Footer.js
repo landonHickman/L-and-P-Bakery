@@ -87,7 +87,7 @@ const Footer = () => {
                   rounded
                 />
               </Nav.Link>
-              <Nav.Link
+              {/* <Nav.Link
                 href={f.social_media_url_2}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -97,9 +97,9 @@ const Footer = () => {
                   src={f.social_media_logo_2}
                   rounded
                 />
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link
-                href='https://www.instagram.com/landpbakerycafe/?hl=en'
+                href={f.social_media_url_3}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -140,8 +140,13 @@ const styles = {
     justifyContent: "center",
     alignItems: 'center',
   },
-  imgHeight: { height: "25px", },
-  pad: {padding: '0', paddingBottom: '5px'},
+  imgHeight: { 
+    height: "17px", 
+  },
+  pad: {
+    padding: '0', 
+    paddingBottom: '5px'
+  },
   flexColumn: {
     display: "flex",
     flexDirection: "column",
