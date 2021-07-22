@@ -13,7 +13,7 @@ import {
   TextAreaBoxStyle,
   TextBoxStyle,
 } from "../styles/EditProductStyles";
-import { FormBackground } from "../styles/styles";
+import { FormBackground, btn } from "../styles/styles";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 const CreateCategoryItem = (props) => {
@@ -176,7 +176,7 @@ const CreateCategoryItem = (props) => {
               </Button>
             </Col>}
             <Col>
-              <Button type="submit" variant="dark" block>
+              <Button style={ btn.blackButton } type="submit" block>
                 Save
               </Button>
             </Col>
