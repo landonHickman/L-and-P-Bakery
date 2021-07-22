@@ -39,13 +39,13 @@ const LandingPage = () => {
       <br/>
       <br/>
 
-      <CustomSBI>Special Bakery Items</CustomSBI>
+      <CustomSBI>{landingPage.carousel_title}</CustomSBI>
       <Col>
         <div>
           <LPSpecials />
         </div>
       </Col>
-      <br />
+
 
       {/* cakes */}
         <div className="row">
