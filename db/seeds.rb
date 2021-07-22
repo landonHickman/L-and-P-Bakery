@@ -73,7 +73,7 @@ LandingPage.create(
   carousel_title: 'Special Bakery Items', 
   grid_title_1: 'Cakes', 
   grid_description_1: Faker::Lorem.paragraph, 
-  grid_title_2: 'Boba', 
+  grid_title_2: 'Drinks', 
   grid_description_2: Faker::Lorem.paragraph,
   grid_title_3: 'Bakery',
   grid_description_3: Faker::Lorem.paragraph,
