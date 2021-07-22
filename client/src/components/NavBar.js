@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { Nav, Navbar, Container, Col, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar, Container, Col, NavDropdown, Image } from "react-bootstrap";
 import NavComponent from "./NavComponent";
-
+import LNPW from "../images/LNPW.png";
+import LNP from "../images/LNP.png";
 const NavBar = () => {
   //used to set which link is active
   const { pathname } = useLocation();
@@ -81,8 +82,20 @@ const NavBar = () => {
             }}
             fixed="top"
             variant="light"
-            expand="sm"
+            expand="sm" 
           >
+            <Navbar.Brand href="/">
+            <Image
+            style={{
+              logo:
+                scrollState === "top" ? "transparent" : "rgba(0, 0, 0, 0.65)",
+              transition: "0.75s ease",
+            }}
+            src={LNP}
+            style={{height: "90px"}}
+            roundedCircle
+            />
+            </Navbar.Brand>
             <Container fluid>
               <NavComponent getRightNav={getRightNav} />
             </Container>
@@ -98,6 +111,13 @@ const NavBar = () => {
             variant="light"
             expand="sm"
           >
+            <Navbar.Brand href="/">
+            <Image
+              src={LNPW}
+              style={{height: "90px"}}
+              roundedCircle
+            />
+          </Navbar.Brand>
             <Container fluid>
               <NavComponent getRightNav={getRightNav} />
             </Container>

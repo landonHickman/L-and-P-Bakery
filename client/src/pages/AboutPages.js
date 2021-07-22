@@ -4,6 +4,7 @@ import {Button, Card, Image} from "react-bootstrap";
 import {useHistory} from 'react-router-dom';
 import Footer from "../components/Footer";
 import styled from "styled-components";
+import { EmptyDiv, } from "../styles/styles";
 import {btn} from "../styles/styles"
 
 const AboutPages = () => {
@@ -27,7 +28,8 @@ const AboutPages = () => {
 
   return (
     <>
-    <div>
+    <EmptyDiv/>
+     <div>
       <div className="card-deck">
       {/* story */}
       <Card className="text-center"style={{display: 'flex', margin: "0rem", border: "none"}}>
@@ -37,12 +39,12 @@ const AboutPages = () => {
         </Card.Body>
       </Card>
       {/* image */}
-      <Card style={{display: 'flex', margin_left: "0vw", margin_right: "1vw", border: "none"}}>
+      <Card style={{display: 'flex', margin_left: "0vw", margin_right: "1vw", border: "none", padding: "2vw", }}>
         <Image src={aboutPages.image} />
       </Card>
       </div>
       {/* application cta */}
-      <div style={{display: 'flex', margin: "0rem", border: "solid lightgray 1px"}}>
+      <div style={{display: 'flex', margin: "0rem", border: "solid lightgray 1px",}}>
         <Card.Body className="text-center" style={{ marginLeft: "25vw", marginRight: "25vw", marginTop: "2vw", marginBottom: "2vw"}}>
           <StyledH2>{aboutPages.cta_title}</StyledH2>
           <Button style={btn.blackButton} onClick={() => history.push("/application")}>{aboutPages.cta_button_text}</Button>
