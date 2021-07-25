@@ -42,13 +42,14 @@ export const btn = {
 }
 export const FormBackground ={
   background: '#EEEEEE',
-  border: '0px'
+  border: '0px',
 }
 
 export const CustomCakeBtn = styled(Button)`
 width: 100%;
 background-color: black;
 border: 1px solid black;
+font-weight: 500;
 `
 export const ErrorSpan = styled.span`
 color: red;

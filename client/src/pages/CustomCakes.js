@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
+import styled from "styled-components";
 import Footer from "../components/Footer";
 import { CustomCakeBtn, CustomCakesControl, CustomCakesForm, FormBackground } from "../styles/styles";
 // import btn from "../styles"
@@ -16,8 +17,8 @@ const CustomCakes = () => {
             enctype="text/plain"
             className="text-center"
           >
-            <h1 style={{marginTop: '4vh'}}>Custom Cakes</h1>
-            <p>Fill out the form below for a custom cake request</p>
+            <CakeTitle>Custom Cakes</CakeTitle>
+            <CakeText>Fill out the form below for a custom cake request</CakeText>
               <Row style={{alignItems: 'flex-end'}}>
                 <Col md={6}>
                   <Form.Label for="cake_size"> Cake Size (How many people are you planning to serve?)</Form.Label>
@@ -86,7 +87,7 @@ const CustomCakes = () => {
               />
               </Col>
               <Col md={6}>
-              <p style={{padding: '20px 0px', margin: '0px'}}>Requested Dates are not guaranteed until confirmed by bakery.</p>             
+                <p style={{padding: '20px 0px', margin: '0px'}}>Requested Dates are not guaranteed until confirmed by bakery.</p>             
               </Col>
               </Row>
               <Form.Label for="special_instructions">
@@ -115,3 +116,14 @@ const CustomCakes = () => {
   );
 };
 export default CustomCakes;
+
+const CakeTitle = styled.h1`
+  margin-top: 4vh;
+  font-size: 3.25rem;
+  font-weight: 500;
+  `
+const CakeText = styled.p`
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 5vh;
+`
