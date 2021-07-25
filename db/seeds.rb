@@ -97,7 +97,7 @@ Footer.create(
   social_media_logo_1: 'https://res.cloudinary.com/landonhickman/image/upload/v1626988671/Facebook_ffbhzu.png',
   social_media_url_1: 'https://www.facebook.com/landpbakerycafe',
   social_media_logo_2: 'https://res.cloudinary.com/landonhickman/image/upload/v1626988483/SnapChat_tpjsys.png',
-  social_media_url_2: 'https://www.snapchat.com/',
+  social_media_url_2: 'https://www.snapchat.com/add/landpbakerycafe',
   social_media_logo_3: 'https://res.cloudinary.com/landonhickman/image/upload/v1626988662/Instagram_yamvpw.png',
   social_media_url_3: 'https://www.instagram.com/landpbakerycafe/?hl=en',
 )

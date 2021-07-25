@@ -87,7 +87,7 @@ const Footer = () => {
                   rounded
                 />
               </Nav.Link>
-              {/* <Nav.Link
+              <Nav.Link
                 href={f.social_media_url_2}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -97,7 +97,7 @@ const Footer = () => {
                   src={f.social_media_logo_2}
                   rounded
                 />
-              </Nav.Link> */}
+              </Nav.Link>
               <Nav.Link
                 href={f.social_media_url_3}
                 target="_blank"
