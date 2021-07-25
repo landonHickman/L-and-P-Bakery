@@ -52,8 +52,8 @@ const LandingPage = () => {
         <Row style={{display: 'flex', flexWrap: 'wrap-reverse'}}>
           <CustomCakeCard md={6}>
             
-              <h1>{landingPage.grid_title_1}</h1>
-              <p>{landingPage.grid_description_1}</p>
+              <CategoryTitle>{landingPage.grid_title_1}</CategoryTitle>
+              <CategoryDesc>{landingPage.grid_description_1}</CategoryDesc>
             
           </CustomCakeCard>
           <Col style={styledDiv} md={6}>
@@ -68,16 +68,16 @@ const LandingPage = () => {
           </Col>
           <CustomBobaCard md={6}>
             
-              <h1>{landingPage.grid_title_2}</h1>
-              <p>{landingPage.grid_description_2}</p>
+              <CategoryTitle>{landingPage.grid_title_2}</CategoryTitle>
+              <CategoryDesc>{landingPage.grid_description_2}</CategoryDesc>
           </CustomBobaCard>
         </Row>
 
             {/* bakery */}
         <Row style={{flexWrap: 'wrap-reverse'}}>
           <CustomBakeryCard md={6}>
-              <h1>{landingPage.grid_title_3}</h1>
-              <p>{landingPage.grid_description_3}</p>
+              <CategoryTitle>{landingPage.grid_title_3}</CategoryTitle>
+              <CategoryDesc>{landingPage.grid_description_3}</CategoryDesc>
           </CustomBakeryCard>
           <Col style={styledDiv} md={6}>
             <LPGrid3Carousel />
@@ -96,6 +96,16 @@ const styledDiv = {
   padding: "0px",
 };
 
+const CategoryTitle = styled.h1`
+  font-size: 7.5vh;
+  font-weight: 300;
+`
+const CategoryDesc = styled.p`
+  font-size: 2.1vh;
+  font-weight: 200;
+  padding: 1vw;
+`
+
 const CustomBackgroundImgdiv = styled.div`
   background-image: ${props => `url(${props.landingPageImage})`};
   background-repeat: no-repeat;
@@ -110,7 +120,8 @@ const CustomLNPTitle = styled.div`
   color: white;
   height: 50px;
   width: 100%;
-  font-size: 8vw;
+  font-size: 16vh;
+  font-weight: 400;
 `;
 
 
@@ -118,14 +129,16 @@ const CustomLNPtext = styled.div`
   text-align: center;
   color: rgba(255, 255, 255, 0.808);
   margin-top: 40px;
-  font-size: 3vw;
+  font-size: 4.25vh;
+  font-weight: 400;
 `;
 
-const CustomSBI = styled.div`
+const CustomSBI = styled.h1`
 font-size: 40px;
 margin: 20px;
 text-align: center;
-font-size: 4vw;
+font-size: 6vh;
+font-weight: 500;
 `;
 
 const CustomCakeCard = styled(Col)`

@@ -68,7 +68,7 @@ end
 end
 # need to add landingPage special_bakery_item pic title price
 LandingPage.create(
-  main_title: 'L & P Bakery Cafe', 
+  main_title: 'L & P Bakery', 
   main_background_img: 'https://www.ocregister.com/wp-content/uploads/2020/09/bakery-02-1.jpg', 
   carousel_title: 'Special Bakery Items', 
   grid_title_1: 'Cakes', 

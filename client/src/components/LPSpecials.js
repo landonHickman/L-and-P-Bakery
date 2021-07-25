@@ -57,10 +57,10 @@ const LPSpecials = () => {
             src={specProducts.image}
             alt="First slide"
           />
-          <CustomLPS>
-            <p>{specProducts.name}</p>
-            <p>${specProducts.price} </p>
-          </CustomLPS>
+          <div>
+            <SpecProductName>{specProducts.name}</SpecProductName>
+            <SpecProductPrice>${specProducts.price} </SpecProductPrice>
+          </div>
         </Col>
         ))}
         </Row>
@@ -75,5 +75,15 @@ const LPSpecials = () => {
 export default LPSpecials
 
 const CustomLPS = styled.div`
-font-size: 2vw;
+font-size: 2.5vh;
+font-weight: 500;
 `;
+
+const SpecProductName = styled.p`
+font-size: 2.5vh;
+font-weight: 500;
+`
+const SpecProductPrice = styled.p`
+font-size: 2.1vh;
+font-weight: 400;
+`
