@@ -10,7 +10,7 @@ import {
   MenuLegend,
 } from "../styles/MenuStyles";
 import MenuCard from "../components/MenuCard";
-import { Container } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 import { EmptyDiv } from "../styles/styles";
 import { Clock } from "react-bootstrap-icons";
 
@@ -82,7 +82,7 @@ const Categories = () => {
     });
   };
 
-  if (loading) return <p>Loading</p>;
+  if (loading) return <Spinner animation="border" size="lg" />;
   return (
     <>
       <EmptyDiv />

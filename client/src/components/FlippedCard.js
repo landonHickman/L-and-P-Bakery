@@ -1,9 +1,10 @@
 import React from "react";
 import { Card, Col, Row, Button } from "react-bootstrap";
-import { MenuCards, CardImgOverlayStyled} from "../styles/MenuStyles";
+import { MenuCards, CardImgOverlayStyled, FlippedCardTitle, FlippedCardPrice} from "../styles/MenuStyles";
 import Truncate from "react-truncate";
 import { useHistory } from "react-router-dom";
 import { btn } from "../styles/styles";
+import styled from "styled-components";
 
 const FlippedCard = ({ product, category }) => {
   let history = useHistory();
@@ -26,8 +27,8 @@ const FlippedCard = ({ product, category }) => {
             {/* <div style={{ display: 'flex', flexDirection: 'column', background: 'rgba(0,0,0,.5)',
 color: 'white'}}> */}
 
-            <Card.Title >{product.name}</Card.Title>
-            <Card.Subtitle>${product.price}</Card.Subtitle>
+            <FlippedCardTitle >{product.name}</FlippedCardTitle>
+            <FlippedCardPrice>${product.price}</FlippedCardPrice>
 {/* </div> */}
           </CardImgOverlayStyled>
         </Col>
@@ -56,3 +57,4 @@ color: 'white'}}> */}
   );
 };
 export default FlippedCard;
+

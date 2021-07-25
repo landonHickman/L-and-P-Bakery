@@ -38,7 +38,7 @@ export const MAIN_CONTAINER = styled.div`
   padding: 20px;
 `
 export const btn = {
-  blackButton: {backgroundColor: 'black', border: '1px solid black'}
+  blackButton: {backgroundColor: 'black', border: '1px solid black', fontWeight: '500'}
 }
 export const FormBackground ={
   background: '#EEEEEE',

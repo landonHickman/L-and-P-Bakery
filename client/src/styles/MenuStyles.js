@@ -28,9 +28,13 @@ export  const MenuLegend = styled.div`
   justify-content: center;
   align-items: center;
   margin: 60px 0px 0px 0px;
+  font-size: 1rem;
+  font-weight: 500;
 `
 export const MenuH1 = styled.h1`
   margin-top: 20px;
+  font-size: 3.25rem;
+  font-weight: 300;
 `
 export const MenuCol = styled(Col)`
   padding: 0px;
@@ -76,6 +80,8 @@ export const MenuButton = styled(Button)`
   margin-bottom: 50px;
   padding-right: 25px;
   padding-left: 25px;
+  font-size: 1rem;
+  font-weight: 500;
 `
 
 export const ButtonDiv = styled.div`
@@ -92,11 +98,15 @@ export const MenuRow = styled(Row)`
 export const MenuCardTitle = styled(Card.Title)`
   padding-top: 40px;
   margin-bottom: 0px;
+  font-size: 1.625rem;
+  font-weight: 500;
 `
 
 export const MenuCardPrice = styled(Card.Subtitle)`
   margin-bottom: 35px;
   padding-top: 20px;
+  font-size: 1.125rem;
+  font-weight: 400;
 `
 export const RightColProductShow = styled(Col)`
   text-align: right;
@@ -130,3 +140,15 @@ padding: 0px;
 export const MarginDiv = styled.div`
   margin: 0rem 11vw 5vh 11vw;
 `
+export const FlippedCardTitle = styled(Card.Title)`
+  font-size: 1.625rem;
+  font-weight: 500;
+`
+export const FlippedCardPrice = styled(Card.Subtitle)`
+  font-size: 1.125rem;
+  font-weight: 400;
+`
+
+// export const MenuLegend = styled.div`
+//   font-size
+// `
