@@ -97,13 +97,13 @@ const styledDiv = {
 };
 
 const CategoryTitle = styled.h1`
-  font-size: 7.5vh;
+  font-size: 4.5rem;
   font-weight: 300;
 `
 const CategoryDesc = styled.p`
-  font-size: 2.1vh;
-  font-weight: 200;
-  padding: 1vw;
+  font-size: 1.25;
+  font-weight: 400;
+  padding: 14px;
 `
 
 const CustomBackgroundImgdiv = styled.div`
@@ -120,7 +120,7 @@ const CustomLNPTitle = styled.div`
   color: white;
   height: 50px;
   width: 100%;
-  font-size: 16vh;
+  font-size: 9.37rem;
   font-weight: 400;
 `;
 
@@ -137,7 +137,7 @@ const CustomSBI = styled.h1`
 font-size: 40px;
 margin: 20px;
 text-align: center;
-font-size: 6vh;
+font-size: 3.25rem;
 font-weight: 500;
 `;
 

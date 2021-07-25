@@ -80,10 +80,10 @@ font-weight: 500;
 `;
 
 const SpecProductName = styled.p`
-font-size: 2.5vh;
+font-size: 1.5rem;
 font-weight: 500;
 `
 const SpecProductPrice = styled.p`
-font-size: 2.1vh;
+font-size: 1.25;
 font-weight: 400;
 `
