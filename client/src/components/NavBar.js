@@ -5,6 +5,7 @@ import { Nav, Navbar, Container, Col, NavDropdown, Image } from "react-bootstrap
 import NavComponent from "./NavComponent";
 import LNPW from "../images/LNPW.png";
 import LNP from "../images/LNP.png";
+import styled from "styled-components";
 const NavBar = () => {
   //used to set which link is active
   const { pathname } = useLocation();
@@ -42,14 +43,14 @@ const NavBar = () => {
     if (authenticated) {
       return (
         <>
-          <NavDropdown title={"Edit"} id="nav-dropdown">
-            <NavDropdown.Item href="/editor1">Landing Page</NavDropdown.Item>
-            <NavDropdown.Item href="/editor2">About Page</NavDropdown.Item>
-            <NavDropdown.Item href="/editor3">Product Page</NavDropdown.Item>
-            <NavDropdown.Item href="/createProduct">
+          <NavDropdownText title={"Edit"} id="nav-dropdown">
+            <NavDrop href="/editor1">Landing Page</NavDrop>
+            <NavDrop href="/editor2">About Page</NavDrop>
+            <NavDrop href="/editor3">Product Page</NavDrop>
+            <NavDrop href="/createProduct">
               Create Product
-            </NavDropdown.Item>
-          </NavDropdown>
+            </NavDrop>
+          </NavDropdownText>
           <Col
             sm={{ span: "auto", offset: 2 }}
             md={{ span: "auto", offset: 5 }}
@@ -58,12 +59,12 @@ const NavBar = () => {
             xxl={{ span: "auto", offset: 9 }}
             style={{ padding: "0" }}
           >
-            <Nav.Link
+            <NavText
               style={{ justifyContent: "flex-end", color: "white" }}
               onClick={() => handleLogout(history)}
             >
               Logout
-            </Nav.Link>
+            </NavText>
           </Col>
         </>
       );
@@ -138,3 +139,16 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+const NavDrop = styled(NavDropdown.Item)`
+  font-size: 1rem;
+  font-weight: 500; 
+`
+const NavDropdownText = styled(NavDropdown)`
+font-size: 1.75rem;
+font-weight: 400;
+`
+const NavText = styled(Nav.Link)`
+font-size: 1.75rem;
+font-weight: 400;
+`
