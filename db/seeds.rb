@@ -105,8 +105,8 @@ Footer.create(
 Navbar.create(
   nav_logo: 'https://i.imgur.com/ViaAZKy.jpg',
   nav_text_1: 'Menu',
-  nav_text_2: 'About Us',
-  nav_text_3: 'Custom Cakes',
+  nav_text_2: 'About',
+  nav_text_3: 'Cakes',
 )
 
 puts "seeded #{User.all.size} Users"
