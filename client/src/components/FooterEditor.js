@@ -8,6 +8,8 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import axios from "axios";
 import { FormBackground } from "../styles/styles";
+import { btn } from "../styles/styles";
+
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 
@@ -194,7 +196,7 @@ const FooterEditor = ({ footer }) => {
             </Col>
           </Row>
         </Form.Group>
-        <Button variant="dark"  type="submit" block>
+        <Button style={ btn.blackButton }  type="submit" block>
           Submit
         </Button>
       </Form>

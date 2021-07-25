@@ -2,11 +2,13 @@ import { React } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Footer from "../components/Footer";
 import { CustomCakeBtn,  FormBackground } from "../styles/styles";
+import { EmptyDiv } from "../styles/styles";
 
 const Application = (props) => {
   return (
     <>
-      <Form style={{ padding: "40px" }}>
+    <EmptyDiv/>
+      <Form style={{ margin: "0vh 11vw 9vh 11vw" }}>
         <form
           action="mailto:cadelenglishthegenius@gmail.com"
           method="post"
