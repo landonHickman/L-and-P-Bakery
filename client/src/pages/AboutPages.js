@@ -39,13 +39,13 @@ const AboutPages = () => {
         </Card.Body>
       </Card>
       {/* image */}
-      <Card style={{display: 'flex', margin_left: "0vw", margin_right: "1vw", border: "none", padding: "2vw", }}>
+      <Card style={{display: 'flex', margin: '0px', border: "none", padding: '0px', }}>
         <Image src={aboutPages.image} />
       </Card>
       </div>
       {/* application cta */}
-      <div style={{display: 'flex', margin: "0rem", border: "solid lightgray 1px",}}>
-        <Card.Body className="text-center" style={{ marginLeft: "25vw", marginRight: "25vw", marginTop: "2vw", marginBottom: "2vw"}}>
+      <div style={{display: 'flex', margin: "0px", border: "solid lightgray 1px",}}>
+        <Card.Body className="text-center" style={{ marginLeft: "16vw", marginRight: "16vw", marginTop: "2vw", marginBottom: "2vw"}}>
           <StyledH2>{aboutPages.cta_title}</StyledH2>
           <Button style={btn.blackButton} onClick={() => history.push("/application")}>{aboutPages.cta_button_text}</Button>
         </Card.Body>
@@ -60,13 +60,16 @@ const AboutPages = () => {
 export default AboutPages;
 
 const StyledH1 = styled.h1`
- font-size:6vw;
+ font-size: 3.25rem;
+ font-weight: 500;
 `
 
-const StyledH2 = styled.h2`
-  font-size:3vw;
+const StyledH2 = styled.p`
+  font-size: 3.25rem;
+  font-weight: 500
 `
 
-const StyledH3 = styled.h3`
- font-size:2vw;
+const StyledH3 = styled.p`
+ font-size: 1.25rem;
+ font-weight: 400;
 `

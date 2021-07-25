@@ -59,7 +59,7 @@ export const LoginMargin = styled.div`
 margin: 0rem 5rem 0rem 5rem;
 `
 export const EmptyDiv = styled.div`
-height: 100px;
+height: 116px;
 `
 export const CustomCakesControl = styled(Form.Control)`
 margin-bottom: 15px !important;
