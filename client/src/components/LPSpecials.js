@@ -45,12 +45,12 @@ const LPSpecials = () => {
   
   const renderSpecProducts = (specialProducts) => {
     const finalData = dataCleanup(specialProducts);
-    return specialProducts.map((productPair) => {
+    return finalData.map((productPair) => {
       return (
         <Carousel.Item key={productPair.id} align= 'center'>
           <Row>
           {productPair.map((product) => (
-            <Col >
+        <Col>
           <img
             className="d-block w-100"
             src={product.image}
