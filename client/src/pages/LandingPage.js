@@ -34,7 +34,7 @@ const LandingPage = () => {
 
         <CustomBackgroundImgdiv landingPageImage={landingPage.main_background_img}>
       <CustomLNPTitle>{landingPage.main_title}</CustomLNPTitle>
-      <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
+      <CustomLNPtext>Cakes| Drinks | Bakery</CustomLNPtext>
       </CustomBackgroundImgdiv> 
       <br/>
       <br/>
@@ -61,7 +61,7 @@ const LandingPage = () => {
           </Col>
         </Row>
 
-      {/* boba */}
+      {/* Drinks */}
         <Row>
           <Col style={styledDiv} md={6}>
             <LPGrid2Carousel/>
