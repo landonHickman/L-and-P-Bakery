@@ -120,11 +120,12 @@ export const ProductContainer = styled(Container)`
 padding: "0px"
 `
 export const CardImgOverlayStyled = styled(Card.ImgOverlay)`
+
 display: flex;
 flex-direction: column;
 justify-content: flex-end;
+align-items: center;
 padding: 0px;
-height: 45%;
 `
 export const MarginDiv = styled.div`
   margin: 0rem 11vw 5vh 11vw;

@@ -11,7 +11,7 @@ const FlippedCard = ({ product, category }) => {
   // console.log(category);
   // console.log(product);
   const handleMore = (prod) => {
-    console.log(prod);
+    // console.log(prod);
     history.push({
       pathname: "/product_show",
       state: { category, product: prod },
@@ -19,12 +19,16 @@ const FlippedCard = ({ product, category }) => {
   };
   return (
     <MenuCards>
-      <Card.Img variant="top" src={product.image} />
-      <Row sm={1}>
+      <Row sm={1} style={{flexDirection: 'column'}}>
         <Col>
+      <Card.Img variant="top" src={product.image} />
           <CardImgOverlayStyled>
-            <Card.Title>{product.name}</Card.Title>
+            {/* <div style={{ display: 'flex', flexDirection: 'column', background: 'rgba(0,0,0,.5)',
+color: 'white'}}> */}
+
+            <Card.Title >{product.name}</Card.Title>
             <Card.Subtitle>${product.price}</Card.Subtitle>
+{/* </div> */}
           </CardImgOverlayStyled>
         </Col>
         <Col>
