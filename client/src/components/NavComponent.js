@@ -22,8 +22,8 @@ const NavComponent = (props) => {
     return (
       <div id="nav" key={nav.id} style={{ width: "100%",}} >
         <Row style={{ display: "flex" }}>
-          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-          <Navbar.Collapse id="basic-navbar-nav" >
+          <Navbar.Toggle aria-controls="basic-navbar-nav" style={{marginTop: '28px', background: 'white'}}/>
+          <Navbar.Collapse id="basic-navbar-nav" style={{marginTop: '20px'}} color="white">
             <Nav color='white'style={{ display: "flex", width: "78%", margin: "0rem"}}>
               <Col sm={"auto"} style={styles.pad}>
                 <NavLinkText style={{ color: "white" }} href="/menu">

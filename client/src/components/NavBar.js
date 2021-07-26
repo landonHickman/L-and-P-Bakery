@@ -77,6 +77,9 @@ const NavBar = () => {
         return(<>
           <Navbar
             style={{
+              display: 'flex',
+              flexWrap: 'nowrap',
+              alignItems: 'flex-start',
               background:
                 scrollState === "top" ? "transparent" : "rgba(0, 0, 0, 0.65)",
               transition: "0.75s ease",
@@ -97,7 +100,7 @@ const NavBar = () => {
             roundedCircle
             />
             </Navbar.Brand>
-            <Container fluid>
+            <Container fluid >
               <NavComponent getRightNav={getRightNav} />
             </Container>
           </Navbar>
@@ -106,6 +109,9 @@ const NavBar = () => {
         return(<>
           <Navbar
             style={{
+              display: 'flex',
+              flexWrap: 'nowrap',
+              alignItems: 'flex-start',
               background: "rgba(0, 0, 0, 0.75)",
             }}
             fixed="top"
@@ -126,8 +132,6 @@ const NavBar = () => {
         </>);
     }
   }
-
-
 
   //this is what is being returned by the NavBar function. if you want it to show up it needs to pass
   //through here eventually.
