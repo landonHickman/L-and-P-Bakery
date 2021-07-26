@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Carousel, Row, Col} from "react-bootstrap";
 import styled from "styled-components";
+import {style} from '../styles/styles'
 
 const LPSpecials = () => {
   const [specProducts, setSpecProducts] = useState([]);
@@ -60,6 +61,7 @@ const LPSpecials = () => {
               
               <Col>
               <img
+                style={style.carouselImage}
                 className="d-block w-100"
                 src={product.image}
                 alt="First slide"
