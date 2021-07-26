@@ -68,7 +68,7 @@ end
 end
 # need to add landingPage special_bakery_item pic title price
 LandingPage.create(
-  main_title: 'L & P Bakery Cafe', 
+  main_title: 'L & P Bakery', 
   main_background_img: 'https://www.ocregister.com/wp-content/uploads/2020/09/bakery-02-1.jpg', 
   carousel_title: 'Special Bakery Items', 
   grid_title_1: 'Cakes', 
@@ -83,7 +83,7 @@ AboutPage.create(
   title: 'Our Story',
   text: 'Loam Bakery started in 2010 as two friends searching for the perfect balance of flour, water, and salt. Loam Bakery now sells a daily selection of breads and pastries both online and in-store.',
   image: 'https://i.imgur.com/Qyc2UN3.jpeg',
-  cta_title: 'A L&P Bakery Cafe, we’re always looking for talented individuals to join our team',
+  cta_title: 'At L&P Bakery Cafe, we’re always looking for talented individuals to join our team',
   cta_button_text: 'Apply Now',
 )
 
@@ -97,7 +97,7 @@ Footer.create(
   social_media_logo_1: 'https://res.cloudinary.com/landonhickman/image/upload/v1626988671/Facebook_ffbhzu.png',
   social_media_url_1: 'https://www.facebook.com/landpbakerycafe',
   social_media_logo_2: 'https://res.cloudinary.com/landonhickman/image/upload/v1626988483/SnapChat_tpjsys.png',
-  social_media_url_2: 'https://www.snapchat.com/',
+  social_media_url_2: 'https://www.snapchat.com/add/landpbakerycafe',
   social_media_logo_3: 'https://res.cloudinary.com/landonhickman/image/upload/v1626988662/Instagram_yamvpw.png',
   social_media_url_3: 'https://www.instagram.com/landpbakerycafe/?hl=en',
 )
@@ -105,8 +105,8 @@ Footer.create(
 Navbar.create(
   nav_logo: 'https://i.imgur.com/ViaAZKy.jpg',
   nav_text_1: 'Menu',
-  nav_text_2: 'About Us',
-  nav_text_3: 'Custom Cakes',
+  nav_text_2: 'About',
+  nav_text_3: 'Cakes',
 )
 
 puts "seeded #{User.all.size} Users"

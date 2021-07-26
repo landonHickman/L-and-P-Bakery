@@ -11,7 +11,7 @@ import {
 import ShowProduct from "../components/ShowProduct";
 import { Clock, StarFill } from "react-bootstrap-icons";
 import EditProduct from "./EditProduct";
-import { Container, Image } from "react-bootstrap";
+import { Container, Image, Spinner } from "react-bootstrap";
 import carousel from '../images/carousel.png'
 import { IconDiv } from "../styles/EditProductStyles";
 import { EmptyDiv } from "../styles/styles";
@@ -138,7 +138,7 @@ const Editor3 = () => {
     sortByOrder(products.map(prod => prod.id === product.id ? product : prod))
   }
 
-  if (loading) return <p>Loading</p>;
+  if (loading) return <Spinner animation="border" size="lg" />;
   return (
     <>
     <EmptyDiv/>
@@ -149,8 +149,7 @@ const Editor3 = () => {
       {renderCategoryButtons()}
       </div>
       <Container >
-      <MenuRow>{showCards && renderProducts()}</MenuRow>
-
+        <MenuRow>{showCards && renderProducts()}</MenuRow>
       </Container>
       {showEditForm && (
         <EditProduct

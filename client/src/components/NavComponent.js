@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Nav, Col, Image, Navbar, Row } from "react-bootstrap";
-import LNP from "../images/LNP.png";
-import { left } from "@popperjs/core";
+import { Nav, Col, Navbar, Row } from "react-bootstrap";
+import styled from "styled-components";
 
 const NavComponent = (props) => {
   const { getRightNav } = props;
@@ -23,23 +22,23 @@ const NavComponent = (props) => {
     return (
       <div id="nav" key={nav.id} style={{ width: "100%",}} >
         <Row style={{ display: "flex" }}>
-          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-          <Navbar.Collapse id="basic-navbar-nav" >
+          <Navbar.Toggle aria-controls="basic-navbar-nav" style={{marginTop: '28px', background: 'white'}}/>
+          <Navbar.Collapse id="basic-navbar-nav" style={{marginTop: '20px'}} color="white">
             <Nav color='white'style={{ display: "flex", width: "78%", margin: "0rem"}}>
               <Col sm={"auto"} style={styles.pad}>
-                <Nav.Link style={{ color: "white" }} href="/menu">
+                <NavLinkText style={{ color: "white" }} href="/menu">
                   {nav.nav_text_1}
-                </Nav.Link>
+                </NavLinkText>
               </Col>
               <Col sm={"auto"} style={styles.pad}>
-                <Nav.Link style={{ color: "white" }} href="/about_pages">
+                <NavLinkText style={{ color: "white" }} href="/about_pages">
                   {nav.nav_text_2}
-                </Nav.Link>
+                </NavLinkText>
               </Col>
               <Col sm={"auto"} style={styles.pad}>
-                <Nav.Link style={{ color: "white" }} href="/custom_cakes">
+                <NavLinkText style={{ color: "white" }} href="/custom_cakes">
                   {nav.nav_text_3}
-                </Nav.Link>
+                </NavLinkText>
               </Col>
               {getRightNav()}
             </Nav>
@@ -58,3 +57,8 @@ const styles = {
   },
 };
 export default NavComponent;
+
+const NavLinkText = styled(Nav.Link)`
+  font-size: 1.75rem;
+  font-weight: 400;
+`

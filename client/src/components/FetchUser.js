@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react'
+import {useContext, useState, useEffect} from 'react'
 import axios from 'axios'
 import { AuthContext } from '../providers/AuthProvider'
 
@@ -16,6 +16,7 @@ const FetchUser = (props)=>{
 
     useEffect(()=>{
         checkUser()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const checkUser = async () => {

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container, Image, Nav, Col, Row } from "react-bootstrap";
+import styled from "styled-components";
 
 const Footer = () => {
   const [footer, setFooter] = useState([]);
@@ -26,17 +27,17 @@ const Footer = () => {
     return footer.map((f) => {
       return (
         <div key={f.id}>
-          <h5>
-            {f.city},{f.state}
-          </h5>
-          <p>{f.phone_number}</p>
-          <p>{f.email}</p>
-          <p>
+          <CityState>
+            {f.city}, {f.state}
+          </CityState>
+          <FooterText>{f.phone_number}</FooterText>
+          <FooterText>{f.email}</FooterText>
+          <FooterText>
             {f.address} {f.city},
-          </p>
-          <p>
+          </FooterText>
+          <FooterText>
             {f.state} {f.zip}
-          </p>
+          </FooterText>
         </div>
       );
     });
@@ -50,13 +51,19 @@ const Footer = () => {
           style={styles.flexColumn}
         >
           <Nav.Link style={styles.pad} href="/menu">
-            {n.nav_text_1}
+            <NavText>
+              {n.nav_text_1}
+            </NavText>
           </Nav.Link>
           <Nav.Link style={styles.pad} href="/about_pages">
-            {n.nav_text_2}
+            <NavText>
+              {n.nav_text_2}
+            </NavText>
           </Nav.Link>
           <Nav.Link style={styles.pad} href="/custom_cakes">
-            {n.nav_text_3}
+            <NavText>
+              {n.nav_text_3}
+            </NavText>
           </Nav.Link>
         </div>
       );
@@ -71,9 +78,9 @@ const Footer = () => {
             style={styles.wrapReverse}
           >
             <Col md={{ span: 5, offset: 4 }}>
-              <p style={{ textAlign: "center", margin: "0" }}>
+              <FooterText style={{ textAlign: "center", margin: "0" }}>
                 ©2021 DevPoint Studios All rights reserved
-              </p>
+              </FooterText>
             </Col>
             <Col md={3} style={{ display: "flex", justifyContent: "center" }}>
               <Nav.Link
@@ -87,7 +94,7 @@ const Footer = () => {
                   rounded
                 />
               </Nav.Link>
-              {/* <Nav.Link
+              <Nav.Link
                 href={f.social_media_url_2}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -97,7 +104,7 @@ const Footer = () => {
                   src={f.social_media_logo_2}
                   rounded
                 />
-              </Nav.Link> */}
+              </Nav.Link>
               <Nav.Link
                 href={f.social_media_url_3}
                 target="_blank"
@@ -128,6 +135,25 @@ const Footer = () => {
     </Container>
   );
 };
+
+const CityState = styled.p`
+  font-size: 1.25rem;
+  font-weight: 500;
+`
+const FooterText = styled.p`
+  font-size: 1rem;
+  font-weight: 400;
+`
+
+const NavText = styled.div`
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  :hover {
+    color: #007bff;
+  }
+`
+
 
 const styles = {
   brd: {

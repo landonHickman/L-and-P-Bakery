@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { btn, FormBackground } from "../styles/styles";
-import { Form, Row, Col, Button, Card} from "react-bootstrap";
+import { Form, Row, Col, Button} from "react-bootstrap";
 import { EmptyDiv } from "../styles/styles";
 import styled from "styled-components";
 import { FilePond, registerPlugin } from "react-filepond";
@@ -131,7 +131,8 @@ const AboutPageEditor = (props) => {
 export default AboutPageEditor
 
 const CustomOurstoryTitle = styled.div`
-font-size: 40px;
+font-size: 3.25rem;
+font-weight: 500;
 margin-top: 50px
 `;
 

@@ -3,7 +3,7 @@ import { Row} from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import { RightColProductShow, ProductContainer, ProductImg, LeftColProductShow } from "../styles/MenuStyles";
-import { EmptyDiv } from "../styles/styles";
+import styled from "styled-components";
 
 const ProductShow = () => {
   let location = useLocation();
@@ -20,9 +20,9 @@ const ProductShow = () => {
             />
           </LeftColProductShow>
           <RightColProductShow md={6}>
-            <h1>{location.state.product.name}</h1>
-            <p>{location.state.product.description}</p>
-            <h5>${location.state.product.price}</h5>
+            <ShowH1>{location.state.product.name}</ShowH1>
+            <ShowText>{location.state.product.description}</ShowText>
+            <ShowPrice>${location.state.product.price}</ShowPrice>
           </RightColProductShow>
         </Row>
       </ProductContainer>
@@ -31,7 +31,7 @@ const ProductShow = () => {
 
   return (
     <div>
-      <div style={{height: '106px'}}/>
+      <div style={{height: '116px'}}/>
       {renderProduct()}
       <div style={{ marginTop: "225px" }}>
         <Footer />
@@ -41,3 +41,16 @@ const ProductShow = () => {
 };
 
 export default ProductShow;
+
+const ShowH1 = styled.h1`
+  font-size: 3.25rem;
+  font-weight: 500;
+`
+const ShowText = styled.p`
+  font-size: 1.25rem;
+  font-weight: 400;
+`
+const ShowPrice = styled.p`
+  font-size: 1.5rem;
+  font-weight: 400;
+`

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Col, Image, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import Footer from "../components/Footer";
 import LPGrid1Carousel from "../components/LPGrid1Carousel";
 import LPGrid2Carousel from "../components/LPGrid2Carousel";
@@ -34,7 +34,7 @@ const LandingPage = () => {
 
         <CustomBackgroundImgdiv landingPageImage={landingPage.main_background_img}>
       <CustomLNPTitle>{landingPage.main_title}</CustomLNPTitle>
-      <CustomLNPtext>Cakes| Boba | Bakery</CustomLNPtext>
+      <CustomLNPtext>Cakes| Drinks | Bakery</CustomLNPtext>
       </CustomBackgroundImgdiv> 
       <br/>
       <br/>
@@ -52,8 +52,8 @@ const LandingPage = () => {
         <Row style={{display: 'flex', flexWrap: 'wrap-reverse'}}>
           <CustomCakeCard md={6}>
             
-              <h1>{landingPage.grid_title_1}</h1>
-              <p>{landingPage.grid_description_1}</p>
+              <CategoryTitle>{landingPage.grid_title_1}</CategoryTitle>
+              <CategoryDesc>{landingPage.grid_description_1}</CategoryDesc>
             
           </CustomCakeCard>
           <Col style={styledDiv} md={6}>
@@ -61,23 +61,23 @@ const LandingPage = () => {
           </Col>
         </Row>
 
-      {/* boba */}
+      {/* Drinks */}
         <Row>
           <Col style={styledDiv} md={6}>
             <LPGrid2Carousel/>
           </Col>
           <CustomBobaCard md={6}>
             
-              <h1>{landingPage.grid_title_2}</h1>
-              <p>{landingPage.grid_description_2}</p>
+              <CategoryTitle>{landingPage.grid_title_2}</CategoryTitle>
+              <CategoryDesc>{landingPage.grid_description_2}</CategoryDesc>
           </CustomBobaCard>
         </Row>
 
             {/* bakery */}
         <Row style={{flexWrap: 'wrap-reverse'}}>
           <CustomBakeryCard md={6}>
-              <h1>{landingPage.grid_title_3}</h1>
-              <p>{landingPage.grid_description_3}</p>
+              <CategoryTitle>{landingPage.grid_title_3}</CategoryTitle>
+              <CategoryDesc>{landingPage.grid_description_3}</CategoryDesc>
           </CustomBakeryCard>
           <Col style={styledDiv} md={6}>
             <LPGrid3Carousel />
@@ -96,6 +96,16 @@ const styledDiv = {
   padding: "0px",
 };
 
+const CategoryTitle = styled.h1`
+  font-size: 4.5rem;
+  font-weight: 300;
+`
+const CategoryDesc = styled.p`
+  font-size: 1.25;
+  font-weight: 400;
+  padding: 14px;
+`
+
 const CustomBackgroundImgdiv = styled.div`
   background-image: ${props => `url(${props.landingPageImage})`};
   background-repeat: no-repeat;
@@ -112,20 +122,28 @@ const CustomLNPTitle = styled.div`
   padding: 10px
   height: 50px;
   width: 100%;
-  font-size: 8vw;
+  font-size: 9.37rem;
+  font-weight: 400;
 `;
 
 const CustomLNPtext = styled.div`
   text-align: center;
   color: rgba(255, 255, 255, 0.808);
+<<<<<<< HEAD
   font-size: 3vw;
+=======
+  margin-top: 40px;
+  font-size: 4.25vh;
+  font-weight: 400;
+>>>>>>> 66616cf75b41b6e7ccee8458456c233a4a44f59b
 `;
 
-const CustomSBI = styled.div`
+const CustomSBI = styled.h1`
 font-size: 40px;
 margin: 20px;
 text-align: center;
-font-size: 4vw;
+font-size: 3.25rem;
+font-weight: 500;
 `;
 
 const CustomCakeCard = styled(Col)`
@@ -138,15 +156,6 @@ const CustomCakeCard = styled(Col)`
   margin: 50px 0px
 `;
 
-const CustomCakeText = styled.div`
-  font-size: 18px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 const CustomBobaCard = styled(Col)`
 text-align: center;
 display: flex;
@@ -155,10 +164,6 @@ justify-content: center;
 align-items: center;
 padding: 0px;
 margin: 50px 0px
-`;
-const CustomBobaText = styled.div`
-  font-size: 18px;
-  text-align: center;
 `;
 
 const CustomBakeryCard = styled(Col)`
@@ -169,8 +174,4 @@ justify-content: center;
 align-items: center;
 padding: 0px;
 margin: 50px 0px
-`;
-const CustomBakeryText = styled.div`
-  font-size: 18px;
-  text-align: center;
 `;
