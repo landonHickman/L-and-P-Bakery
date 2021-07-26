@@ -62,6 +62,7 @@ const LPSpecials = () => {
                 <React.Fragment key={product.id + 1000}>
                   <Col>
                     <img
+                      style={style.carouselImage}
                       className="d-block w-100"
                       src={product.image}
                       alt="First slide"
