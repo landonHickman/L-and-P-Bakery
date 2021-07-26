@@ -18,7 +18,7 @@ const LandingPage = () => {
   const getLandingPage = async () => {
     try {
       let res = await axios.get(`/api/landing_pages`);
-      console.log(res.data[0])
+      //console.log(res.data[0])
       setLandingPage(res.data[0]);
       
     } catch (err) {

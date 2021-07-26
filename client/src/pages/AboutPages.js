@@ -21,7 +21,6 @@ const AboutPages = () => {
   let res = await axios.get(`/api/about_pages`)
   setAboutPages(res.data[0])
   }catch (err){
-  alert('err check console')
   console.log(err)
   }
 }
