@@ -37,7 +37,7 @@ const GridEditor2 = (props) => {
       <Form style={{ margin: "0vh 11vw 0vh 11vw" }} onSubmit={handleSubmit}>
         <Row>
             <Col>
-            <CustomBobaCarousel>Boba</CustomBobaCarousel>
+            <CustomBobaCarousel>Drinks</CustomBobaCarousel>
             <Form.Group>
               <Form.Label>Grid Title 2</Form.Label>
               <Form.Control
