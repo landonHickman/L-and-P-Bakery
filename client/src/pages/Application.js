@@ -11,7 +11,7 @@ const Application = (props) => {
     <EmptyDiv/>
       <Form style={{ margin: "0vh 11vw 9vh 11vw" }}>
         <form
-          action="mailto:cadelenglishthegenius@gmail.com"
+          action="mailto:landpbakerycafe@gmail.com"
           method="post"
           enctype="text/plain"
         >

@@ -79,43 +79,34 @@ const NavBar = () => {
   };
 
   const renderNavbar = () => {
-    switch (window.location.pathname) {
-      case "/":
-        return (
-          <>
-            <Navbar
-              style={{
-                display: "flex",
-                flexWrap: "nowrap",
-                alignItems: "flex-start",
-                background:
-                  scrollState === "top" ? "transparent" : "rgba(0, 0, 0, 0.65)",
-                transition: "0.75s ease",
-              }}
-              fixed="top"
-              variant="light"
-              expand="lg"
-            >
-              <Navbar.Brand href="/">
-                <Image
-                  style={{
-                    logo:
-                      scrollState === "top"
-                        ? "transparent"
-                        : "rgba(0, 0, 0, 0.65)",
-                    transition: "0.75s ease",
-                  }}
-                  src={LNP}
-                  style={{ height: "90px" }}
-                  roundedCircle
-                />
-              </Navbar.Brand>
-              <Container fluid>
-                <NavComponent getRightNav={getRightNav} />
-              </Container>
-            </Navbar>
-          </>
-        );
+    switch(window.location.pathname){
+      case '/':
+        return(<>
+          <Navbar
+            style={{
+              display: 'flex',
+              flexWrap: 'nowrap',
+              alignItems: 'flex-start',
+              background:
+                scrollState === "top" ? "transparent" : "rgba(0, 0, 0, 0.65)",
+              transition: "0.75s ease",
+            }}
+            fixed="top"
+            variant="light"
+            expand="sm" 
+          >
+             <Navbar.Brand href="/">
+            <Image
+              src={LNPW}
+              style={{height: "90px"}}
+              roundedCircle
+            />
+          </Navbar.Brand>
+            <Container fluid >
+              <NavComponent getRightNav={getRightNav} />
+            </Container>
+          </Navbar>
+        </>);
       default:
         return (
           <>
