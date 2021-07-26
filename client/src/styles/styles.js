@@ -38,17 +38,18 @@ export const MAIN_CONTAINER = styled.div`
   padding: 20px;
 `
 export const btn = {
-  blackButton: {backgroundColor: 'black', border: '1px solid black'}
+  blackButton: {backgroundColor: 'black', border: '1px solid black', fontWeight: '500'}
 }
 export const FormBackground ={
   background: '#EEEEEE',
-  border: '0px'
+  border: '0px',
 }
 
 export const CustomCakeBtn = styled(Button)`
 width: 100%;
 background-color: black;
 border: 1px solid black;
+font-weight: 500;
 `
 export const ErrorSpan = styled.span`
 color: red;
@@ -59,7 +60,7 @@ export const LoginMargin = styled.div`
 margin: 0rem 5rem 0rem 5rem;
 `
 export const EmptyDiv = styled.div`
-height: 100px;
+height: 116px;
 `
 export const CustomCakesControl = styled(Form.Control)`
 margin-bottom: 15px !important;

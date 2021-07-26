@@ -1,5 +1,6 @@
 import { React } from "react";
 import { Form, Row, Col } from "react-bootstrap";
+import styled from "styled-components";
 import Footer from "../components/Footer";
 import { CustomCakeBtn,  FormBackground } from "../styles/styles";
 import { EmptyDiv } from "../styles/styles";
@@ -17,7 +18,7 @@ const Application = (props) => {
           <br />
           <br />
           <br />
-          <h1 style={{ textAlign: "center" }}>Apply Now!</h1>
+          <AppTitle>Apply Now!</AppTitle>
           <br />
           <Row className="firstAndLastName">
             <Form.Group as={Col} controlId="applicantFirstName">
@@ -143,3 +144,10 @@ const Application = (props) => {
 };
 
 export default Application;
+
+const AppTitle = styled.h1`
+  text-align: center;
+  font-size: 3.25rem;
+  font-weight: 500;
+
+`

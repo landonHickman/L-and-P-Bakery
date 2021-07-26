@@ -206,7 +206,8 @@ const FooterEditor = ({ footer }) => {
 export default FooterEditor;
 
 const CustomFooterEdit= styled.div`
-font-size: 40px;
+font-size: 3.25rem;
+font-weight: 500;
 margin: 30px;
 text-align: center;
 margin-top: 50px

@@ -5,6 +5,7 @@ import { AuthContext } from '../providers/AuthProvider'
 import {useHistory, useLocation} from 'react-router-dom'
 import LoginError from '../components/LoginError'
 import { btn, EmptyDiv, FormBackground, LoginMargin } from '../styles/styles'
+import styled from 'styled-components'
 
 const Login = () => {
   // const [validated, setValidated] = useState(false)
@@ -36,8 +37,8 @@ const Login = () => {
   }
   return(
     <LoginMargin>
-      <div style={{height: '120px'}}/>
-    <h1>Administer Login</h1>
+      <EmptyDiv />
+    <LoginH1>Administer Login</LoginH1>
     <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" style={{position: 'relative'}}>
           <Form.Label>Email</Form.Label>
@@ -59,3 +60,8 @@ const Login = () => {
 }
 
 export default Login
+
+const LoginH1 = styled.h1`
+  font-size: 3.25rem;
+  font-weight: 300;
+`
