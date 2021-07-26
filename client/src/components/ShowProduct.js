@@ -6,6 +6,7 @@ import { CardBody } from '../styles/EditProductStyles'
 import { MenuCol, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv, MenuEditCards } from '../styles/MenuStyles'
 import carousel from '../images/carousel.png'
 import { btn } from '../styles/styles'
+import "../App.css";
 const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder, setShowIconLegend}) => {
 
 
@@ -279,13 +280,15 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
                     Edit
                   </Button>
                   <Button
-                    style={{ position: "relative" }}
+                    style={{ position: "relative", fontWeight: '500' }}
                     variant="danger"
                     onClick={(e) => handleDelete(prod)}
                   >
                     Delete
                   </Button>
                   <DropdownButton
+                    bsPrefix="DropButton"
+                    // class="DropButton"
                     variant="outline-dark"
                     id="dropdown-basic-button"
                     title="Move"

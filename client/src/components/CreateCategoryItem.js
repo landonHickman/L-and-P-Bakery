@@ -171,7 +171,7 @@ const CreateCategoryItem = (props) => {
           
           <Row>
             {product && <Col>
-              <Button variant="danger" block onClick={()=>handleDelete(product)}>
+              <Button style={{fontWeight: '500'}} variant="danger" block onClick={()=>handleDelete(product)}>
                 Delete
               </Button>
             </Col>}

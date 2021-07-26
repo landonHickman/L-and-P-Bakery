@@ -149,8 +149,7 @@ const Editor3 = () => {
       {renderCategoryButtons()}
       </div>
       <Container >
-      <MenuRow>{showCards && renderProducts()}</MenuRow>
-
+        <MenuRow>{showCards && renderProducts()}</MenuRow>
       </Container>
       {showEditForm && (
         <EditProduct

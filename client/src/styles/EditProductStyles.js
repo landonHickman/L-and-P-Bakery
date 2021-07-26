@@ -16,6 +16,8 @@ border: '0px'
 export const EditProductH1 = styled.h1`
   margin: 0px;
   margin-top: 7vh;
+  font-size: 3.25rem;
+  font-weight: 500;
 `
 export const CardBody = styled(Card.Body)`
   padding: 0px 10px 0px 10px;
