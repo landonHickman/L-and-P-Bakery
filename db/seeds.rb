@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
-
 Test.destroy_all
 User.destroy_all
 Category.destroy_all
@@ -82,7 +80,7 @@ LandingPage.create(
 AboutPage.create(
   title: 'Our Story',
   text: 'Loam Bakery started in 2010 as two friends searching for the perfect balance of flour, water, and salt. Loam Bakery now sells a daily selection of breads and pastries both online and in-store.',
-  image: 'https://i.imgur.com/Qyc2UN3.jpeg',
+  image: '',
   cta_title: 'At L&P Bakery Cafe, we’re always looking for talented individuals to join our team',
   cta_button_text: 'Apply Now',
 )

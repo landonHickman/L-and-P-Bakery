@@ -86,11 +86,10 @@ const CustomLPS = styled.div`
 font-size: 2.5vh;
 font-weight: 500;
 `;
-
 const SpecProductName = styled.p`
 font-size: 1.5rem;
 font-weight: 500;
-`
+`;
 const SpecProductPrice = styled.p`
 font-size: 1.25;
 font-weight: 400;
