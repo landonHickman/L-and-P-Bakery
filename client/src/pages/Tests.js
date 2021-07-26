@@ -19,7 +19,6 @@ const Tests = () => {
       setTests(res.data)
       //catch happens if try fails we put alerts in here so that we can find the issue and fix it.
     }catch (err){
-      alert('err check console')
       console.log(err)
     }
   }
