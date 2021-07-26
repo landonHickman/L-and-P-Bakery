@@ -50,7 +50,7 @@ const LPSpecials = () => {
     const finalData = dataCleanup(specialProducts);
     // console.log('finalData',finalData)
     return finalData.map((productPair) => {
-      console.log('productPair', productPair)
+      // console.log('productPair', productPair)
       return (
         <Carousel.Item key={productPair[0].id} align= 'center'>
           <Row>

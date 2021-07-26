@@ -129,13 +129,9 @@ const CustomLNPTitle = styled.div`
 const CustomLNPtext = styled.div`
   text-align: center;
   color: rgba(255, 255, 255, 0.808);
-<<<<<<< HEAD
-  font-size: 3vw;
-=======
   margin-top: 40px;
   font-size: 4.25vh;
   font-weight: 400;
->>>>>>> 66616cf75b41b6e7ccee8458456c233a4a44f59b
 `;
 
 const CustomSBI = styled.h1`

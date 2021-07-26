@@ -9,7 +9,7 @@ const CustomCakes = () => {
   return (
     <>
       <div className="customcake"/>
-      <Form style={{ margin: "0vh 11vw 9vh 11vw" }} action="mailto:cadelenglishthegenius@gmail.com"
+      <Form style={{ margin: "0vh 11vw 9vh 11vw" }} action="mailto:landpbakerycafe@gmail.com"
             method="post"
             encType="text/plain"
             className="text-center">
