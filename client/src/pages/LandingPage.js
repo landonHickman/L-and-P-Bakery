@@ -29,7 +29,7 @@ const LandingPage = () => {
  
 
   return (
-    <>
+    < >
       {/* header */}
 
         <CustomBackgroundImgdiv landingPageImage={landingPage.main_background_img}>
@@ -60,14 +60,14 @@ const LandingPage = () => {
             </CustomCakeText>
           </CustomCakeCard>
           <div style={styledDiv} className="col">
-            <LPGrid1Carousel />
+            <LPGrid1Carousel class="img-responsive" />
           </div>
         </div>
 
       {/* boba */}
         <div className="row">
           <div style={styledDiv} className="col">
-            <LPGrid2Carousel />
+            <LPGrid2Carousel  class="img-responsive"/>
           </div>
           <CustomBobaCard className="col">
             <CustomBobaText
@@ -92,7 +92,7 @@ const LandingPage = () => {
             </CustomBakeryText>
           </CustomBakeryCard>
           <div style={styledDiv} className="col">
-            <LPGrid3Carousel />
+            <LPGrid3Carousel class="img-responsive" />
           </div>
         </div>
       <br/>
@@ -120,16 +120,16 @@ const CustomBackgroundImgdiv = styled.div`
 const CustomLNPTitle = styled.div`
   text-align: center;
   color: white;
+  margin-top: -35px;
+  padding: 10px
   height: 50px;
   width: 100%;
   font-size: 8vw;
 `;
 
-
 const CustomLNPtext = styled.div`
   text-align: center;
   color: rgba(255, 255, 255, 0.808);
-  margin-top: 40px;
   font-size: 3vw;
 `;
 
