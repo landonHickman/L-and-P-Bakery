@@ -105,7 +105,7 @@ const NavBar = () => {
                         : "rgba(0, 0, 0, 0.65)",
                     transition: "0.75s ease",
                   }}
-                  src={LNP}
+                  src={scrollState === "top" ? LNP : LNPW}
                   style={{ height: "90px" }}
                   roundedCircle
                 />
