@@ -43,7 +43,7 @@ const LandingPage = () => {
       
       <Col>
         <div>
-          <LPSpecials />
+          <LPSpecials/>
         </div>
       </Col>
       <br />

@@ -39,27 +39,26 @@ const LPSpecials = () => {
         newArr = []
       }
     })
-    console.log(finalArr)
+    console.log("finalArr", finalArr)
     return finalArr
   }
-  dataCleanup(specialProducts);
-
-
-  const renderSpecProducts = () => {
-    return specialProducts.map((specProducts) => {
+  
+  const renderSpecProducts = (specialProducts) => {
+    const finalData = dataCleanup(specialProducts);
+    return finalData.map((productPair) => {
       return (
-        <Carousel.Item key={specProducts.id} align= 'center'>
+        <Carousel.Item key={productPair.id} align= 'center'>
           <Row>
-          {specProducts.map(() => (
-            <Col>
+          {productPair.map((product) => (
+        <Col>
           <img
             className="d-block w-100"
-            src={specProducts.image}
+            src={product.image}
             alt="First slide"
           />
           <CustomLPS>
-            <p>{specProducts.name}</p>
-            <p>${specProducts.price} </p>
+            <p>{product.name}</p>
+            <p>${product.price} </p>
           </CustomLPS>
         </Col>
         ))}
@@ -69,7 +68,7 @@ const LPSpecials = () => {
     })
   }
   return (
-      <Carousel>{renderSpecProducts()}</Carousel>
+      <Carousel>{renderSpecProducts(specialProducts)}</Carousel>
   )};
 
 export default LPSpecials
