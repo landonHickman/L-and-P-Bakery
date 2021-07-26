@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
+import {style} from '../styles/styles'
 
 const LPGrid3Carousel = () => {
   const [limitedTimeBakeryProducts, setLimitedTimeBakeryProducts] = useState([]);
@@ -23,6 +24,7 @@ const LPGrid3Carousel = () => {
       return (
         <Carousel.Item key={product.id}>
           <img 
+            style={style.carouselImage}
             className="d-block w-100"
             src={product.image}
             alt="First slide"

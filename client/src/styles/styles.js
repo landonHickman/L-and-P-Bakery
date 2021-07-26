@@ -71,3 +71,10 @@ export const CustomCakesForm ={
   marginBottom: '15px',
   border: '0px'
 }
+export const style = {
+  carouselImage: {
+    height: '500px', 
+    width: '500px', 
+    objectFit: 'cover'
+  }
+}

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Carousel, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
+import {style} from '../styles/styles'
 
 const LPSpecials = () => {
   const [specProducts, setSpecProducts] = useState([]);
@@ -86,6 +87,7 @@ const LPSpecials = () => {
           <Row>
             <Col>
               <img
+                style={style.carouselImage}
                 className="d-block w-100"
                 src={small.image}
                 alt="First slide"
@@ -140,7 +142,6 @@ const CustomLPS = styled.div`
   font-size: 2.5vh;
   font-weight: 500;
 `;
-
 const SpecProductName = styled.p`
   font-size: 1.5rem;
   font-weight: 500;
