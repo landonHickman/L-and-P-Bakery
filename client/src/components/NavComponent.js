@@ -13,7 +13,7 @@ const NavComponent = (props) => {
 
   const getNav = async () => {
     let res = await axios.get("/api/navbars");
-    console.log("nav axios", res.data[0]);
+    // console.log("nav axios", res.data[0]);
     setNav(res.data[0]);
   };
 
@@ -24,7 +24,7 @@ const NavComponent = (props) => {
         <Row style={{ display: "flex" }}>
           <Navbar.Toggle aria-controls="basic-navbar-nav" style={{marginTop: '28px', background: 'white'}}/>
           <Navbar.Collapse id="basic-navbar-nav" style={{marginTop: '20px'}} color="white">
-            <Nav color='white'style={{ display: "flex", width: "78%", margin: "0rem"}}>
+            <Nav color='white' style={{ display: "flex", width: "100%", margin: "0rem"}}>
               <Col sm={"auto"} style={styles.pad}>
                 <NavLinkText style={{ color: "white" }} href="/menu">
                   {nav.nav_text_1}

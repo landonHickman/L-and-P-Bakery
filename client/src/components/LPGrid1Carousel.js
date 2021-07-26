@@ -13,7 +13,7 @@ const LPGrid1Carousel = () => {
   const getLimitedTimeCakeProducts = async () => {
     try {
       let res = await axios.get(`/api/all_limited_time_cake_products`);
-      console.log("cake carousel axios", res.data);
+      // console.log("cake carousel axios", res.data);
       setLimitedTimeCakeProducts(res.data);
     } catch (err) {
       console.log(err);

@@ -21,7 +21,7 @@ const GridEditor3 = (props) => {
         grid_title_3: title,
         grid_description_3: desc,
       });
-      console.log('update',res)
+      // console.log('update',res)
     } catch (err) {
       console.log("Inside handleSubmit catch", err);
       console.log("Inside handleSubmit catch", err.response);

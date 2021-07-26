@@ -1,7 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { Nav, Navbar, Container, Col, NavDropdown, Image } from "react-bootstrap";
+import {
+  Nav,
+  Navbar,
+  Container,
+  Col,
+  NavDropdown,
+  Image,
+} from "react-bootstrap";
 import NavComponent from "./NavComponent";
 import LNPW from "../images/LNPW.png";
 import LNP from "../images/LNP.png";
@@ -43,24 +50,24 @@ const NavBar = () => {
     if (authenticated) {
       return (
         <>
-          <NavDropdownText title={"Edit"} id="nav-dropdown">
-            <NavDrop href="/editor1">Landing Page</NavDrop>
-            <NavDrop href="/editor2">About Page</NavDrop>
-            <NavDrop href="/editor3">Product Page</NavDrop>
-            <NavDrop href="/createProduct">
-              Create Product
-            </NavDrop>
-          </NavDropdownText>
+          <Col style={{ padding: "0" }}>
+            <NavDropdownText title={"Edit"} id="nav-dropdown">
+              <NavDrop href="/editor1">Landing Page</NavDrop>
+              <NavDrop href="/editor2">About Page</NavDrop>
+              <NavDrop href="/editor3">Product Page</NavDrop>
+              <NavDrop href="/createProduct">Create Product</NavDrop>
+            </NavDropdownText>
+          </Col>
           <Col
-            sm={{ span: "auto", offset: 2 }}
-            md={{ span: "auto", offset: 5 }}
-            lg={{ span: "auto", offset: 7 }}
-            xl={{ span: 2, offset: 9 }}
-            xxl={{ span: "auto", offset: 9 }}
+            // sm={{ span: "auto", offset: 2 }}
+            // md={{ span: "auto", offset: 3 }}
+            lg={{ span: "auto", offset: 3 }}
+            xl={{ span: "auto", offset: 5 }}
+            xxl={{ span: "auto", offset: 7 }}
             style={{ padding: "0" }}
           >
             <NavText
-              style={{ justifyContent: "flex-end", color: "white" }}
+              style={{ color: "white" }}
               onClick={() => handleLogout(history)}
             >
               Logout
@@ -72,87 +79,85 @@ const NavBar = () => {
   };
 
   const renderNavbar = () => {
-    switch(window.location.pathname){
-      case '/':
-        return(<>
-          <Navbar
-            style={{
-              display: 'flex',
-              flexWrap: 'nowrap',
-              alignItems: 'flex-start',
-              background:
-                scrollState === "top" ? "transparent" : "rgba(0, 0, 0, 0.65)",
-              transition: "0.75s ease",
-            }}
-            fixed="top"
-            variant="light"
-            expand="sm" 
-          >
-            <Navbar.Brand href="/">
-            <Image
-            style={{
-              logo:
-                scrollState === "top" ? "transparent" : "rgba(0, 0, 0, 0.65)",
-              transition: "0.75s ease",
-            }}
-            src={LNP}
-            style={{height: "90px"}}
-            roundedCircle
-            />
-            </Navbar.Brand>
-            <Container fluid >
-              <NavComponent getRightNav={getRightNav} />
-            </Container>
-          </Navbar>
-        </>);
+    switch (window.location.pathname) {
+      case "/":
+        return (
+          <>
+            <Navbar
+              style={{
+                display: "flex",
+                flexWrap: "nowrap",
+                alignItems: "flex-start",
+                background:
+                  scrollState === "top" ? "transparent" : "rgba(0, 0, 0, 0.65)",
+                transition: "0.75s ease",
+              }}
+              fixed="top"
+              variant="light"
+              expand="lg"
+            >
+              <Navbar.Brand href="/">
+                <Image
+                  style={{
+                    logo:
+                      scrollState === "top"
+                        ? "transparent"
+                        : "rgba(0, 0, 0, 0.65)",
+                    transition: "0.75s ease",
+                  }}
+                  src={LNP}
+                  style={{ height: "90px" }}
+                  roundedCircle
+                />
+              </Navbar.Brand>
+              <Container fluid>
+                <NavComponent getRightNav={getRightNav} />
+              </Container>
+            </Navbar>
+          </>
+        );
       default:
-        return(<>
-          <Navbar
-            style={{
-              display: 'flex',
-              flexWrap: 'nowrap',
-              alignItems: 'flex-start',
-              background: "rgba(0, 0, 0, 0.75)",
-            }}
-            fixed="top"
-            variant="light"
-            expand="sm"
-          >
-            <Navbar.Brand href="/">
-            <Image
-              src={LNPW}
-              style={{height: "90px"}}
-              roundedCircle
-            />
-          </Navbar.Brand>
-            <Container fluid>
-              <NavComponent getRightNav={getRightNav} />
-            </Container>
-          </Navbar>
-        </>);
+        return (
+          <>
+            <Navbar
+              style={{
+                display: "flex",
+                flexWrap: "nowrap",
+                alignItems: "flex-start",
+                background: "rgba(0, 0, 0, 0.75)",
+              }}
+              fixed="top"
+              variant="light"
+              expand="lg"
+            >
+              <Navbar.Brand href="/">
+                <Image src={LNPW} style={{ height: "90px" }} roundedCircle />
+              </Navbar.Brand>
+              <Container fluid>
+                <NavComponent getRightNav={getRightNav} />
+              </Container>
+            </Navbar>
+          </>
+        );
     }
-  }
+  };
 
   //this is what is being returned by the NavBar function. if you want it to show up it needs to pass
   //through here eventually.
-  return (
-    <>
-     {renderNavbar()}
-    </>
-  );
+  return <>{renderNavbar()}</>;
 };
 
 export default NavBar;
 
 const NavDrop = styled(NavDropdown.Item)`
   font-size: 1rem;
-  font-weight: 500; 
-`
+  font-weight: 500;
+`;
 const NavDropdownText = styled(NavDropdown)`
-font-size: 1.75rem;
-font-weight: 400;
-`
+  font-size: 1.75rem;
+  font-weight: 400;
+`;
 const NavText = styled(Nav.Link)`
-font-size: 1.75rem;
-font-weight: 400;
-`
+  font-size: 1.75rem;
+  font-weight: 400;
+`;
