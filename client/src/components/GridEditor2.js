@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Form, Button, Row, Col, Image } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import { FormBackground } from "../styles/styles";
 import { btn } from "../styles/styles";

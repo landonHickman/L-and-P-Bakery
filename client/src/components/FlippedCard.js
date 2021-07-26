@@ -4,7 +4,6 @@ import { MenuCards, CardImgOverlayStyled, FlippedCardTitle, FlippedCardPrice} fr
 import Truncate from "react-truncate";
 import { useHistory } from "react-router-dom";
 import { btn } from "../styles/styles";
-import styled from "styled-components";
 
 const FlippedCard = ({ product, category }) => {
   let history = useHistory();

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Col, Image, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import Footer from "../components/Footer";
 import LPGrid1Carousel from "../components/LPGrid1Carousel";
 import LPGrid2Carousel from "../components/LPGrid2Carousel";
@@ -151,15 +151,6 @@ const CustomCakeCard = styled(Col)`
   margin: 50px 0px
 `;
 
-const CustomCakeText = styled.div`
-  font-size: 18px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 const CustomBobaCard = styled(Col)`
 text-align: center;
 display: flex;
@@ -168,10 +159,6 @@ justify-content: center;
 align-items: center;
 padding: 0px;
 margin: 50px 0px
-`;
-const CustomBobaText = styled.div`
-  font-size: 18px;
-  text-align: center;
 `;
 
 const CustomBakeryCard = styled(Col)`
@@ -182,8 +169,4 @@ justify-content: center;
 align-items: center;
 padding: 0px;
 margin: 50px 0px
-`;
-const CustomBakeryText = styled.div`
-  font-size: 18px;
-  text-align: center;
 `;

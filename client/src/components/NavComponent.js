@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Nav, Col, Image, Navbar, Row } from "react-bootstrap";
-import LNP from "../images/LNP.png";
-import { left } from "@popperjs/core";
+import { Nav, Col, Navbar, Row } from "react-bootstrap";
 import styled from "styled-components";
 
 const NavComponent = (props) => {

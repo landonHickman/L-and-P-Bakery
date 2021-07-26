@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import { CustomCakeBtn, CustomCakesControl, CustomCakesForm, FormBackground } from "../styles/styles";
+import { CustomCakeBtn, CustomCakesForm } from "../styles/styles";
 // import btn from "../styles"
 
 const CustomCakes = () => {
