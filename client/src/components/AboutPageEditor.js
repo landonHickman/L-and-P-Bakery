@@ -131,7 +131,8 @@ const AboutPageEditor = (props) => {
 export default AboutPageEditor
 
 const CustomOurstoryTitle = styled.div`
-font-size: 40px;
+font-size: 3.25rem;
+font-weight: 500;
 margin-top: 50px
 `;
 
