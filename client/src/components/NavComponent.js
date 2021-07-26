@@ -13,7 +13,7 @@ const NavComponent = (props) => {
 
   const getNav = async () => {
     let res = await axios.get("/api/navbars");
-    console.log("nav axios", res.data[0]);
+    // console.log("nav axios", res.data[0]);
     setNav(res.data[0]);
   };
 

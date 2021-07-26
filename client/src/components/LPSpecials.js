@@ -50,14 +50,15 @@ const LPSpecials = () => {
     const finalData = dataCleanup(specialProducts);
     // console.log('finalData',finalData)
     return finalData.map((productPair) => {
-      
+      console.log('productPair', productPair)
       return (
-        <Carousel.Item key={productPair.id} align= 'center'>
+        <Carousel.Item key={productPair[0].id} align= 'center'>
           <Row>
           {productPair.map((product) => {
             // console.log('Product',product)
             return (
-              
+              <React.Fragment key={product.id + 1000}>
+
               <Col>
               <img
                 className="d-block w-100"
@@ -69,6 +70,7 @@ const LPSpecials = () => {
                 <p>${product.price} </p>
               </CustomLPS>
             </Col>
+                </React.Fragment>
             )
           })}
         </Row>

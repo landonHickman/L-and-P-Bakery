@@ -8,20 +8,20 @@ import { CustomCakeBtn, CustomCakesForm } from "../styles/styles";
 const CustomCakes = () => {
   return (
     <>
-      <div class="customcake"></div>
-      <Form style={{ margin: "0vh 11vw 9vh 11vw" }}>
-        <div>
-          <form
-            action="mailto:cadelenglishthegenius@gmail.com"
+      <div className="customcake"/>
+      <Form style={{ margin: "0vh 11vw 9vh 11vw" }} action="mailto:cadelenglishthegenius@gmail.com"
             method="post"
-            enctype="text/plain"
-            className="text-center"
-          >
+            encType="text/plain"
+            className="text-center">
+        <div>
+         
+            
+          
             <CakeTitle>Custom Cakes</CakeTitle>
             <CakeText>Fill out the form below for a custom cake request</CakeText>
               <Row style={{alignItems: 'flex-end'}}>
                 <Col md={6}>
-                  <Form.Label for="cake_size"> Cake Size (How many people are you planning to serve?)</Form.Label>
+                  <Form.Label > Cake Size (How many people are you planning to serve?)</Form.Label>
                   <Form.Control as="select" name="Cake Size (How many people are you planning to serve?)" style={CustomCakesForm}>
                     <option>20 Servings</option>
                     <option>18 Servings</option>
@@ -35,7 +35,7 @@ const CustomCakes = () => {
                   </Form.Control>
                 </Col>
                 <Col md={6}>
-                <Form.Label for="name">
+                <Form.Label>
                 Name
               </Form.Label>
               <Form.Control
@@ -49,7 +49,7 @@ const CustomCakes = () => {
               </Row>
               <Row>
               <Col md={6}>
-              <Form.Label for="email">
+              <Form.Label>
                 Email
               </Form.Label>
               <Form.Control
@@ -61,7 +61,7 @@ const CustomCakes = () => {
               />
                 </Col>
                 <Col md={6}>
-                <Form.Label for="phone_number">
+                <Form.Label>
                 Phone Number
               </Form.Label>
               <Form.Control
@@ -75,7 +75,7 @@ const CustomCakes = () => {
               </Row>
               <Row>
               <Col md={6}>
-              <Form.Label for="date">
+              <Form.Label >
                 Requested Pickup Date
               </Form.Label>
               <Form.Control
@@ -90,7 +90,7 @@ const CustomCakes = () => {
                 <p style={{padding: '20px 0px', margin: '0px'}}>Requested Dates are not guaranteed until confirmed by bakery.</p>             
               </Col>
               </Row>
-              <Form.Label for="special_instructions">
+              <Form.Label >
                 Type of Cake (Flavor, toppings, event)
               </Form.Label>
               <Form.Control
@@ -108,7 +108,6 @@ const CustomCakes = () => {
                 <CustomCakeBtn type="submit">Submit</CustomCakeBtn>
               </Col>
             </Row>
-          </form>
         </div>
       </Form>
       <Footer /> 
