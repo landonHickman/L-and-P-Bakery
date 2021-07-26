@@ -88,18 +88,13 @@ const NavBar = () => {
             variant="light"
             expand="sm" 
           >
-            <Navbar.Brand href="/">
+             <Navbar.Brand href="/">
             <Image
-            style={{
-              logo:
-                scrollState === "top" ? "transparent" : "rgba(0, 0, 0, 0.65)",
-              transition: "0.75s ease",
-            }}
-            src={LNP}
-            style={{height: "90px"}}
-            roundedCircle
+              src={LNPW}
+              style={{height: "90px"}}
+              roundedCircle
             />
-            </Navbar.Brand>
+          </Navbar.Brand>
             <Container fluid >
               <NavComponent getRightNav={getRightNav} />
             </Container>
