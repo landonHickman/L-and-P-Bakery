@@ -38,10 +38,8 @@ const LandingPage = () => {
           <CustomLNPtext>Cakes| Drinks | Bakery</CustomLNPtext>
         </Headerdiv>
       </CustomBackgroundImgdiv>
-      <br />
-      <br />
-
-      <CustomSBI>{landingPage.carousel_title}</CustomSBI>
+      
+            <CustomSBI>{landingPage.carousel_title}</CustomSBI>
 
       <Col>
         <div>
@@ -142,7 +140,7 @@ const CustomLNPtext = styled.div`
 
 const CustomSBI = styled.h1`
   font-size: 40px;
-  margin: 20px;
+  margin: 10px;
   text-align: center;
   font-size: 2.25rem;
   font-weight: 500;
