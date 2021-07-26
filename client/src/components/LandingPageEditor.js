@@ -45,7 +45,7 @@ const LandingPageEditor = (props) => {
   return (
     <>
     <EmptyDiv/>
-      <Form  style={{ margin: "0vh 11vw 9vh 11vw" }} onSubmit={handleSubmit}>
+      <Form  style={{ margin: "0vh 11vw 0vh 11vw" }} onSubmit={handleSubmit}>
         <Form.Group>
             <EmptyDiv/>
           <FilePond
@@ -55,7 +55,7 @@ const LandingPageEditor = (props) => {
             onupdatefiles={setFiles}
             labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
           />
-            <CustomImageTitle>Header Image</CustomImageTitle>
+            <CustomImageTitle>Landing Page</CustomImageTitle>
           <Row>
             <Col>
               <Form.Label>Main Title</Form.Label>
@@ -83,7 +83,8 @@ const LandingPageEditor = (props) => {
 export default LandingPageEditor;
 
 const CustomImageTitle = styled.div`
-font-size: 40px;
+font-size: 3.25rem;
+font-weight: 500;
 margin: 30px;
 text-align: center;
 margin-top: 50px
