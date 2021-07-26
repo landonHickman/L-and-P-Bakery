@@ -24,4 +24,6 @@ export const CardBody = styled(Card.Body)`
 `
 export const IconDiv = styled.div`
   margin-right: 20px;
+  font-size: 1rem;
+  font-weight: 500;
 `
