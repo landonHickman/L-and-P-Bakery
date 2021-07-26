@@ -113,7 +113,7 @@ const Editor3 = () => {
   };
 
   const handleDelete = async (prod) => {
-    console.log(prod)
+    // console.log(prod)
     let removedItem = products.filter((p) => p.id !== prod.id);
     let minusOrder = removedItem.map((r) => {
       if (r.order > prod.order) {
@@ -123,7 +123,7 @@ const Editor3 = () => {
     });
     sortByOrder(minusOrder);
     let res = await axios.delete(`/api/categories/${category.id}/products/${prod.id}`);
-    console.log('deleted',res.data)
+    // console.log('deleted',res.data)
     products.forEach((p) => {
       if (p.order > prod.order) {
         deleteUpdate(p);

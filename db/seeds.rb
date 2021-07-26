@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
-
 Test.destroy_all
 User.destroy_all
 Category.destroy_all
@@ -25,64 +23,210 @@ drinks = Category.create(name:'Drinks')
 bakery = Category.create(name: 'Bakery')
 cakes = Category.create(name: 'Cakes')
 
-# i = 4
-15.times do |i|
-  drinks.products.create(
-    name: Faker::Food.dish, 
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCkjoU6UdnGKkv9If0H-RzLGQ3Lv5Ue3Z5-_QS43rDx1JzS42NuiVxOty1vPj4VFHrq-4&usqp=CAU', 
-    price: Faker::Number.decimal(l_digits: 2),
-    description: Faker::Food.description,
-    limited_time: random_boolean.sample,
-    special_item_carousel: random_boolean.sample,
-    category_carousel: random_boolean.sample,
-    order: i + 1,
+### Drinks ###
+drinks.products.create(
+    name: 'Tango Mango', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330589/IMG_0665_edmf5f.jpg', 
+    price: 4.45,
+    description: 'A delicious Tango Mango Drink!',
+    limited_time: true,
+    special_item_carousel: true,
+    category_carousel: false,
+    order: 1,
    )
-end
+drinks.products.create(
+    name: 'Funky Monkey', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330589/IMG_0667_phcyit.jpg', 
+    price: 4.45,
+    description: 'A refreshing drink for the weekend!',
+    limited_time: false,
+    special_item_carousel: false,
+    category_carousel: true,
+    order: 2,
+   )
+drinks.products.create(
+    name: 'Valentines', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330589/IMG_0666_pz0bkx.jpg', 
+    price: 4.45,
+    description: 'A romantic drink for the holiday!',
+    limited_time: false,
+    special_item_carousel: true,
+    category_carousel: true,
+    order: 3,
+   )
+drinks.products.create(
+    name: 'Citrus Vanilla', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330589/IMG_0663_ribpek.jpg', 
+    price: 4.45,
+    description: 'Citrus Vanilla drink to refresh you!',
+    limited_time: true,
+    special_item_carousel: false,
+    category_carousel: true,
+    order: 4,
+   )
+drinks.products.create(
+    name: 'Toucan', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330589/IMG_0664_ycrzwi.jpg', 
+    price: 4.45,
+    description: 'A Tropical Tasty Drink!',
+    limited_time: false,
+    special_item_carousel: true,
+    category_carousel: false,
+    order: 5,
+   )
+drinks.products.create(
+    name: 'Teddy Bear', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330588/IMG_0662_lnsdjt.jpg', 
+    price: 4.45,
+    description: 'Snuggle up drink up!',
+    limited_time: false,
+    special_item_carousel: false,
+    category_carousel: true,
+    order: 6,
+   )
+   
+### Bakery ###
 
-# x = 4
-15.times do |x|
   bakery.products.create(
-    name: Faker::Food.dish, 
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCkjoU6UdnGKkv9If0H-RzLGQ3Lv5Ue3Z5-_QS43rDx1JzS42NuiVxOty1vPj4VFHrq-4&usqp=CAU', 
-    price: Faker::Number.decimal(l_digits: 2),
-    description: Faker::Food.description,
-    limited_time: random_boolean.sample,
-    special_item_carousel: random_boolean.sample,
-    category_carousel: random_boolean.sample,
-    order: x + 1,
+    name: 'Bread', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330587/IMG_0354_houlql.jpg', 
+    price: 3,
+    description: 'With your choice of filling',
+    limited_time: true,
+    special_item_carousel: false,
+    category_carousel: false,
+    order: 1,     
    )
-end
+   bakery.products.create(
+    name: 'Pillow Bread', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330588/IMG_0661_ssn0gt.jpg', 
+    price: 4,
+    description: 'With your choice of filling',
+    limited_time: false,
+    special_item_carousel: false,
+    category_carousel: false,
+    order: 2,     
+   )
+   bakery.products.create(
+    name: 'Wife Cakes', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627332077/shutterstock_761158219.0_ini8f7.jpg', 
+    price: 4,
+    description: 'Sweet cake with sesame and melon flavor',
+    limited_time: false,
+    special_item_carousel: true,
+    category_carousel: true,
+    order: 3,     
+   )
+   bakery.products.create(
+    name: 'Red Bean Mooncake', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627332084/maxresdefault_osks8p.jpg', 
+    price: 2,
+    description: 'Moon cake with red bean paste inside',
+    limited_time: false,
+    special_item_carousel: false,
+    category_carousel: true,
+    order: 4,     
+   )
+   bakery.products.create(
+    name: 'Almond Thin Cookie', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330590/IMG_0676_rnnklr.jpg', 
+    price: 2,
+    description: 'Thin crispy almond cookie',
+    limited_time: false,
+    special_item_carousel: false,
+    category_carousel: true,
+    order: 5,     
+   )
+   bakery.products.create(
+    name: 'Little Chicken Cookie', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627332088/0013_qumikw.jpg', 
+    price: 3,
+    description: 'Delicious garlic sesame biscuit',
+    limited_time: true,
+    special_item_carousel: false,
+    category_carousel: false,
+    order: 6,     
+   )
 
-# y = 4
-15.times do |y|
-  cakes.products.create(
-    name: Faker::Food.dish, 
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCkjoU6UdnGKkv9If0H-RzLGQ3Lv5Ue3Z5-_QS43rDx1JzS42NuiVxOty1vPj4VFHrq-4&usqp=CAU', 
-    price: Faker::Number.decimal(l_digits: 2),
-    description: Faker::Food.description,
-    limited_time: random_boolean.sample,
-    special_item_carousel: random_boolean.sample,
-    category_carousel: random_boolean.sample,
-    order: y + 1,
+
+### Cakes ###
+cakes.products.create(
+    name: 'Fruit', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330590/IMG_0675_gy8a3g.jpg', 
+    price: 42.95,
+    description: 'This moist, dark cake is loaded with yummy-tasting dried fruits, not the icky, bitter candied peel and citron you remember from visiting your grandma at Christmas.',
+    limited_time: true,
+    special_item_carousel: true,
+    category_carousel: false,
+    order: 1,
    )
-end
-# need to add landingPage special_bakery_item pic title price
+cakes.products.create(
+    name: 'Strawberry', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330590/IMG_4382_x8gaob.jpg', 
+    price: 56.00,
+    description: "This is truly the ultimate strawberry cake, a tried-and-tested recipe that's loved by many!",
+    limited_time: false,
+    special_item_carousel: true,
+    category_carousel: true,
+    order: 2,
+   )
+cakes.products.create(
+    name: 'Napoleon', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627332818/napoleon_cake_g9rqpn.jpg', 
+    price: 59.00,
+    description: "A lot of thin crispy cake layers greased with gentle vanilla cream",
+    limited_time: true,
+    special_item_carousel: false,
+    category_carousel: true,
+    order: 3,
+   )
+cakes.products.create(
+    name: 'Peach', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627332973/Peach_Cake_low9m0.jpg', 
+    price: 59.00,
+    description: "This peachy delight has charmed folks for years.",
+    limited_time: false,
+    special_item_carousel: false,
+    category_carousel: false,
+    order: 4,
+   )
+cakes.products.create(
+    name: 'Durian', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627333206/Durian_Cake_ddzkx2.jpg', 
+    price: 45.95,
+    description: "Durians are a divisive fruit that some love and others loathe. They are notorious for giving off a pungent odor that stops most in their tracks. But don’t let the aroma deter you from attempting this durian cake.",
+    limited_time: false,
+    special_item_carousel: false,
+    category_carousel: true,
+    order: 5,
+   )
+cakes.products.create(
+    name: 'Coffee', 
+    image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627333374/Coffee_Cake_ynvb1z.png', 
+    price: 40.95,
+    description: "This delicious, melt-in-your-mouth coffee cake has a ribbon of cinnamon filling and a crisp streusel topping. Soft with a moist crumb and a bit of crunch on top; it's a perfect breakfast treat.",
+    limited_time: false,
+    special_item_carousel: true,
+    category_carousel: false,
+    order: 6,
+   )
+
 LandingPage.create(
   main_title: 'L & P Bakery', 
   main_background_img: 'https://www.ocregister.com/wp-content/uploads/2020/09/bakery-02-1.jpg', 
   carousel_title: 'Special Bakery Items', 
   grid_title_1: 'Cakes', 
-  grid_description_1: Faker::Lorem.paragraph, 
+  grid_description_1: 'Now we are doing photo print on cake of any pictures of your choice. Also come and try out our Japanese cheese cake with fruit and more.', 
   grid_title_2: 'Drinks', 
-  grid_description_2: Faker::Lorem.paragraph,
+  grid_description_2: 'Come try our freshly brewed Boba tea or some of our signature drinks!',
   grid_title_3: 'Bakery',
-  grid_description_3: Faker::Lorem.paragraph,
+  grid_description_3: 'We have fresh baked breads and pastries everyday!',
 )
 
 AboutPage.create(
   title: 'Our Story',
   text: 'Loam Bakery started in 2010 as two friends searching for the perfect balance of flour, water, and salt. Loam Bakery now sells a daily selection of breads and pastries both online and in-store.',
-  image: 'https://i.imgur.com/Qyc2UN3.jpeg',
+  image: 'https://res.cloudinary.com/landonhickman/image/upload/v1627330590/IMG_4340_thesht.jpg',
   cta_title: 'At L&P Bakery Cafe, we’re always looking for talented individuals to join our team',
   cta_button_text: 'Apply Now',
 )

@@ -25,7 +25,7 @@ const GridEditor2 = (props) => {
        grid_description_2: desc2,
         
       });
-      console.log('update',res)
+      // console.log('update',res)
     } catch (err) {
       console.log("Inside handleSubmit catch", err);
       console.log("Inside handleSubmit catch", err.response);
@@ -37,7 +37,7 @@ const GridEditor2 = (props) => {
       <Form style={{ margin: "0vh 11vw 0vh 11vw" }} onSubmit={handleSubmit}>
         <Row>
             <Col>
-            <CustomBobaCarousel>Boba</CustomBobaCarousel>
+            <CustomBobaCarousel>Drinks</CustomBobaCarousel>
             <Form.Group>
               <Form.Label>Grid Title 2</Form.Label>
               <Form.Control

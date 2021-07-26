@@ -64,7 +64,7 @@ const FooterEditor = ({ footer }) => {
         state: state,
         zip: zip
       })
-      console.log('footer update',res)
+      // console.log('footer update',res)
     } catch (err) {
       console.log("inside catch handleSubmit", handleSubmit);
     }
