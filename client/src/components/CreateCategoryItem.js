@@ -164,7 +164,7 @@ const CreateCategoryItem = (props) => {
             defaultValue={description}
             placeholder="Description of the item you want your customers to see"
             onChange={(e) => setDescription(e.target.value)}
-            maxLength="250"
+            maxLength="1000"
             rows={5}
             style={TextAreaBoxStyle}
           />
