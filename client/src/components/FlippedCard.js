@@ -23,12 +23,12 @@ const FlippedCard = ({ product, category }) => {
         <Col>
       <Card.Img variant="top" src={product.image} style={style.ProductCardImage}/>
           <CardImgOverlayStyled>
-            {/* <div style={{ display: 'flex', flexDirection: 'column', background: 'rgba(0,0,0,.5)',
-color: 'white'}}> */}
+            {/* <div style={{ display: 'flex', flexDirection: 'column', background: 'rgba(0,0,0,.25)',
+color: 'white', width: '254px'}}> */}
 
-            <FlippedCardTitle >{product.name}</FlippedCardTitle>
-            <FlippedCardPrice>${product.price}</FlippedCardPrice>
-{/* </div> */}
+              <FlippedCardTitle >{product.name}</FlippedCardTitle>
+              <FlippedCardPrice>${product.price}</FlippedCardPrice>
+            {/* </div> */}
           </CardImgOverlayStyled>
         </Col>
         <Col>
