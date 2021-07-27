@@ -88,7 +88,7 @@ const CustomCakes = () => {
               />
             </Col>
             <Col md={6}>
-              <p style={{ padding: "20px 0px", margin: "0px" }}>
+              <p style={{ margin: "0px" }}>
                 Requested Dates are not guaranteed until confirmed by bakery.
               </p>
             </Col>
