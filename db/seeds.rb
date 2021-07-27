@@ -213,7 +213,7 @@ cakes.products.create(
 
 LandingPage.create(
   main_title: 'L & P Bakery', 
-  main_background_img: 'https://www.ocregister.com/wp-content/uploads/2020/09/bakery-02-1.jpg', 
+  main_background_img: 'https://res.cloudinary.com/landonhickman/image/upload/v1627409065/DF5FF1D9-FA26-470B-A055-66DC6F17BA37_1_105_c_qrwdof.jpg', 
   carousel_title: 'Special Bakery Items', 
   grid_title_1: 'Cakes', 
   grid_description_1: 'Now we are doing photo print on cake of any pictures of your choice. Also come and try out our Japanese cheese cake with fruit and more.', 
