@@ -5,6 +5,7 @@ import { MenuCards, MenuCol, MenuCardPrice, MenuCardTitle} from '../styles/MenuS
 import ReactCardFlip from 'react-card-flip';
 import FlippedCard from "./FlippedCard";
 import {Clock} from 'react-bootstrap-icons'
+import { style } from "../styles/styles";
 
 const MenuCard = ({ product, category }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -29,7 +30,7 @@ const MenuCard = ({ product, category }) => {
         >
           <div>
           <MenuCards>
-            <Card.Img variant="top" src={product.image}/>
+            <Card.Img variant="top" src={product.image} style={style.ProductCardImage}/>
             {limitedTime()}
           <MenuCardTitle>{product.name}</MenuCardTitle>
           <MenuCardPrice>${product.price}</MenuCardPrice>

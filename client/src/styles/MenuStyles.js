@@ -141,6 +141,8 @@ export const MarginDiv = styled.div`
   margin: 0rem 11vw 5vh 11vw;
 `
 export const FlippedCardTitle = styled(Card.Title)`
+  padding: 0px 5px 0px 5px;
+  max-width: 254px;
   font-size: 1.625rem;
   font-weight: 500;
 `

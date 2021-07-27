@@ -76,5 +76,9 @@ export const style = {
     height: '500px', 
     width: '500px', 
     objectFit: 'cover'
-  }
+  },
+  ProductCardImage: {
+    height: '200px', 
+    objectFit: 'cover'
+  } 
 }

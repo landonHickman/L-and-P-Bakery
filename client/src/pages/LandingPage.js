@@ -140,9 +140,9 @@ const CustomLNPtext = styled.div`
 
 const CustomSBI = styled.h1`
   font-size: 40px;
-  margin: 10px;
+  margin: 50px 10px; 
   text-align: center;
-  font-size: 2.25rem;
+  font-size: 3.25rem;
   font-weight: 500;
 `;
 

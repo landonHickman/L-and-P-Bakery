@@ -5,7 +5,7 @@ import { CaretLeftFill, CaretRightFill, Clock, StarFill } from 'react-bootstrap-
 import { CardBody } from '../styles/EditProductStyles'
 import { MenuCol, MenuImgIcons, styles, MenuCardTitle, MenuCardPrice, ButtonDiv, MenuEditCards } from '../styles/MenuStyles'
 import carousel from '../images/carousel.png'
-import { btn } from '../styles/styles'
+import { btn, style } from '../styles/styles'
 import "../App.css";
 const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct, products, sortByOrder, setShowIconLegend}) => {
 
@@ -249,7 +249,7 @@ const ShowProduct = ({prod, category, setShowEditForm, setShowCards, setProduct,
     return(
       <MenuCol>
             <MenuEditCards>
-              <Card.Img variant="top" src={prod.image} />
+              <Card.Img variant="top" src={prod.image} style={style.ProductCardImage}/>
               <CardBody>
               <MenuImgIcons>
                   <div>

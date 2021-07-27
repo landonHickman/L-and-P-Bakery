@@ -3,7 +3,7 @@ import { Card, Col, Row, Button } from "react-bootstrap";
 import { MenuCards, CardImgOverlayStyled, FlippedCardTitle, FlippedCardPrice} from "../styles/MenuStyles";
 import Truncate from "react-truncate";
 import { useHistory } from "react-router-dom";
-import { btn } from "../styles/styles";
+import { btn, style } from "../styles/styles";
 
 const FlippedCard = ({ product, category }) => {
   let history = useHistory();
@@ -21,14 +21,14 @@ const FlippedCard = ({ product, category }) => {
     <MenuCards>
       <Row sm={1} style={{flexDirection: 'column'}}>
         <Col>
-      <Card.Img variant="top" src={product.image} />
+      <Card.Img variant="top" src={product.image} style={style.ProductCardImage}/>
           <CardImgOverlayStyled>
-            {/* <div style={{ display: 'flex', flexDirection: 'column', background: 'rgba(0,0,0,.5)',
-color: 'white'}}> */}
+            <div style={{ display: 'flex', flexDirection: 'column', background: 'rgba(0,0,0,.5)',
+color: 'white', width: '254px'}}>
 
-            <FlippedCardTitle >{product.name}</FlippedCardTitle>
-            <FlippedCardPrice>${product.price}</FlippedCardPrice>
-{/* </div> */}
+              <FlippedCardTitle >{product.name}</FlippedCardTitle>
+              <FlippedCardPrice>${product.price}</FlippedCardPrice>
+            </div>
           </CardImgOverlayStyled>
         </Col>
         <Col>
